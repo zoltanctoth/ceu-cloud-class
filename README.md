@@ -1,5 +1,6 @@
 ## Basics of Internet. TCP/IP, Servers, Ports, Firewalls
 
+{% include simple-menu.html %}
 
 ### Protocols
 - A way of communicating - more specifically, a protocol is a set of rules or conventions that computers or computer programs use while communicating with each other
