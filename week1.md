@@ -223,7 +223,7 @@ Windows: C:\>tracert www.example.com
 
 - We can also traceroute to international destinations, especially those on different continents
 - There is a lot of cabling that connects locations across oceans, including the Pacific and Atlantic
-- Click on the picture below 
+- This picture is a video [Click] ("Earth looks like a MOTHERBOARD")
 
 [![undersea](assets/undersea.png)](https://www.youtube.com/watch?v=IlAJJI-qG2k "Undersea Cables Power The Internet")
 
