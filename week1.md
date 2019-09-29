@@ -340,24 +340,19 @@ Set-Cookie: session=29823bf3-075a-433a-8754-707d05c418ab
 - Often this processes is used to exchange a secret key
 
 ### A Deeper Dive [Public Key Cryptography]
-- Public key cryptography is used to secure web trafic through the SSL/TLS protocol that we all use when we use https:// URLs - The security this achieve is quite amazing; No matter what wired or wireless network you are using, no matter what country you are in, as long as your device (e.g., phone/laptop/etc..) and the server you are talking to (e.g., Google, Amazon, Microsoft etc.) is functioning properly, you can communicate securely without any party in the middle able to either learn or modify the contents of your interaction.
-
-- Suppose you have a Mac. Then you have already trusted Apple with quite a bit of your personal information, and so you might be fine if this Mac came pre-installed with the Apple public key which you trust to be authentic. Now, suppose that you want to communicate with Amazon.com. Now, you might not know the correct public key for Amazon, but Apple surely does. So Apple can supply Amazon with a signed message to the effect of:
+- Public key cryptography is used to secure web trafic through the SSL/TLS protocol that we all use when we use https:// URLs - The security this achieve is quite amazing
+- Suppose you have a Mac. This Mac came pre-installed with the Apple public key which you trust to be authentic. Now, suppose that you want to communicate with Amazon.com. You might not know the correct public key for Amazon, but Apple surely does. So Apple can supply Amazon with a signed message to the effect of:
 
 - “I Apple certify that the public key of Amazon.com is: 
 ```
 30 82 01 0a 02 82 01 01 00 94 9f 2e fd 07 63 33 53 b1 be e5 d4 21 9d 86 43 70 0e b5 7c 45 bb ab d1 ff 1f b1 48 7b a3 4f be c7 9d 0f 5c 0b f1 dc 13 15 b0 10 e3 e3 b6 21 0b 40 b0 a3 ca af cc bf 69 fb 99 b8 7b 22 32 bc 1b 17 72 5b e5 e5 77 2b bd 65 d0 03 00 10 e7 09 04 e5 f2 f5 36 e3 1b 0a 09 fd 4e 1b 5a 1e d7 da 3c 20 18 93 92 e3 a1 bd 0d 03 7c b6 4f 3a a4 e5 e5 ed 19 97 f1 dc ec 9e 9f 0a 5e 2c ae f1 3a e5 5a d4 ca f6 06 cf 24 37 34 d6 fa c4 4c 7e 0e 12 08 a5 c9 dc cd a0 84 89 35 1b ca c6 9e 3c 65 04 32 36 c7 21 07 f4 55 32 75 62 a6 b3 d6 ba e4 63 dc 01 3a 09 18 f5 c7 49 bc 36 37 52 60 23 c2 10 82 7a 60 ec 9d 21 a6 b4 da 44 d7 52 ac c4 2e 3d fe 89 93 d1 ba 7e dc 25 55 46 50 56 3e e0 f0 8e c3 0a aa 68 70 af ec 90 25 2b 56 f6 fb f7 49 15 60 50 c8 b4 c4 78 7a 6b 97 ec cd 27 2e 88 98 92 db 02 03 01 00 01”
 ```
-
 - Such a message is known as a certificate, and it allows you to extend your trust in Apple to a trust in Amazon. 
-- Now when your browser communicates with amazon, it can request this message, and if it is not present not continue with the interaction or at least display some warning. 
-- Clearly a person in the middle can stop this message from travelling and hence not allow the interaction to continue, but they cannot spoof the message and send a certificate for their own public key, unless they know Apple’s secret key. 
-- (The trusted keys that come pre-installed in browsers and devices do not belong to Apple or Microsoft but rather to particular companies such as Verisign known as certificate authorities. The security of these certificate authorities’ private key is crucial to the security of the whole protocol, and it has been attacked before. )
+  - When your browser communicates with amazon, it can request this message, and if it is not present not continue with the interaction.
+    - Clearly a person in the middle can stop this message from travelling and hence not allow the interaction to continue, but they cannot spoof the message and send a certificate for their own public key, unless they know Apple’s secret key. 
 
 - Using certificates, we can assume that Bob the user has the public verification key 𝑣 of Alice the server. Now Alice can send Bob also a public encryption key 𝑒, which is authenticated by 𝑣 and hence guaranteed to be correct.
 - Once Bob knows Alice’s public key they are in business- he can use that to send an encryption of some private key 𝑘 which they can then use for all the rest of their communication.
-
-- This is in a very high level the SSL/TLS protocol, but there are many details inside it including the exact security notions needed from the encryption, how the two parties negotiate which cryptographic algorithm to use, and more. All these issues can and have been used for attacks on this protocol. For two recent discussions see this blog post and this website.
 
 - Digital signatures and other forms of electronic signatures are legally binding in many jurisdictions. This is some material from the website of the electronic signing company DocuSign:
 
@@ -418,6 +413,7 @@ Optional Reading
 
 ##### Sources:
 http://web.stanford.edu/class/cs101/lecture10.html#/4
+https://www.boazbarak.org/cs127spring16/chap10_public_key_intro.pdf
 https://web.stanford.edu/class/cs101/network-2-internet.html
 https://web.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm
 https://web.stanford.edu/class/cs101/network-1-introduction.html
