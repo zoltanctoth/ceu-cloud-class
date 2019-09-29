@@ -98,6 +98,11 @@ The ceu_logo will be sent back in one or more packets
 * * * 
 
 ### TCP/IP
+- How do we make sure that data, even large amounts of data, gets to where it needs to go, and does so “fairly”, so that a single piece of data doesn’t take up more space than it should?
+- How do we send the data and make sure whoever gets it knows what to do with it?
+- Maybe we could label the data in order, so that the recipient knowns that whichever data they get belongs in whichever order it’s supposed to
+- Additionally, if some data gets lost along the way, TCP allows us to ask for the missing data and complete it
+
 - IP goes beyond addresses
   - Set of conventions computers and servers follow to allow intercommunication
 - Fragmentation like in the envelope example are supported by IP
@@ -222,14 +227,6 @@ Windows: C:\>tracert www.example.com
 - This picture is a video [Clickable Image] ("Earth looks like a MOTHERBOARD")
 
 [![undersea](assets/undersea.png)](https://www.youtube.com/watch?v=IlAJJI-qG2k "Undersea Cables Power The Internet")
-
-* * *
-
-### TCP/IP
-- How do we make sure that data, even large amounts of data, gets to where it needs to go, and does so “fairly”, so that a single piece of data doesn’t take up more space than it should?
-- How do we send the data and make sure whoever gets it knows what to do with it?
-- Maybe we could label the data in order, so that the recipient knowns that whichever data they get belongs in whichever order it’s supposed to
-- Additionally, if some data gets lost along the way, TCP allows us to ask for the missing data and complete it
 
 * * *
 
