@@ -49,7 +49,7 @@ layout: default
 
 | Mac       | Windows         | 
 |:-------------|:------------------|
-|![MacIP](assets/macip.png =300x)| ![WindowsIP](assets/windowsip.png =300x) | 
+|![MacIP](assets/macip.png =300x200)| ![WindowsIP](assets/windowsip.png =300x200) | 
 
 
 * * *
