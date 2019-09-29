@@ -14,7 +14,9 @@
 **Prerequisites:** 
 
 > R programming 
+>
 > SQL Knowledge
+>
 > Linux command-line knowledge 
 
 **Course description**
@@ -34,3 +36,12 @@ At the end of this course you will have an overview of Cloud and Big Data techno
 > 5. Apache Spark Overview 
 > 6. The Spark DataFrame and SQL API 
 > 7. Spark internals 8. Advanced Optimizations in Spark
+
+**Instructor:**
+
+> Zoltan C. Toth 
+> TothZ@ceu.edu    
+> +36 30 291 3599 
+> Credits: 2 (4 ECTS) 
+> Term: Fall 2019-2020 
+> Course level: MS
