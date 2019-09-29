@@ -100,101 +100,122 @@ The ceu_logo will be sent back in one or more packets
 * * * 
 
 ### TCP/IP
-IP goes beyond addresses
-Set of conventions computers and servers follow to allow intercommunication
-Fragmentation like in the envelope example are supported by IP
-If missing a packet, you can logically infer which packet you’re missing based on the ones received
-However, IP doesn’t tell computers what to do in this case
-TCP (Transmission Control Protocol) ensures packets can get to their destination
-Commonly used with IP (TCP/IP)
-Supports sequence numbers that help data get to its destination
-When missing a packet, a computer can make a request for the missing packet
-The computer will put packets together to get a whole file
-Also includes conventions for requesting services (port identifiers)
-To make sure Google knows we’re requesting a webpage and not an email or other service
+- IP goes beyond addresses
+  - Set of conventions computers and servers follow to allow intercommunication
+- Fragmentation like in the envelope example are supported by IP
+  - If missing a packet, you can logically infer which packet you’re missing based on the ones received
+    - However, IP doesn’t tell computers what to do in this case
+- TCP (Transmission Control Protocol) ensures packets can get to their destination
+  - Commonly used with IP (TCP/IP)
+  - Supports sequence numbers that help data get to its destination
+    - When missing a packet, a computer can make a request for the missing packet
+    - The computer will put packets together to get a whole file
+  - Also includes conventions for requesting services (port identifiers)
+    - To make sure Google knows we’re requesting a webpage and not an email or other service
+* * *
 
-Ports
-Per TCP, the world has standardized numbers that represent different services
-If 5.6.7.8 is Google’s IP address, 5.6.7.8;80 (port 80) lets use know that we want a webpage
-80 means http (hypertext transfer protocol)
-The language that web servers speak
-Google will send the request to their web server via http
-Many websites use secure connections with SSL or HTTPS, which uses the port 443
-Email uses port 25
-Other ports exist as well
+### Ports
+- Per TCP, the world has standardized numbers that represent different services
+- If 5.6.7.8 is Google’s IP address, 5.6.7.8;80 (port 80) lets use know that we want a webpage
+  - 80 means http (hypertext transfer protocol)
+    - The language that web servers speak
+  - Google will send the request to their web server via http
+- Many websites use secure connections with SSL or HTTPS, which uses the port 443
+- Email uses port 25
+- Other ports exist as well
 
-Protocols
-Protocols are just sets of rules
-Humans use these all the time, such as the protocol for meeting people: handshakes
-When a request is made to Google for an image, HTTP tells Google how to respond appropriately
+* * * 
 
-UDP
-User Datagram Protocol
-Doesn’t guarantee delivery
-Used for video conferencing such as FaceTime
-Packets can be dropped for the sake of keeping the conversation flowing
-Used anytime you want to keep data coming without waiting for a buffer to fill
+### Protocols
+- Protocols are just sets of rules
+  - Humans use these all the time, such as the protocol for meeting people: handshakes
+- When a request is made to Google for an image, HTTP tells Google how to respond appropriately
 
-Routers
-Routers have bunches if wires coming and going out of them
-They have a big table with IP addresses and where data should be routed to get to that destination
-Often, the data is routed to some next router
-Routers purpose is to send data in the direction of a destination
-The next router will send it to another until it reaches a destination
+* * * 
+
+### UDP
+- User Datagram Protocol
+  - Doesn’t guarantee delivery
+  - Used for video conferencing such as FaceTime
+    - Packets can be dropped for the sake of keeping the conversation flowing
+  - Used anytime you want to keep data coming without waiting for a buffer to fill
+
+* * *
+
+### Routers
+- Routers have bunches if wires coming and going out of them
+  - They have a big table with IP addresses and where data should be routed to get to that destination
+    - Often, the data is routed to some next router
+- Routers purpose is to send data in the direction of a destination
+  - The next router will send it to another until it reaches a destination
+
+# here comes a pic
 
 The internet is a network of networks (with their own routers)
-Often multiple ways to go from A to B
-Based in US Military logic to prevent downtime if a particular router goes down
-When multiple packets are sent, like ceu_logo.jpg from Google, they can each take a different path, still getting to their destination eventually
-Sometimes the internet is busy and the quickest path changes
+- Often multiple ways to go from A to B
+  - Based in US Military logic to prevent downtime if a particular router goes down
+  - When multiple packets are sent, like ceu_logo.jpg from Google, they can each take a different path, still getting to their destination eventually
+    - Sometimes the internet is busy and the quickest path changes
 
+* * *
 
-DHCP - Dynamic Host Configuration Protocol
-This protocol makes it so that when a computer you have - a phone, a laptop, etc - it can announce itself and ask for an address
-The protocol says that these devices will be assigned a numeric address, much like our physical addresses, except unlike our physical addresses (like 123 Main St), this looks like #.#.#.#, where each # is between 0 and 255 (why?)
-Despite the large number of combinations here, there are actually a very large number of devices, to where we are increasingly using something called IPv6 (the previous was IPv4), which allows for far more combinations
-When my computer sends out a request, it has to use this IP address to make sure our data goes to the proper place
-However, we, as humans, don’t really read addresses like 8.8.8.8 or 192.168.0.1
-There is a system to “translate” the human-readable domain names (google.com, facebook.com, cs50.io) to their IP address counterparts
-This service is called DNS, which allows us to use this translation to get from point A to B
-We also have routers or gateways, which know how to take in information, look at where it’s going, and send it to the proper router
-Data doesn’t have to follow the same path each time, but it will get to where it needs to go in around 30 hops or jumps from router to router or gateway to gateway
+### DHCP - Dynamic Host Configuration Protocol
+- This protocol makes it so that when a computer you have - a phone, a laptop, etc - it can announce itself and ask for an address
+- The protocol says that these devices will be assigned a numeric address, much like our physical addresses, except unlike our physical addresses (like 123 Main St), this looks like #.#.#.#, where each # is between 0 and 255 (why?)
+- Despite the large number of combinations here, there are actually a very large number of devices, to where we are increasingly using something called IPv6 (the previous was IPv4), which allows for far more combinations
+- When my computer sends out a request, it has to use this IP address to make sure our data goes to the proper place
+- However, we, as humans, don’t really read addresses like 8.8.8.8 or 192.168.0.1
+- There is a system to “translate” the human-readable domain names (google.com, facebook.com, cs50.io) to their IP address counterparts
+- This service is called DNS, which allows us to use this translation to get from point A to B
+- We also have routers or gateways, which know how to take in information, look at where it’s going, and send it to the proper router
+- Data doesn’t have to follow the same path each time, but it will get to where it needs to go in around 30 hops or jumps from router to router or gateway to gateway
 
-TCP - Transmission Control Protocol
-Guarantees with high probability that data gets to where it needs to go
-Sometimes, computers drop packets (data) - they get more data than they can, or they miss it entirely
-TCP allows computers to know if they should resend data
-Port numbers, specifically TCP Port numbers, help identify which service should take which data
-For example - Data headed to #.#.#.#:80 says that the data should be sent to #.#.#.# and put through port 80, which happens to be a human-defined standard port for HTTP or web requests.
+* * *
 
-UDP - User Datagram Protocol
-The feature here is to not guarantee redelivery….what?
-Still fairly common and appropriate
-For example, video streaming, video conferencing, live communication - we don’t want a retransmission, we would rather stay up to date chronologically
-In these cases, UDP is actually more optimal than is TCP, can you see why?
+### TCP - Transmission Control Protocol
+- Guarantees with high probability that data gets to where it needs to go
+- Sometimes, computers drop packets (data) - they get more data than they can, or they miss it entirely
+- TCP allows computers to know if they should resend data
+- Port numbers, specifically TCP Port numbers, help identify which service should take which data
+- For example - Data headed to #.#.#.#:80 says that the data should be sent to #.#.#.# and put through port 80, which happens to be a human-defined standard port for HTTP or web requests.
 
-Traceroute
-Literally traces the route that information takes from our computer to some destination
-Allows us to see which routers are being used by data to get to where it needs to go
-This route may change over time and according to web traffic patterns
-How long does it take for this process of data transfer to take on the internet?
-Traceroute is a program that sends packets to each router on a path to a destination, reporting the time it takes to reach that router
+* * *
+
+### UDP - User Datagram Protocol
+- The feature here is to not guarantee redelivery….what?
+- Still fairly common and appropriate
+- For example, video streaming, video conferencing, live communication - we don’t want a retransmission, we would rather stay up to date chronologically
+- In these cases, UDP is actually more optimal than is TCP, can you see why?
+
+* * *
+
+### Traceroute
+- Literally traces the route that information takes from our computer to some destination
+- Allows us to see which routers are being used by data to get to where it needs to go
+- This route may change over time and according to web traffic patterns
+- How long does it take for this process of data transfer to take on the internet?
+- Traceroute is a program that sends packets to each router on a path to a destination, reporting the time it takes to reach that router
+```
 Mac (Terminal): traceroute domainname.com
+```
+```
 Windows: C:\>tracert www.example.com
-From Sanders Theatre to Berkeley.edu:
+```
+- From Sanders Theatre to Berkeley.edu:
 
+![traceroute1](assets/traceroute1.png)
 
-6: Northern Crossroads
-7-14: A fast connection
-8-9: Chicago
-10-11: Denver
-12-13: Las Vegas
-4: Los Angeles
-19 is where it arrives at Berkeley in 80 ms!
+- 6: Northern Crossroads
+- 7-14: A fast connection
+  - 8-9: Chicago
+  - 10-11: Denver
+  - 12-13: Las Vegas
+  - 4: Los Angeles
+- 19 is where it arrives at Berkeley in 80 ms!
 
-From Sanders Theatre to CNN.jp
+**From Sanders Theatre to CNN.jp**
 
-
+![traceroute2](assets/traceroute2.png)
 
 9-10 jumps from Seattle to Osaka past an ocean!
 Using undersea cabling!
