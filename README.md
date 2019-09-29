@@ -1,6 +1,6 @@
 [Week 1](./another-page.html).
 [Week 2](./week_2.md).
-[Week 3](./another-page.html).
+[Week 3](./week_2.md).
 [Week 4](./another-page.html).
 [Week 5](./another-page.html).
 [Week 6](./another-page.html).
