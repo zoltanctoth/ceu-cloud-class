@@ -124,13 +124,6 @@ The ceu_logo will be sent back in one or more packets
 
 * * * 
 
-### Protocols
-- Protocols are just sets of rules
-  - Humans use these all the time, such as the protocol for meeting people: handshakes
-- When a request is made to Google for an image, HTTP tells Google how to respond appropriately
-
-* * * 
-
 ### UDP
 - User Datagram Protocol
   - Doesn’t guarantee delivery
