@@ -1,4 +1,5 @@
-[Home](./README.html).
+[Homemd](./README.md).
+[Homehtml](./README.html).
 [Week 1](./week1.html).
 [Week 2](./week_2.md).
 [Week 3](./week_2.md).
