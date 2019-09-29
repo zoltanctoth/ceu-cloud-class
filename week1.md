@@ -434,6 +434,7 @@ Web Server: processes incoming network requests over HTTP and other protocols
 
 
 - **If not already familiar, read up on "DNS hijacking," and in your own words, explain what it means for an adversary to hijack a website via DNS.**
+[![dns](assets/dns.png)](https://www.wired.com/story/what-is-dns-hijacking/ "DNS-hijacking")
   - When we open a website, DNS translates the domain to an IP and then we can access the website. DNS hijacking means to redirect requests of a specific server to another and it is achieved by the translation of a domain to a fake IP address that takes the person to a malicious website and eventually people or companies may lose data (passwords, accounts etc.). One of the most popular DNS hijacking case is when hackers redirected traffic to all 36 of a Brazilian bank's domains.
 Optional Reading
 
