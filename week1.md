@@ -369,6 +369,8 @@ Set-Cookie: session=29823bf3-075a-433a-8754-707d05c418ab
     - This allows them to communicate securely with you
 - Often this processes is used to exchange a secret key
 
+[![key](assets/key.png)](https://www.youtube.com/watch?v=i-rtxrEz_E8 "Public/Private Key")
+
 ### A Deeper Dive [Public Key Cryptography]
 - Public key cryptography is used to secure web trafic through the SSL/TLS protocol that we all use when we use https:// URLs - The security this achieve is quite amazing
 - Suppose you have a Mac. This Mac came pre-installed with the Apple public key which you trust to be authentic. Now, suppose that you want to communicate with Amazon.com. You might not know the correct public key for Amazon, but Apple surely does. So Apple can supply Amazon with a signed message to the effect of:
