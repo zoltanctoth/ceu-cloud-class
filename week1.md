@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-
+[Home](./README.html).
 [Week 1](./week1.md).
 [Week 2](./week_2.md).
 [Week 3](./week_2.md).
