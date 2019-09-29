@@ -1,10 +1,10 @@
 [Week 1](./another-page.html).
 [Week 2](./week_2.md).
 [Week 3](./week_2.md).
-[Week 4](./another-page.html).
-[Week 5](./another-page.html).
-[Week 6](./another-page.html).
-[Week 7](./another-page.html).
+[Week 4](./week1.html).
+[Week 5](./week1.html).
+[Week 6](./week1.html).
+[Week 7](week1.html).
 
 ## Basics of Internet. TCP/IP, Servers, Ports, Firewalls
 
