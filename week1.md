@@ -73,32 +73,33 @@ layout: default
 * * *
 
 ### Packets
-Computers communicate by sending packets, which are like virtual envelopes sent between computers
-Ultimately still 0s and 1s
-As an analogy, suppose we want to find a ceu_logo image on the internet
-So, we send a request to a server, say Google, like “get ceu_logo.jpg”
-We place this request in an envelope
-On the envelope, we list out IP as the return address
-However, for the recipient of the request, we don’t know the IP address for Google
-Have to rely on DNS
-Send a request to our ISPs DNS server for Google’s IP address
-If the ISP’s DNS server doesn’t know a website’s IP address, it has been configured to ask another DNS server
-There exist root servers that know where to look to for an IP address if it exists
-After sending the request off, we’ll get a response ms later
+- Computers communicate by sending packets, which are like virtual envelopes sent between computers
+  - Ultimately still 0s and 1s
+- As an analogy, suppose we want to find a ceu_logo image on the internet
+- So, we send a request to a server, say Google, like “get ceu_logo.jpg”
+  - We place this request in an envelope
+- On the envelope, we list out IP as the return address
+- However, for the recipient of the request, we don’t know the IP address for Google
+  - Have to rely on DNS
+  - Send a request to our ISPs DNS server for Google’s IP address
+    - If the ISP’s DNS server doesn’t know a website’s IP address, it has been configured to ask another DNS server
+    - There exist root servers that know where to look to for an IP address if it exists
+- After sending the request off, we’ll get a response ms later
 
-
+![CEUlogo](assets/ceulogo.jpg)
 
 The ceu_logo will be sent back in one or more packets
-If the ceu_logo image is too large for a single envelope, sending it in one packet could take up internet traffic
-To solve this, Google will divide the ceu_logo image into smaller fragments
-Put the fragments into different envelopes
-Write information on the envelopes
-Return address: Google’s IP address
-Delivery address: Our IP address
-List the number of packets on each envelope (1 of 4, 2 of 4, etc.)
+- If the ceu_logo image is too large for a single envelope, sending it in one packet could take up internet traffic
+- To solve this, Google will divide the ceu_logo image into smaller fragments
+  - Put the fragments into different envelopes
+  - Write information on the envelopes
+    - Return address: Google’s IP address
+    - Delivery address: Our IP address
+    - List the number of packets on each envelope (1 of 4, 2 of 4, etc.)
 
+* * * 
 
-TCP/IP
+### TCP/IP
 IP goes beyond addresses
 Set of conventions computers and servers follow to allow intercommunication
 Fragmentation like in the envelope example are supported by IP
