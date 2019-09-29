@@ -1,16 +1,11 @@
 ## Basics of Internet. TCP/IP, Servers, Ports, Firewalls
 
-{% include simple-menu.html %}
-
 ### Protocols
 - A way of communicating - more specifically, a protocol is a set of rules or conventions that computers or computer programs use while communicating with each other
 - Real World Example: We shake hands, a protocol that has plenty of rules regarding length of the handshake, and the politeness of responding or not
 - Computers often use protocols when they intercommunicate, in order to get data from one place to another
-----
-Protocols
-A way of communicating - more specifically, a protocol is a set of rules or conventions that computers or computer programs use while communicating with each other
-Real World Example: We shake hands, a protocol that has plenty of rules regarding length of the handshake, and the politeness of responding or not
-Computers often use protocols when they intercommunicate, in order to get data from one place to another
+<\hr>
+</hr>
 
 
 How the Internet Works?
