@@ -42,4 +42,4 @@ At the end of this course you will have an overview of Cloud and Big Data techno
 |--|--|
 | Zoltan C. Toth | Miklos Petridisz
 |TothZ@ceu.edu    | miklospetridisz1@gmail.com
-|+36 30 291 3599  | +36305379243
+|+36 30 291 3599  | +36 30 537 9243
