@@ -57,8 +57,6 @@ layout: default
   - Your personal device is not a server, so people should not need to access them directly
     - Your device needs to request data from servers
   - Even email is stored on a server such as Gmail and your device makes a request to that server to access that email
-  - Moving towards IPv6
-    - Uses 128 bits, yielding 2128 possible addresses
 - Looking at advanced settings…
   - Subnet mask is used to decide if another computer is on the same network
   - Router (aka Gateway) has its own address
