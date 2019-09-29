@@ -457,6 +457,7 @@ https://www.boazbarak.org/cs127spring16/chap10_public_key_intro.pdf
 https://intensecrypto.org/public/lec_10_public_key_intro.html#sec-public-key-encryptions-definition
 https://jhalderm.com/pub/papers/heartbleed-imc14.pdf
 https://web.stanford.edu/class/cs101/network-2-internet.html
+https://medium.com/@maneesha.wijesinghe1/what-happens-when-you-type-an-url-in-the-browser-and-press-enter-bb0aa2449c1a
 https://cs.harvard.edu/malan/publications/
 https://web.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm
 https://cs50.harvard.edu/college/
