@@ -63,26 +63,16 @@ layout: default
   - Subnet mask is used to decide if another computer is on the same network
   - Router (aka Gateway) has its own address
     - Routs data in different directions
+
 * * *
 
+### DNS
+- We access websites using domain names (Facebook.com, Google.com, etc.), but it turns out that these sites too have IP addresses
+- DNS (Domain Name System) servers convert domain names into IP addresses
 
-Private addresses exist
-10.#.#.#, 192.168.#.#, or 172.16.#.#
-Only with special configuration can someone talk to your computer
-Your personal device is not a server, so people should not need to access them directly
-Your device needs to request data from servers
-Even email is stored on a server such as Gmail and your device makes a request to that server to access that email
-Looking at advanced settings…
-Subnet mask is used to decide if another computer is on the same network
-Router (aka Gateway) has its own address
-Routs data in different directions
+* * *
 
-DNS
-We access websites using domain names (Facebook.com, Google.com, etc.), but it turns out that these sites too have IP addresses
-DNS (Domain Name System) servers convert domain names into IP addresses
-
-
-Packets
+### Packets
 Computers communicate by sending packets, which are like virtual envelopes sent between computers
 Ultimately still 0s and 1s
 As an analogy, suppose we want to find a ceu_logo image on the internet
