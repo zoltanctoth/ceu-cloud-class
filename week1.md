@@ -149,7 +149,7 @@ The ceu_logo will be sent back in one or more packets
 - Routers purpose is to send data in the direction of a destination
   - The next router will send it to another until it reaches a destination
 
-# here comes a pic
+![router](assets/router.png)
 
 The internet is a network of networks (with their own routers)
 - Often multiple ways to go from A to B
