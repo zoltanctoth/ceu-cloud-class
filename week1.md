@@ -223,35 +223,41 @@ Windows: C:\>tracert www.example.com
 
 - We can also traceroute to international destinations, especially those on different continents
 - There is a lot of cabling that connects locations across oceans, including the Pacific and Atlantic
-- This picture is a video [Click] ("Earth looks like a MOTHERBOARD")
+- This picture is a video [Clickable Image] ("Earth looks like a MOTHERBOARD")
 
 [![undersea](assets/undersea.png)](https://www.youtube.com/watch?v=IlAJJI-qG2k "Undersea Cables Power The Internet")
 
 * * *
 
 ### TCP/IP
-How do we make sure that data, even large amounts of data, gets to where it needs to go, and does so “fairly”, so that a single piece of data doesn’t take up more space than it should?
-How do we send the data and make sure whoever gets it knows what to do with it?
-Maybe we could label the data in order, so that the recipient knowns that whichever data they get belongs in whichever order it’s supposed to
-Additionally, if some data gets lost along the way, TCP allows us to ask for the missing data and complete it
+- How do we make sure that data, even large amounts of data, gets to where it needs to go, and does so “fairly”, so that a single piece of data doesn’t take up more space than it should?
+- How do we send the data and make sure whoever gets it knows what to do with it?
+- Maybe we could label the data in order, so that the recipient knowns that whichever data they get belongs in whichever order it’s supposed to
+- Additionally, if some data gets lost along the way, TCP allows us to ask for the missing data and complete it
 
-HTTP - Hyper Text Transfer Protocol
-A very common protocol, which you’ve likely seen before - http://example.com
-HTTP is a sort of virtual envelope, which allows computers to communicate with one another, specifically in a webpage context (so between web browsers and servers)
-We can use nslookup to check the IP address of a web domain - i.e. nslookup www.facebook.com
-We can pretend to be a browser, and see the response that comes back when we visit a webpage
+* * *
+
+### HTTP - Hyper Text Transfer Protocol
+- A very common protocol, which you’ve likely seen before - http://example.com
+- HTTP is a sort of virtual envelope, which allows computers to communicate with one another, specifically in a webpage context (so between web browsers and servers)
+- We can use nslookup to check the IP address of a web domain - i.e. nslookup www.facebook.com
+- We can pretend to be a browser, and see the response that comes back when we visit a webpage
 curl -I http://31.13.65.36/ - which tells us that Facebook would prefer we used their domain name (specifically which type of HTTP?)
-This returns to us the response (if it worked) 200, which means to us, and our computers, that the response was ok
-We’re likely more familiar with 404, which means things didn’t quite goes as planned
-What we see here are called headers, which give us additional information about the data we’re given
+- This returns to us the response (if it worked) 200, which means to us, and our computers, that the response was ok
+- We’re likely more familiar with 404, which means things didn’t quite goes as planned
+- What we see here are called headers, which give us additional information about the data we’re given
 
-HTML - Hyper Text Markup Language
-curl without the -I flag lets us see the HTML results, or the data
-This language tells the browser how to display everything from where pictures are located to how to format text on the page
+* * *
 
+### HTML - Hyper Text Markup Language
+- curl without the -I flag lets us see the HTML results, or the data
+- This language tells the browser how to display everything from where pictures are located to how to format text on the page* 
 
-Q&A
-Suppose that you turn on your computer and visit https://www.ceu.edu/ in a browser. Using each of the terms below in a context that makes clear your understanding of each, explain in a paragraph the process by which CEU's home page appears on your screen: DHCP server, DNS server, IP address, packet, TCP port, web server.
+* * *
+* * *
+
+### Q&A
+> Suppose that you turn on your computer and visit https://www.ceu.edu/ in a browser. Using each of the terms below in a context that makes clear your understanding of each, explain in a paragraph the process by which CEU's home page appears on your screen: DHCP server, DNS server, IP address, packet, TCP port, web server.
 When I turn on my computer and connect to WiFi DHCP gives me a unique IP address and tells the IP address of the local DNS server. DNS converts domain names to IP addresses and vice versa so when I type www.ceu.edu, DNS translates it into a numeric address, the real address of the server where the website is located. Then an HTTP request is sent to the server, which sends a copy of the website (data) to me across TCP/IP. If the request gets approved then data packets will be sent to me. Then these small packets assemble and get displayed to me.
 DHCP server- assigns IP addresses
 DNS server - contains the IP addresses and host names (translation)
@@ -278,18 +284,21 @@ The web server needs an IP to be able to establish the connection and communicat
 If not already familiar, read up on "DNS hijacking," and in your own words, explain what it means for an adversary to hijack a website via DNS.
 When we open a website, DNS translates the domain to an IP and then we can access the website. DNS hijacking means to redirect requests of a specific server to another and it is achieved by the translation of a domain to a fake IP address that takes the person to a malicious website and eventually people or companies may lose data (passwords, accounts etc.). One of the most popular DNS hijacking case is when hackers redirected traffic to all 36 of a Brazilian bank's domains.
 Optional Reading
+>
 
-Practice Questions:
-What is the internet?
-What does it mean if a URL begins with https:// as opposed to http://?
-What does it mean for a computer to have a private IP address (e.g. one that begins with 10., 192.168., or 172.16.)?
-Why do TCP/IP packets from one computer to another not always take the same amount of time to arrive at their destination?
-Today's "home routers" are often much more than routers alone. They are also "access points" (aka APs) and "firewalls" too. What is an access point (AP)? And what is a firewall?
-Whether or not you have internet service at home, Google around for an internet service provider (ISP) that provides internet service to your neighborhood (or somewhere nearby). What's the ISP you found? What speeds does the ISP you found offer? At what cost? And do they offer symmetric (i.e., identical) upload and download speeds, or do they differ?
+* * *
 
+### Practice Questions:
+- What is the internet?
+- What does it mean if a URL begins with https:// as opposed to http://?
+- What does it mean for a computer to have a private IP address (e.g. one that begins with 10., 192.168., or 172.16.)?
+- Why do TCP/IP packets from one computer to another not always take the same amount of time to arrive at their destination?
+- Today's "home routers" are often much more than routers alone. They are also "access points" (aka APs) and "firewalls" too. What is an access point (AP)? And what is a firewall?
+- Whether or not you have internet service at home, Google around for an internet service provider (ISP) that provides internet service to your neighborhood (or somewhere nearby). What's the ISP you found? What speeds does the ISP you found offer? At what cost? And do they offer symmetric (i.e., identical) upload and download speeds, or do they differ?
 
+* * *
 
-Sources:
+##### Sources:
 http://web.stanford.edu/class/cs101/lecture10.html#/4
 https://web.stanford.edu/class/cs101/network-2-internet.html
 https://web.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm
