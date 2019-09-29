@@ -1,11 +1,11 @@
 [Home](./README.md).
-[Week 1](./week1.md).
-[Week 2](./week_2.md).
-[Week 3](./week_2.md).
-[Week 4](./week1.md).
-[Week 5](./week1.md).
-[Week 6](./week1.md).
-[Week 7](week1.md).
+[Internet](./week1.md).
+[Cloud Computing](./week2.md).
+[Serverless](./week3.md).
+[AWS](./week4.md).
+[Spark DataFrame & SQL API](./week5.md).
+[Spark Internals](./week6.md).
+[Advanced Optimizations in Spark](week7.md).
 
 ## Syllabus
 
