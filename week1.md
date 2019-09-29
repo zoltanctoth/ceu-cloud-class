@@ -115,6 +115,7 @@ The ceu_logo will be sent back in one or more packets
     - The computer will put packets together to get a whole file
   - Also includes conventions for requesting services (port identifiers)
     - To make sure Google knows we’re requesting a webpage and not an email or other service
+
 * * *
 
 ### Ports
