@@ -254,6 +254,101 @@ curl -I http://31.13.65.36/ - which tells us that Facebook would prefer we used
 - This language tells the browser how to display everything from where pictures are located to how to format text on the page* 
 
 * * *
+
+## Security
+
+### Privacy
+- Our data is under constant threat, but how can we defend ourselves?
+- Keeping people away from things you don’t want them to see
+- Computers are among the lease secure devices you own
+- Data or files are stored on them as 0s and 1s
+  - Can be financial info, photos, etc.
+
+### Cookies
+- A feature supported by HTTP
+- Little values a web server puts on a user’s browser
+- Used to remember if a user has visited a website before
+  - Allows you to not have to log in every time you visit or refresh a page
+    - When you log into a web server, a cookie is planted on your browser
+  - Stored in a database
+  - Browser will send value to web server to remind of previous login
+- When we make a request we send:
+```
+GET / HTTP/1.1
+Host: example.com
+```
+- We receive:
+```
+HTTP/1.1 200 OK
+Set-Cookie: session=29823bf3-075a-433a-8754-707d05c418ab
+```
+  - The server gives us a cookie.
+- A cookie is like an ink-based hand stamp for an amusement park or club
+- Wireless information can be intercepted
+  - What if a hacker could obtain the cookie
+    - Session hijacking attack
+    - If you have already logged in, hacker can pretend to be you
+- Encryption scrambles this value so hackers cannot easily use it
+- Browser history remembers everywhere you’ve been and everything you’ve done there
+  - Convenient if you want to recall a website you’ve visited
+    - But, so can anyone else with access to your browser
+- Can clear browser history and cookies
+  - History likely not securely scrubbed
+  - Will protect you from nosey friends
+  - Websites will forget you visited as the cookies will be deleted as well!
+
+### Firewall
+
+- A physical firewall is a wall between connected buildings that prevents the spread of fire
+- In the world of computer science, a firewall is software that looks at IP addresses and helps keep bad guys out and user data inside
+- Helps prevent people from accessing your computer
+
+### Encryption
+- Suppose I want to send a secret message for “HI”
+  - HI ➟ IJ
+  - Change each letter by 1
+  - The recipient needs to know how it changed to revert
+- Plaintext ➟ Cyphertext ➟ Plaintext
+  - HI ➟ IJ ➟ HI
+- This is called a caesar cypher
+  - Rotational cyphers are not that secure
+    - Can be guessed easily
+    - Not used for internet encryption
+  - For this to work, recipient needs the **key**
+    - To know the key, we need to agree in advance
+    - Can’t send it encrypted as well as they need the key!
+
+### Public Key Cryptography
+
+- The last example with a caesar cypher is secret-key cryptography
+  - Only one key
+- In public key cryptography there are two keys, one public and one private
+  - Mathematical relationship between them
+    - Use public key to encrypt, private key to decrypt 
+    
+    
+    
+    - Bob’s private key can undo the effects of his public key
+    - When Bob responds:
+    
+    
+  - Bob sends a message using Alice’s public key
+- Your browser has its own public and private keys
+  - So does websites like Google and Amazon
+    - This allows them to communicate securely with you
+- Often this processes is used to exchange a secret key
+
+
+
+
+
+
+
+
+
+
+
+* * *
 * * *
 
 
