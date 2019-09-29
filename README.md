@@ -2,27 +2,9 @@
 
 
 ### Protocols
-
-<div><b><span style="font-size: 14px;"><span style="--en-highlight:yellow;background-color: #ffef9e;"><span style="color: rgb(51, 51, 51);">How the Internet Works?</span></span></span></b></div>
-    <ul>
-        <li>
-            <div><span style="font-size: 14px;">We go “on the Internet” and visit some webpage (Facebook, Google, Amazon)</span></div>
-        </li>
-        <li>
-            <div><span style="font-size: 14px;">Somehow, that webpage understands how to interpret what we want and display an appropriate output</span></div>
-        </li>
-        <li>
-            <div><span style="font-size: 14px;">We can imagine that somehow, our computer puts information into the Internet, which delivers that information to some computer or <i>server</i> owned by the company who owns the site we’re trying to visit</span></div>
-        </li>
-        <li>
-            <div><span style="font-size: 14px;">Then, this <i>server</i> sends back the appropriate information to the Internet, which makes sure it gets delivered to our computer at home</span></div>
-        </li>
-        <li>
-            <div><span style="font-size: 14px;">In essence, the Internet is a delivery mechanism for information…but how?</span></div>
-        </li>
-    </ul>
-    <hr />
-
+- A way of communicating - more specifically, a protocol is a set of rules or conventions that computers or computer programs use while communicating with each other
+- Real World Example: We shake hands, a protocol that has plenty of rules regarding length of the handshake, and the politeness of responding or not
+- Computers often use protocols when they intercommunicate, in order to get data from one place to another
 
 
 
