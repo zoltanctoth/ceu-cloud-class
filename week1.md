@@ -326,25 +326,18 @@ Set-Cookie: session=29823bf3-075a-433a-8754-707d05c418ab
   - Mathematical relationship between them
     - Use public key to encrypt, private key to decrypt 
     
-    
+    ![key1](assets/key1.png)
     
     - Bob’s private key can undo the effects of his public key
     - When Bob responds:
     
+    ![key2](assets/key2.png)
     
   - Bob sends a message using Alice’s public key
 - Your browser has its own public and private keys
   - So does websites like Google and Amazon
     - This allows them to communicate securely with you
 - Often this processes is used to exchange a secret key
-
-
-
-
-
-
-
-
 
 
 
