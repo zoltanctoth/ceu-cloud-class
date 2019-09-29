@@ -216,14 +216,20 @@ Windows: C:\>tracert www.example.com
 ![traceroute2](assets/traceroute2.png)
 
 9-10 jumps from Seattle to Osaka past an ocean!
-Using undersea cabling!
+- **Using undersea cabling!**
 
-Undersea Cabling
-We can also traceroute to international destinations, especially those on different continents
-There is a lot of cabling that connects locations across oceans, including the Pacific and Atlantic
-Video
+* * * 
+### Undersea Cabling
 
-TCP/IP
+- We can also traceroute to international destinations, especially those on different continents
+- There is a lot of cabling that connects locations across oceans, including the Pacific and Atlantic
+- Click on the picture below 
+
+[![undersea](assets/undersea.png)](https://www.youtube.com/watch?v=IlAJJI-qG2k "Undersea Cables Power The Internet")
+
+* * *
+
+### TCP/IP
 How do we make sure that data, even large amounts of data, gets to where it needs to go, and does so “fairly”, so that a single piece of data doesn’t take up more space than it should?
 How do we send the data and make sure whoever gets it knows what to do with it?
 Maybe we could label the data in order, so that the recipient knowns that whichever data they get belongs in whichever order it’s supposed to
