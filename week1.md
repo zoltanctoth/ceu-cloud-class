@@ -47,6 +47,11 @@ layout: default
 - Uses 128 bits, yielding 2128 possible addresses
 - Question: How do you find your IP address?
 
+| Mac       | Windows         | 
+|:-------------|:------------------|
+|![MacIP](assets/macip.png)| ![WindowsIP](assets/windowsip.png) | 
+
+
 * * *
 
 
