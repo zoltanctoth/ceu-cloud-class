@@ -4,38 +4,37 @@
 - A way of communicating - more specifically, a protocol is a set of rules or conventions that computers or computer programs use while communicating with each other
 - Real World Example: We shake hands, a protocol that has plenty of rules regarding length of the handshake, and the politeness of responding or not
 - Computers often use protocols when they intercommunicate, in order to get data from one place to another
-<\hr>
-</hr>
 
 
-How the Internet Works?
-We go “on the Internet” and visit some webpage (Facebook, Google, Amazon)
-Somehow, that webpage understands how to interpret what we want and display an appropriate output
-We can imagine that somehow, our computer puts information into the Internet, which delivers that information to some computer or server owned by the company who owns the site we’re trying to visit
-Then, this server sends back the appropriate information to the Internet, which makes sure it gets delivered to our computer at home
-In essence, the Internet is a delivery mechanism for information…but how?
+
+### How the Internet Works?
+- We go “on the Internet” and visit some webpage (Facebook, Google, Amazon)
+- Somehow, that webpage understands how to interpret what we want and display an appropriate output
+- We can imagine that somehow, our computer puts information into the Internet, which delivers that information to some computer or server owned by the company who owns the site we’re trying to visit
+- Then, this server sends back the appropriate information to the Internet, which makes sure it gets delivered to our computer at home
+- In essence, the Internet is a delivery mechanism for information…but how?
 
 
-Internet Protocol address (IP address)
-Every computer on the internet has an IP (Internet Protocol) address, of the form #.#.#.# -> Four numbers separated by dots of the values 0-255
-Other IP address formats exist today as well; Like postal addresses, they uniquely identify computers on the internet
-Any device connected to the internet has an IP address, allows other computers to talk to it
-ISPs assign a IP address to your computer (router)
-DHCP (Dynamic Host Configuration Protocol)
-Software that ISPs provides to allow your computer to request an IP address
-DHCP servers respond with a specific IP address for your Home
-Multiple devices can connect to your home network
-The home router supports DHCP and assigns IP addresses to your devices
-IP addresses are limited
-In the format #.#.#.#, each number is 8 bits, so 32 bits total
-This yields 232 or about 4 billion possible addresses
-We’re running out of addresses for all computers
-Current version of addresses is IPv4
-Moving towards IPv6
-Uses 128 bits, yielding 2128 possible addresses
-How do you find your IP address?
-Mac
-Windows
+### Internet Protocol address (IP address)
+- Every computer on the internet has an IP (Internet Protocol) address, of the form #.#.#.# -> Four numbers separated by dots of the values 0-255
+- Other IP address formats exist today as well; Like postal addresses, they uniquely identify computers on the internet
+- Any device connected to the internet has an IP address, allows other computers to talk to it
+- ISPs assign a IP address to your computer (router)
+
+- DHCP (Dynamic Host Configuration Protocol)
+- Software that ISPs provides to allow your computer to request an IP address
+- DHCP servers respond with a specific IP address for your Home
+- Multiple devices can connect to your home network
+- The home router supports DHCP and assigns IP addresses to your devices
+- IP addresses are limited
+- In the format #.#.#.#, each number is 8 bits, so 32 bits total
+- This yields 232 or about 4 billion possible addresses
+- We’re running out of addresses for all computers
+- Current version of addresses is IPv4
+- Moving towards IPv6
+- Uses 128 bits, yielding 2128 possible addresses
+- Question: How do you find your IP address?
+
 
 
 
