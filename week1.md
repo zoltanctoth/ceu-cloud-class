@@ -1,9 +1,9 @@
 ---
 layout: default
 ---
-[Week 1](./week1.md).
-[Week 2](./week_2.md).
-[Week 3](./week_2.md).
+[Week 1](./week1.html).
+[Week 2](./week_2.html).
+[Week 3](./week_2.html).
 [Week 4](./week1.md).
 [Week 5](./week1.md).
 [Week 6](./week1.md).
