@@ -37,6 +37,7 @@ At the end of this course you will have an overview of Cloud and Big Data techno
 > 6. The Spark DataFrame and SQL API 
 > 7. Spark internals 8. Advanced Optimizations in Spark
 
+
 **Instructor:**
 Zoltan C. Toth 
 TothZ@ceu.edu    
