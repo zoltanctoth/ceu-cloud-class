@@ -270,7 +270,7 @@ Web Server: processes incoming network requests over HTTP and other protocols
 
 -TCP (tries to) guarantee delivery by ensuring that any lost packets are resent. Why, though, might packets be lost between a sender and receiver?
 
-  -UDP: its feature is to not guarantee delivery. If some data gets lost, packets get dropped. It can be due to: malfunction, technical difficulties, overloaded routers. This protocol does not let data to be re-transmitted. Skype, streaming, video games are some examples where UDP is useful because it is better to wait a few seconds than watching something lagging all the time. Re-transmission is not as good as staying up to date chronologically. TCP: Packets can be lost here as well due to the routers being too busy or due to other reasons, but then TCP re-transmits.
+  - UDP: its feature is to not guarantee delivery. If some data gets lost, packets get dropped. It can be due to: malfunction, technical difficulties, overloaded routers. This protocol does not let data to be re-transmitted. Skype, streaming, video games are some examples where UDP is useful because it is better to wait a few seconds than watching something lagging all the time. Re-transmission is not as good as staying up to date chronologically. TCP: Packets can be lost here as well due to the routers being too busy or due to other reasons, but then TCP re-transmits.
 
 
 - When a server receives a packet, how does it know whether that packet contains (part of) an email, a request for a website, an instant message, or something else altogether?
