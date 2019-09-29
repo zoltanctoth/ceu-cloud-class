@@ -460,6 +460,7 @@ https://jhalderm.com/pub/papers/heartbleed-imc14.pdf
 https://web.stanford.edu/class/cs101/network-2-internet.html
 https://medium.com/@maneesha.wijesinghe1/what-happens-when-you-type-an-url-in-the-browser-and-press-enter-bb0aa2449c1a
 https://cs.harvard.edu/malan/publications/
+https://www.wired.com/story/what-is-dns-hijacking/
 https://web.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm
 https://cs50.harvard.edu/college/
 https://web.stanford.edu/class/cs101/network-1-introduction.html
