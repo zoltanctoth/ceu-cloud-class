@@ -34,23 +34,22 @@ layout: default
 - Any device connected to the internet has an IP address, allows other computers to talk to it
 - ISPs assign a IP address to your computer (router)
   - DHCP (Dynamic Host Configuration Protocol)
-   - Software that ISPs provides to allow your computer to request an IP address
-   - DHCP servers respond with a specific IP address for your Home
-  - Multiple devices can connect to your home network
-   - The home router supports DHCP and assigns IP addresses to your devices
+    - Software that ISPs provides to allow your computer to request an IP address
+    - DHCP servers respond with a specific IP address for your Home
+  - Multiple devices can connect to your home network  
+    - The home router supports DHCP and assigns IP addresses to your devices
 - IP addresses are limited
-- In the format #.#.#.#, each number is 8 bits, so 32 bits total
-   - This yields 232 or about 4 billion possible addresses
+  - In the format #.#.#.#, each number is 8 bits, so 32 bits total
+    - This yields 232 or about 4 billion possible addresses
     - We’re running out of addresses for all computers
-    - Current version of addresses is IPv4
-   - Moving towards IPv6
-   - Uses 128 bits, yielding 2128 possible addresses
-- Question: How do you find your IP address?
+  - Current version of addresses is IPv4
+  - Moving towards IPv6
+    - Uses 128 bits, yielding 2128 possible addresses
+- How do you find your IP address?
 
 | Mac       | Windows         | 
 |:-------------|:------------------|
 |![MacIP](assets/macip.png)| ![WindowsIP](assets/windowsip.png) | 
-
 
 * * *
 
