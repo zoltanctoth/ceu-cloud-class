@@ -304,9 +304,15 @@ Set-Cookie: session=29823bf3-075a-433a-8754-707d05c418ab
 - Helps prevent people from accessing your computer
 
 ### Encryption
-- Suppose I want to send a secret message for “HI”
+- Suppose I want to send a message for “HI”
+- Rather than send "H-I," I'm going to send "I-J," across the internet because that is not English
   - HI ➟ IJ
-  - Change each letter by 1
+  - What does he or she have to now do? 
+    - Well, he or she has to know that the secret algorithm I'm using is to not only rotate letters by some number of places, but they need to know the key. 
+    - The key to this algorithm is the number of places that I'm shifting letters by
+    - So he or she has to know that it was just one
+    - One is not that hard to just guess
+    - This, then, is my so-called cipher text. And once decrypted, becomes my plain text as well. Now, it turns out this is an example of something called a **Caesar cipher**, a rotational cipher
   - The recipient needs to know how it changed to revert
 - Plaintext ➟ Cyphertext ➟ Plaintext
   - HI ➟ IJ ➟ HI
@@ -322,6 +328,30 @@ Set-Cookie: session=29823bf3-075a-433a-8754-707d05c418ab
 
 - The last example with a caesar cypher is secret-key cryptography
   - Only one key
+- One has to know that the secret was, in the previosus case, one. 
+  - Now, that's kind of a chicken and the egg problem. For him or her to know what key we're going to be using, we have to agree upon it in advance. 
+  - So how do we agree upon it in advance? I can't just send them a message and write the number one on it and send it, because it would be unencrypted. So maybe I pick up the phone. I use a different technology, and I say, hey, let's use a key of one! But at that point, the story is kind of stupid for a different reason. Why don't I just tell them "hi" at that same time? 
+  - Right, so if I'm already talking to them via some other channel, just give them the message. Don't worry about a key. And this is absolutely the case when you visit a website. Like, I don't really know anyone personally at amazon.com who can sell me a book. I don't really personally know anyone at Gmail who can send me my emails. I know the website gmail.com. I know the website amazon.com. 
+  - And my computer certainly doesn't know another computer there. It just knows its domain name and maybe its IP address, eventually. So it turns out, what we just described, rotating characters one place, is what's called secret key cryptography.
+- So secret key cryptography is predicated on keeping that key, the number one or 13 or 25 or something else, secret. 
+
+- But there's also something called public key cryptography that satisfies this issue of chicken and egg, where you need a secret, but you can't establish a secret before you have a secret. Public key cryptography addresses this as follows:
+- Whereas in the secret key scenario, you have just one key, in the public key scenario, every person has two keys. 
+- One key is private, and one key is public. 
+  - There's a mathematical relationship between these two values, public and private, so that you use the public key to encrypt information, but you use the private key to decrypt it, which is to say that if I have two people here, let's say Alice and Bob, Alice has her private key, we'll call it A, and her public key, public A. 
+- And Bob, meanwhile, has his private key, B, and public key, B. 
+- When Alice wants to send Bob a message, she sends it from A to B. And she uses Bob's public key. 
+- Bob, upon receipt of that message uses his private key to decrypt it. 
+- For now, let's just stipulate there's a mathematical relationship such that algorithmically, Bob's private key can undo the effects of Bob's public key. 
+- Meanwhile, Bob wants to send a reply to Alice. So Bob uses Alice's public key. Alice receives the message and uses what to decrypt it? Alice's private key. And by nature of public, these keys, A and B, can literally be posted on the internet. They can be read aloud on the phone. 
+- The private keys, though, meanwhile, Alice and Bob have to keep private. 
+- And all of this happens automatically in today's browsers. 
+
+- In fact, when your browser, Chrome or Edge or whatever, uses the internet to connect to amazon.com or gmail.com, your browser has its own public and private key, as does Amazon's server, as does Google and Facebook and any other website. 
+  - Your browser using this crypto system, this public key cryptography mechanism, to exchange a secure message with Amazon or Google or Facebook, even though your laptop has never met anyone at those companies before. And so turns out, for efficiency, what's ultimately used later is very often secret key cryptography. 
+ 
+**Illustration**
+  
 - In public key cryptography there are two keys, one public and one private
   - Mathematical relationship between them
     - Use public key to encrypt, private key to decrypt 
