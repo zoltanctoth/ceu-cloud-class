@@ -361,6 +361,8 @@ Set-Cookie: session=29823bf3-075a-433a-8754-707d05c418ab
 
 - Digital signatures and other forms of electronic signatures are legally binding in many jurisdictions. This is some material from the website of the electronic signing company DocuSign:
 
+[![docusign](assets/docusign.png)](https://www.docusign.com/how-it-works/electronic-signature/digital-signature/digital-signature-faq#cert "Understanding digital signatures")
+
 
 * * *
 * * *
