@@ -38,11 +38,8 @@ At the end of this course you will have an overview of Cloud and Big Data techno
 > 7. Spark internals 8. Advanced Optimizations in Spark
 
 
-**Instructor:**
-<br />
-Zoltan C. Toth <br />
-TothZ@ceu.edu <br />
-+36 30 291 3599 <br />
-Credits: 2 (4 ECTS) <br />
-Term: Fall 2019-2020 <br />
-Course level: MS
+|Instructor  | Teaching Assistant |
+|--|--|
+| Zoltan C. Toth | Miklos Petridisz
+|TothZ@ceu.edu    | miklospetridisz1@gmail.com
+|+36 30 291 3599  | +36305379243
