@@ -451,10 +451,19 @@ Optional Reading
 * * *
 
 ##### Sources:
+https://www.webopedia.com/TERM/W/Web_server.html
 http://web.stanford.edu/class/cs101/lecture10.html#/4
 https://www.boazbarak.org/cs127spring16/chap10_public_key_intro.pdf
+https://intensecrypto.org/public/lec_10_public_key_intro.html#sec-public-key-encryptions-definition
+https://jhalderm.com/pub/papers/heartbleed-imc14.pdf
 https://web.stanford.edu/class/cs101/network-2-internet.html
+https://cs.harvard.edu/malan/publications/
 https://web.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm
+https://cs50.harvard.edu/college/
 https://web.stanford.edu/class/cs101/network-1-introduction.html
-
+https://www.youtube.com/watch?v=AEaKrq3SpW8
+https://www.seas.harvard.edu/academics/courses/computer-science
+https://www.youtube.com/watch?v=guvsH5OFizE
+https://www.youtube.com/watch?v=IlAJJI-qG2k
+https://introtcs.org/public/index.html
 
