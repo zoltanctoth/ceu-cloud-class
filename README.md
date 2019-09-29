@@ -40,8 +40,13 @@ At the end of this course you will have an overview of Cloud and Big Data techno
 **Instructor:**
 
 > Zoltan C. Toth 
-> TothZ@ceu.edu    
+> 
+>TothZ@ceu.edu    
+>
 > +36 30 291 3599 
+> 
 > Credits: 2 (4 ECTS) 
+>
 > Term: Fall 2019-2020 
+> 
 > Course level: MS
