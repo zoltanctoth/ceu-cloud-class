@@ -188,6 +188,9 @@ The internet is a network of networks (with their own routers)
 * * *
 
 ### Traceroute
+
+[![internetcrashcourse](assets/internetcrashcourse.png)](https://www.youtube.com/watch?v=AEaKrq3SpW8 "The Internet Crash Course")
+
 - Literally traces the route that information takes from our computer to some destination
 - Allows us to see which routers are being used by data to get to where it needs to go
 - This route may change over time and according to web traffic patterns
@@ -252,6 +255,10 @@ curl -I http://31.13.65.36/ - which tells us that Facebook would prefer we used
 ### HTML - Hyper Text Markup Language
 - curl without the -I flag lets us see the HTML results, or the data
 - This language tells the browser how to display everything from where pictures are located to how to format text on the page* 
+
+**Summary**
+
+[![www](assets/www.png)](https://www.youtube.com/watch?v=guvsH5OFizE "WWW")
 
 * * *
 
