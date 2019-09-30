@@ -84,6 +84,8 @@ Secure your Data using Access Control Lists and Bucket Policy
 |99.99% availability 99.999999999% durability stored redundantly across multiple devices in multiple facilities and is designed to sustain the loss of 2 facilities concurrently. | Infrequently Accesses: For data that is accessed less frequently but requires rapid access when needed. Lower fee than S3 but you are charged for retrieval fee.| For when you want a lower cost option for infrequently accessed data, but do not require the multiple Availability Zone data resilience. Stored in one Availability Zone.| 
 
 
+
+
 | S3 - INTELLIGENT TIERING  | S3 - GLACIER       | S3 - GLACIER DEEP ARCHIVE |
 |:-----------------|:---------------------|:-----------------|
 |Designed to optimize costs by automatically moving data to the most cost-effective access tier without performance impact or operational overhead.| Secure, durable, and low cost storage class for data archiving. You can reliably store any amount of data at costs  that are competitive with or cheaper than on-premise solutions. Retrieval times configurable from minutes to hours | S3's lowest-cost storage class where a retrieval time of 12 hours is acceptable.| 
