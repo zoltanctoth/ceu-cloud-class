@@ -10,7 +10,6 @@
 ## Syllabus
 
     Data Engineering 2: Big Data and Cloud Computing
-[Website URL](https://mikepetridisz.github.io/CEU_Data_Engineering/)
 
 **Prerequisites:** 
 
