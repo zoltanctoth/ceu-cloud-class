@@ -80,11 +80,8 @@ Secure your Data using Access Control Lists and Bucket Policy
 
 ### S3 Storage Classes
 | S3 STANDARD       | S3 - IA         | S3 ONE ZONE - IA |
-|:--------------------|:-------------------------|:-----------------------|
-|99.99% availability
-99.999999999% durability
-stored redundantly across multiple devices in multiple facilities and is designed to sustain the loss of 2 facilities concurrently.| Infrequently Accesses
-For data that is accessed less frequently but requires rapid access when needed. Lower fee than S3 but you are charged for retrieval fee. | For when you want a lower cost option for infrequently accessed data, but do not require the multiple Availability Zone data resilience. Stored in one Availability Zone.| 
+|:--------------------|:--------------|:-----------------------|
+|99.99% availability 99.999999999% durability stored redundantly across multiple devices in multiple facilities and is designed to sustain the loss of 2 facilities concurrently| Infrequently Accesses: For data that is accessed less frequently but requires rapid access when needed. Lower fee than S3 but you are charged for retrieval fee. | For when you want a lower cost option for infrequently accessed data, but do not require the multiple Availability Zone data resilience. Stored in one Availability Zone.| 
 
 
 | S3 - INTELLIGENT TIERING  | S3 - GLACIER       | S3 - GLACIER DEEP ARCHIVE |
