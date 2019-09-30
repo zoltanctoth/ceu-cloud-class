@@ -9,8 +9,8 @@ layout: default
 [Week 5](./week1.md).
 [Week 6](./week1.md).
 [Week 7](week2.md).
-## Welcome to another page
 
-_yay_
+## Basics of Cloud Computing using Amazon Web Services (AWS): Storage and Virtual Machines
 
-[back](./)
+TBC
+
