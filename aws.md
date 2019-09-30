@@ -28,15 +28,11 @@ Allows you to set up your own password rotation policy
 Integrates with many different AWS Services
 Supports PCI DSS Compliance (Credit card details must be compliant)
 
-Terminology
-Users
-Groups
-Policies
-Roles
-End Users such as people, employees of an organization etc.
-Collection of users in the group will inherit the permission of the group
-Made up of "Policy Documents". JSON format. They give you permissions to what a User/Group/Role us able to do.
-You create roles and assign them to AWS resources
+### Terminology
+| Users       | Groups         | Policies |Roles
+|:-------------|:------------------|:-------------|:------------------|
+|End Users such as people, employees of an organization etc.| Collection of users in the group will inherit the permission of the group | Made up of "Policy Documents". JSON format. They give you permissions to what a User/Group/Role us able to do | You create roles and assign them to AWS resources |
+
 
 ### IAM Continued:
 IAM is universal - it does not apply to regions!
