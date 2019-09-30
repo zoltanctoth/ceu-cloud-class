@@ -102,7 +102,6 @@ The ceu_logo will be sent back in one or more packets
 - How do we send the data and make sure whoever gets it knows what to do with it?
 - Maybe we could label the data in order, so that the recipient knows that whichever data they get belongs in whichever order it’s supposed to
 - Additionally, if some data gets lost along the way, TCP allows us to ask for the missing data and complete it
-
 - IP goes beyond addresses
   - Set of conventions computers and servers follow to allow intercommunication
 - Fragmentation like in the envelope example are supported by IP
@@ -334,7 +333,6 @@ Set-Cookie: session=29823bf3-075a-433a-8754-707d05c418ab
   - Right, so if I'm already talking to them via some other channel, just give them the message. Don't worry about a key. And this is absolutely the case when you visit a website. Like, I don't really know anyone personally at amazon.com who can sell me a book. I don't really personally know anyone at Gmail who can send me my emails. I know the website gmail.com. I know the website amazon.com. 
   - And my computer certainly doesn't know another computer there. It just knows its domain name and maybe its IP address, eventually. So it turns out, what we just described, rotating characters one place, is what's called secret key cryptography.
 - So secret key cryptography is predicated on keeping that key, the number one or 13 or 25 or something else, secret. 
-
 - But there's also something called public key cryptography that satisfies this issue of chicken and egg, where you need a secret, but you can't establish a secret before you have a secret. Public key cryptography addresses this as follows:
 - Whereas in the secret key scenario, you have just one key, in the public key scenario, every person has two keys. 
 - One key is private, and one key is public. 
@@ -346,7 +344,6 @@ Set-Cookie: session=29823bf3-075a-433a-8754-707d05c418ab
 - Meanwhile, Bob wants to send a reply to Alice. So Bob uses Alice's public key. Alice receives the message and uses what to decrypt it? Alice's private key. And by nature of public, these keys, A and B, can literally be posted on the internet. They can be read aloud on the phone. 
 - The private keys, though, meanwhile, Alice and Bob have to keep private. 
 - And all of this happens automatically in today's browsers. 
-
 - In fact, when your browser, Chrome or Edge or whatever, uses the internet to connect to amazon.com or gmail.com, your browser has its own public and private key, as does Amazon's server, as does Google and Facebook and any other website. 
   - Your browser using this crypto system, this public key cryptography mechanism, to exchange a secure message with Amazon or Google or Facebook, even though your laptop has never met anyone at those companies before. And so turns out, for efficiency, what's ultimately used later is very often secret key cryptography. 
  
@@ -382,10 +379,8 @@ Set-Cookie: session=29823bf3-075a-433a-8754-707d05c418ab
 - Such a message is known as a certificate, and it allows you to extend your trust in Apple to a trust in Amazon. 
   - When your browser communicates with amazon, it can request this message, and if it is not present not continue with the interaction.
     - Clearly a person in the middle can stop this message from travelling and hence not allow the interaction to continue, but they cannot spoof the message and send a certificate for their own public key, unless they know Apple’s secret key. 
-
 - Using certificates, we can assume that Bob the user has the public verification key 𝑣 of Alice the server. Now Alice can send Bob also a public encryption key 𝑒, which is authenticated by 𝑣 and hence guaranteed to be correct.
 - Once Bob knows Alice’s public key they are in business- he can use that to send an encryption of some private key 𝑘 which they can then use for all the rest of their communication.
-
 - Digital signatures and other forms of electronic signatures are legally binding in many jurisdictions. This is some material from the website of the electronic signing company DocuSign:
 
 [![docusign](assets/docusign.png)](https://www.docusign.com/how-it-works/electronic-signature/digital-signature/digital-signature-faq#cert "Understanding digital signatures")
