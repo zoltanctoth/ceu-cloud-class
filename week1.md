@@ -108,7 +108,7 @@ The ceu_logo will be sent back in one or more packets
 - Fragmentation like in the envelope example are supported by IP
   - If missing a packet, you can logically infer which packet you’re missing based on the ones received
     - However, IP doesn’t tell computers what to do in this case
-- TCP (Transmission Control Protocol) ensures packets can get to their destination
+- **TCP (Transmission Control Protocol) ensures packets can get to their destination**
   - Commonly used with IP (TCP/IP)
   - Supports sequence numbers that help data get to its destination
     - When missing a packet, a computer can make a request for the missing packet
@@ -157,11 +157,13 @@ The internet is a network of networks (with their own routers)
 * * *
 
 ### DHCP - Dynamic Host Configuration Protocol
-- This protocol makes it so that when a computer you have - a phone, a laptop, etc - it can announce itself and ask for an address
-- The protocol says that these devices will be assigned a numeric address, much like our physical addresses, except unlike our physical addresses (like 123 Main St), this looks like #.#.#.#, where each # is between 0 and 255 (why?)
-- Despite the large number of combinations here, there are actually a very large number of devices, to where we are increasingly using something called IPv6 (the previous was IPv4), which allows for far more combinations
+- This protocol makes it so that when a computer you have - a phone, a laptop, etc - **it can announce itself and ask for an address**
+- The protocol says that these devices will be assigned a numeric address
+- DHCP server dynamically assigns an IP address and other network configuration parameters to each device on a network so they can communicate with other IP networks
 - When my computer sends out a request, it has to use this IP address to make sure our data goes to the proper place
 - However, we, as humans, don’t really read addresses like 8.8.8.8 or 192.168.0.1
+
+### DNS
 - There is a system to “translate” the human-readable domain names (google.com, facebook.com, cs50.io) to their IP address counterparts
 - This service is called DNS, which allows us to use this translation to get from point A to B
 - We also have routers or gateways, which know how to take in information, look at where it’s going, and send it to the proper router
@@ -461,4 +463,4 @@ https://en.wikipedia.org/wiki/Caesar_cipher
 https://www.youtube.com/watch?v=guvsH5OFizE
 https://www.youtube.com/watch?v=IlAJJI-qG2k
 https://introtcs.org/public/index.html
-
+https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol
