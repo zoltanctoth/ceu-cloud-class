@@ -2,13 +2,13 @@
 layout: default
 ---
 [Home](./README.md).
-[Internet](./week1.md).
-[Cloud Computing](./week2.md).
-[Serverless](./week3.md).
-[AWS](./week4.md).
-[Spark DataFrame & SQL API](./week5.md).
-[Spark Internals](./week6.md).
-[Advanced Optimizations in Spark](week7.md).
+[Internet](./internet.md).
+[Cloud Computing](./cloud_computing.md).
+[Serverless](./serverless.md).
+[AWS](./aws.md).
+[Spark DataFrame & SQL API](./sparkAPI.md).
+[Spark Internals](./spark_internals.md).
+[Advanced Optimizations in Spark](spark_optimizations.md).
 
 ## Basics of Cloud Computing using Amazon Web Services (AWS): Storage and Virtual Machines
 
