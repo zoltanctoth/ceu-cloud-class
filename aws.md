@@ -1131,3 +1131,254 @@ sudo service apache2 restart
 - Use of [S3](http://aws.amazon.com/s3/) and [glacier](http://aws.amazon.com/glacier/)
 - Use of [vagrant](https://www.vagrantup.com/) to launch AWS instances
 - Use of [puppet](https://puppetlabs.com/puppet/what-is-puppet) to configure Linux systems
+
+
+
+
+* * * 
+### Practice Questions / Q&A
+
+#### What are the advantages of cloud computing?
+** Answer
+6 advantages: 
+- Trade capital expense for variable expense
+- Stop guessing about capacity
+- Increase speed and agility
+- Stop spending money running and maintaining data centers
+- Go global in minutes
+
+#### What are the types of cloud computing?
+
+** Answer
+- Infrastructure as a Service (IaaS)
+- Platform as a Service (PaaS)
+- Software as a Service (Software as a Service)
+
+#### What are the models of computing deployment?
+
+** Answer
+- Public
+- Hybrid
+- On-premises
+
+#### What is S3 and what does it mean?
+
+** Answer
+S3 stands for Simple Storage Service.
+S3 is on object storage with a simple web interface to store and 
+retrieve any amount of data from anywhere on the web. 
+
+#### What are some usages of S3?
+
+** Answer
+You can use Amazon S3: 
+- as primary storage for cloud-native applications
+- as a bulk repository, or "data lake," for analytics
+- as a target for backup and recovery and disaster recovery
+- with serverless computing. 
+
+#### What are the features of S3?
+
+** Answer
+**9 features:**
+
+- Simple: easy-to-use web based management console + REST API
+- Durable: your data is redundantly stored across multiple facilities and multiple devices in each facility
+- Scalable: you can store as much data as you want and access it 
+when needed.
+- Secure: Amazon S3 supports data transfer over SSL and automatic encryption of your data once it is uploaded. You can also configure bucket policies to manage object permissions and control access to your data using IAM
+- Available: designed for up to 99.99% availability of objects over a given year and is backed by the Amazon S3 Service Level Agreement ensuring that you can rely on it when needed. 
+- Low cost: Using lifecycle policies, you can set policies to automatically migrate your data to Standard - Infrequent Access and Amazon Glacier as it ages to further reduce costs
+- Simple data transfer: Amazon provides multiple options for
+cloud data migration and makes it simple and cost-effective for you to move large volumes of data into or out of Amazon S3. You can choose from network-optimized, physical disk-based, or third-party connector methods for import to or export from Amazon S3
+- Integrated: Amazon S3 is deeply integrated with other AWS services to make it easier to build solutions that use a range of AWS services
+- Easy to manage: Amazon S3 Storage Management features allow you to take a data-driven approach to storage optimization, data security, and management efficiency. These enterprise-class capabilities give you data about your data, so you can manage your storage based on that personalized metadata.
+
+
+#### What is AWS EC2?
+
+** Answer
+EC2 stands for Amazon Elastic Compute Cloud. 
+It is a web service that provides secure, resizable =compute capacity= in the cloud. 
+It is designed to make web-scale computing easier for developers.
+
+#### What is a region?
+
+** Answer
+A Region is a physical location in the world where we have multiple Availability Zones (AZs).
+
+
+#### What is an Availability Zones ?
+
+** Answer
+AZs consist of one or more discrete data centers, each with redundant power, networking,and connectivity, housed in separate facilities.
+
+#### What is an Edge Location?
+
+** Answer
+Edge Locations are endpoints for AWS which are used for caching content. There are many more Edge Locations than Regions. Currently there are over 96 EL.* Question :drill:
+
+#### What is the difference between a region, an Availability Zone and an Edge Location?
+
+** Answer
+- A region is a physical location in the World which consists of two or more Availability Zones.
+- An AZ is one or more discrete data centers, each with redundant power, networking and connectivity, 
+housed in separate facilities
+- Edge locations are endpoints for AWS which are used for caching content.
+
+
+#### What is IAM?
+
+** Answer
+Essentially, IAM allows you to manage users and their level of access to the AWS Console.
+
+
+#### Critical terms of IAM?
+
+** Answer
+- Users - End Users (think people)
+- Groups - A collection of Users under one set of permissions
+- Roles - You create roles and can then be assign them to AWS resources
+- Policies - A document that defines one (or more permissions). Can be attached to User/Group/Role.
+
+#### Is IAM Global?
+
+** Answer
+Yes
+
+#### What is the root account?
+
+** Answer
+This is the email address used to sign up in AWS.
+Unlimited access to do things in the cloud.
+
+
+#### Which permissions have new users when created?
+
+** Answer
+New users have NO permissions when first created
+
+#### What is the difference between access keys and user/pass?
+
+** Answer
+You cannot use the Access Key ID and Secret Key to login in the console. You can use this to access AWS via the APIs and CLI however.
+
+#### What is S3?
+
+** Answer
+
+S3 provides developpers and IT teams with secure, durable, highly-scalable object storage. Amazon S3 is easy to use, with a simple web service 
+interface to store and retrieve any amount of data from anywhere on the web.
+
+
+#### Size of the files on S3?
+
+** Answer
+From 0 Bytes to 5 TB
+
+#### What is the data consistency model for S3?
+
+** Answer
+- Read after Write consistency for PUTS of new Objects
+- Eventual Consistency for overwrite PUTS and DELETES (can take some time to propagate)
+
+#### S3 is object based. What do objects consist of?
+
+** Answer
+- key (This is the name of the object)
+- value (This is the data and is made up of a sequence of bytes)
+- version ID (very important for versioning)
+- metadata (data about data you are storing)
+- subresources:
+  - Access Control Lists
+  - Torrent (not an exam topic)
+
+
+#### What are the different Tiers/Classes of storage for S3?
+
+** Answer
+- S3 standard : 99.99% availability, 99.999999999% durability, stored redundantly across multiple devices in multiple facilities, and is 
+designed to sustain the loss of 2 facilities concurrently. No retrieval fees
+
+- S3 - IA (Infrequently Accessed) : For data that is accessed less frequently, but requires rapid access when needed. Lower fee than S3, but you are 
+charged a retrieval fee.
+
+- S3 One Zone - IA : want a lower cost option for infrequently accessed data, but do not require the multiple AZ data resilience.
+
+- Glacier : Very cheap, but used for archival only. Expedited (higher fees less retrieval time -- within minutes),
+ Standard (3-5 hours) or Bulk (5-12 hours).
+
+
+#### S3 Charges?
+
+** Answer
+Charged for 
+- Storagex
+- Requests
+- Storage Management Pricing (the tags you use on your data, added on the metadat of your files)
+- Data Transfer Pricing (when you transfer data from one region to another)
+- Transfer Acceleration
+
+#### What is S3 Transfert Acceleration?
+
+** Answer
+Amazon S3 Transfert Acceleration enables fast, easy, and secure transferts of files over long distances between your end users and an S3 bucket. 
+
+Transfert Acceleration takes advantage of Amazon CloudFront's globally distributed edge locations. As the data arrives at an edge location, data 
+is routed to Amazon S3 over an optimized path.
+
+#### What are the server side encryption options for S3?
+
+** Answer
+- SSE with Amazon S3 Managed Keys (SSE-S3)
+- SSE with KMS (SSE-KMS)
+- SSE with Customer Provided Keys (SSE-C)
+
+
+#### What are the two options for controlling access to a S3 bucket?
+
+** Answer
+- Bucket ACL
+- Bucket Policies
+
+#### S3 Versioning characteristics?
+
+** Answer
+- Stores all versions of an object (including all writes and even if you delete an object)
+- Great backup tool
+- Once enabled, versioning cannot be disabled, only suspended
+- Integrates with Lifecycles rules
+- Versioning's MFA Delete capability, which uses multi-factor authentication, can be used to provide an additional layer of security.
+
+#### Cross replication on S3?
+
+** Answer
+- Versioning must be enabled on both the source and destination buckets
+- Regions must be unique
+- Files in an existing bucket are not replicated automatically. All subsequent updated files will be replicated automatically.
+- You cannot replicate to multiple buckets or use daisy chaining (at this time)
+- Delete markers are replicated
+- Deleting individual versions or delete markers will not be replicated
+
+#### Lifecycle Management in S3?
+
+** Answer
+- Can be used in conjunction with versioning
+- Can be applied to current versions and previous versions
+- Following actions can now be done:
+  - Transition to the Standard IA storage class
+  - Archive to Glacier Storage Class
+  - Permanently Delete
+
+#### What are the two types of encryption on S3?
+
+** Answer
+- In Transit: when you are sending data to your bucket
+  - SSL/TLS
+- At Rest 
+  - Server Side Encryption 
+    - S3 Managed Keys - SSE-S3 each bucket is encrypted with a unique key Amazon encrypt the key itself with a master key that is regularly rotated.
+      Amazon handles all the keys for you (AES 256)
+    - AWS Key Management Service, Managed Keys - SSE-KMS Similar to SSE-S3 with some additional benefits s.a. who is decrypting what and when + option to manage the keys yourself.
+    - Server Side Encryption with Customer Provided Keys - SSE-C where your manage your keys and AWS is responsible for the encryption and decryption.
+  - Client Side Encryption
