@@ -1008,7 +1008,6 @@ ssh -i AWS-Tutorial.pem ubuntu@52.5.92.87
 
 ***
 **Step 11. Log into Instance:**
-![AWS-EC2-Login](Images/AWS/AWS-EC2-Login.png)
 ***
 
 ### Trouble-shooting and advanced topics
