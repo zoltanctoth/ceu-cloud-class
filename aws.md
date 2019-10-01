@@ -14,11 +14,6 @@ layout: default
 
 
 ### Part 1. Regions, Availability Zones (AZ), Edge Locations
-## Links
-
-- [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
-
-- [https://www.linuxnix.com/amazon-aws-regions-vs-availability-zones-vs-edge-locations-vs-data-centers/](https://www.linuxnix.com/amazon-aws-regions-vs-availability-zones-vs-edge-locations-vs-data-centers/)
 
 ### Regions
 
@@ -45,7 +40,7 @@ layout: default
 
 ### Availability Zones (AZ)
 
-**AWS Availability Zones** are one or more discrete data centers, each with redundant power, networking and connectivity housed in separate facilities. Deploying your application across multiple Availability Zones is useful for redundancy, low latency and fault tolerance.
+- **AWS Availability Zones** are one or more discrete data centers, each with redundant power, networking and connectivity housed in separate facilities. Deploying your application across multiple Availability Zones is useful for redundancy, low latency and fault tolerance.
 
 **_Regions with multiple Availability Zones:_**
 
@@ -88,141 +83,143 @@ layout: default
 -    `Batch` - Batch computing in the cloud
 
 **Storage:**
-    `S3` - Simple Storage Service - object based storage - buckets
-    `EFS` - Elastic File System
-    `Glacier` - Data Archival 
-    `Snowball` - Large amounts of data to aws data center
-    `Storage gateway` - VM installed in datacenter or office - replicate info to S3
+-    `S3` - Simple Storage Service - object based storage - buckets
+-    `EFS` - Elastic File System
+-    `Glacier` - Data Archival 
+-    `Snowball` - Large amounts of data to aws data center
+-    `Storage gateway` - VM installed in datacenter or office - replicate info to S3
 
 **Databases:**
-    `RDS` - Relation Database Service - postgres, mysql, oracle
-    `DynamoDB` - Non-Relational DB
-    `Elasticache` - Cache Things from DB
-    `Redshift` - Data Warehousing Business Intelligence, complex queries
+-    `RDS` - Relation Database Service - postgres, mysql, oracle
+-    `DynamoDB` - Non-Relational DB
+-    `Elasticache` - Cache Things from DB
+-    `Redshift` - Data Warehousing Business Intelligence, complex queries
     
 **Migration:**
-    `AWS Migration Hub` - tracking service for moving to aws
-    `Application Discover Service` - track applications and dependency
-    `Database Migration Service` - migrate db from on premise to AWS
-    `Server Migration Service` - migrate server to AWS cloud
-    `Snowball` - in between storage and migration
+-    `AWS Migration Hub` - tracking service for moving to aws
+-    `Application Discover Service` - track applications and dependency
+-    `Database Migration Service` - migrate db from on premise to AWS
+-    `Server Migration Service` - migrate server to AWS cloud
+-    `Snowball` - in between storage and migration
 
 **Networking and Content Delivery:**
-    `VPC (highlight)` - Amazon virtual private cloud - virtual datacenter - configure avail zones, firewall, network acl etc.
-    `Cloudfront` - AWS content delivery network, store assets specific regions around the world
-    `Route 53` - AWS DNS service - lookup ip to get ipv4 and ipv6 address
-    `API Gateway` - Serverless way of creating own api
-    `Direct Connect` - Dedicated line from office directly into amazon, connects to VPC
+-    `VPC (highlight)` - Amazon virtual private cloud - virtual datacenter - configure avail zones, firewall, network acl etc.
+-    `Cloudfront` - AWS content delivery network, store assets specific regions around the world
+-    `Route 53` - AWS DNS service - lookup ip to get ipv4 and ipv6 address
+-    `API Gateway` - Serverless way of creating own api
+-    `Direct Connect` - Dedicated line from office directly into amazon, connects to VPC
 
 **Developer Tools:**
-    `Codestart` - project management, CI toolchain, collaborate
-    `Codecommit` - store code, like github    
-    `Codebuild` - compile and run tests, produce package
-    `Code deploy` - deployment service to ec2 instance
-    `Codepipeline` - automate and visualize steps to release software
-    `X-ray` - debug and analyze server less application
-    `Cloud9` - IDE environment in browser
+-    `Codestart` - project management, CI toolchain, collaborate
+-    `Codecommit` - store code, like github    
+-    `Codebuild` - compile and run tests, produce package
+-    `Code deploy` - deployment service to ec2 instance
+-    `Codepipeline` - automate and visualize steps to release software
+-    `X-ray` - debug and analyze server less application
+-    `Cloud9` - IDE environment in browser
 
 **Management tools:**
-    `Cloudwatch` - Monitoring service
-    `Cloudformation` - solutions architect specific - scripting infrastructure - turn infrastructure to code
-    `Cloudtrail` - log changes to aws environment
-    `Config` - monitors config of aws environment
-    `Opswork` - similar to elastic beanstalk - chef and puppet to automate environments
-    `Service Catalog` - manage a catalog of IT services
-    `Systems manager` - interface for managing aws resources - group resources
-    `Trusted Advisor` - advice around security, advice for aws services and resources, accountant like
-    `Managed Services` - manage service for aws cloud
+-    `Cloudwatch` - Monitoring service
+-    `Cloudformation` - solutions architect specific - scripting infrastructure - turn infrastructure to code
+-    `Cloudtrail` - log changes to aws environment
+-    `Config` - monitors config of aws environment
+-    `Opswork` - similar to elastic beanstalk - chef and puppet to automate environments
+-    `Service Catalog` - manage a catalog of IT services
+-    `Systems manager` - interface for managing aws resources - group resources
+-    `Trusted Advisor` - advice around security, advice for aws services and resources, accountant like
+-    `Managed Services` - manage service for aws cloud
 
 **Media Services:**
-    `Elastic transcoder` - takes media and resizes on different devices
-    `Media convert` - file based video transcoding with broadcast grade features
-    `Media live` - broadcast grade live video processing service. tv internet connected multiscreen
-    `Media Package` - protect content over internet 
-    `Media Store` - media storage, optimized for media
-    `Media Tailor` - target advertising into video streams with out harming broadcast
+-    `Elastic transcoder` - takes media and resizes on different devices
+-    `Media convert` - file based video transcoding with broadcast grade features
+-    `Media live` - broadcast grade live video processing service. tv internet connected multiscreen
+-    `Media Package` - protect content over internet 
+-    `Media Store` - media storage, optimized for media
+-    `Media Tailor` - target advertising into video streams with out harming broadcast
 
 **Machine Learning:**
-    `Sage maker` - easy for deep learning when coding for environment
-    `Comprehend` - sentiment analysis on products. good or bad?
-    `Deep lens` - computer vision on camera, recognition, physical piece of hardware
-    `Lex` - powers alexa, AI 
-    `Machine Learning` - throw dataset to AWS cloud and predict outcome
-    `Polly` - text to speech, voices sound real, accents
-    `Rekognition` - upload file, tells you what is in the file
-    `Amazon translate` - translate to other langs
-    `Amazon transcribe` - hard of hearing, speech recognition, speech to text
+-    `Sage maker` - easy for deep learning when coding for environment
+-    `Comprehend` - sentiment analysis on products. good or bad?
+-    `Deep lens` - computer vision on camera, recognition, physical piece of hardware
+-    `Lex` - powers alexa, AI 
+-    `Machine Learning` - throw dataset to AWS cloud and predict outcome
+-    `Polly` - text to speech, voices sound real, accents
+-    `Rekognition` - upload file, tells you what is in the file
+-    `Amazon translate` - translate to other langs
+-    `Amazon transcribe` - hard of hearing, speech recognition, speech to text
 
 **Analytics:**
-    `Athena` - SQL queries ins S3 buckets, serverless
-    `EMR` - elastic map reduce - processing large amounts of data, chops data up for analysis
-    `Cloudsearch` - search service
-    `Elastic Search service` - search service
-    `Kinesis` - solutions architect highlight, ingesting large amounts data
-    `Kinesis Video streams` - ingesting streams and analyze    
-    `Quicksight` - business intelligence tool
-    `Datapipeline` - moving data between different services
-    `Glue` - ETL (extract transform load)
+-    `Athena` - SQL queries ins S3 buckets, serverless
+-    `EMR` - elastic map reduce - processing large amounts of data, chops data up for analysis
+-    `Cloudsearch` - search service
+-    `Elastic Search service` - search service
+-    `Kinesis` - solutions architect highlight, ingesting large amounts data
+-    `Kinesis Video streams` - ingesting streams and analyze    
+-    `Quicksight` - business intelligence tool
+-    `Datapipeline` - moving data between different services
+-    `Glue` - ETL (extract transform load)
 
 **Security Identity and Compliance:**
-    `IAM` - identity access management
-    `Cognito` - device authentication, oath, after authenticated, use aws services
-    `Guard Duty` - monitor for malicious activity
-    `Inspector` - install on vm or instances, test against it, schedule
-    `Macie` - Scan s3 buckets and looks for sensitive info and alert
-    `Certificate Manager` - ssl cert for free, manage ssl cert
-    `Cloud HSM` - cloud hardware security module - dedicate bits of hardware to store keys to authenticated
-    `Directory Service` - integration ms active service to aws services
-    `WAF` - web application firewall - at application layer to stop attacks, XSS, sql injection
-    `Shield` - by default for cloud front - ddos mitigation, prevent ddos attacks
-    `Artifact` - portal to download aws client reports, manage agreements 
+-    `IAM` - identity access management
+-    `Cognito` - device authentication, oath, after authenticated, use aws services
+-    `Guard Duty` - monitor for malicious activity
+-    `Inspector` - install on vm or instances, test against it, schedule
+-    `Macie` - Scan s3 buckets and looks for sensitive info and alert
+-    `Certificate Manager` - ssl cert for free, manage ssl cert
+-    `Cloud HSM` - cloud hardware security module - dedicate bits of hardware to store keys to authenticated
+-    `Directory Service` - integration ms active service to aws services
+-    `WAF` - web application firewall - at application layer to stop attacks, XSS, sql injection
+-    `Shield` - by default for cloud front - ddos mitigation, prevent ddos attacks
+-    `Artifact` - portal to download aws client reports, manage agreements 
 
 **Mobile Services:**
-    `Mobile hub` - management console for mobile app for aws services
-    `AWS Pinpoint` - targeted push notifications
-    `AWS Appsync` - atomically updates data in web or mobile in real time
-    `Device Farm` - test apps on real device, iOS, android
-    `Mobile Analytics` - analytics service for mobile
+-    `Mobile hub` - management console for mobile app for aws services
+-    `AWS Pinpoint` - targeted push notifications
+-    `AWS Appsync` - atomically updates data in web or mobile in real time
+-    `Device Farm` - test apps on real device, iOS, android
+-    `Mobile Analytics` - analytics service for mobile
 
 **AR/VR:**
-    `Sumerian` - tools to create environment, super new
+-    `Sumerian` - tools to create environment, super new
 
 **Application Integration:**
-    `Step functions` - manage lambda functions and ways to go through it
-    `Amazon MQ` - message queue
-    `SNS` - notification services
-    `SQS` - decouple infrastructure, queue
-    `SWF` - workflow job creation
+-    `Step functions` - manage lambda functions and ways to go through it
+-    `Amazon MQ` - message queue
+-    `SNS` - notification services
+-    `SQS` - decouple infrastructure, queue
+-    `SWF` - workflow job creation
 
 **Customer Engagement:**
-    `Connect` - contact center as a service, call center
-    `Simple Email Service` - email service, send grid, mailchimp
+-    `Connect` - contact center as a service, call center
+-    `Simple Email Service` - email service, send grid, mailchimp
 
 **Business Productivity:**
-    `Alexa for business` - manager for business needs
-    `Amazon chime` - google hangouts like
-    `Work Docs` - dropbox for AWS
-    `Work Mail` - Office 365 like
+-    `Alexa for business` - manager for business needs
+-    `Amazon chime` - google hangouts like
+-    `Work Docs` - dropbox for AWS
+-    `Work Mail` - Office 365 like
    
 **Desktop and App streaming:**
-    `Workspaces` - VDI solution, run OS in aws cloud
-    `App stream 2.0` - streaming application to desktop of device
+-    `Workspaces` - VDI solution, run OS in aws cloud
+-    `App stream 2.0` - streaming application to desktop of device
     
 **IOT:**
-    `iOT` - devices sending sensor information
-    `iOT Device Management` - device management
-    `Amazon FreeRTOS` - OS for microcontrollers
-    `Greengrass` - ?? 
+-    `iOT` - devices sending sensor information
+-    `iOT Device Management` - device management
+-    `Amazon FreeRTOS` - OS for microcontrollers
+-    `Greengrass` - ?? 
 
 **Game Development:**
-    `Gamelift` - service to develop games
+-    `Gamelift` - service to develop games
 
 * * *
+
 ## What Services Will Be Tested On The Exam??
 - **EC2**
 - **EBS**
 - **S3**
 - **Glacier**
+
 * * *
 
 
