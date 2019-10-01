@@ -10,9 +10,15 @@ layout: default
 [Spark Internals](./spark_internals.md).
 [Advanced Optimizations in Spark](spark_optimizations.md).
 
-### Using AWS programatically
+## Using AWS programatically
 
-## Part 1. Regions, Availability Zones (AZ), Edge Locations
+
+### Part 1. Regions, Availability Zones (AZ), Edge Locations
+## Links
+
+- [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
+
+- [https://www.linuxnix.com/amazon-aws-regions-vs-availability-zones-vs-edge-locations-vs-data-centers/](https://www.linuxnix.com/amazon-aws-regions-vs-availability-zones-vs-edge-locations-vs-data-centers/)
 
 ### Regions
 
@@ -69,175 +75,155 @@ layout: default
 
 ### Edge Locations
 
-**AWS Edge Locations** are locations around the world meant for caching content, enhancing the user experience, reducing latency. Edge locations are specifically used by AWS Cloudfront and AWS CDN. Every Region is has its own set Availability Zone's and Edge Locations.
+- **AWS Edge Locations** are locations around the world meant for caching content, enhancing the user experience, reducing latency. Edge locations are specifically used by AWS Cloudfront and AWS CDN. Every Region is has its own set Availability Zone's and Edge Locations.
 
 ## Part 2. AWS Services Overview
 
-Compute:
-    EC2 - elastic compute cloud
-    EC2 Container Services - containerization docker
-    Elastic Beanstalk - plug and play - for developers
-    Lambda (server less) - code/functions uploaded to the cloud to run at different points
-    Lightsail - plug and play
-    Batch - batch computing in the cloud
+**Compute:**
+    `EC2` - Elastic Compute Cloud
+    `EC2 Container Services` - Containerization Docker
+    `Elastic Beanstalk` - Plug and Play - for developers
+    `Lambda (server less)` - Code/Functions uploaded to the cloud to run at different points
+    `Lightsail` - Plug and Play
+    `Batch` - Batch computing in the cloud
 
-Storage:
-    S3 - simple storage service - object based storage - buckets
-    EFS - elastic file system
-    Glacier - data archival 
-    Snowball - large amounts of data to aws data center
-    Storage gateway - VM installed in datacenter or office - replicate info to S3
+**Storage:**
+    `S3` - Simple Storage Service - object based storage - buckets
+    `EFS` - Elastic File System
+    `Glacier` - Data Archival 
+    `Snowball` - Large amounts of data to aws data center
+    `Storage gateway` - VM installed in datacenter or office - replicate info to S3
 
-Databases:
-    RDS - relation database service - postgres, mysql, oracle
-    DynamoDB - non relational db
-    Elasticache - cache things from db
-    Redshift - data warehousing business intelligence, complex queries
+**Databases:**
+    `RDS` - Relation Database Service - postgres, mysql, oracle
+    `DynamoDB` - Non-Relational DB
+    `Elasticache` - Cache Things from DB
+    `Redshift` - Data Warehousing Business Intelligence, complex queries
     
-Migration:
-    AWS Migration Hub - tracking service for moving to aws
-    Application Discover Service - track applications and dependency
-    Database Migration Service - migrate db from on premise to AWS
-    Server Migration Service - migrate server to AWS cloud
-    Snowball - in between storage and migration
+**Migration:**
+    `AWS Migration Hub` - tracking service for moving to aws
+    `Application Discover Service` - track applications and dependency
+    `Database Migration Service` - migrate db from on premise to AWS
+    `Server Migration Service` - migrate server to AWS cloud
+    `Snowball` - in between storage and migration
 
-Networking and Content Delivery:
-    VPC (highlight) - Amazon virtual private cloud - virtual datacenter - configure avail zones, firewall, network acl etc.
-    Cloudfront - AWS content delivery network, store assets specific regions around the world
-    Route 53 - AWS DNS service - lookup ip to get ipv4 and ipv6 address
-    API Gateway - Serverless way of creating own api
-    Direct Connect - Dedicated line from office directly into amazon, connects to VPC
+**Networking and Content Delivery:**
+    `VPC (highlight)` - Amazon virtual private cloud - virtual datacenter - configure avail zones, firewall, network acl etc.
+    `Cloudfront` - AWS content delivery network, store assets specific regions around the world
+    `Route 53` - AWS DNS service - lookup ip to get ipv4 and ipv6 address
+    `API Gateway` - Serverless way of creating own api
+    `Direct Connect` - Dedicated line from office directly into amazon, connects to VPC
 
-Developer Tools:
-    Codestart - project management, CI toolchain, collaborate
-    Codecommit - store code, like github    
-    Codebuild - compile and run tests, produce package
-    Code deploy - deployment service to ec2 instance
-    Codepipeline - automate and visualize steps to release software
-    X-ray - debug and analyze server less application
-    Cloud9 - IDE environment in browser
+**Developer Tools:**
+    `Codestart` - project management, CI toolchain, collaborate
+    `Codecommit` - store code, like github    
+    `Codebuild` - compile and run tests, produce package
+    `Code deploy` - deployment service to ec2 instance
+    `Codepipeline` - automate and visualize steps to release software
+    `X-ray` - debug and analyze server less application
+    `Cloud9` - IDE environment in browser
 
-## Part 3. AWS Services Overview (Continued)
+**Management tools:**
+    `Cloudwatch` - Monitoring service
+    `Cloudformation` - solutions architect specific - scripting infrastructure - turn infrastructure to code
+    `Cloudtrail` - log changes to aws environment
+    `Config` - monitors config of aws environment
+    `Opswork` - similar to elastic beanstalk - chef and puppet to automate environments
+    `Service Catalog` - manage a catalog of IT services
+    `Systems manager` - interface for managing aws resources - group resources
+    `Trusted Advisor` - advice around security, advice for aws services and resources, accountant like
+    `Managed Services` - manage service for aws cloud
 
-Management tools:
-    Cloudwatch - Monitoring service
-    Cloudformation - solutions architect specific - scripting infrastructure - turn infrastructure to code
-    Cloudtrail - log changes to aws environment
-    Config - monitors config of aws environment
-    Opswork - similar to elastic beanstalk - chef and puppet to automate environments
-    Service Catalog - manage a catalog of IT services
-    Systems manager - interface for managing aws resources - group resources
-    Trusted Advisor - advice around security, advice for aws services and resources, accountant like
-    Managed Services - manage service for aws cloud
-    
-    ** Recap for exam - cloudformation, cloudtrail, cloudtrail, trusted advisor
+**Media Services:**
+    `Elastic transcoder` - takes media and resizes on different devices
+    `Media convert` - file based video transcoding with broadcast grade features
+    `Media live` - broadcast grade live video processing service. tv internet connected multiscreen
+    `Media Package` - protect content over internet 
+    `Media Store` - media storage, optimized for media
+    `Media Tailor` - target advertising into video streams with out harming broadcast
 
-Media Services:
-    Elastic transcoder - takes media and resizes on different devices
-    Media convert - file based video transcoding with broadcast grade features
-    Media live - broadcast grade live video processing service. tv internet connected multiscreen
-    Media Package - protect content over internet 
-    Media Store - media storage, optimized for media
-    Media Tailor - target advertising into video streams with out harming broadcast
+**Machine Learning:**
+    `Sage maker` - easy for deep learning when coding for environment
+    `Comprehend` - sentiment analysis on products. good or bad?
+    `Deep lens` - computer vision on camera, recognition, physical piece of hardware
+    `Lex` - powers alexa, AI 
+    `Machine Learning` - throw dataset to AWS cloud and predict outcome
+    `Polly` - text to speech, voices sound real, accents
+    `Rekognition` - upload file, tells you what is in the file
+    `Amazon translate` - translate to other langs
+    `Amazon transcribe` - hard of hearing, speech recognition, speech to text
 
-Machine Learning:
-    Sage maker - easy for deep learning when coding for environment
-    Comprehend - sentiment analysis on products. good or bad?
-    Deep lens - computer vision on camera, recognition, physical piece of hardware
-    Lex - powers alexa, AI 
-    Machine Learning - throw dataset to AWS cloud and predict outcome
-    Polly - text to speech, voices sound real, accents
-    Rekognition - upload file, tells you what is in the file
-    Amazon translate - translate to other langs
-    Amazon transcribe - hard of hearing, speech recognition, speech to text
+**Analytics:**
+    `Athena` - SQL queries ins S3 buckets, serverless
+    `EMR` - elastic map reduce - processing large amounts of data, chops data up for analysis
+    `Cloudsearch` - search service
+    `Elastic Search service` - search service
+    `Kinesis` - solutions architect highlight, ingesting large amounts data
+    `Kinesis Video streams` - ingesting streams and analyze    
+    `Quicksight` - business intelligence tool
+    `Datapipeline` - moving data between different services
+    `Glue` - ETL (extract transform load)
 
-Analytics: 
-    Athena - SQL queries ins S3 buckets, serverless
-    EMR - elastic map reduce - processing large amounts of data, chops data up for analysis
-    Cloudsearch - search service
-    Elastic Search service - search service
-    Kinesis - solutions architect highlight, ingesting large amounts data
-    Kinesis Video streams - ingesting streams and analyze    
-    Quicksight - business intelligence tool
-    Datapipeline - moving data between different services
-    Glue - ETL (extract transform load)
+**Security Identity and Compliance:**
+    `IAM` - identity access management
+    `Cognito` - device authentication, oath, after authenticated, use aws services
+    `Guard Duty` - monitor for malicious activity
+    `Inspector` - install on vm or instances, test against it, schedule
+    `Macie` - Scan s3 buckets and looks for sensitive info and alert
+    `Certificate Manager` - ssl cert for free, manage ssl cert
+    `Cloud HSM` - cloud hardware security module - dedicate bits of hardware to store keys to authenticated
+    `Directory Service` - integration ms active service to aws services
+    `WAF` - web application firewall - at application layer to stop attacks, XSS, sql injection
+    `Shield` - by default for cloud front - ddos mitigation, prevent ddos attacks
+    `Artifact` - portal to download aws client reports, manage agreements 
 
-## Part 4. AWS Services Overview (Continued)
+**Mobile Services:**
+    `Mobile hub` - management console for mobile app for aws services
+    `AWS Pinpoint` - targeted push notifications
+    `AWS Appsync` - atomically updates data in web or mobile in real time
+    `Device Farm` - test apps on real device, iOS, android
+    `Mobile Analytics` - analytics service for mobile
 
-Security Identity and Compliance:
-    IAM - identity access management
-    Cognito - device authentication, oath, after authenticated, use aws services
-    Guard Duty - monitor for malicious activity
-    Inspector - install on vm or instances, test against it, schedule
-    Macie - Scan s3 buckets and looks for sensitive info and alert
-    Certificate Manager - ssl cert for free, manage ssl cert
-    Cloud HSM - cloud hardware security module - dedicate bits of hardware to store keys to authenticated
-    Directory Service - integration ms active service to aws services
-    WAF - web application firewall - at application layer to stop attacks, XSS, sql injection
-    Shield - by default for cloud front - ddos mitigation, prevent ddos attacks
-    Artifact - portal to download aws client reports, manage agreements 
-    
-    **Key security services for exam: IAM, inspector, cloudHMS, directory services, waf, shield, cert manager
+**AR/VR:**
+    `Sumerian` - tools to create environment, super new
 
-Mobile Services: 
-    Mobile hub - management console for mobile app for aws services
-    AWS Pinpoint - targeted push notifications
-    AWS Appsync - atomically updates data in web or mobile in real time
-    Device Farm - test apps on real device, iOS, android
-    Mobile Analytics - analytics service for mobile
+**Application Integration:**
+    `Step functions` - manage lambda functions and ways to go through it
+    `Amazon MQ` - message queue
+    `SNS` - notification services
+    `SQS` - decouple infrastructure, queue
+    `SWF` - workflow job creation
 
-AR/VR:
-    Sumerian - tools to create environment, super new
+**Customer Engagement:**
+    `Connect` - contact center as a service, call center
+    `Simple Email Service` - email service, send grid, mailchimp
 
-Application Integration:
-    Step functions - manage lambda functions and ways to go through it
-    Amazon MQ - message queue
-    SNS - notification services
-    SQS - decouple infrastructure, queue
-    SWF - workflow job creation
-
-Customer Engagement:
-    Connect - contact center as a service, call center
-    Simple Email Service - email service, send grid, mailchimp
-
-Business Productivity:
-    Alexa for business - manager for business needs
-    Amazon chime - google hangouts like
-    Work Docs - dropbox for AWS
-    Work Mail - Office 365 like
+**Business Productivity:**
+    `Alexa for business` - manager for business needs
+    `Amazon chime` - google hangouts like
+    `Work Docs` - dropbox for AWS
+    `Work Mail` - Office 365 like
    
-Desktop and App streaming:
-    Workspaces - VDI solution, run OS in aws cloud
-    App stream 2.0 - streaming application to desktop of device
+**Desktop and App streaming:**
+    `Workspaces` - VDI solution, run OS in aws cloud
+    `App stream 2.0` - streaming application to desktop of device
     
-IOT:
-    iOT - devices sending sensor information
-    iOT Device Management - device management
-    Amazon FreeRTOS - OS for microcontrollers
-    Greengrass - ?? 
+**IOT:**
+    `iOT` - devices sending sensor information
+    `iOT Device Management` - device management
+    `Amazon FreeRTOS` - OS for microcontrollers
+    `Greengrass` - ?? 
 
-Game Development:
-    Gamelift - service to develop games
+**Game Development:**
+    `Gamelift` - service to develop games
 
+* * *
 ## What Services Will Be Tested On The Exam??
-
-Analytics
-Management Tools
-Migration
-Compute
-AWS Global infrastructure
-Storage
-Databases
-Network and Content delivery
-Security and Identity compliance
-Application Integration
-Desktop and App streaming
-
-## Links
-
-- [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
-
-- [https://www.linuxnix.com/amazon-aws-regions-vs-availability-zones-vs-edge-locations-vs-data-centers/](https://www.linuxnix.com/amazon-aws-regions-vs-availability-zones-vs-edge-locations-vs-data-centers/)
+- **EC2**
+- **EBS**
+- **S3**
+- **Glacier**
+* * *
 
 
 ## Part 2
@@ -522,7 +508,10 @@ _TLDR; A disk in the cloud that you attach to your EC2 instances_
 - Magnetic (Standard)
   - Lowest cost per GB of all EBS volume types that is bootable. Magnetic volumes are ideal for workloads where data is accessed infrequently, and applications where the lowest storage cost is important
 
-## Let's get our hands dirty! Launch an EC2 instance lab!
+* * * 
+* * *
+
+## Let's get our hands dirty! Launch an EC2 instance!
 
 ### Summary
 
@@ -531,33 +520,33 @@ _TLDR; A disk in the cloud that you attach to your EC2 instances_
 - EBS Root Volume of you DEFAULT AMI's cannot be encrypted. You can also use a third party tool (such as bit locker) to encrypt the root volume, or this can be done when creating AMI's (future lab) in the AWS console or using the API.
 - Additional volumes can be encrypted.
 
-## Security Groups
+### Security Groups
 
 ### What is a Security Group?
 
-A security group is a virtual firewall that's controlling traffic to your EC2 instance. When you first launch as EC2 instance you associate it to 1 or more instances. You have the ability to add rules to these security groups that allows traffic to or from these instances.
+- A security group is a virtual firewall that's controlling traffic to your EC2 instance. 
+- When you first launch as EC2 instance you associate it to 1 or more instances. 
+  - You have the ability to add rules to these security groups that allows traffic to or from these instances.
 
 ### Security Groups - General
 
-1. Any security group rules apply immediately
-2. Security groups are **_STATEFUL_**. Inbound rules automatically add outbound rules
-3. All traffic is blocked by default and included through the rules. Whitelist
-4. All outbound traffic is allowed
-5. You can have multiple EC2 instances within a security group.
-6. You can have multiple security groups attached to EC2 instances.
-7. You cannot block specific IP addresses using Security Groups, use Network Access Control Lists.
-8. You can specify allow rules, but not deny rules.
+- Any security group rules apply immediately
+- Security groups are **_STATEFUL_**. Inbound rules automatically add outbound rules
+- All traffic is blocked by default and included through the rules. Whitelist
+- All outbound traffic is allowed
+- You can have multiple EC2 instances within a security group.
+- You can have multiple security groups attached to EC2 instances.
+- You cannot block specific IP addresses using Security Groups, use Network Access Control Lists.
+- You can specify allow rules, but not deny rules.
 
-## RAID, Volumes & Snapshots
-
-### RAID - Redundant Array of Independent Disks
+### RAID, Volumes & Snapshots (RAID - Redundant Array of Independent Disks)
 
 - RAID 0 - Striped, no redundancy, good performance. If one fails, you lose all
 - RAID 1 - Mirrored, redundant. If one fails, others available
 - RAID 5 - Good for reads, bad for writes, AWS does not recommend ever putting RAID 5's on EBS. Strongly discouraged.
 - RAID 10 - Striping & Mirrored, good redundancy, good performance.
 
-#### How can I take a Snapshot of a RAID Array?
+### How can I take a Snapshot of a RAID Array?
 
 - **Problem** - Taking a snapshot excludes the data held in cache by applications and the OS. This doesn't really matter on single volume, however when using multiple volumes in a RAID Array, this can be a problem due to interdependencies of the array.
 
@@ -569,9 +558,8 @@ A security group is a virtual firewall that's controlling traffic to your EC2 in
     - Unmount the RAID Array
     - Shutting down the associated EC2 instance.
 
-## Create an AMI lab - Volumes vs. Snapshots
+### Create an AMI lab - Volumes vs. Snapshots (Snapshots of Root Device Volumes)
 
-### Snapshots of Root Device Volumes
 
 - To create a snapshot for Amazon EBS volumes that server as root devices, you should stop the instance before taking the snapshot.
 
@@ -582,9 +570,7 @@ A security group is a virtual firewall that's controlling traffic to your EC2 in
 - You can share snapshots, but only if they are unencrypted.
   - Said snapshots can be shared with other AWS accounts of made public
 
-## AMI Types
-
-### What should you select your AMI based on?
+### AMI Types - What should you select your AMI based on?
 
 - Region
 - OS
@@ -606,9 +592,7 @@ The root device for an instance launched from the AMI is an Amazon EBS volume cr
 
 The root device for an instance launched from the AMI is an instance store volume created from a template stored in Amazon S3.
 
-## Elastic Load Balancers
-
-### What is a load balancer?
+### Elastic Load Balancers - What is a load balancer?
 
 A virtual appliance that balances the load of HTTP traffic etc. of your web application/web servers.
 
@@ -620,15 +604,15 @@ A virtual appliance that balances the load of HTTP traffic etc. of your web appl
 
 ### Application Load Balancer _(Intelligent)_
 
-Best suited for load balancing of HTTP(S) traffic. They operate at Layer 7 (OSI) and are application aware. The are intelligent, and you can create advanced request routing, sending specified requests to specific web servers.
+- Best suited for load balancing of HTTP(S) traffic. They operate at Layer 7 (OSI) and are application aware. The are intelligent, and you can create advanced request routing, sending specified requests to specific web servers.
 
 ### Network Load Balancer _(Performance)_
 
-Best suited for load balancing of TCP traffic where extreme performance is required. Operating at the connection level (Layer 4), Network Load Balancers are capable of handling millions of requests per second, while maintaining ultra-low latencies.
+- Best suited for load balancing of TCP traffic where extreme performance is required. Operating at the connection level (Layer 4), Network Load Balancers are capable of handling millions of requests per second, while maintaining ultra-low latencies.
 
 ### Classic Load Balancer _(OG, Legacy Load Balancer)_
 
-Used to load balance HTTP(S) applications and use Layer 7-specific features, such as X-Forwarded and stick-sessions. You can use strict Layer 4 load balancing for applications that rely purely on the TCP protocol.
+- Used to load balance HTTP(S) applications and use Layer 7-specific features, such as X-Forwarded and stick-sessions. You can use strict Layer 4 load balancing for applications that rely purely on the TCP protocol.
 
 ### 504 Error
 
@@ -636,25 +620,23 @@ Used to load balance HTTP(S) applications and use Layer 7-specific features, suc
 - Internal Server Error type - DB Layer or Web Server Layer.
 - Solution: Identify issue where failing and scale up or out where possible.
 
-## Placement Groups (Exam MUST KNOW!!)
+### Placement Groups - Two Types of Placement Groups
 
-### Two Types of Placement Groups
+**1: Clustered Placement Group**
 
-**Clustered Placement Group**
-
-A cluster placement group is a grouping of instances within a **single** Availability Zone. Placement groups are recommended for applications that need low network latency, high network throughput, or both.
+- A cluster placement group is a grouping of instances within a **single** Availability Zone. Placement groups are recommended for applications that need low network latency, high network throughput, or both.
 
 _NOTE: Only a certain number instances can be launched in to a Clustered Placement Group._
 
-**Spread Placement Group**
+**2: Spread Placement Group**
 
-Opposite of a Clustered Placement Group. A Spread Placement Group is a group of instances that are each placed on distinct underlying hardware. Spread Placement Groups are recommended for applications that have a small number of critical instances that should be kept separate from each other.
+- Opposite of a Clustered Placement Group. A Spread Placement Group is a group of instances that are each placed on distinct underlying hardware. Spread Placement Groups are recommended for applications that have a small number of critical instances that should be kept separate from each other.
 
-## EFS (Elastic File System)
+### EFS (Elastic File System)
 
-AWS EFS is file storage service for AWS EC2 instances. Amazon EFS is easy to use and provides a simple interface that allows you to create and configure file systems quickly and easily. With AWS EFS, storage capacity is elastic, growing and shrinking automatically as you add and remove files, so your applications have the storage they need, when they need it.
+- AWS EFS is file storage service for AWS EC2 instances. Amazon EFS is easy to use and provides a simple interface that allows you to create and configure file systems quickly and easily. With AWS EFS, storage capacity is elastic, growing and shrinking automatically as you add and remove files, so your applications have the storage they need, when they need it.
 
-### EFS Features
+**Features**
 
 - Supports the Network File System version 4 (NFSv4) protocol
 - You only pay for the storage you use (no pre-provisioning required)
@@ -663,11 +645,9 @@ AWS EFS is file storage service for AWS EC2 instances. Amazon EFS is easy to use
 - Data is stored across multiple AZ's within a region
 - Read After Write Consistency
 
-## Lambda
+### Lambda - What is Lambda?
 
-### What is Lambda?
-
-AWS Lambda is a compute service where you can upload your code and create Lambda function. AWS Lambda takes care of provisioning and managing the servers that you use to run the code. Worry free from OS, patching, scaling, etc.
+- AWS Lambda is a compute service where you can upload your code and create Lambda function. AWS Lambda takes care of provisioning and managing the servers that you use to run the code. Worry free from OS, patching, scaling, etc.
 
 **Use Cases**
 
@@ -696,7 +676,6 @@ AWS Lambda is a compute service where you can upload your code and create Lambda
 
 - Number of requests
   - First 1m requests are free. $0.20 per 1m requests thereafter.
-
 - Duration
   - Duration is calculated from the time your code begins execution until it returns or otherwise terminates, rounded up to the nearest 100ms. The price depends on the amount of memory you allocate to your function. You are charged $0.00001667 for every GB-second used.
 
@@ -706,7 +685,6 @@ AWS Lambda is a compute service where you can upload your code and create Lambda
 - No SERVERS!!
 - Continuous Scaling
 - Super super super cheap
-
 
 
 ## Part 3 
