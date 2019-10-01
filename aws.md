@@ -121,7 +121,7 @@ You can turn on MFA Delete - to delete files they need MFA.
 - S3 Version Control - Great back-up tool
 
 
-## S3 Version Control - Great back-up tool
+### S3 Version Control - Great back-up tool
 Using Versioning with S3:
 - Stores all versions of an object (including all writes and deletes of an object)
 - Great backup tool
@@ -135,7 +135,7 @@ Using Versioning with S3:
 - Can be used in conjunction with versioning
 - Can be applied to current versions and previous versions
 
-## Cross Region Replication
+### Cross Region Replication
 - Cross Region Replication requires versioning enabled on the source and destination buckets
 - If you put a delete marker in your original bucket it is not going to replicate that market
 - If you delete your latest version it is not going to replicate "delete" in cross region bucket
@@ -145,11 +145,11 @@ Using Versioning with S3:
 - Delete markers are not replicated
 - Deleting individual versions will not be replicated
 
-## Transfer Acceleration
+### Transfer Acceleration
 - S3 Transfer Acceleration utilizes the CloudFront Edge Network to accelerate your uploads to S3. Instead of uploading directly to your S3 bucket you can use a distinct URL to upload directly to an edge location which will then transfer that file to S3. 
 - You will get a distinct URL to upload.
 
-## CloudFront (Global)
+### CloudFront (Global)
 - A Content Delivery Network (CDN) is a system of distributed servers (network) that delivers webpages and other web content to a user based on the geographical locations of the user, the origin of the webpage and the content deliver server.
 **Key Terminology:**
 - Edge Location: Location where content will be cached. This is separate to a Region/AZ (Availability Zone)
@@ -165,7 +165,7 @@ Using Versioning with S3:
 - Invalidation: no longer available on the edge locations
 (First you have to disable CloudFront distribution the you can delete it)
 
-## Storage Gateway:
+### Storage Gateway:
 Storage Gateway is a service that connects an on-premise softwaer appliance with cloud-based storage to provide seamless and secure integration between an organization's on premises IT environment and AWS' storage infrastructure. The service enables you to securely store data to the AWS Cloud for scalable and cost effective storage.
 
 **Your Data Center -> Storage Gateway -> Replicate Data -> AWS**
