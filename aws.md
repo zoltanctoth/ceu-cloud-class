@@ -119,3 +119,62 @@ You can turn on MFA Delete - to delete files they need MFA.
   - Server Side Encryption with Customer Provided Keys - SSE-C
 - Client Side Encryption
 - S3 Version Control - Great back-up tool
+
+
+## S3 Version Control - Great back-up tool
+Using Versioning with S3:
+- Stores all versions of an object (including all writes and deletes of an object)
+- Great backup tool
+- Once enabled, versioning cannot be disabled, only suspended
+- Integrates with Lifecycle Rules
+- Versioning's MFA Delete capability, which uses multi-factor authentication can provide additional layer of security.
+  - Note: Uploading the same file again (different version) will reset it to private
+- Lifecycle Management and Glacier
+- Lifecycle Rule automates transitioning your object to different tiers of storage
+- You can use it to permanently delete your objects as well
+- Can be used in conjunction with versioning
+- Can be applied to current versions and previous versions
+
+## Cross Region Replication
+- Cross Region Replication requires versioning enabled on the source and destination buckets
+- If you put a delete marker in your original bucket it is not going to replicate that market
+- If you delete your latest version it is not going to replicate "delete" in cross region bucket
+- Regions must be unique
+- Files in an existing bucket are not replicated automatically
+- All subsequent updates files will be replicated
+- Delete markers are not replicated
+- Deleting individual versions will not be replicated
+
+## Transfer Acceleration
+- S3 Transfer Acceleration utilizes the CloudFront Edge Network to accelerate your uploads to S3. Instead of uploading directly to your S3 bucket you can use a distinct URL to upload directly to an edge location which will then transfer that file to S3. 
+- You will get a distinct URL to upload.
+
+## CloudFront (Global)
+- A Content Delivery Network (CDN) is a system of distributed servers (network) that delivers webpages and other web content to a user based on the geographical locations of the user, the origin of the webpage and the content deliver server.
+**Key Terminology:**
+- Edge Location: Location where content will be cached. This is separate to a Region/AZ (Availability Zone)
+- Origin: The origin of all the files that the CDN will distribute. This can be an S3 Bucket, an EC2 instance, an Elastic Load Balancer, or Route 53. CloudFront can be used to deliver your entire website including dynamic/static,  streaming and interactive content - using a global network of edge locations. Requests for your content are automatically routed to the nearest edge location, so content is delivered with the best possible performance.
+
+- Two Types of CloudFront Distributions:
+  - 1: Web Distribution: Used for websites
+  - 2: RTMP: Used for media streaming
+- Edge Locations are not just READ only, you can write to them too. (e.g put objects to them)
+- Objects are cached for the Time of the TTL (Time To Live)
+- You can clear/invalidate cached objects, but you will be charged
+- CloudFront has 2 distributions: Web and RTMP
+- Invalidation: no longer available on the edge locations
+(First you have to disable CloudFront distribution the you can delete it)
+
+## Storage Gateway:
+Storage Gateway is a service that connects an on-premise softwaer appliance with cloud-based storage to provide seamless and secure integration between an organization's on premises IT environment and AWS' storage infrastructure. The service enables you to securely store data to the AWS Cloud for scalable and cost effective storage.
+
+**Your Data Center -> Storage Gateway -> Replicate Data -> AWS**
+
+- AWS Storage Gateway's software appliance is available for download as a VM (virtual image) that you install on a host in your datacenter. Storage Gateway supports VMware ESX / Microsoft Hyper-V
+- Once the gateway is installed and associated with your AWS account through the activation process, you can use the AWS Management Console to create the storage gateway options.
+
+Storage Gateways:
+  - 1: File Gateway (NPS)
+  - 2: Volume Gateway (iSCSI)
+    - stored volumes, cached volumes
+  - 3: Tape Gateway (VTL)
