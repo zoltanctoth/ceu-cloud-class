@@ -80,12 +80,12 @@ layout: default
 ## Part 2. AWS Services Overview
 
 **Compute:**
-    `EC2` - Elastic Compute Cloud
-    `EC2 Container Services` - Containerization Docker
-    `Elastic Beanstalk` - Plug and Play - for developers
-    `Lambda (server less)` - Code/Functions uploaded to the cloud to run at different points
-    `Lightsail` - Plug and Play
-    `Batch` - Batch computing in the cloud
+-    `EC2` - Elastic Compute Cloud
+-    `EC2 Container Services` - Containerization Docker
+-    `Elastic Beanstalk` - Plug and Play - for developers
+-    `Lambda (server less)` - Code/Functions uploaded to the cloud to run at different points
+-    `Lightsail` - Plug and Play
+-    `Batch` - Batch computing in the cloud
 
 **Storage:**
     `S3` - Simple Storage Service - object based storage - buckets
