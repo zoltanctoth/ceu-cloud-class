@@ -290,8 +290,10 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
 
 **Introductory Videos:**
 
-
+#### Video 1 - S3 Basics
 [![S3](assets/S3.png)](https://www.youtube.com/watch?v=f9hXcxHnQuE "S3 Basics")
+
+#### Video 2 - S3 Netflix [High Level] Demo
 [![S3Netflix](assets/S3Netflix.png)](https://www.youtube.com/watch?v=06AQA3xXXLA "How Netflix uses AWS")
 
 
