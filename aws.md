@@ -1006,8 +1006,9 @@ ssh -i AWS-Tutorial.pem ubuntu@52.5.92.87
 
 ```In this example, we open a terminal command line session on our local computer. We moved to the location of my `.pem` key file. We then made sure the permissions of this file were set correctly using a `chmod` command. You only need to do this step once but there is no harm in doing it again. Then we executed an SSH command to remotely log into our AWS instance using the `Public IP` 52.5.92.87. Our SSH command included an option to use the `.pem` file to identify us as the owner of the instance. We logged into the instance as a user called `ubuntu` because that is a user that we know will be defined by default on all ubuntu systems. Once logged in you can create new users if you wish. If your login is successful, you should see something like that shown in the screenshot below.```
 
-***
+
 **Step 11. Log into Instance:**
+
 ***
 
 ### Trouble-shooting and advanced topics
