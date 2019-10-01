@@ -430,6 +430,9 @@ EC2 has changed the economics of cloud computing by allowing you to pay only for
 #### How Netflix uses AWS EC2? [High Level Video]
 [![EC2Netflix](assets/EC2Netflix.png)](https://www.youtube.com/watch?v=izyqJPl9wW8 "EC2 Netflix Video")
 
+#### EC2 Basics [Video]
+[![EC2](assets/EC2.png)](https://www.youtube.com/watch?v=dO1X7QG_4xw&t=3s "EC2 Basics Video")
+
 ### Pricing Options
 
 #### On Demand
