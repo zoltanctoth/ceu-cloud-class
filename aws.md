@@ -80,6 +80,9 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
   - Sydney (3)
   - Beijing (2)
   - Ningxia (2)
+  
+  #### Availability Zones Video
+  [![AZ](assets/AZ.png)](https://www.youtube.com/watch?v=ET_CSqdGsYg "Availability Zones")
 
 ### Edge Locations
 
@@ -422,6 +425,9 @@ Storage Gateways:
 AWS EC2 is a web service that provides re-sizable compute capacity in the cloud. EC2 reduces the time required to obtain and boot new server instances to minutes, allowing you to quickly scale capacity, both up and down, as your computing requirements change.
 
 EC2 has changed the economics of cloud computing by allowing you to pay only for capacity that your actually use. EC2 provides developers the tools to build failure resistant applications and isolate themselves from common failure scenarios.
+
+#### How Netflix uses AWS EC2? [High Level Video]
+[![EC2Netflix](assets/EC2Netflix.png)](https://www.youtube.com/watch?v=izyqJPl9wW8 "EC2 Netflix Video")
 
 ### Pricing Options
 
