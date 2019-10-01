@@ -81,8 +81,9 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
   - Beijing (2)
   - Ningxia (2)
   
-  #### Availability Zones Video
-  [![AZ](assets/AZ.png)](https://www.youtube.com/watch?v=ET_CSqdGsYg "Availability Zones")
+#### Availability Zones Video
+  
+[![AZ](assets/AZ.png)](https://www.youtube.com/watch?v=ET_CSqdGsYg "Availability Zones")
 
 ### Edge Locations
 
