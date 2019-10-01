@@ -288,8 +288,6 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
 - **Buckets must be unique globally.** When you create a bucket it gets a web address. That's why it has to be unique.
 - When you upload to S3, you will receive HTTP 200 code if successful
 
-**Introductory Videos:**
-
 #### Video 1 - S3 Basics
 [![S3](assets/S3.png)](https://www.youtube.com/watch?v=f9hXcxHnQuE "S3 Basics")
 
