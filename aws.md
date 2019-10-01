@@ -1009,7 +1009,7 @@ ssh -i AWS-Tutorial.pem ubuntu@52.5.92.87
 
 **Step 11. Log into Instance:**
 
-***
+* * *
 
 ### Trouble-shooting and advanced topics
 
