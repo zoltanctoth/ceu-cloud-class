@@ -1013,7 +1013,7 @@ ssh -i AWS-Tutorial.pem ubuntu@52.5.92.87
 
 ### Trouble-shooting and advanced topics
 
-### I can not log into my EC2 instance, what might have gone wrong?
+### I cannot log into my EC2 instance, what might have gone wrong?
 If you tried the above and it did not work there are several possible explanations. 
 - First, check the `Instance State` of your instance in the EC2 console. Is it `running`? When you first start an instance it takes a few minutes to boot up. Similarly, if you reboot the instance for some reason, you will not be able to log into it until it comes back online. 
 - Second, are you in a terminal session in the directory where you stored your `.pem` key file? 
