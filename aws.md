@@ -288,6 +288,13 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
 - **Buckets must be unique globally.** When you create a bucket it gets a web address. That's why it has to be unique.
 - When you upload to S3, you will receive HTTP 200 code if successful
 
+**Introductory Videos:**
+
+
+[![S3](assets/S3.png)](https://www.youtube.com/watch?v=f9hXcxHnQuE "S3 Basics")
+[![S3Netflix](assets/S3Netflix.png)](https://www.youtube.com/watch?v=06AQA3xXXLA "How Netflix uses AWS")
+
+
 ### Data Consistency for S3
 - Read  after Write consistency for PUTS of new objects
   - If you upload a file you are able to read it immediately, you are able to read it straight after writing to it -> you are doing a PUT of that object into S3
