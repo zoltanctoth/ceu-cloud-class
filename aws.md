@@ -565,7 +565,6 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 ***
 **Google Data Center, The Dalles, Oregon ([source](http://en.wikipedia.org/wiki/File:Google_Data_Center,_The_Dalles.jpg)):**
 ![Image of a data center](Images/AWS/DataCenter.jpg)
-***
 
 - Since we are going to create an Amazon instance that is running a Linux operating system you will need to learn the basics of working at a Linux command line. You will also need to become familiar with basic fundamentals of Linux system administration.
  
