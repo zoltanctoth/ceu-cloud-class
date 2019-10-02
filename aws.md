@@ -522,6 +522,10 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 
 `_TLDR; A disk in the cloud that you attach to your EC2 instances_`
 
+#### Elastic Block Store (EBS) Video
+[![EBS](assets/EBS.png)](https://www.youtube.com/watch?v=S0gzrxsVQHo "Elastic Block Store (EBS)")
+
+
 ### EBS Volume Types
 
 - General Purpose SSD (GP2)
