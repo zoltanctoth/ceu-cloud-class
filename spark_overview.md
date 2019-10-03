@@ -1,3 +1,6 @@
+---
+layout: default
+---
 [Home](./README.md).
 [Internet](./internet.md).
 [Cloud Computing](./cloud_computing.md).
