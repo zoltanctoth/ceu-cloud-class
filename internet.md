@@ -13,6 +13,24 @@ layout: default
 
 ## Basics of Internet. TCP/IP, Servers, Ports, Firewalls
 
+## Contents
+
+- [Protocols](#protocols)
+- [IP](#Internet Protocol address (IP address))
+  - [Packets](###Packets)
+  - [Introduction to Computer Science](#introduction-to-computer-science)
+  - [Core CS](#core-cs)
+  - [Advanced CS](#advanced-cs)
+  - [Final project](#final-project)
+  - [Pro CS](#pro-cs)
+- [Code of conduct](#code-of-conduct)
+- [Community](#community)
+  - [How to show your progress](#how-to-show-your-progress)
+  - [Team](#team)
+- [References](#references)
+
+
+
 ### Protocols
 - A way of communicating - more specifically, a protocol is a set of rules or conventions that computers or computer programs use while communicating with each other
 - Real World Example: We shake hands, a protocol that has plenty of rules regarding length of the handshake, and the politeness of responding or not
