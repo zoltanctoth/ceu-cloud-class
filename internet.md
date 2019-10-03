@@ -23,7 +23,6 @@ layout: default
 - [Ports](#ports)
 - [UDP](#udp)
 - [Routers](#routers)
-- [DHCP](#dhcp)
 - [DNS](#dns)
 - [TCP](#tcp)
 - [UDP](#udp)
@@ -85,7 +84,11 @@ layout: default
 
 ### DNS
 - We access websites using domain names (Facebook.com, Google.com, etc.), but it turns out that these sites too have IP addresses
-- DNS (Domain Name System) servers convert domain names into IP addresses
+- There is a system to “translate” the human-readable domain names (google.com, facebook.com, cs50.io) to their IP address counterparts
+- This service is called DNS, which allows us to use this translation to get from point A to B
+- We also have routers or gateways, which know how to take in information, look at where it’s going, and send it to the proper router
+- Data doesn’t have to follow the same path each time, but it will get to where it needs to go in around 30 hops or jumps from router to router or gateway to gateway
+- To sum up, DNS (Domain Name System) convert domain names to IP addresses
 
 * * *
 
@@ -171,21 +174,6 @@ The internet is a network of networks (with their own routers)
   - Based in US Military logic to prevent downtime if a particular router goes down
   - When multiple packets are sent, like ceu_logo.jpg from Google, they can each take a different path, still getting to their destination eventually
     - Sometimes the internet is busy and the quickest path changes
-
-* * *
-
-### DHCP
-- This protocol makes it so that when a computer you have - a phone, a laptop, etc - **it can announce itself and ask for an address**
-- The protocol says that these devices will be assigned a numeric address
-- DHCP server dynamically assigns an IP address and other network configuration parameters to each device on a network so they can communicate with other IP networks
-- When my computer sends out a request, it has to use this IP address to make sure our data goes to the proper place
-- However, we, as humans, don’t really read addresses like 8.8.8.8 or 192.168.0.1
-
-### DNS
-- There is a system to “translate” the human-readable domain names (google.com, facebook.com, cs50.io) to their IP address counterparts
-- This service is called DNS, which allows us to use this translation to get from point A to B
-- We also have routers or gateways, which know how to take in information, look at where it’s going, and send it to the proper router
-- Data doesn’t have to follow the same path each time, but it will get to where it needs to go in around 30 hops or jumps from router to router or gateway to gateway
 
 * * *
 
