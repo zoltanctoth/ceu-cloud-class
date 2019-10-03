@@ -11,4 +11,4 @@ layout: default
 [Advanced Optimizations in Spark](spark_optimizations.md).
 [Resources](./resources.md).
 
-[assets/Resources/bash.png] (https://guide.bash.academy/ "The Bash Guide")
+[!assets/Resources/bash.png] (https://guide.bash.academy/ "The Bash Guide")
