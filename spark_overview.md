@@ -8,7 +8,7 @@
     <meta name="keywords" content="Actions, An End-to-End Example, DataFrames, DataFrames and SQL, Datasets: Type-Safe Structured APIs, Lazy Evaluation, Lower-Level APIs, Partitions, Running Production Applications, Spark Applications, Spark UI, Spark’s APIs, Spark’s Basic Architecture, Spark’s Ecosystem and Packages, Spark’s Language APIs, SparkR, Starting Spark, Structured-Streaming--Machine-Learning-and-Advanced-Analytics, The SparkSession, Transformations" />
     <meta name="created" content="2019-05-18 14:40:21 +0000" />
     <meta name="updated" content="2019-10-03 03:17:57 +0000" />
-    <title>Spark Overview</title>
+    ## Spark Overview
 </head>
 
 <body>
