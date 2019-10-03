@@ -23,7 +23,6 @@ layout: default
 - [Ports](#ports)
 - [UDP](#udp)
 - [Routers](#routers)
-- [DNS](#dns)
 - [TCP](#tcp)
 - [UDP](#udp)
 - [Traceroute](#traceroute)
