@@ -9,7 +9,7 @@ layout: default
 [Spark DataFrame & SQL API](./sparkAPI.md).
 [Spark Internals](./spark_internals.md).
 [Advanced Optimizations in Spark](spark_optimizations.md).
-[Resources](./resources.md).
+[Help/Resources](./resources.md).
 
 #### The Bash Guide:
 [![assets](assets/Resources/bash.png)](https://guide.bash.academy/ "The Bash Guide")
