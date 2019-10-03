@@ -17,7 +17,7 @@ layout: default
 
 - [Protocols](#protocols)
 - [IP](#Internet Protocol address (IP address))
-  - [Packets](###Packets)
+  - [Packets](#Packets)
   - [Introduction to Computer Science](#introduction-to-computer-science)
   - [Core CS](#core-cs)
   - [Advanced CS](#advanced-cs)
