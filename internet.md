@@ -83,7 +83,7 @@ layout: default
 
 ### DNS
 - We access websites using domain names (Facebook.com, Google.com, etc.), but it turns out that these sites too have IP addresses
-- There is a system to “translate” the human-readable domain names (google.com, facebook.com, cs50.io) to their IP address counterparts
+- There is a system to “translate” the human-readable domain names (google.com, facebook.com) to their IP address counterparts
 - This service is called DNS, which allows us to use this translation to get from point A to B
 - We also have routers or gateways, which know how to take in information, look at where it’s going, and send it to the proper router
 - Data doesn’t have to follow the same path each time, but it will get to where it needs to go in around 30 hops or jumps from router to router or gateway to gateway
