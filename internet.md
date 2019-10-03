@@ -16,18 +16,18 @@ layout: default
 ## Contents
 
 - [Protocols](#protocols)
-- [IP](#Internet_Protocol_address)
-- [DNS](#DNS)
-- [Packets](#Packets)
-- [TCP/IP](#TCP/IP)
-- [Ports](#Ports)
-- [UDP](#UDP)
-- [Routers](#Routers)
-- [DHCP](#DHCP)
-- [DNS](#DNS)
-- [TCP](#TCP)
-- [UDP](#UDP)
-- [Traceroute](#Traceroute)
+- [IP](#internet_protocol_address)
+- [DNS](#dns)
+- [Packets](#packets)
+- [TCP/IP](#tcp/ip)
+- [Ports](#ports)
+- [UDP](#udp)
+- [Routers](#routers)
+- [DHCP](#dhcp)
+- [DNS](#dns)
+- [TCP](#tcp)
+- [UDP](#udp)
+- [Traceroute](#traceroute)
 
 
 
