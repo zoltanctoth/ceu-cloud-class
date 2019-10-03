@@ -17,17 +17,17 @@ layout: default
 
 - [Protocols](#protocols)
 - [IP](#Internet_Protocol_address)
-  - [Packets](#Packets)
-  - [Introduction to Computer Science](#introduction-to-computer-science)
-  - [Core CS](#core-cs)
-  - [Advanced CS](#advanced-cs)
-  - [Final project](#final-project)
-  - [Pro CS](#pro-cs)
-- [Code of conduct](#code-of-conduct)
-- [Community](#community)
-  - [How to show your progress](#how-to-show-your-progress)
-  - [Team](#team)
-- [References](#references)
+- [DNS](#DNS)
+- [Packets](#Packets)
+- [TCP/IP](#TCP/IP)
+- [Ports](#Ports)
+- [UDP](#UDP)
+- [Routers](#Routers)
+- [DHCP](#DHCP)
+- [DNS](#DNS)
+- [TCP](#TCP)
+- [UDP](#UDP)
+- [Traceroute](#Traceroute)
 
 
 
@@ -174,7 +174,7 @@ The internet is a network of networks (with their own routers)
 
 * * *
 
-### DHCP - Dynamic Host Configuration Protocol
+### DHCP
 - This protocol makes it so that when a computer you have - a phone, a laptop, etc - **it can announce itself and ask for an address**
 - The protocol says that these devices will be assigned a numeric address
 - DHCP server dynamically assigns an IP address and other network configuration parameters to each device on a network so they can communicate with other IP networks
@@ -189,7 +189,8 @@ The internet is a network of networks (with their own routers)
 
 * * *
 
-### TCP - Transmission Control Protocol
+### TCP
+- Transmission Control Protocol
 - Guarantees with high probability that data gets to where it needs to go
 - Sometimes, computers drop packets (data) - they get more data than they can, or they miss it entirely
 - TCP allows computers to know if they should resend data
@@ -198,7 +199,8 @@ The internet is a network of networks (with their own routers)
 
 * * *
 
-### UDP - User Datagram Protocol
+### UDP 
+- User Datagram Protocol
 - The feature here is to not guarantee redelivery….what?
 - Still fairly common and appropriate
 - For example, video streaming, video conferencing, live communication - we don’t want a retransmission, we would rather stay up to date chronologically
