@@ -16,7 +16,7 @@ layout: default
 ## Contents
 
 - [Protocols](#protocols)
-- [IP](#Internet Protocol address (IP address))
+- [IP](#Internet_Protocol_address)
   - [Packets](#Packets)
   - [Introduction to Computer Science](#introduction-to-computer-science)
   - [Core CS](#core-cs)
@@ -47,7 +47,7 @@ layout: default
 
 * * *
 
-### Internet Protocol address (IP address)
+### Internet_Protocol_address
 - Every computer on the internet has an IP (Internet Protocol) address, of the form #.#.#.# -> Four numbers separated by dots of the values 0-255
 - Other IP address formats exist today as well; Like postal addresses, they uniquely identify computers on the internet
 - Any device connected to the internet has an IP address, allows other computers to talk to it
