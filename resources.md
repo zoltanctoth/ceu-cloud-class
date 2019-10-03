@@ -15,5 +15,9 @@ layout: default
 [![assets](assets/Resources/bash.png)](https://guide.bash.academy/ "The Bash Guide")
 
 
-### SQL:
+#### The SQL Guide:
 [![sql](assets/Resources/sql.png)](https://mode.com/sql-tutorial/ "The SQL Guide")
+
+
+#### The R Guide:
+TBC
