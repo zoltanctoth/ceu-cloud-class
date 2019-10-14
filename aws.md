@@ -79,9 +79,9 @@ layout: default
   * [Taking stock of compute resources within an Ubuntu Linux instance](#taking-stock-of-compute-resources-within-an-ubuntu-linux-instance)
   * [Basic setup and administration of an Ubuntu Linux instance](#basic-setup-and-administration-of-an-ubuntu-linux-instance)
   * [Setting up an Apache web server](#setting-up-an-apache-web-server)
-  * [What is difference between the 'Start', 'Stop', 'Reboot', and 'Terminate' (Instance States)?](#what-is-difference-between-the--start----stop----reboot---and--terminate---instance-states)
+  * [What is difference between the 'Start', 'Stop', 'Reboot', and 'Terminate' (Instance States)?](#what-is-difference-between-the-start-stop-reboot-and-terminate-instance-states)
   * [Tidying up and shutting down AWS resources](#tidying-up-and-shutting-down-aws-resources)
-  * [Further reading (Optional)](#further-reading--optional)
+  * [Further reading (Optional)](#further-reading-optional)
   * [Practice Questions](#practice-questions)
   
 * * *
