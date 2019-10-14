@@ -14,20 +14,31 @@ layout: default
 
 ## Basics of Internet. TCP/IP, Servers, Ports, Firewalls
 
-## Contents
-
-- [Protocols](#protocols)
-- [IP](#internet_protocol_address)
-- [DNS](#dns)
-- [Packets](#packets)
-- [TCP/IP](#tcp/ip)
-- [Ports](#ports)
-- [UDP](#udp)
-- [Routers](#routers)
-- [TCP](#tcp)
-- [UDP](#udp)
-- [Traceroute](#traceroute)
-
+## Table of Contents
+  * [Protocols](#protocols)
+  * [How the Internet Works?](#how-the-internet-works-)
+  * [Internet_Protocol_address](#internet-protocol-address)
+  * [DNS](#dns)
+  * [Packets](#packets)
+  * [TCP/IP](#tcp-ip)
+  * [Ports](#ports)
+  * [UDP](#udp)
+  * [Routers](#routers)
+  * [TCP](#tcp)
+  * [UDP](#udp-1)
+  * [Traceroute](#traceroute)
+  * [Undersea Cabling](#undersea-cabling)
+  * [HTTP - Hyper Text Transfer Protocol](#http---hyper-text-transfer-protocol)
+  * [HTML - Hyper Text Markup Language](#html---hyper-text-markup-language)
+- [Security](#security)
+  * [Privacy](#privacy)
+  * [Cookies](#cookies)
+  * [Firewall](#firewall)
+  * [Encryption](#encryption)
+  * [Public Key Cryptography](#public-key-cryptography)
+  * [A Deeper Dive [Public Key Cryptography]](#a-deeper-dive--public-key-cryptography-)
+  * [Q&A](#q-a)
+  * [Practice Questions:](#practice-questions-)
 
 
 ### Protocols
