@@ -37,7 +37,7 @@ layout: default
   * [S3 Version Control - Great back-up tool](#s3-version-control---great-back-up-tool)
   * [Cross Region Replication](#cross-region-replication)
   * [Transfer Acceleration](#transfer-acceleration)
-  * [CloudFront (Global)](#cloudfront--global)
+  * [CloudFront (Global)](#cloudfront-global)
   * [Storage Gateway:](#storage-gateway)
 - [Part 3](#part-3)
   * [EC2 - Elastic Cloud Compute](#ec2-elastic-cloud-compute)
