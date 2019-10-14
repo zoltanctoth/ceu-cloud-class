@@ -17,7 +17,7 @@ layout: default
 ## Table of Contents
   * [Protocols](#protocols)
   * [How the Internet Works?](#how-the-internet-works)
-  * [Internet_Protocol_address](#internet-protocol-address)
+  * [Internet Protocol address](#internet-protocol-address)
   * [DNS](#dns)
   * [Packets](#packets)
   * [TCP/IP](#tcpip)
