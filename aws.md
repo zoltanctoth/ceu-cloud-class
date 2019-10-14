@@ -15,25 +15,19 @@ layout: default
 ## Using AWS programatically
 
 ## Table of Contents
-- [Preamble](#preamble)
+- [Part 1 - Preamble](#preamble)
   + [Glossary and abbreviations](#glossary-and-abbreviations)
   * [Regions](#regions)
     + [Availability Zones Video](#availability-zones-video)
   * [Edge Locations](#edge-locations)
-- [Part 2. AWS Services Overview](#part-2-aws-services-overview)
-- [What Services Will Be Tested On The Exam??](#what-services-will-be-tested-on-the-exam--)
-- [Part 2](#part-2)
-  * [IAM - Identity Access Management](#iam---identity-access-management)
-  * [Terminology](#terminology)
-  * [IAM Continued:](#iam-continued-)
-  * [Create Billing Alarm](#create-billing-alarm)
-- [Part 3](#part-3)
+- [AWS Services Overview](#part-2-aws-services-overview)
+
+
+- [Part 2](#part-3)
   * [Amazon S3 - Stands for Simple Storage Service](#amazon-s3---stands-for-simple-storage-service)
-    + [Video 1 - S3 Basics](#video-1---s3-basics)
-    + [Video 2 - S3 Netflix [High Level] Demo](#video-2---s3-netflix--high-level--demo)
+    + [Video](#video-1---s3-basics)
   * [Data Consistency for S3](#data-consistency-for-s3)
-  * [S3 Guarantees:](#s3-guarantees-)
-  * [S3 Features Overview:](#s3-features-overview-)
+  * [S3 Features Overview:](#s3-features-overview)
   * [S3 Storage Classes](#s3-storage-classes)
   * [S3 Charges for:](#s3-charges-for-)
   * [S3 Security and Encryption](#s3-security-and-encryption)
@@ -96,7 +90,7 @@ layout: default
 #### Preamble
 Cloud computing allows users to quickly access an arbitrary amount of compute resources from a distance without the need to buy or maintain hardware themselves. There are many cloud computing services. This note describes the use of the Amazon Web Services ([AWS](http://aws.amazon.com/)) and its resources. However, the fundamental concepts covered here will generally apply to other cloud computing services such as [Google Cloud](https://cloud.google.com/), [Digital Ocean](https://www.digitalocean.com/), [Microsoft Azure](https://azure.microsoft.com/), [etc.](http://cloud-computing.softwareinsider.com/), though with substantial differences in jargon used by each provider.
 
-#### Glossary and abbreviations
+#### Glossary-and-abbreviations
 - [AWS](http://aws.amazon.com/) - Amazon Web Services. A collection of cloud computing services provided by Amazon. 
 - [EC2](http://aws.amazon.com/ec2/) - Elastic Compute. A particular AWS service that provides 'resizable cloud hosting services'. This service allows you to configure and rent computers to meet you compute needs on an as needed basis.
 - [EBS](http://aws.amazon.com/ebs/) - Elastic Block Storage. A data storage solution offered through the EC2 service. This service allows you to rent disk storage and associate that storage with your compute resources. EBS volumes are generally backed by SSD devices. EBS volumes can only be directly attached to a single EC2 instance at a time.
@@ -128,7 +122,7 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
 - Asia Pacific (Mumbai) - `ap-south-1`
 - South America (Sao Paulo) - `sa-east-1`
 
-### Availability Zones (AZ)
+### Availability-Zones-A
 
 - **AWS Availability Zones** are one or more discrete data centers, each with redundant power, networking and connectivity housed in separate facilities. Deploying your application across multiple Availability Zones is useful for redundancy, low latency and fault tolerance.
 
@@ -158,15 +152,15 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
   - Beijing (2)
   - Ningxia (2)
   
-#### Availability Zones Video
+#### Availability-Zones-Video
   
 [![AZ](assets/AZ.png)](https://www.youtube.com/watch?v=ET_CSqdGsYg "Availability Zones")
 
-### Edge Locations
+### Edge-Locations
 
 - **AWS Edge Locations** are locations around the world meant for caching content, enhancing the user experience, reducing latency. Edge locations are specifically used by AWS Cloudfront and AWS CDN. Every Region is has its own set Availability Zone's and Edge Locations.
 
-## Part 2. AWS Services Overview
+## Part 2. AWS-Services-Overview
 
 **Compute:**
 -    `EC2` - Elastic Compute Cloud
@@ -309,51 +303,11 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
 * * *
 
 ## What Services Will Be Tested On The Exam??
-- `IAM`
 - `S3`
 - `Glacier`
 - `EC2`
 - `EBS`
 
-* * *
-
-
-## Part 2
-
-### IAM - Identity Access Management
-
-- IAM allows you to manage users and their level of access to the AWS console
-- **Features:**
-  - Centralized control of your AWS account
-  - Shared access to your AWS account
-  - Granular Permissions (limit people's permissions)
-  - Identity Federation (You can use Active Directory, FB, Linkedin -> your users can log into the console using these)
-  - Multi-factor Authentication
-  - Provides temporary access for users / devices / services where necessary
-  - Allows you to set up your own password rotation policy
-  - Integrates with many different AWS Services
-  - Supports PCI DSS Compliance (Credit card details must be compliant)
-
-
-### Terminology
-
-| Users       | Groups         | Policies |Roles
-|:-------------|:------------------|:-------------|
-|End Users such as people, employees of an organization etc.| Collection of users in the group will inherit the permission of the group | Made up of "Policy Documents". JSON format. They give you permissions to what a User/Group/Role us able to do | You create roles and assign them to AWS resources |
-
-
-### IAM Continued:
-
-- IAM is universal - it does not apply to regions!
-- The "Root Account" is the account created when first setup your AWS account. It has complete Admin access
-- New users have no permissions when first created
-- New users are assigned Access Key ID and Secret Access Keys when first created -> These are not the same as passwords; you cannot use these to login to the console. You can use this to access AWS via APIs and the Command Line 
-- You only get to see this once!! If you lose them, you have to regenerate them!
-- You can create and customize your own password rotation policies
-
-### Create Billing Alarm
-- Check if the region is correct (billing alarm is region specific)
-- Billing alarm is found under CloudWatch
 
 * * *
 
