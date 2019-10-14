@@ -20,7 +20,7 @@ layout: default
   * [Internet_Protocol_address](#internet-protocol-address)
   * [DNS](#dns)
   * [Packets](#packets)
-  * [TCP/IP](#tcp-ip)
+  * [TCP/IP](#tcpip)
   * [Ports](#ports)
   * [UDP](#udp)
   * [Routers](#routers)
