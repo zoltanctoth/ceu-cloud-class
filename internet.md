@@ -57,7 +57,7 @@ layout: default
 
 * * *
 
-### Internet_Protocol_address
+### Internet Protocol address
 - Every computer on the internet has an IP (Internet Protocol) address, of the form #.#.#.# -> Four numbers separated by dots of the values 0-255
 - Other IP address formats exist today as well; Like postal addresses, they uniquely identify computers on the internet
 - Any device connected to the internet has an IP address, allows other computers to talk to it
