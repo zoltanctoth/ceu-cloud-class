@@ -14,13 +14,13 @@ layout: default
 
 ## Using AWS programatically
 
-##Table of Contents
+##T able of Contents
 - [Using AWS programatically](#using-aws-programatically)
 - [Part 1. Preamble, Regions, Availability Zones (AZ), Edge Locations](#part-1-preamble--regions--availability-zones--az---edge-locations)
-    + [Preamble](#preamble)
-    + [Glossary and abbreviations](#glossary-and-abbreviations)
+- [Preamble](#preamble)
+  + [Glossary and abbreviations](#glossary-and-abbreviations)
   * [Regions](#regions)
-  * [Availability Zones (AZ)](#availability-zones--az-)
+  * [Availability Zones (AZ)](#availability-zones-az-)
     + [Availability Zones Video](#availability-zones-video)
   * [Edge Locations](#edge-locations)
 - [Part 2. AWS Services Overview](#part-2-aws-services-overview)
