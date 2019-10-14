@@ -26,7 +26,7 @@ layout: default
 - [Part 2](#part-2)
   * [Amazon S3 - Stands for Simple Storage Service](#amazon-s3---stands-for-simple-storage-service)
     + [Video 1 - S3 Basics](#video-1---s3-basics)
-    + [Video 2 - S3 Netflix Video](video-2---s3-netflix-high-level-demo)
+    + [Video 2 - S3 Netflix Video](#video-2---s3-netflix-high-level-demo)
   * [Data Consistency for S3](#data-consistency-for-s3)
   * [S3 Guarantees:](#s3-guarantees)
   * [S3 Features Overview:](#s3-features-overview)
