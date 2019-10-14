@@ -36,8 +36,8 @@ layout: default
   * [Firewall](#firewall)
   * [Encryption](#encryption)
   * [Public Key Cryptography](#public-key-cryptography)
-  * [A Deeper Dive [Public Key Cryptography]](#a-deeper-dive--public-key-cryptography)
-  * [Q&A](#q-a)
+  * [A Deeper Dive [Public Key Cryptography]](#a-deeper-dive-public-key-cryptography)
+  * [Q&A](#qa)
   * [Practice Questions:](#practice-questions)
 
 
