@@ -15,76 +15,6 @@ layout: default
 ## Using AWS programatically
 
 ## Table of Contents
-- [Part 1. Preamble, Regions, Availability Zones (AZ), Edge Locations](#part-1-preamble--regions--availability-zones--az---edge-locations)
-    + [Preamble](#preamble)
-    + [Glossary and abbreviations](#glossary-and-abbreviations)
-  * [Regions](#regions)
-  * [Availability-Zones](#availability-zones)
-    + [Availability Zones Video](#availability-zones-video)
-  * [Edge Locations](#edge-locations)
-- [Part 1. AWS Services Overview](#part-1-aws-services-overview)
-- [What Services Will Be Tested On The Exam??](#what-services-will-be-tested-on-the-exam--)
-- [Part 2](#part-2)
-  * [Amazon S3 - Stands for Simple Storage Service](#amazon-s3---stands-for-simple-storage-service)
-    + [Video 1 - S3 Basics](#video-1---s3-basics)
-    + [Video 2 - S3 Netflix [High Level] Demo](#video-2---s3-netflix-high-level-demo)
-  * [Data Consistency for S3](#data-consistency-for-s3)
-  * [S3 Guarantees:](#s3-guarantees)
-  * [S3 Features Overview:](#s3-features-overview)
-  * [S3 Storage Classes](#s3-storage-classes)
-  * [S3 Charges for:](#s3-charges-for-)
-  * [S3 Security and Encryption](#s3-security-and-encryption)
-  * [Encryption in Transit is achieved by:](#encryption-in-transit-is-achieved-by)
-  * [S3 Version Control - Great back-up tool](#s3-version-control---great-back-up-tool)
-  * [Cross Region Replication](#cross-region-replication)
-  * [Transfer Acceleration](#transfer-acceleration)
-  * [CloudFront (Global)](#cloudfront-global)
-  * [Storage Gateway:](#storage-gateway-)
-- [Part 3](#part-3)
-  * [EC2 - Elastic Cloud Compute](#ec2---elastic-cloud-compute)
-    + [How Netflix uses AWS EC2 Video](#how-netflix-uses-aws-ec2-video)
-    + [EC2 Basics Video](#ec2-basics-video)
-  * [Pricing Options](#pricing-options)
-    + [On Demand](#on-demand)
-    + [Reserved](#reserved)
-    + [Spot](#spot)
-    + [Dedicated Hosts](#dedicated-hosts)
-  * [EC2 Instance Types](#ec2-instance-types)
-- [Part 4](#part-4)
-  * [EBS - Elastic Block Storage](#ebs---elastic-block-storage)
-    + [Elastic Block Store (EBS) Video](#elastic-block-store--ebs--video)
-  * [EBS Volume Types](#ebs-volume-types)
-- [Part 6 - Launching an EC2 Instance](#part-6---launching-an-ec2-instance)
-    + [What do I need to perform this tutorial?](#what-do-i-need-to-perform-this-tutorial-)
-  * [Creating an account](#creating-an-account)
-  * [Logging into the AWS console](#logging-into-the-aws-console)
-  * [What is a Region?](#what-is-a-region-)
-  * [How much does it cost to use AWS EC2 resources?](#how-much-does-it-cost-to-use-aws-ec2-resources-)
-  * [How does billing work?](#how-does-billing-work-)
-  * [Necessary steps for launching an Instance](#necessary-steps-for-launching-an-instance)
-     + [Step 1. Choosing an AMI](#step-1-choosing-an-ami)
-     + [Step 2. Choosing an Instance Type](#step-2-choosing-an-instance-type)
-     + [Step 3. Configuring Instance Details](#step-3-configuring-instance-details)
-     + [Step 4. Adding Storage](#step-4-adding-storage)
-     + [Storage volume options](#storage-volume-options)
-     + [What is ephemeral or `Instance Store` storage? What is `EBS` storage? Which is the better option for `Root device type`?](#what-is-ephemeral-or--instance-store--storage--what-is--ebs--storage--which-is-the-better-option-for--root-device-type--)
-     + [Step 5. Tagging the Instance](#step-5-tagging-the-instance)
-     + [Step 6. Configuring a Security Group:](#step-6-configuring-a-security-group-)
-     + [Step 7. Reviewing the Instance before Launch](#step-7-reviewing-the-instance-before-launch)
-     + [Step 8. Assigning a Key Pair](#step-8-assigning-a-key-pair)
-     + [Step 9. Reviewing launch status](#step-9-reviewing-launch-status)
-     + [Step 10. Examining a new Instance in the EC2 Console](#step-10-examining-a-new-instance-in-the-ec2-console)
-     + [Step 11. Logging into an instance](#step-11-logging-into-an-instance)
-  * [Trouble-shooting and advanced topics](#trouble-shooting-and-advanced-topics)
-  * [I cannot log into my EC2 instance, what might have gone wrong?](#i-cannot-log-into-my-ec2-instance--what-might-have-gone-wrong-)
-  * [How do storage volumes appear within a Linux instance on Amazon EC2?](#how-do-storage-volumes-appear-within-a-linux-instance-on-amazon-ec2-)
-  * [Taking stock of compute resources within an Ubuntu Linux instance](#taking-stock-of-compute-resources-within-an-ubuntu-linux-instance)
-  * [Basic setup and administration of an Ubuntu Linux instance](#basic-setup-and-administration-of-an-ubuntu-linux-instance)
-  * [Setting up an Apache web server](#setting-up-an-apache-web-server)
-  * [What is difference between the 'Start', 'Stop', 'Reboot', and 'Terminate' (Instance States)?](#what-is-difference-between-the--start----stop----reboot---and--terminate---instance-states--)
-  * [Tidying up and shutting down AWS resources](#tidying-up-and-shutting-down-aws-resources)
-  * [Further reading and preparing for more advanced AWS cloud computing concepts](#further-reading-and-preparing-for-more-advanced-aws-cloud-computing-concepts)
-  * [Practice Questions](#practice-questions)
 
 * * *
 
@@ -305,7 +235,7 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
 
 * * *
 
-## What Services Will Be Tested On The Exam??
+## What Services Will Be Tested On The Exam?
 - `S3`
 - `Glacier`
 - `EC2`
@@ -516,8 +446,6 @@ Physical EC2 server dedicated for your use. Dedicated Hosts can help you reduce 
 
 ### EC2 Instance Types
 
-**_No need to memorize for associate exams_**
-
 | Family | Specialty                     | Use Cases                       |
 | :------:|:-----------------------------:| :------------------------------:|
 | F1     | Field Programmable Gate Array | Genomics research, financial analytics, real-time video processing, big data etc|
@@ -533,7 +461,7 @@ Physical EC2 server dedicated for your use. Dedicated Hosts can help you reduce 
 | X1      | Memory Optimized               | SAP HANA / Apache Spark |
 
 
-**How to remember EC2 instance types F.I.G.H.T.D.R.M.C.P.X (after 2017 reinvent):**
+**How to remember EC2 instance types F.I.G.H.T.D.R.M.C.P.X**
   - **_F_** - FGPA
   - **_I_** - IOPS
   - **_G_** - Graphics
@@ -1175,7 +1103,7 @@ sudo service apache2 restart
 - All of this can be done in the AWS EC2 console
 - hen you are done, the `EC2 Dashboard` should show `0` for all resource types except `Security Groups` where a single default security configuration will remain
 
-### Further reading and preparing for more advanced AWS cloud computing concepts
+### Further reading (Optional)
 - This is a basic introduction to AWS cloud computing that assumes all configuration of the instance will occur within the AWS EC2 console of your web browser and all configuration of the Ubuntu Linux system will occur by the user manually executing commands and perhaps saving the outcome as a cusom AMI
 - For large scale computing and complex deployments of compute infrastructure on the cloud these methods will not be sustainable
 - Here is a list of more advanced topics for discussion on how to move beyond the console and automate configuration of your system:
