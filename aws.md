@@ -1204,12 +1204,6 @@ sudo service apache2 restart
 - Platform as a Service (PaaS)
 - Software as a Service (Software as a Service)
 
-#### What are the models of computing deployment?
-
-** Answer
-- Public
-- Hybrid
-- On-premises
 
 #### What is S3 and what does it mean?
 
@@ -1276,25 +1270,6 @@ Edge Locations are endpoints for AWS which are used for caching content. There a
 housed in separate facilities
 - Edge locations are endpoints for AWS which are used for caching content.
 
-
-#### What is IAM?
-
-** Answer
-Essentially, IAM allows you to manage users and their level of access to the AWS Console.
-
-
-#### Critical terms of IAM?
-
-** Answer
-- Users - End Users (think people)
-- Groups - A collection of Users under one set of permissions
-- Roles - You create roles and can then be assign them to AWS resources
-- Policies - A document that defines one (or more permissions). Can be attached to User/Group/Role.
-
-#### Is IAM Global?
-
-** Answer
-Yes
 
 #### What is the root account?
 
