@@ -14,7 +14,7 @@ layout: default
 
 ## Using AWS programatically
 
-##T able of Contents
+## Table of Contents
 - [Using AWS programatically](#using-aws-programatically)
 - [Part 1. Preamble, Regions, Availability Zones (AZ), Edge Locations](#part-1-preamble--regions--availability-zones--az---edge-locations)
 - [Preamble](#preamble)
