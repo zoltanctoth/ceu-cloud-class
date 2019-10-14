@@ -66,7 +66,6 @@ layout: default
   * [Step 3. Configuring Instance Details](#step-3-configuring-instance-details)
   * [Step 4. Adding Storage](#step-4-adding-storage)
   * [Storage volume options](#storage-volume-options)
-    + [What is ephemeral or `Instance Store` storage? What is `EBS` storage? Which is the better option for `Root device type`?](#what-is-ephemeral-or--instance-store--storage--what-is--ebs--storage--which-is-the-better-option-for--root-device-type--)
   * [Step 5. Tagging the Instance](#step-5-tagging-the-instance)
   * [Step 6. Configuring a Security Group:](#step-6-configuring-a-security-group-)
   * [Step 7. Reviewing the Instance before Launch](#step-7-reviewing-the-instance-before-launch)
