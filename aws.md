@@ -40,7 +40,7 @@ layout: default
   * [CloudFront (Global)](#cloudfront-global)
   * [Storage Gateway:](#storage-gateway)
 - [Part 3](#part-3)
-  * [EC2 - Elastic Cloud Compute](#ec2-elastic-cloud-compute)
+  * [EC2 - Elastic Cloud Compute](#ec2---elastic-cloud-compute)
     + [How Netflix uses AWS EC2 Video](#how-netflix-uses-aws-ec2-video)
     + [EC2 Basics Video](#ec2-basics-video)
   * [Pricing Options](#pricing-options)
