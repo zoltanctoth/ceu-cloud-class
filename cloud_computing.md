@@ -23,7 +23,7 @@ layout: default
 - [Costs](#costs)
 - [IAaS - Infrastructure As a Service](#iaas---infrastructure-as-a-service)
 - [Virtual Machines](#virtual-machines)
-- [PAaS, SAaS - Platform and Software As a Service](#paas--saas---platform-and-software-as-a-service)
+- [PAaS, SAaS - Platform and Software As a Service](#paas-saas---platform-and-software-as-a-service)
 - [Databases](#databases)
 - [Layering and Summary](#layering-and-summary)
 
