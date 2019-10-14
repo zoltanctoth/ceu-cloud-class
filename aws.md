@@ -74,7 +74,7 @@ layout: default
   * [Step 10. Examining a new Instance in the EC2 Console](#step-10-examining-a-new-instance-in-the-ec2-console)
   * [Step 11. Logging into an instance](#step-11-logging-into-an-instance)
   * [Trouble-shooting and advanced topics](#trouble-shooting-and-advanced-topics)
-  * [I cannot log into my EC2 instance, what might have gone wrong?](#i-cannot-log-into-my-ec2-instance--what-might-have-gone-wrong)
+    + [I cannot log into my EC2 instance, what might have gone wrong?](#i-cannot-log-into-my-ec2-instance--what-might-have-gone-wrong)
   * [How do storage volumes appear within a Linux instance on Amazon EC2?](#how-do-storage-volumes-appear-within-a-linux-instance-on-amazon-ec2)
   * [Taking stock of compute resources within an Ubuntu Linux instance](#taking-stock-of-compute-resources-within-an-ubuntu-linux-instance)
   * [Basic setup and administration of an Ubuntu Linux instance](#basic-setup-and-administration-of-an-ubuntu-linux-instance)
