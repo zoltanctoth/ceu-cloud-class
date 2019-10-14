@@ -14,6 +14,19 @@ layout: default
 
 ## Basics of Cloud Computing using Amazon Web Services (AWS): Storage and Virtual Machines
 
+## Table of Contents
+- [What is cloud computing?](#what-is-cloud-computing-)
+- [Origins](#origins)
+- [Cloud Solutions](#cloud-solutions)
+- [Caching](#caching)
+- [SPOF - Single Point Of Failure](#spof---single-point-of-failure)
+- [Costs](#costs)
+- [IAaS - Infrastructure As a Service](#iaas---infrastructure-as-a-service)
+- [Virtual Machines](#virtual-machines)
+- [PAaS, SAaS - Platform and Software As a Service](#paas--saas---platform-and-software-as-a-service)
+- [Databases](#databases)
+- [Layering and Summary](#layering-and-summary)
+
 ### What is cloud computing?
 - It may sound complicated and foreign
 - But it’s really just many technologies coming together
