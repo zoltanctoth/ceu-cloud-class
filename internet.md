@@ -16,7 +16,7 @@ layout: default
 
 ## Table of Contents
   * [Protocols](#protocols)
-  * [How the Internet Works?](#how-the-internet-works-)
+  * [How the Internet Works?](#how-the-internet-works)
   * [Internet_Protocol_address](#internet-protocol-address)
   * [DNS](#dns)
   * [Packets](#packets)
@@ -36,9 +36,9 @@ layout: default
   * [Firewall](#firewall)
   * [Encryption](#encryption)
   * [Public Key Cryptography](#public-key-cryptography)
-  * [A Deeper Dive [Public Key Cryptography]](#a-deeper-dive--public-key-cryptography-)
+  * [A Deeper Dive [Public Key Cryptography]](#a-deeper-dive--public-key-cryptography)
   * [Q&A](#q-a)
-  * [Practice Questions:](#practice-questions-)
+  * [Practice Questions:](#practice-questions)
 
 
 ### Protocols
