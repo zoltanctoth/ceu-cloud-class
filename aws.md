@@ -15,7 +15,7 @@ layout: default
 ## Using AWS programatically
 
 ## Table of Contents
-    + [Preamble](#preamble)
+- [Preamble](#preamble)
     + [Glossary and abbreviations](#glossary-and-abbreviations)
   * [Regions](#regions)
   * [Availability-Zones](#availability-zones)
