@@ -15,72 +15,7 @@ layout: default
 ## Using AWS programatically
 
 ## Table of Contents
-- [Part 1 - Preamble](#preamble)
-  + [Glossary and abbreviations](#glossary-and-abbreviations)
-  * [Regions](#regions)
-    + [Availability Zones Video](#availability-zones-video)
-  * [Edge Locations](#edge-locations)
-- [AWS Services Overview](#part-2-aws-services-overview)
 
-
-- [Part 2](#part-3)
-  * [Amazon S3 - Stands for Simple Storage Service](#amazon-s3---stands-for-simple-storage-service)
-    + [Video](#video-1---s3-basics)
-  * [Data Consistency for S3](#data-consistency-for-s3)
-  * [S3 Features Overview:](#s3-features-overview)
-  * [S3 Storage Classes](#s3-storage-classes)
-  * [S3 Charges for:](#s3-charges-for-)
-  * [S3 Security and Encryption](#s3-security-and-encryption)
-  * [Encryption in Transit is achieved by:](#encryption-in-transit-is-achieved-by-)
-  * [S3 Version Control - Great back-up tool](#s3-version-control---great-back-up-tool)
-  * [Cross Region Replication](#cross-region-replication)
-  * [Transfer Acceleration](#transfer-acceleration)
-  * [CloudFront (Global)](#cloudfront--global)
-  * [Storage Gateway:](#storage-gateway)
-- [Part 4](#part-4)
-  * [EC2 (Elastic Cloud Compute)](#ec2--elastic-cloud-compute)
-    + [How Netflix uses AWS EC2? [High Level Video]](#how-netflix-uses-aws-ec2---high-level-video)
-    + [EC2 Basics [Video]](#ec2-basics--video)
-  * [Pricing Options](#pricing-options)
-    + [On Demand](#on-demand)
-    + [Reserved](#reserved)
-    + [Spot](#spot)
-    + [Dedicated Hosts](#dedicated-hosts)
-  * [EC2 Instance Types](#ec2-instance-types)
-- [Part 5](#part-5)
-  * [EBS - Elastic Block Storage](#ebs---elastic-block-storage)
-    + [Elastic Block Store (EBS) Video](#elastic-block-store--ebs--video)
-  * [EBS Volume Types](#ebs-volume-types)
-- [Part 7 - Launching an EC2 Instance](#part-7---launching-an-ec2-instance)
-    + [What do I need to perform this tutorial?](#what-do-i-need-to-perform-this-tutorial)
-  * [Creating an account](#creating-an-account)
-  * [Logging into the AWS console](#logging-into-the-aws-console)
-  * [What is a Region?](#what-is-a-region)
-  * [How much does it cost to use AWS EC2 resources?](#how-much-does-it-cost-to-use-aws-ec2-resources)
-  * [How does billing work? (I do not think I am using anything, why am I still getting a monthly bill)?](#how-does-billing-work---i-do-not-think-i-am-using-anything--why-am-i-still-getting-a-monthly-bill)
-  * [Necessary steps for launching an Instance](#necessary-steps-for-launching-an-instance)
-  * [Step 1. Choosing an AMI](#step-1-choosing-an-ami)
-  * [Step 2. Choosing an Instance Type](#step-2-choosing-an-instance-type)
-  * [Step 3. Configuring Instance Details](#step-3-configuring-instance-details)
-  * [Step 4. Adding Storage](#step-4-adding-storage)
-  * [Storage volume options](#storage-volume-options)
-  * [Step 5. Tagging the Instance](#step-5-tagging-the-instance)
-  * [Step 6. Configuring a Security Group:](#step-6-configuring-a-security-group)
-  * [Step 7. Reviewing the Instance before Launch](#step-7-reviewing-the-instance-before-launch)
-  * [Step 8. Assigning a Key Pair](#step-8-assigning-a-key-pair)
-  * [Step 9. Reviewing launch status](#step-9-reviewing-launch-status)
-  * [Step 10. Examining a new Instance in the EC2 Console](#step-10-examining-a-new-instance-in-the-ec2-console)
-  * [Step 11. Logging into an instance](#step-11-logging-into-an-instance)
-  * [Trouble-shooting and advanced topics](#trouble-shooting-and-advanced-topics)
-  * [I cannot log into my EC2 instance, what might have gone wrong?](#i-cannot-log-into-my-ec2-instance--what-might-have-gone-wrong)
-  * [How do storage volumes appear within a Linux instance on Amazon EC2?](#how-do-storage-volumes-appear-within-a-linux-instance-on-amazon-ec2)
-  * [Taking stock of compute resources within an Ubuntu Linux instance](#taking-stock-of-compute-resources-within-an-ubuntu-linux-instance)
-  * [Basic setup and administration of an Ubuntu Linux instance](#basic-setup-and-administration-of-an-ubuntu-linux-instance)
-  * [Setting up an Apache web server](#setting-up-an-apache-web-server)
-  * [What is difference between the 'Start', 'Stop', 'Reboot', and 'Terminate' (Instance States)?](#what-is-difference-between-the--start----stop----reboot---and--terminate---instance-states)
-  * [Tidying up and shutting down AWS resources](#tidying-up-and-shutting-down-aws-resources)
-  * [Further reading and preparing for more advanced AWS cloud computing concepts](#further-reading-and-preparing-for-more-advanced-aws-cloud-computing-concepts)
-  * [Practice Questions / Q&A](#practice-questions---q-a)
 
 * * *
 
@@ -89,7 +24,7 @@ layout: default
 #### Preamble
 Cloud computing allows users to quickly access an arbitrary amount of compute resources from a distance without the need to buy or maintain hardware themselves. There are many cloud computing services. This note describes the use of the Amazon Web Services ([AWS](http://aws.amazon.com/)) and its resources. However, the fundamental concepts covered here will generally apply to other cloud computing services such as [Google Cloud](https://cloud.google.com/), [Digital Ocean](https://www.digitalocean.com/), [Microsoft Azure](https://azure.microsoft.com/), [etc.](http://cloud-computing.softwareinsider.com/), though with substantial differences in jargon used by each provider.
 
-#### Glossary-and-abbreviations
+#### Glossary and abbreviations
 - [AWS](http://aws.amazon.com/) - Amazon Web Services. A collection of cloud computing services provided by Amazon. 
 - [EC2](http://aws.amazon.com/ec2/) - Elastic Compute. A particular AWS service that provides 'resizable cloud hosting services'. This service allows you to configure and rent computers to meet you compute needs on an as needed basis.
 - [EBS](http://aws.amazon.com/ebs/) - Elastic Block Storage. A data storage solution offered through the EC2 service. This service allows you to rent disk storage and associate that storage with your compute resources. EBS volumes are generally backed by SSD devices. EBS volumes can only be directly attached to a single EC2 instance at a time.
@@ -121,7 +56,7 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
 - Asia Pacific (Mumbai) - `ap-south-1`
 - South America (Sao Paulo) - `sa-east-1`
 
-### Availability-Zones-A
+### Availability-Zones
 
 - **AWS Availability Zones** are one or more discrete data centers, each with redundant power, networking and connectivity housed in separate facilities. Deploying your application across multiple Availability Zones is useful for redundancy, low latency and fault tolerance.
 
@@ -159,7 +94,7 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
 
 - **AWS Edge Locations** are locations around the world meant for caching content, enhancing the user experience, reducing latency. Edge locations are specifically used by AWS Cloudfront and AWS CDN. Every Region is has its own set Availability Zone's and Edge Locations.
 
-## Part 2. AWS Services Overview
+## Part 1. AWS Services Overview
 
 **Compute:**
 -    `EC2` - Elastic Compute Cloud
@@ -310,7 +245,7 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
 
 * * *
 
-## Part 3
+## Part 2
 
 ### Amazon S3 - Stands for Simple Storage Service
 - S3 provides secure, durable, highly scalable object storage. 
@@ -449,18 +384,18 @@ Storage Gateways:
 
 * * *
 
-## Part 4
+## Part 3
 
-### EC2 (Elastic Cloud Compute)
+### EC2 - Elastic Cloud Compute
 
 AWS EC2 is a web service that provides re-sizable compute capacity in the cloud. EC2 reduces the time required to obtain and boot new server instances to minutes, allowing you to quickly scale capacity, both up and down, as your computing requirements change.
 
 EC2 has changed the economics of cloud computing by allowing you to pay only for capacity that your actually use. EC2 provides developers the tools to build failure resistant applications and isolate themselves from common failure scenarios.
 
-#### How Netflix uses AWS EC2? [High Level Video]
+#### How Netflix uses AWS EC2 Video
 [![EC2Netflix](assets/EC2Netflix.png)](https://www.youtube.com/watch?v=izyqJPl9wW8 "EC2 Netflix Video")
 
-#### EC2 Basics [Video]
+#### EC2 Basics Video
 [![EC2](assets/EC2.png)](https://www.youtube.com/watch?v=dO1X7QG_4xw&t=3s "EC2 Basics Video")
 
 ### Pricing Options
@@ -544,7 +479,7 @@ Physical EC2 server dedicated for your use. Dedicated Hosts can help you reduce 
 
 * * *
 
-## Part 5
+## Part 4
 
 ### EBS - Elastic Block Storage
 
@@ -581,7 +516,7 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 
 * * *
 
-## Part 7 - Launching an EC2 Instance
+## Part 6 - Launching an EC2 Instance
 
 #### What do I need to perform this tutorial?
 - A computer with access to the internet, a Web Browser, and a command line terminal application (e.g. `Terminal` on a Mac, `putty` on Windows, etc.)
@@ -698,7 +633,7 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 ![AWS-EC2-PriceList](Images/AWS/AWS-EC2-PriceList.png)
 ***
 
-### How does billing work? (I do not think I am using anything, why am I still getting a monthly bill)?
+### How does billing work?
 
 - Generally you get an accounting of usage and cost on a 30 day cycle. 
 - You can get more detailed information on your account by going to the `Billing and Cost Management` section of the `User` menu in the EC2 console
@@ -1186,7 +1121,7 @@ sudo service apache2 restart
 
 
 * * * 
-### Practice Questions / Q&A
+### Practice Questions
 
 #### What are the advantages of cloud computing?
 ** Answer
