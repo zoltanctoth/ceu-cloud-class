@@ -35,12 +35,12 @@ layout: default
   * [S3 Version Control - Great back-up tool](#s3-version-control---great-back-up-tool)
   * [Cross Region Replication](#cross-region-replication)
   * [Transfer Acceleration](#transfer-acceleration)
-  * [CloudFront (Global)](#cloudfront--global-)
-  * [Storage Gateway:](#storage-gateway-)
+  * [CloudFront (Global)](#cloudfront--global)
+  * [Storage Gateway:](#storage-gateway)
 - [Part 4](#part-4)
-  * [EC2 (Elastic Cloud Compute)](#ec2--elastic-cloud-compute-)
-    + [How Netflix uses AWS EC2? [High Level Video]](#how-netflix-uses-aws-ec2---high-level-video-)
-    + [EC2 Basics [Video]](#ec2-basics--video-)
+  * [EC2 (Elastic Cloud Compute)](#ec2--elastic-cloud-compute)
+    + [How Netflix uses AWS EC2? [High Level Video]](#how-netflix-uses-aws-ec2---high-level-video)
+    + [EC2 Basics [Video]](#ec2-basics--video)
   * [Pricing Options](#pricing-options)
     + [On Demand](#on-demand)
     + [Reserved](#reserved)
@@ -52,33 +52,32 @@ layout: default
     + [Elastic Block Store (EBS) Video](#elastic-block-store--ebs--video)
   * [EBS Volume Types](#ebs-volume-types)
 - [Part 7 - Launching an EC2 Instance](#part-7---launching-an-ec2-instance)
-    + [What do I need to perform this tutorial?](#what-do-i-need-to-perform-this-tutorial-)
+    + [What do I need to perform this tutorial?](#what-do-i-need-to-perform-this-tutorial)
   * [Creating an account](#creating-an-account)
   * [Logging into the AWS console](#logging-into-the-aws-console)
-  * [What is a Region?](#what-is-a-region-)
-  * [How much does it cost to use AWS EC2 resources?](#how-much-does-it-cost-to-use-aws-ec2-resources-)
-  * [How does billing work? (I do not think I am using anything, why am I still getting a monthly bill)?](#how-does-billing-work---i-do-not-think-i-am-using-anything--why-am-i-still-getting-a-monthly-bill--)
+  * [What is a Region?](#what-is-a-region)
+  * [How much does it cost to use AWS EC2 resources?](#how-much-does-it-cost-to-use-aws-ec2-resources)
+  * [How does billing work? (I do not think I am using anything, why am I still getting a monthly bill)?](#how-does-billing-work---i-do-not-think-i-am-using-anything--why-am-i-still-getting-a-monthly-bill)
   * [Necessary steps for launching an Instance](#necessary-steps-for-launching-an-instance)
   * [Step 1. Choosing an AMI](#step-1-choosing-an-ami)
   * [Step 2. Choosing an Instance Type](#step-2-choosing-an-instance-type)
   * [Step 3. Configuring Instance Details](#step-3-configuring-instance-details)
   * [Step 4. Adding Storage](#step-4-adding-storage)
   * [Storage volume options](#storage-volume-options)
-    + [What is ephemeral or `Instance Store` storage? What is `EBS` storage? Which is the better option for `Root device type`?](#what-is-ephemeral-or--instance-store--storage--what-is--ebs--storage--which-is-the-better-option-for--root-device-type--)
   * [Step 5. Tagging the Instance](#step-5-tagging-the-instance)
-  * [Step 6. Configuring a Security Group:](#step-6-configuring-a-security-group-)
+  * [Step 6. Configuring a Security Group:](#step-6-configuring-a-security-group)
   * [Step 7. Reviewing the Instance before Launch](#step-7-reviewing-the-instance-before-launch)
   * [Step 8. Assigning a Key Pair](#step-8-assigning-a-key-pair)
   * [Step 9. Reviewing launch status](#step-9-reviewing-launch-status)
   * [Step 10. Examining a new Instance in the EC2 Console](#step-10-examining-a-new-instance-in-the-ec2-console)
   * [Step 11. Logging into an instance](#step-11-logging-into-an-instance)
   * [Trouble-shooting and advanced topics](#trouble-shooting-and-advanced-topics)
-  * [I cannot log into my EC2 instance, what might have gone wrong?](#i-cannot-log-into-my-ec2-instance--what-might-have-gone-wrong-)
-  * [How do storage volumes appear within a Linux instance on Amazon EC2?](#how-do-storage-volumes-appear-within-a-linux-instance-on-amazon-ec2-)
+  * [I cannot log into my EC2 instance, what might have gone wrong?](#i-cannot-log-into-my-ec2-instance--what-might-have-gone-wrong)
+  * [How do storage volumes appear within a Linux instance on Amazon EC2?](#how-do-storage-volumes-appear-within-a-linux-instance-on-amazon-ec2)
   * [Taking stock of compute resources within an Ubuntu Linux instance](#taking-stock-of-compute-resources-within-an-ubuntu-linux-instance)
   * [Basic setup and administration of an Ubuntu Linux instance](#basic-setup-and-administration-of-an-ubuntu-linux-instance)
   * [Setting up an Apache web server](#setting-up-an-apache-web-server)
-  * [What is difference between the 'Start', 'Stop', 'Reboot', and 'Terminate' (Instance States)?](#what-is-difference-between-the--start----stop----reboot---and--terminate---instance-states--)
+  * [What is difference between the 'Start', 'Stop', 'Reboot', and 'Terminate' (Instance States)?](#what-is-difference-between-the--start----stop----reboot---and--terminate---instance-states)
   * [Tidying up and shutting down AWS resources](#tidying-up-and-shutting-down-aws-resources)
   * [Further reading and preparing for more advanced AWS cloud computing concepts](#further-reading-and-preparing-for-more-advanced-aws-cloud-computing-concepts)
   * [Practice Questions / Q&A](#practice-questions---q-a)
@@ -152,15 +151,15 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
   - Beijing (2)
   - Ningxia (2)
   
-#### Availability-Zones-Video
+#### Availability Zones Video
   
 [![AZ](assets/AZ.png)](https://www.youtube.com/watch?v=ET_CSqdGsYg "Availability Zones")
 
-### Edge-Locations
+### Edge Locations
 
 - **AWS Edge Locations** are locations around the world meant for caching content, enhancing the user experience, reducing latency. Edge locations are specifically used by AWS Cloudfront and AWS CDN. Every Region is has its own set Availability Zone's and Edge Locations.
 
-## Part 2. AWS-Services-Overview
+## Part 2. AWS Services Overview
 
 **Compute:**
 -    `EC2` - Elastic Compute Cloud
