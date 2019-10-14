@@ -15,7 +15,7 @@ layout: default
 ## Basics of Cloud Computing using Amazon Web Services (AWS): Storage and Virtual Machines
 
 ## Table of Contents
-- [What is cloud computing?](#what-is-cloud-computing-)
+- [What is cloud computing?](#what-is-cloud-computing)
 - [Origins](#origins)
 - [Cloud Solutions](#cloud-solutions)
 - [Caching](#caching)
