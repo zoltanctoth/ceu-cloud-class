@@ -57,9 +57,14 @@ Open the Terminal:
 
 | Driver Process    | Executor Processes   |
 | :------------- | :----------: | 
-| Heart of a Spark Application, maintains all relevant information during the lifetime of the application. Runs on your main() function, sits on a node in the cluster, and is responsible for: - Maintaining information about the Spark Application - Responding to a user's program or input analyzing, distributing and scheduling work across the executors | Responsible for actually carrying out the work that the (<-) driver assigns them. Each executor is responsible for: - Executing code assigned to it by the driver - Reporting the state of the computation on that executor BACK to the driver node.| 
+| Heart of a Spark Application, maintains all relevant information during the lifetime of the application. Runs on your main() function, sits on a node in the cluster, and is responsible for: - Maintaining information about the Spark Application - Responding to a user's program or input analyzing, distributing and scheduling work across the executors | Responsible for actually carrying out the work that the (<-) driver assigns them. Each executor is responsible for: - Executing code assigned to it by the driver - Reporting the state of the computation on that executor back to the driver node.| 
 
+![driver_executor](Images/SparkOverview/driver_executor_spark.png)
 
+- Driver is on the left, four executors on the right. It demonstrates how the cluster manager controls physical machines and allocates resources to Spark Applications. This can be one of three cluster managers ( YARN, Mesos, Spark's standalone cluster manager). This means that there can be multiple Spark Applications running on a cluster at the same time.
+
+> Note: Spark, in addition to a cluster mode, also has a local mode. The driver and the executor are simply processes, this means they can live on the same machine or different machines. 
+Local Mode - Driver and executor run as threads on your individual computer in stead of a cluster.
 
 
 
