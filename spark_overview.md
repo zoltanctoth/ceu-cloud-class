@@ -57,10 +57,15 @@ Open the Terminal:
 
 | Driver Process (heart of a Spark Application, maintains all relevant information during the lifetime of the application.      | Executor Processes   |
 | :------------- | :----------: | 
-|  Runs of your main() function, sits on a node in the cluster, and is responsible for:
-(1) Maintaining information about the Spark Application
-(2) Responding to a user's program or input analyzing, distributing and scheduling work across the executors | Responsible for actually carrying out the work that the (<-) driver assigns them. Each executor is responsible for:
-(1) Executing code assigned to it by the driver (2) Reporting the state of the computation on that executor BACK to the driver node.| 
+|  
+Runs of your main() function, sits on a node in the cluster, and is responsible for:
+- Maintaining information about the Spark Application
+- Responding to a user's program or input analyzing, distributing and scheduling work across the executors 
+|
+Responsible for actually carrying out the work that the (<-) driver assigns them. 
+Each executor is responsible for:
+- Executing code assigned to it by the driver
+- Reporting the state of the computation on that executor BACK to the driver node.| 
 
 
 
