@@ -38,9 +38,9 @@ layout: default
 
 **Launching Spark:**
 Open the Terminal: 
-Python: ```./bin/pyspark``` | 
-Scala: ```./bin/spark-shell```| 
-SQL: ```./bin/spark-sql```| 
+**Python:** ```./bin/pyspark``` 
+**Scala:** ```./bin/spark-shell```
+**SQL:** ```./bin/spark-sql```
 
 *After you have done that type "spark" and press Enter. You will see the "SparkSession" object printed*
 
