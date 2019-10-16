@@ -37,7 +37,16 @@ layout: default
 - Spark runs on both Windows and UNIX-like systems (e.g. Linux, Mac OS). All you need is to have java installed on your system PATH, or the JAVA_HOME environment variable pointing to a Java installation. If you want to use the Python API, you will need a Python interpreter. If you want to use R, you will need a version of R on your machine. 
 
 **Launching Spark:**
-'''./bin/pyspark'''
+Open the Terminal, paste: 
+Python: ```./bin/pyspark```
+Scala: ```./bin/spark-shell```
+SQL: ```./bin/spark-sql```
+
+*After you have done that type "spark" and press Enter. You will see the "SparkSession" object printed*
+
+**The SparkSession:** You can control your Spark Application through a driver process called the SparkSession. The SparkSession is the way Spark executes user-defined manipulations across the cluster. There is a one-to-one correspondance between a SparkSession and a SparkApplication.
+
+
 
 
 
