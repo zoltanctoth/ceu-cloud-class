@@ -46,8 +46,13 @@ SQL: ```./bin/spark-sql```
 
 **The SparkSession:** You can control your Spark Application through a driver process called the SparkSession. The SparkSession is the way Spark executes user-defined manipulations across the cluster. There is a one-to-one correspondance between a SparkSession and a SparkApplication.
 
+  > One computer works well for watching movies or working with spreadsheet software. However, there are things a computer is not powerful enough to perform - e.g data processing. Single machines do not have the power and resources to perform computations on huge amounts of information or the user does not have time to wait for the computation to finish. 
+  
+**Cluster:** A cluster or group, of computers, pools the resources of many machines together, giving us the ability to use all the cumulative resources as if they were a single computer. A group of machines alone is not powerful, you need a framework to coordinate work across them - Spark does just that! - Coordinating and managing the execution of tasks on data across a cluster of computers. The cluster of machines that Spark uses to execute tasks is managed by a cluster manager. 
+*YARN or Mesos or Spark's standalone cluster manager. We then submit Spark Applications to these cluster managers*
 
-
+**Spark Application** (Architecture of a Spark Application)
+- Spark applications consist of a **drives process** and a set of **executor processes**.
 
 
 
