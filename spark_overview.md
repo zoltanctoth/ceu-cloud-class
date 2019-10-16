@@ -63,12 +63,11 @@ Open the Terminal:
 
 - Driver is on the left, four executors on the right. It demonstrates how the cluster manager controls physical machines and allocates resources to Spark Applications. This can be one of three cluster managers ( YARN, Mesos, Spark's standalone cluster manager). This means that there can be multiple Spark Applications running on a cluster at the same time.
 
-> Note: Spark, in addition to a cluster mode, also has a local mode. The driver and the executor are simply processes, this means they can live on the same machine or different machines. 
-Local Mode - Driver and executor run as threads on your individual computer in stead of a cluster.
+> Note: Spark, in addition to a cluster mode, also has a local mode. The driver and the executor are simply processes, this means they can live on the same machine or different machines. Local Mode - Driver and executor run as threads on your individual computer in stead of a cluster.
 
 - Spark employs a cluster manager that keeps track of the resources available
-- The driver process is responsible for executing the driver program's commands across the executor to complete a given task.
-- The executor only runs Spark code. However, the driver can be driven from a number of different languages through Spark's Language APIs.
+- The driver process is responsible for executing the driver program's commands across the executor to complete a given task
+- The executor only runs Spark code. However, the driver can be driven from a number of different languages through Spark's Language APIs
 
 **Spark's Language APIs:** make it possible to run Spark code using programming languages. Spark presents 'core concepts' in every language; these concepts are then translated into Spark code that runs on the cluster of machines. 
 
