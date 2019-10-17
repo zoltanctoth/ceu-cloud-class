@@ -34,10 +34,10 @@ Very <b>high level APIs</b> in languages such as Java Scala Python and all that 
 - <b>GraphX</b> is a system for graph applications 
 </div>
 
-<p>The nice thing about these is that they're all just libraries you can `combine` together in one program and they all translate down to the `same engine` underneath. </p>
+<div>The nice thing about these is that they're all just libraries you can `combine` together in one program and they all translate down to the `same engine` underneath. </div>
 
-<p>
-Let's discuss why Spark was designed to have a <b>Unified Engine</b> by introducing the history of large scale cluster computing. A lot of the recent wave in data intensive computing started back in 2004 with the MapReduce paper published by Google. </p>
+<div>
+Let's discuss why Spark was designed to have a <b>Unified Engine</b> by introducing the history of large scale cluster computing. A lot of the recent wave in data intensive computing started back in 2004 with the MapReduce paper published by Google. </div>
 <img src="Images/SparkOverview/googlemapreduce.png">
 <br>
 <div>
@@ -49,13 +49,13 @@ One thing you you may notice in the MapReduce paper though that was a very impor
 </div>
 <br>
 <b>They wanted to do three types of things:</b>
-<p>
+<div>
 - More complex multi pass algorithms. MapReduce is just a single pass computation you do a map through the data then you do a reduce and you can aggregate together some values but many real-world algorithms need to go through the data many times and
 basically they weren't that easy or efficient to build with MapReduce.
-</p>
-<p>
+</div>
+<div>
 - More interactive ad-hoc ways so for example you're collecting a large data set something about visits to a website or maybe a scientific data set or something like testing out pharmaceuticals and you can on a batch job over it and compute a result in like 30 minutes and aggregate together all the data. That's really great, but then if you have a new question about it you want to ask that question and get back the results in a few seconds if possible so that you can actually explore it interactively and that's the thing that MapReduce wasn't able to do. And finally users wanted to do more real-time stream processing as well so instead of for example building a web index having and updating that once per night in this way why can't you update it in real-time as you browse, as you call the web and as you see new events happening, or news articles appear or stuff like that? So it's a very natural question in all of these environments. 
-</p>
+</div>
 <div>
 Because of these different workloads, the result was that the people proposed the wide variety of specialized cluster computing systems for these workloads that are sort of the equivalent of MapReduce for streaming with the equivalent of MapReduce for interactive ways or things like that. And that's kind of the direction that the software went in.
 </div>
