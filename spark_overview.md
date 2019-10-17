@@ -55,7 +55,13 @@ Because of these different workloads, the result was that the people proposed th
 
 So basically we started out with MapReduce that did batch processing but it was a general engine you could do many different types of batch processing which was good and then we got all these specialized systems including inside Google and also outside it so in Google for example they developed bagel and Dremel which were systems for graph processing and interactive ways respectively in the open source Hadoop ecosystem.
 
-<img src="Images/SparkOverview/datasystems1.png">
+<img src="Images/SparkOverview/datasystems2.png">
+<img src="Images/SparkOverview/maprdatasharing.png">
+<img src="Images/SparkOverview/problemspecializedsystems.png">
+<img src="Images/SparkOverview/whatweneed.png">
+<img src="Images/SparkOverview/beyondmapreduce.png">
+<img src="Images/SparkOverview/background.png">
+
 
 </p>
   
