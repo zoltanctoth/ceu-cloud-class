@@ -56,6 +56,7 @@ So basically we started out with MapReduce that did batch processing but it was 
 </details>
 <br>
 
+* * *
 
 ### Apache Spark
 - Collecting data is extremely inexpensive but processing it requires large, parallel computations, often on clusters of machines
