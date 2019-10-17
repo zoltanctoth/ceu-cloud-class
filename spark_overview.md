@@ -14,14 +14,16 @@ layout: default
 
 ## Spark Overview
 
-<details><summary>Brief overview of the Spark Project and the Research that led to that (Optional)</summary>
+<details><summary><b>Brief overview of the Spark Project and the Research that led to that (Optional)>/b></summary>
   
 <p>
-Spark is a cluster computing engine that generalizes the MapReduce programming model that Google introduced back in 2004. Basically, Spark tries to support more types of applications and make them easier to program than MapReduce does. The goal was to make Spark both easy and fast to process large data sets on a cluster of machines. 
+Spark is a cluster computing engine that generalizes the MapReduce programming model that Google introduced back in 2004. Basically, Spark tries to support more types of applications and make them easier to program than MapReduce does. The goal was to make Spark both easy and fast to process large data sets on a cluster of machines. <br>
   <b>The way Spark did it:</b>
-- Very **high level APIs** in languages such as Java Scala Python and all that are easy to program in to try to make it as similar as possible to programming on a single machine when that's possible 
+  <div>
+Very <b>high level APIs</b> in languages such as Java Scala Python and all that are easy to program in to try to make it as similar as possible to programming on a single machine when that's possible <br>
 - It's a **unified engine** that can capture many different workloads on the same engine. So you don't have to hook together many different systems to create a pipeline. You can actually express them all in the same programming model and that's very powerful to get both faster and and easier to use processing. Thus, in terms of the unified engine what that means is that on top of the Spark engine there's a wide variety of standard libraries that are built in and these are the four shipped with the project. 
-
+    </div>
+<img src="Images/SparkOverview/sparkecosystem.png" height="42" width="42">
 ![sparkecosystem](Images/SparkOverview/sparkecosystem.png)
 
 - **Spark SQL** lets you work with structured data and use languages like SQL or other API's as well to query this kind of data.
