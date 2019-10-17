@@ -20,5 +20,8 @@ layout: default
 [![sql](assets/Resources/sql.png)](https://mode.com/sql-tutorial/ "The SQL Guide")
 
 
+#### The AWS Guide
+[![awsguide](assets/Resources/awsguide.png)](https://aws.amazon.com/getting-started/ "The AWS Guide")
+
 #### The R Guide:
 TBC
