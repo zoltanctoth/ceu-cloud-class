@@ -14,6 +14,28 @@ layout: default
 
 ## Spark Overview
 
+### Brief overview of the Spark Project and the Research that led to that
+Spark is a cluster computing engine that generalizes the MapReduce programming model that Google introduced back in 2004. Basically Spark tries to support more types of applications and to make them easier to program than MapReduce does. The goal was to make Spark both easy and fast to process large data sets on a cluster of machines. 
+**The way Spark did it:**
+- Very **high level APIs** in languages such as Java Scala Python and all that are easy to program in to try to make it as similar as possible to programming on a single machine when that's possible 
+- It's a **unified engine** that can capture many different workloads on the same engine. So you don't have to hook together many different systems to create a pipeline. You can actually express them all in the same programming model and that's very powerful to get both faster and and easier to use processing. Thus, in terms of the unified engine what that means is that on top of the Spark engine there's a wide variety of standard libraries that are built in and these are the four shipped with the project. 
+
+![sparkecosystem](Images/SparkOverview/sparkecosystem.png)
+
+- **Spark SQL** lets you work with structured data and use languages like SQL or other API's as well to query this kind of data.
+- **Spark Streaming** uses the engine to process and update results in real-time as new data comes in 
+- **MLlib** is a library of distributed machine learning algorithms that project developers built and you can just call into 
+- **GraphX**  is a system for graph applications 
+
+>The nice thing about these is that they're all just libraries you can combine together in one program and they all translate down to the same engine underneath so it's very easy to make an application that combines several of these things and
+beyond.
+
+
+
+
+
+
+
 ### Apache Spark
 - Collecting data is extremely inexpensive but processing it requires large, parallel computations, often on clusters of machines
     - That's what Apache Spark was built for
