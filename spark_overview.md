@@ -32,14 +32,14 @@ Very <b>high level APIs</b> in languages such as Java Scala Python and all that 
 - <b>Spark Streaming</b> uses the engine to process and update results in real-time as new data comes in 
 - <b>MLlib</b> is a library of distributed machine learning algorithms that project developers built and you can just call into 
 - <b>GraphX</b> is a system for graph applications 
-</divv>
+</div>
 
 <p>The nice thing about these is that they're all just libraries you can `combine` together in one program and they all translate down to the `same engine` underneath. </p>
 
 <p>
 Let's discuss why Spark was designed to have a <b>Unified Engine</b> by introducing the history of large scale cluster computing. A lot of the recent wave in data intensive computing started back in 2004 with the MapReduce paper published by Google. </p>
 <img src="Images/SparkOverview/googlemapreduce.png">
-</br>
+<br>
 <div>
 Google in this paper said:
 >Well we have this environment that's pretty unique which is a large number of commodity servers. It's data intensive computation as opposed to just compute intensive which is what scientific supercomputing was, it automatically deals with failures, it keeps going and it's easy for users to hide applications in. And that was the 'MapReduce paper' that was extremely influential.
