@@ -17,14 +17,14 @@ layout: default
 <details><summary>Overview of the Spark Project and the Research that led to that (Awesome but <b>Optional</b>)</summary>
 
 <p>
-    <img src="Images/SparkOverview/sparkdefinition.png">
+    <img src="Images/SparkOverview/sparkdefinition.png width="200" height="100"">
 Spark is a cluster computing engine that generalizes the MapReduce programming model that Google introduced back in 2004. Basically, Spark tries to support more types of applications and make them easier to program than MapReduce does. The goal was to make Spark both easy and fast to process large data sets on a cluster of machines. <br>
   <b>The way Spark did it:</b>
   <div>
 Very <b>high level APIs</b> in languages such as Java Scala Python and all that are easy to program in to try to make it as similar as possible to programming on a single machine when that's possible <br>
 - It's a **unified engine** that can capture many different workloads on the same engine. So you don't have to hook together many different systems to create a pipeline. You can actually express them all in the same programming model and that's very powerful to get both faster and and easier to use processing. Thus, in terms of the unified engine what that means is that on top of the Spark engine there's a wide variety of standard libraries that are built in and these are the four shipped with the project. 
     </div>
-<img src="Images/SparkOverview/sparkecosystem.png">
+<img src="Images/SparkOverview/sparkecosystem.png width="200" height="100"">
 
 
 - <b>Spark SQL</b> lets you work with structured data and use languages like SQL or other API's as well to query this kind of data.
@@ -35,7 +35,7 @@ Very <b>high level APIs</b> in languages such as Java Scala Python and all that 
 >The nice thing about these is that they're all just libraries you can `combine` together in one program and they all translate down to the `same engine` underneath. 
 
 Let's discuss why Spark was designed to have a <b>Unified Engine</b> by introducing the history of large scale cluster computing. A lot of the recent wave in data intensive computing started back in 2004 with the MapReduce paper published by Google. 
-<img src="Images/SparkOverview/googlemapreduce.png">
+<img src="Images/SparkOverview/googlemapreduce.png width="200" height="100"">
 
 Google in this paper said:
 >Well we have this environment that's pretty unique which is a large number of commodity servers. It's data intensive computation as opposed to just compute intensive which is what scientific supercomputing was, it automatically deals with failures, it keeps going and it's easy for users to hide applications in. And that was the 'MapReduce paper' that was extremely influential.
@@ -51,7 +51,7 @@ basically they weren't that easy or efficient to build with MapReduce.
 Because of these different workloads, the result was that the people proposed the wide variety of specialized cluster computing systems for these workloads that are sort of the equivalent of MapReduce for streaming with the equivalent of MapReduce for interactive ways or things like that. And that's kind of the direction that the software went in.
 
 So basically we started out with MapReduce that did batch processing but it was a general engine you could do many different types of batch processing which was good and then we got all these specialized systems including inside Google and also outside it so in Google for example they developed bagel and Dremel which were systems for graph processing and interactive ways respectively in the open source Hadoop ecosystem.
-<img src="Images/SparkOverview/datasystems1.png">
+<img src="Images/SparkOverview/datasystems1.png width="200" height="100"">
 
 </p>
   
