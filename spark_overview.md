@@ -14,10 +14,9 @@ layout: default
 
 ## Spark Overview
 
-<details><summary>CBrief overview of the Spark Project and the Research that led to that (Optional)</summary>
+<details><summary>BBrief overview of the Spark Project and the Research that led to that (Optional)</summary>
   
 <p>
-  ### Brief overview of the Spark Project and the Research that led to that
 Spark is a cluster computing engine that generalizes the MapReduce programming model that Google introduced back in 2004. Basically, Spark tries to support more types of applications and make them easier to program than MapReduce does. The goal was to make Spark both easy and fast to process large data sets on a cluster of machines. 
 **The way Spark did it:**
 - Very **high level APIs** in languages such as Java Scala Python and all that are easy to program in to try to make it as similar as possible to programming on a single machine when that's possible 
