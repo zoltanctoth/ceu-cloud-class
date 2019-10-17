@@ -69,6 +69,8 @@ So basically we started out with MapReduce that did batch processing but it was 
 </details>
 
 
+
+
 * * *
 
 ### Apache Spark
