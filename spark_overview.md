@@ -54,7 +54,7 @@ So basically we started out with MapReduce that did batch processing but it was 
 </p>
   
 </details>
-
+<br>
 
 
 ### Apache Spark
