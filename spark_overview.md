@@ -15,8 +15,9 @@ layout: default
 ## Spark Overview
 
 <details><summary>Overview of the Spark Project and the Research that led to that (Awesome but <b>Optional</b>)</summary>
-  
+
 <p>
+    <img src="Images/SparkOverview/sparkdefinition.png">
 Spark is a cluster computing engine that generalizes the MapReduce programming model that Google introduced back in 2004. Basically, Spark tries to support more types of applications and make them easier to program than MapReduce does. The goal was to make Spark both easy and fast to process large data sets on a cluster of machines. <br>
   <b>The way Spark did it:</b>
   <div>
@@ -24,32 +25,33 @@ Very <b>high level APIs</b> in languages such as Java Scala Python and all that 
 - It's a **unified engine** that can capture many different workloads on the same engine. So you don't have to hook together many different systems to create a pipeline. You can actually express them all in the same programming model and that's very powerful to get both faster and and easier to use processing. Thus, in terms of the unified engine what that means is that on top of the Spark engine there's a wide variety of standard libraries that are built in and these are the four shipped with the project. 
     </div>
 <img src="Images/SparkOverview/sparkecosystem.png">
-![sparkecosystem](Images/SparkOverview/sparkecosystem.png)
 
-- **Spark SQL** lets you work with structured data and use languages like SQL or other API's as well to query this kind of data.
-- **Spark Streaming** uses the engine to process and update results in real-time as new data comes in 
-- **MLlib** is a library of distributed machine learning algorithms that project developers built and you can just call into 
-- **GraphX**  is a system for graph applications 
+
+- <b>Spark SQL</b> lets you work with structured data and use languages like SQL or other API's as well to query this kind of data.
+- <b>Spark Streaming</b> uses the engine to process and update results in real-time as new data comes in 
+- <b>MLlib</b> is a library of distributed machine learning algorithms that project developers built and you can just call into 
+- <b>GraphX</b> is a system for graph applications 
 
 >The nice thing about these is that they're all just libraries you can `combine` together in one program and they all translate down to the `same engine` underneath. 
 
-Let's discuss why Spark was designed to have a **Unified Engine** by introducing the history of large scale cluster computing. A lot of the recent wave in data intensive computing started back in 2004 with the MapReduce paper published by Google. 
-![googlemapreduce.png](Images/SparkOverview/googlemapreduce.png)
+Let's discuss why Spark was designed to have a <b>Unified Engine</b> by introducing the history of large scale cluster computing. A lot of the recent wave in data intensive computing started back in 2004 with the MapReduce paper published by Google. 
+<img src="Images/SparkOverview/googlemapreduce.png">
 
 Google in this paper said:
 >Well we have this environment that's pretty unique which is a large number of commodity servers. It's data intensive computation as opposed to just compute intensive which is what scientific supercomputing was, it automatically deals with failures, it keeps going and it's easy for users to hide applications in. And that was the 'MapReduce paper' that was extremely influential.
 One thing you you may notice in the MapReduce paper though that was a very important part of it is they talked a lot about how general it was. They really liked the idea of having a general engine to do these different batch processing tasks they had. So they said, you know we first wrote MapReduce in 2003 and since that time we have been pleasantly surprised at how badly applicable it was. The generality of it but MapReduce itself only handled batch processing which was fine for them because that's the main thing they did at the time. So what happened after thatis MapReduce became very widely deployed especially through the Hadoop implementation, which was an open source MapReduce and it was very good for batch processing. But users quickly wanted to do more things on the same kind of hardware and at the same kind of scale that they were using MapReduce on. 
 
-**They wanted to do three types of things:**
+<b>They wanted to do three types of things:</b>
 
 - More complex multi pass algorithms. MapReduce is just a single pass computation you do a map through the data then you do a reduce and you can aggregate together some values but many real-world algorithms need to go through the data many times and
 basically they weren't that easy or efficient to build with MapReduce.
 
-- More interactive ad hoc ways so for example you're collecting a large data set something about visits to a website or maybe a scientific data set or something like testing out pharmaceuticals and you can on a batch job over it and compute a result in like 30 minutes and aggregate together all the data. That's really great, but then if you have a new question about it you want to ask that question and get back the results in a few seconds if possible so that you can actually explore it interactively and that's the thing that MapReduce wasn't able to do. And finally users wanted to do more real-time stream processing as well so instead of for example building a web index having and updating that once per night in this way why can't you update it in real-time as you browse, as you call the web and as you see new events happening, or news articles appear or stuff like that? So it's a very natural question in all of these environments. 
+- More interactive ad-hoc ways so for example you're collecting a large data set something about visits to a website or maybe a scientific data set or something like testing out pharmaceuticals and you can on a batch job over it and compute a result in like 30 minutes and aggregate together all the data. That's really great, but then if you have a new question about it you want to ask that question and get back the results in a few seconds if possible so that you can actually explore it interactively and that's the thing that MapReduce wasn't able to do. And finally users wanted to do more real-time stream processing as well so instead of for example building a web index having and updating that once per night in this way why can't you update it in real-time as you browse, as you call the web and as you see new events happening, or news articles appear or stuff like that? So it's a very natural question in all of these environments. 
 
 Because of these different workloads, the result was that the people proposed the wide variety of specialized cluster computing systems for these workloads that are sort of the equivalent of MapReduce for streaming with the equivalent of MapReduce for interactive ways or things like that. And that's kind of the direction that the software went in.
 
 So basically we started out with MapReduce that did batch processing but it was a general engine you could do many different types of batch processing which was good and then we got all these specialized systems including inside Google and also outside it so in Google for example they developed bagel and Dremel which were systems for graph processing and interactive ways respectively in the open source Hadoop ecosystem.
+<img src="Images/SparkOverview/datasystems1.png">
 
 </p>
   
