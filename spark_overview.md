@@ -14,6 +14,27 @@ layout: default
 
 ## Spark Overview
 
+#### Glossary 
+
+- **Cluster**: One computer works well for watching movies or working with spreadsheet software. However, there are things a computer is not powerful enough to perform - e.g data processing. Single machines do not have the power and resources to perform computations on huge amounts of information or the user does not have time to wait for the computation to finish.  A cluster or group, of computers, pools the resources of many machines together, giving us the ability to use all the cumulative resources as if they were a single computer. The cluster of machines that are used to execute tasks is managed by a cluster manager. *Spark’s own standalone cluster manager, Mesos or YARN are cluster managers*
+
+- **Spark's Language APIs** make it possible to run Spark code using programming languages. Spark presents 'core concepts' in every language; these concepts are then translated into Spark code that runs on the cluster of machines. 
+  
+- **Consistent Composable APIs:** You can use them to build an application out of smaller pieces or out of existing libraries. It also makes it easy for you to write your own analytics libraries on top. 
+
+- **Computing Engine:**  Spark handles loading data from storage systems and performing computation on it, not being a permanent storage as the end itself. You can use Spark with a wide variety of storage systems such as Azure Storage and Amazon S3, distributed file systems such as Apache Hadoop, key-value stores such as Apache Cassandra and message buses such as Apache Kafka. However, Spark does not store data long-term itself.
+
+- **Libraries:** builds on Spark's design as a unified engine to provide a unified API for common data analysis tasks. Spark supports standard libraries and external libraries. Spark includes libraries for SQL, and structured data SparkSQL, machine learning (MLlib), stream processing (Spark Streaming and the newer Structured Streaming), and graph analytics (GraphX). Beyond these libraries there are a hundreds of open source external libraries. (spark-packages.org)
+
+- **Unified:** Spark is designed to support a wide range of data analytics tasks over the same computing engine and with a consistent set of APIs as real world data analytics tasks tend to combine many different processing types and libraries
+
+- **Batch Processing** is where the processing happens of blocks of data that have already been stored over a period of time. For example, processing all the transaction that have been performed by a major financial firm in a week. This data contains millions of records for a day that can be stored as a file or record etc. This particular file will undergo processing at the end of the day for various analysis that firm wants to do. Obviously it will take large amount of time for that file to be processed. That would be what Batch Processing is
+
+- **Stream Processing:** Stream processing allows you to process data in real time as they arrive and quickly detect conditions within small time period from the point of receiving the data. Stream processing allows you to feed data into analytics tools as soon as they get generated and get instant analytics results. Stream processing is useful for tasks like fraud detection. If you stream-process transaction data, you can detect anomalies that signal fraud in real time, then stop fraudulent transactions before they are completed.
+
+- **Parallel Processing:** processing of program instructions by dividing them among multiple processors with the objective of running a program in less time. 
+
+
 ### The Big Picture 
 
 <p align="center">
@@ -125,7 +146,6 @@ So Spark keeps the data in memory in the same process and let you run different 
 **Sharing data and memory within the same machine is easily 10 to a 100 times faster than the network or the disk**. So if your computation can keep up with that you'll get a significant speed up. 
 
 
-
 * * *
 
 ### Apache Spark
@@ -133,18 +153,6 @@ So Spark keeps the data in memory in the same process and let you run different 
     - That's what Apache Spark was built for
 
 > Apache Spark is a unified computing engine and a set of libraries for parallel data processing on computer clusters that supports programming languages like R, Python, Java and Scala and libraries ranging from SQL to streaming and machine learning and runs everywhere from a laptop to a cluster of thousands of servers making it easy to scale up to big data processing or incredibly large scale.
-
-  - **Unified:** Spark is designed to support a wide range of data analytics tasks over the same computing engine and with a consistent set of APIs as real world data analytics tasks tend to combine many different processing types and libraries
-  
-  - **Consistent Composable APIs:** you can use them to build an application out of smaller pieces or out of existing libraries. It also makes it easy for you to write your own analytics libraries on top. Spark's APIs are also designed to enable high performance by optimizing across the different libraries and functions composed together in a user program.
-#Example_1: if you load data using SQL query and then evaluate a machine learning model over it using Spark's ML library, the engine can combine these steps into a one scan over the data. Thus, the combination of general APIs and high-performance execution, no matter how you combine them, makes Spark a powerful platform for interactive, and production applications.
-#Example_2: Web developers benefit from unified frameworks such as Node.js or Django
-
-  - **Computing Engine:**  Spark handles loading data from storage systems and performing computation on it, not being a permanent storage as the end itself. You can use Spark with a wide variety of storage systems such as Azure Storage and Amazon S3, distributed file systems such as Apache Hadoop, key-value stores such as Apache Cassandra and message buses such as Apache Kafka. However, Spark does not store data long-term itself.
-
-  - **Libraries:** builds on Spark's design as a unified engine to provide a unified API for common data analysis tasks. Spark supports standard libraries and external libraries. Spark includes libraries for SQL, and structured data SparkSQL, machine learning (MLlib), stream processing (Spark Streaming and the newer Structured Streaming), and graph analytics (GraphX). Beyond these libraries there are a hundreds of open source external libraries. (spark-packages.org)
-
-  - **Parallel Processing:** processing of program instructions by dividing them among multiple processors with the objective of running a program in less time. 
 
 ### Launching Spark
 
@@ -159,11 +167,6 @@ Open the Terminal:
 *After you have done that type "spark" and press Enter. You will see the "SparkSession" object printed*
 
 **The SparkSession:** You can control your Spark Application through a driver process called the SparkSession. The SparkSession is the way Spark executes user-defined manipulations across the cluster. There is a one-to-one correspondance between a SparkSession and a SparkApplication.
-
-  > One computer works well for watching movies or working with spreadsheet software. However, there are things a computer is not powerful enough to perform - e.g data processing. Single machines do not have the power and resources to perform computations on huge amounts of information or the user does not have time to wait for the computation to finish. 
-  
-**Cluster:** A cluster or group, of computers, pools the resources of many machines together, giving us the ability to use all the cumulative resources as if they were a single computer. A group of machines alone is not powerful, you need a framework to coordinate work across them - Spark does just that! - Coordinating and managing the execution of tasks on data across a cluster of computers. The cluster of machines that Spark uses to execute tasks is managed by a cluster manager. 
-*YARN or Mesos or Spark's standalone cluster manager. We then submit Spark Applications to these cluster managers*
 
 **Spark Application** (Architecture of a Spark Application)
 - Spark applications consist of a **drives process** and a set of **executor processes**.
