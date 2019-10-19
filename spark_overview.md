@@ -42,7 +42,7 @@ Let's discuss why Spark was designed to have a unified engine by introducing the
   <img src="Images/SparkOverview/googlemapreduce.png">
   </p>
 
-#### Google in this paper said:
+#### Google in this paper said (paraphrased):
 > Well we have this environment that's pretty unique which is a large number of commodity servers. It's data intensive computation as opposed to just compute intensive which is what scientific supercomputing was, it automatically deals with failures, it keeps going and it's easy for users to hide applications in. And that was the MapReduce paper that was extremely influential. [You can read the research here if interested](https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf)
 
 One thing you may notice in the MapReduce paper though that was a very important part of it is they talked a lot about how general it was. They really liked the idea of having a general engine to do these different batch processing tasks they had. So they said: 
