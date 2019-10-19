@@ -21,7 +21,7 @@ Spark is a cluster computing engine that generalizes the MapReduce programming m
 
 <img src="Images/SparkOverview/sparkecosystem.png"> <br> <br>
 
-<b>Spark SQL</b> lets you work with structured data and use languages like SQL or other API's as well to query this kind of data. <b>Spark Streaming</b> uses the engine to process and update results in real-time as new data comes in. <b>MLlib</b> is a library of distributed machine learning algorithms that project developers built and you can just call into. <b>GraphX</b> is a system for graph applications <br>
+<b>Spark SQL</b> lets you work with structured data and use languages like SQL or other API's as well to query this kind of data. <b>Spark Streaming</b> uses the engine to process and update results in real-time as new data comes in. <b>MLlib</b> is a library of distributed machine learning algorithms that project developers built and you can just call into. <b>GraphX</b> is a system for graph applications. <br>
 
 The nice thing about these is that they're all just libraries you can combine together in one program and they all translate down to the same engine underneath. Let's discuss why Spark was designed to have a unified engine by introducing the history of large scale cluster computing. A lot of the recent wave in data intensive computing started back in 2004 with the MapReduce paper published by Google. 
 <img src="Images/SparkOverview/googlemapreduce.png">
