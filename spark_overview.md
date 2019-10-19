@@ -110,6 +110,20 @@ need to do this disk I/O to actually store it reliably.
 
 ### How Spark did it
 
+What Spark wanted to have is a way to make this intermediate sharing much faster and it does it by replacing the sharing with just in-memory sharing. 
+<p align="center">
+  <img src="Images/SparkOverview/datainspark.png">
+  </p>
+
+So Spark keeps the data in memory in the same process and let you run different computations on it. Spark also does it by changing the fault tolerance mechanism so that Spark doesn't have to replicate the data or save back to disk. Spark can actually do the sharing at the speed of memory instead of at the speed of a distributed file system. 
+<p align="center">
+  <img src="Images/SparkOverview/datainspark2.png">
+  </p>
+  
+**Sharing data and memory within the same machine is easily 10 to a 100 times faster than the network or the disk**. So if your computation can keep up with that you'll get a significant speed up. 
+
+
+
 * * *
 
 ### Apache Spark
