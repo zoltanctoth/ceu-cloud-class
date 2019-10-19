@@ -77,7 +77,7 @@ It's both difficult to use as a user and it's also inefficient because you need 
 
 **The reasons why big data is not-so-good to move around are:**
 - expensive to copy it across the network
-- expensive to divide it to disk or to change the file format or any of that stuff
+- expensive to write it to disk or to change the file format or any of that stuff
 - often it's as expensive as actually running your algorithm on that. 
 
 **So this is a non-trivial cost.**
