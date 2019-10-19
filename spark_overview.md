@@ -16,6 +16,10 @@ layout: default
 
 ### The Big Picture 
 
+<p align="center">
+  <img src="Images/SparkOverview/bigpicture.png">
+  </p>
+
 Spark is a cluster computing engine that generalizes the MapReduce programming model that Google introduced back in 2004. Basically, Spark tries to support more types of applications and make them easier to program than MapReduce does. The goal was to make Spark both easy and fast to process large data sets on a cluster of machines. 
 
 The way Spark did it:
@@ -75,6 +79,7 @@ It's both difficult to use as a user and it's also inefficient because you need 
 - expensive to copy it across the network
 - expensive to divide it to disk or to change the file format or any of that stuff
 - often it's as expensive as actually running your algorithm on that. 
+
 **So this is a non-trivial cost.**
 
 #### The question that led to Spark: 
