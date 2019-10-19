@@ -36,6 +36,7 @@ The way Spark did it:
 - **GraphX** is a system for graph applications
 
 The nice thing about these is that they're all just libraries you can combine together in one program and they all translate down to the same engine underneath. 
+
 Let's discuss why Spark was designed to have a unified engine by introducing the history of large scale cluster computing. A lot of the recent wave in data intensive computing started back in 2004 with the MapReduce paper published by Google. 
 
 <p align="center">
