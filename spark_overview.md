@@ -26,8 +26,9 @@ The way Spark did it:
   </p>
 
 - **Spark SQL** lets you work with structured data and use languages like SQL or other API's as well to query this kind of data
-- **Spark Streaming** uses the engine to process and update results in real-time as new data comes in. 
-- **MLlib** is a library of distributed machine learning algorithms that project developers built and you can just call into. - **GraphX** is a system for graph applications.
+- **Spark Streaming** uses the engine to process and update results in real-time as new data comes in 
+- **MLlib** is a library of distributed machine learning algorithms that project developers built and you can just call into
+- **GraphX** is a system for graph applications
 
 The nice thing about these is that they're all just libraries you can combine together in one program and they all translate down to the same engine underneath. 
 Let's discuss why Spark was designed to have a unified engine by introducing the history of large scale cluster computing. A lot of the recent wave in data intensive computing started back in 2004 with the MapReduce paper published by Google. 
