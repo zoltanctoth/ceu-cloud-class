@@ -21,7 +21,7 @@ Spark is a cluster computing engine that generalizes the MapReduce programming m
   - **High level APIs** in languages such as Java, Scala, Python and all that are easy to program in to try to make it as similar as possible to programming on a single machine when that's possible 
   - A **unified engine** that can capture many different workloads on the same engine. So you don't have to hook together many different systems to create a pipeline. You can actually express them all in the same programming model and that's very powerful to get both faster and and easier to use processing. Thus, in terms of the unified engine what that means is that on top of the Spark engine there's a wide variety of standard libraries that are built in and these are the four shipped with the project:
 <p align="center">
-![sparkecosystem](Images/SparkOverview/sparkecosystem.png)
+  <img src="Images/SparkOverview/sparkecosystem.png">
   </p>
 
 - **Spark SQL** lets you work with structured data and use languages like SQL or other API's as well to query this kind of data
@@ -30,9 +30,10 @@ Spark is a cluster computing engine that generalizes the MapReduce programming m
 
 The nice thing about these is that they're all just libraries you can combine together in one program and they all translate down to the same engine underneath. 
 Let's discuss why Spark was designed to have a unified engine by introducing the history of large scale cluster computing. A lot of the recent wave in data intensive computing started back in 2004 with the MapReduce paper published by Google. 
+
 <p align="center">
-![googlemapreduce](Images/SparkOverview/googlemapreduce.png)
-</p>
+  <img src="Images/SparkOverview/googlemapreduce.png">
+  </p>
 
 #### Google in this paper said:
 > Well we have this environment that's pretty unique which is a large number of commodity servers. It's data intensive computation as opposed to just compute intensive which is what scientific supercomputing was, it automatically deals with failures, it keeps going and it's easy for users to hide applications in. And that was the 'MapReduce paper' that was extremely influential. 
