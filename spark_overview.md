@@ -25,8 +25,9 @@ Spark is a cluster computing engine that generalizes the MapReduce programming m
 The way Spark did it:
   - **High level APIs** in languages such as Java, Scala, Python and all that are easy to program in to try to make it as similar as possible to programming on a single machine when that's possible 
   - A **unified engine** that can capture many different workloads on the same engine. So you don't have to hook together many different systems to create a pipeline. You can actually express them all in the same programming model and that's very powerful to get both faster and and easier to use processing. Thus, in terms of the unified engine what that means is that on top of the Spark engine there's a wide variety of standard libraries that are built in and these are the four shipped with the project:
+  
 <p align="center">
-  <img src="Images/SparkOverview/sparkecosystem.png">
+  <img src="Images/SparkOverview/sparkfuture.png">
   </p>
 
 - **Spark SQL** lets you work with structured data and use languages like SQL or other API's as well to query this kind of data
