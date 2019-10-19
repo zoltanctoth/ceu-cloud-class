@@ -16,7 +16,7 @@ layout: default
 
 #### Glossary 
 
-- [**Big Data:** ](https://www.investopedia.com/terms/b/big-data.asp)
+- [**Big Data** ](https://www.investopedia.com/terms/b/big-data.asp)
 
 - **Cluster**: One computer works well for watching movies or working with spreadsheet software. However, there are things a computer is not powerful enough to perform - e.g data processing. Single machines do not have the power and resources to perform computations on huge amounts of information or the user does not have time to wait for the computation to finish.  A cluster or group, of computers, pools the resources of many machines together, giving us the ability to use all the cumulative resources as if they were a single computer. The cluster of machines that are used to execute tasks is managed by a cluster manager. *Spark’s own standalone cluster manager, Mesos or YARN are cluster managers*
 
