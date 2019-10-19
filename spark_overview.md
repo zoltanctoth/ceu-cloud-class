@@ -87,6 +87,22 @@ It's both difficult to use as a user and it's also inefficient because you need 
 
 And so that's what Spark tries to do. They designed a unified engine in a way that enabled different applications to be systematically captured. So how does it actually work? How did they do it?
 
+## The Spark Programming Model
+Recall 3 workloads were issues for MapReduce:
+- More complex multi-pass algorithms
+- More interactive ad hoc queries
+- More real-time stream processing
+
+While these all look different, it turns out all three needs one thing that MapReduce lacks: **efficient data sharing**. These are all applications where you go over a subset of the data many times or you update the result over time as new data comes in. So they're both cases where you have kind of a very hot working set of data and you need to share it effectively across many computation steps. And MapReduce didn't have this. MapReduce just had parallel operations; you add on the data but no way to do data sharing across multiple of these steps. 
+
+### Running things on MapReduce
+<p align="center">
+  <img src="Images/SparkOverview/datamap.png">
+  </p>
+This represents the case when you want to run an iterative algorithm - so algorithm that goes through the data multiple times. What you do with MapReduce is you start with some input data in a distributed file system like **HDFS** the **Hadoop distributed file system** and then you read it into a MapReduce job (that's the blue box iteration 1). And then that job has to write the result back out to a file system because from its point of view, it's finished. All it does is compute something and write it back out. Once you've done doing that you go ahead and you immediately read it into the next job which is another MapReduce and you write it out again and so on. Between every pair of jobs you have to go through this distributed replicated file system to actually save the data to share it between the jobs and that's pretty inefficient.
+
+
+
 * * *
 
 ### Apache Spark
