@@ -105,7 +105,7 @@ This represents the case when you want to run an iterative algorithm - so algori
   <img src="Images/SparkOverview/datamap2.png">
   </p>
 
-Interactive queries have a similar problem. So you have your data in this distributed file system and then each query has to read it from their pair set and figure out the result for that query. Furthermore, all of them have to go back to the source data. There's no way to share stuff if you had some kind of intermediate result or common processing between the queries. So doing this using MapReduce and using just the file system as data sharing is slow - mostly due to replication of data across the network and disk I/O. every time you write a result it needs to be sent across the network to many machines and and you
+Interactive queries have a similar problem. So you have your data in this distributed file system and then each query has to read it from their pair set and figure out the result for that query. Furthermore, all of them have to go back to the source data. There's no way to share stuff if you had some kind of intermediate result or common processing between the queries. So doing this using MapReduce and using just the file system as data sharing is slow - mostly due to replication of data across the network and disk I/O. Every time you write a result it needs to be sent across the network to many machines and and you
 need to do this disk I/O to actually store it reliably.
 
 ### How Spark did it
