@@ -38,9 +38,9 @@ Let's discuss why Spark was designed to have a unified engine by introducing the
   </p>
 
 #### Google in this paper said:
-> Well we have this environment that's pretty unique which is a large number of commodity servers. It's data intensive computation as opposed to just compute intensive which is what scientific supercomputing was, it automatically deals with failures, it keeps going and it's easy for users to hide applications in. And that was the 'MapReduce paper' that was extremely influential. 
+> Well we have this environment that's pretty unique which is a large number of commodity servers. It's data intensive computation as opposed to just compute intensive which is what scientific supercomputing was, it automatically deals with failures, it keeps going and it's easy for users to hide applications in. And that was the MapReduce paper that was extremely influential. 
 
-One thing you you may notice in the MapReduce paper though that was a very important part of it is they talked a lot about how general it was. They really liked the idea of having a general engine to do these different batch processing tasks they had. So they said: 
+One thing you may notice in the MapReduce paper though that was a very important part of it is they talked a lot about how general it was. They really liked the idea of having a general engine to do these different batch processing tasks they had. So they said: 
 
 > We first wrote MapReduce in 2003 and since that time we have been pleasantly surprised at how badly applicable it was.
 
@@ -52,7 +52,13 @@ MapReduce itself only handled batch processing which was fine because that's the
   - And finally users wanted to do more real-time stream processing as well so instead of for example building a web index having and updating that once per night in this way, why can't you update it in real-time as you browse, as you crawl the web and as you see new events happening, or news articles appear or stuff like that? So it's a very natural question in all of these environments.
 
 #### The Boom in Specialized Systems
-Because of these different workloads, the result was that people proposed a wide variety of specialized cluster computing systems for these workloads that are sort of the equivalent of MapReduce for streaming. And that's kind of the direction that the software went into. So basically we started out with MapReduce that did batch processing but it was just a general engine. You could do many different types of batch processing, which was good. And then we got all these specialized systems including inside Google and also outside it. So in Google for example they developed Pregel and Dremel which were systems for graph processing and interactive queries respectively. In the open source Hadoop ecosystem, there are also a lot of open source projects with interesting names like Impala, Storm and so on that do different things. Some of them are graph processing some of them are streaming and so on. Today, you just see that there's a ton of these systems out there and people often use some kind of combination of them. With specialized systems, even though they solve the individual problems that they tackle, there are also some challenges with having them. 
+Because of these different workloads, the result was that people proposed a wide variety of specialized cluster computing systems for these workloads that are sort of the equivalent of MapReduce for streaming. And that's kind of the direction that the software went into. So basically we started this section with MapReduce that did batch processing but it was just a general engine. You could do many different types of batch processing, which was good. And then we got all these specialized systems including inside Google and also outside it. So in Google for example they developed Pregel and Dremel which were systems for graph processing and interactive queries respectively. In the open source Hadoop ecosystem, there are also a lot of open source projects with interesting names like Impala, Storm and so on that do different things. Some of them are graph processing some of them are streaming and so on. 
+
+<p align="center">
+  <img src="Images/SparkOverview/hadoopspecialized.png">
+  </p>
+
+Today, you just see that there's a ton of these systems out there and people often use some kind of combination of them. With specialized systems, even though they solve the individual problems that they tackle, there are also some challenges with having them. 
 
 #### Challenges of specialized systems:
 - If you have a lot of specialized systems that you need to hook together to build an application, it's a lot of different pieces of software to manage to tune and configure to deploy to upgrade and so on. So it's a lot of operational overhead. You need to be an expert not just in one thing but in all of these different systems which have their own kind of stuff as to how they run. 
