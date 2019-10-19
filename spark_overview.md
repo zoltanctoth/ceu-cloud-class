@@ -17,27 +17,25 @@ layout: default
 <details><summary>Overview of the Spark Project and the Research that led to that (Awesome but <b>Optional</b>)</summary>
 
 <p>
-    <img src="Images/SparkOverview/sparkdefinition.png">
-Spark is a cluster computing engine that generalizes the MapReduce programming model that Google introduced back in 2004. Basically, Spark tries to support more types of applications and make them easier to program than MapReduce does. The goal was to make Spark both easy and fast to process large data sets on a cluster of machines. 
+Spark is a cluster computing engine that generalizes the MapReduce programming model that Google introduced back in 2004. Basically, Spark tries to support more types of applications and make them easier to program than MapReduce does. The goal was to make Spark both easy and fast to process large data sets on a cluster of machines. <br>
 
-  <b>The way Spark did it:</b>
+  <b>The way Spark did it:</b> </br>
+High level APIs in languages such as Java Scala Python and all that are easy to program in to try to make it as similar as possible to programming on a single machine when that's possible <br>
 
-Very <b>high level APIs</b> in languages such as Java Scala Python and all that are easy to program in to try to make it as similar as possible to programming on a single machine when that's possible <br>
-- It's a **unified engine** that can capture many different workloads on the same engine. So you don't have to hook together many different systems to create a pipeline. You can actually express them all in the same programming model and that's very powerful to get both faster and and easier to use processing. Thus, in terms of the unified engine what that means is that on top of the Spark engine there's a wide variety of standard libraries that are built in and these are the four shipped with the project. 
+- Unified engine that can capture many different workloads on the same engine. So you don't have to hook together many different systems to create a pipeline. You can actually express them all in the same programming model and that's very powerful to get both faster and and easier to use processing. Thus, in terms of the unified engine what that means is that on top of the Spark engine there's a wide variety of standard libraries that are built in and these are the four shipped with the project. 
 
-<img src="Images/SparkOverview/sparkecosystem.png">
+<img src="Images/SparkOverview/sparkecosystem.png class="center" "> <br> <br>
 
 
-- <b>Spark SQL</b> lets you work with structured data and use languages like SQL or other API's as well to query this kind of data.
-- <b>Spark Streaming</b> uses the engine to process and update results in real-time as new data comes in 
-- <b>MLlib</b> is a library of distributed machine learning algorithms that project developers built and you can just call into 
-- <b>GraphX</b> is a system for graph applications 
+- <b>Spark SQL</b> lets you work with structured data and use languages like SQL or other API's as well to query this kind of data. <br>
+- <b>Spark Streaming</b> uses the engine to process and update results in real-time as new data comes in <br>
+- <b>MLlib</b> is a library of distributed machine learning algorithms that project developers built and you can just call into <br>
+- <b>GraphX</b> is a system for graph applications <br>
 
-The nice thing about these is that they're all just libraries you can `combine` together in one program and they all translate down to the `same engine` underneath. </div>
-
+The nice thing about these is that they're all just libraries you can combine together in one program and they all translate down to the same engine underneath. <br>
 
 Let's discuss why Spark was designed to have a <b>Unified Engine</b> by introducing the history of large scale cluster computing. A lot of the recent wave in data intensive computing started back in 2004 with the MapReduce paper published by Google. 
-<img src="Images/SparkOverview/googlemapreduce.png">
+<img src="Images/SparkOverview/googlemapreduce.png class="center" ">
 
 Google in this paper said:
 >Well we have this environment that's pretty unique which is a large number of commodity servers. It's data intensive computation as opposed to just compute intensive which is what scientific supercomputing was, it automatically deals with failures, it keeps going and it's easy for users to hide applications in. And that was the 'MapReduce paper' that was extremely influential.
