@@ -75,8 +75,7 @@ It's both difficult to use as a user and it's also inefficient because you need 
 - expensive to copy it across the network
 - expensive to divide it to disk or to change the file format or any of that stuff
 - often it's as expensive as actually running your algorithm on that. 
-
-So this is a non-trivial cost.
+**So this is a non-trivial cost.**
 
 #### The question that led to Spark: 
 > Can we go out of this world of specialized systems and back to a single kind of general system that just captures these new workloads that motivated the previous ones?" 
