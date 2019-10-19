@@ -20,7 +20,7 @@ layout: default
 
 - **Cluster**: One computer works well for watching movies or working with spreadsheet software. However, there are things a computer is not powerful enough to perform - e.g data processing. Single machines do not have the power and resources to perform computations on huge amounts of information or the user does not have time to wait for the computation to finish.  A cluster or group, of computers, pools the resources of many machines together, giving us the ability to use all the cumulative resources as if they were a single computer. The cluster of machines that are used to execute tasks is managed by a cluster manager. *Spark’s own standalone cluster manager, Mesos or YARN are cluster managers*
 
-- **Spark's Language APIs** make it possible to run Spark code using programming languages
+- **Language APIs** make it possible to run code using programming languages
 
 - **Computing Engine:**  Spark handles loading data from storage systems and performing computation on it, not being a permanent storage as the end itself. You can use Spark with a wide variety of storage systems such as Azure Storage and Amazon S3, distributed file systems such as Apache Hadoop, key-value stores such as Apache Cassandra and message buses such as Apache Kafka. However, Spark does not store data long-term itself.
 
