@@ -24,5 +24,3 @@ layout: default
 `Introduction to Amazon EC2` etc.
 [![awsguide](assets/Resources/awsguide.png)](https://aws.amazon.com/getting-started/ "The AWS Guide")
 
-#### The R Guide:
-TBC
