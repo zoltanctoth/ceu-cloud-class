@@ -166,3 +166,48 @@ The dependencies are usually classified as "narrow" and "wide":
 #### Splitting DAG into Stages
 Spark stages are created by breaking the RDD graph at shuffle boundaries
 ![internals7](Images/InternalsSpark/internal7.png)
+
+
+- RDD operations with "narrow" dependencies, like map() and filter(), are pipelined together into one set of tasks in each stage operations with shuffle dependencies require multiple stages (one to write a set of map output files, and another to read those files after a barrier).
+- In the end, every stage will have only shuffle dependencies on other stages, and may compute multiple operations inside it.    - The actual pipelining of these operations happens in the RDD.compute() functions of various RDDs
+
+There are two types of tasks in Spark: `ShuffleMapTask` which partitions its input for shuffle and `ResultTask` which sends its output to the driver. The same applies to types of stages: `ShuffleMapStage` and `ResultStage` correspondingly.
+
+#### Shuffle
+- During the shuffle ShuffleMapTask writes blocks to local drive, and then the task in the next stages fetches these blocks over the network.
+
+- Shuffle Write
+  - redistributes data among partitions and writes files to disk
+  - each hash shuffle task creates one file per “reduce” task (total = MxR)
+  - sort shuffle task creates one file with regions assigned to reducer
+  - sort shuffle uses in-memory sorting with spillover to disk to get final result
+- Shuffle Read
+  - fetches the files and applies reduce() logic
+  - if data ordering is needed then it is sorted on “reducer” side for any type of shuffle
+  
+In Spark **Sort Shuffle** is the default one.
+Sort Shuffle: 
+![internals8](Images/InternalsSpark/internal8.png)
+
+- Incoming records accumulated and sorted in memory according their target partition ids
+- Sorted records are written to file or multiple files if spilled and then merged
+- index file stores offsets of the data blocks in the data file
+
+#### Spark Components
+- At 10K foot view there are three major components:
+![internals9](Images/InternalsSpark/internal9.png)
+
+- Spark Driver
+  - separate process to execute user applications
+  - creates SparkContext to schedule jobs execution and negotiate with cluster manager
+- Executors
+  - run tasks scheduled by driver
+  - store computation results in memory, on disk or off-heap
+  - interact with storage systems
+- Cluster Manager
+  - Mesos
+  - YARN
+  - Spark Standalone
+  
+  Spark Driver contains more components responsible for translation of user code into actual jobs executed on cluster:
+  ![internals10](Images/InternalsSpark/internal10.png)
