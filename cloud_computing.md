@@ -27,6 +27,20 @@ layout: default
 - [Databases](#databases)
 - [Layering and Summary](#layering-and-summary)
 
+### Introduction 
+Cloud computing: 
+- “The practice of using a network of remote servers hosted on the Internet to store, manage, and process data, rather than a local server or a personal computer.” - Oxford Dictionary
+- "The practice of storing regularly used computer data on multiple servers that can be accessed through the Internet.” - Webster Dictionary
+
+**What cloud computing means to people in different roles?**
+- End-user: services available on various platforms anytime, anywhere, as long as an Internet connection is available
+- Application developer: a development platform that can be dynamically configured and easily tested
+- Service provider or infrastructure manager: the ability to dynamically setup hardware and implement services
+  - Increasing available resources during peak times 
+  - Releasing resources during slower periods. 
+- CFO: economic model for consuming technology in a pay-as-you-go format. Allows company to spend limited resources on only what they need and use, expanding as necessary
+- CIO: virtualization model for technology from infrastructure to delivery
+
 ### What is cloud computing?
 - It may sound complicated and foreign
 - But it’s really just many technologies coming together
@@ -133,8 +147,3 @@ Amazon, Google, Microsoft, etc
 - In another step up, maybe we have two master databases, and even if data is only written to one of them, they communicate with each other to make sure the data gets replicated
 
 * * * 
-
-### Layering and Summary
-- As difficult or foreign as these things can sometimes sound, we’re really just layering many layers on top of increaingly complicated ideas
-- At each step, the differences are really on just abstracting away common problems to make our code as accessible and efficient as possible
-- With all of this in mind, the idea is that we can use each of these layers and puzzle pieces to build better solutions to the challenges that arise in building our own site
