@@ -420,3 +420,8 @@ A view specifies a set of transformations on top of an existing table—basical
 To an end user, views are displayed as tables, except rather than rewriting all of the data to a new location, they simply perform a transformation on the source data at query time. This might be a filter, select, or potentially an even larger GROUP BY or ROLLUP.
 
 
+* * *
+
+#### Sourcers/Credits:
+To be completed
+
