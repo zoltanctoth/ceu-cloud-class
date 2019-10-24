@@ -24,7 +24,7 @@ Why care?
     Distinguished Engineer at AWS
     
 #### Basic Architecture
-![serverless](Images/serverless1.png)
+![serverless](Images/Serverless/serverless1.png)
 
 #### Core capability
 
@@ -50,4 +50,4 @@ Serverless functions: typically read/write data from/to S3
 - Sub-second billing: 3,600 threads for one second → 10¢
 
 #### Lambda Scalability
-![serverless3](Images/serverless3.png)
+![serverless3](Images/Serverless/serverless3.png)
