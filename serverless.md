@@ -71,4 +71,7 @@ What do we need from such fast storage:
 - Security
 - Start up time
 
+* * *
 
+#### Sourcers/Credits:
+To be completed
