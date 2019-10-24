@@ -132,7 +132,7 @@ myDf.show()
 df.withColumn("somecolumnsName", lit(1)).show(2)
 ```
 
-**Raneming columns**
+**Renaming columns**
 - withColumnRenamed method
 ```
 df.withColumn("somecolumnsName", lit(1)).show(2)
