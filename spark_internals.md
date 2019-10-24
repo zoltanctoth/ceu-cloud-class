@@ -115,7 +115,8 @@ val events =
       .keyBy(_.eventType)
       .reduceByKey(_ + _)                                        
       .cache()                                            
-
+```
+```
 //aggregate campaigns by type
 val campaigns =  
     sc.cassandraTable("demo", "campaign")
@@ -126,19 +127,22 @@ val campaigns =
       .keyBy(_.eventType)
       .reduceByKey(_ + _)
       .cache()
-
+```
+```
 //joined rollups and raw events
 val joinedTotals = campaigns.join(events)  
            .map { case (key, (campaign, event)) => 
              CampaignTotals(campaign, event) 
             }
            .collect()
-
+```
+```
 //count totals separately
 val eventTotals =  
     events.map{ case (t, e) => s"$t -> ${e.value}" }
     .collect()
-
+```
+```
 val campaignTotals =  
     campaigns.map{ case (t, e) => s"$t -> ${e.value}" }
     .collect()
