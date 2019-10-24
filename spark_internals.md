@@ -153,3 +153,16 @@ Here's a DAG for the code sample above. So basically any data processing workflo
 
 The dependencies are usually classified as "narrow" and "wide":
 ![internals6](Images/InternalsSpark/internal6.png)
+
+- Narrow (pipelineable)
+  - each partition of the parent RDD is used by at most one partition of the child RDD
+  - allow for pipelined execution on one cluster node
+  - failure recovery is more efficient as only lost parent partitions need to be recomputed
+- Wide (shuffle)
+- multiple child partitions may depend on one parent partition
+- require data from all parent partitions to be available and to be shuffled across the nodes
+- if some partition is lost from all the ancestors a complete recomputation is needed
+
+#### Splitting DAG into Stages
+Spark stages are created by breaking the RDD graph at shuffle boundaries
+![internals7](Images/InternalsSpark/internal7.png)
