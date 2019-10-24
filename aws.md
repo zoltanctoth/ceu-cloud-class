@@ -1407,3 +1407,9 @@ is routed to Amazon S3 over an optimized path.
     - AWS Key Management Service, Managed Keys - SSE-KMS Similar to SSE-S3 with some additional benefits s.a. who is decrypting what and when + option to manage the keys yourself.
     - Server Side Encryption with Customer Provided Keys - SSE-C where your manage your keys and AWS is responsible for the encryption and decryption.
   - Client Side Encryption
+
+
+* * *
+
+#### Sourcers/Credits:
+To be completed
