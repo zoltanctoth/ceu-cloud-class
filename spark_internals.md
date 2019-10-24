@@ -211,3 +211,37 @@ Sort Shuffle:
   
   Spark Driver contains more components responsible for translation of user code into actual jobs executed on cluster:
   ![internals10](Images/InternalsSpark/internal10.png)
+  
+- SparkContext
+  - represents the connection to a Spark cluster, and can be used to create RDDs, accumulators and broadcast variables on that cluster
+  
+- DAGScheduler
+  - computes a DAG of stages for each job and submits them to TaskScheduler
+  - determines preferred locations for tasks (based on cache status or shuffle files locations) and finds minimum schedule to run the jobs
+
+- TaskScheduler
+  - responsible for sending tasks to the cluster, running them, retrying if there are failures, and mitigating stragglers
+
+- SchedulerBackend
+  - backend interface for scheduling systems that allows plugging in different implementations(Mesos, YARN, Standalone, local)
+
+- BlockManager
+  - provides interfaces for putting and retrieving blocks both locally and remotely into various stores (memory, disk, and off-heap)
+
+#### Memory Management in Spark
+Executors run as Java processes, so the available memory is equal to the heap size. Internally available memory is split into several regions with specific functions.
+
+![internals11](Images/InternalsSpark/internal11.png)
+
+- Execution Memory
+  - storage for data needed during tasks execution
+  - shuffle-related data
+- Storage Memory
+  - storage of cached RDDs and broadcast variables
+  - possible to borrow from execution memory (spill otherwise)
+  - safeguard value is 50% of Spark Memory when cached blocks are immune to eviction
+- User Memory
+  - user data structures and internal metadata in Spark
+  - safeguarding against OOM
+- Reserved memory
+  - memory needed for running executor itself and not strictly related to Spark
