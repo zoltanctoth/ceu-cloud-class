@@ -46,7 +46,7 @@ sqlContext.sql {
 
 Spark is built around the concepts of Resilient Distributed Datasets and Direct Acyclic Graph representing transformations and dependencies between them.
 
-![internals1](Images/internal1.png)
+![internals2](Images/InternalsSpark/internal2.png)
 
 Spark Application (often referred to as Driver Program or Application Master) at high level consists of SparkContext and user code which interacts with it creating RDDs and performing series of transformations to achieve final result. These transformations of RDDs are then translated into DAG and submitted to Scheduler to be executed on set of worker nodes.
 
@@ -72,4 +72,4 @@ val partitioner: Option[Partitioner] = None
 ```
 Here's an example of RDDs created during a call of method sparkContext.textFile("hdfs://...") which first loads HDFS blocks in memory and then applies map() function to filter out keys creating two RDDs:
 
-![internals2](Images/internal2.png)
+![internals2](Images/InternalsSpark/internal2.png)
