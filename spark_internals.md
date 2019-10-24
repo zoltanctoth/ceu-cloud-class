@@ -46,7 +46,7 @@ sqlContext.sql {
 
 Spark is built around the concepts of Resilient Distributed Datasets and Direct Acyclic Graph representing transformations and dependencies between them.
 
-![internals2](Images/InternalsSpark/internal2.png)
+![internals2](Images/InternalsSpark/internal1.png)
 
 Spark Application (often referred to as Driver Program or Application Master) at high level consists of SparkContext and user code which interacts with it creating RDDs and performing series of transformations to achieve final result. These transformations of RDDs are then translated into DAG and submitted to Scheduler to be executed on set of worker nodes.
 
