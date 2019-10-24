@@ -249,3 +249,8 @@ Executors run as Java processes, so the available memory is equal to the heap si
   - safeguarding against OOM
 - Reserved memory
   - memory needed for running executor itself and not strictly related to Spark
+
+* * *
+
+#### Sourcers/Credits:
+To be completed
