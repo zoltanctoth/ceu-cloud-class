@@ -37,10 +37,7 @@ Spark is effectively a programming language of its own. Spark uses an engine ca
 #### Structured APIs
 | DataFrame    | Dataset     | 
 | :------------- | :----------: | 
-|  untyped
-(Spark maintains them completely) | typed
-(checks whether types conform to the specification at compile time.)
-Only available to JVM based languages Scala and Java.   | 
+|  untyped (Spark maintains them completely) | typed (checks whether types conform to the specification at compile time.) Only available to JVM based languages Scala and Java.  | 
 
 DataFrames are Datasets of **Type Row.** The "Row" type is Spark's internal representation of its optimized in-memory format for computation. To Spark in Python and R there is no such thing as a Dataset, everything is a DataFrame and therefore we always operate on that optimized format.
 
