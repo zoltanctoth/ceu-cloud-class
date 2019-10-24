@@ -147,3 +147,7 @@ Amazon, Google, Microsoft, etc
 - In another step up, maybe we have two master databases, and even if data is only written to one of them, they communicate with each other to make sure the data gets replicated
 
 * * * 
+
+#### Sourcers/Credits:
+To be completed
+
