@@ -73,3 +73,83 @@ val partitioner: Option[Partitioner] = None
 Here's an example of RDDs created during a call of method sparkContext.textFile("hdfs://...") which first loads HDFS blocks in memory and then applies map() function to filter out keys creating two RDDs:
 
 ![internals2](Images/InternalsSpark/internal2.png)
+
+- HadoopRDD:
+  - getPartitions = HDFS blocks
+  - getDependencies = None
+  - compute = load block in memory
+  - getPrefferedLocations = HDFS block locations
+  - partitioner = None
+- MapPartitionsRDD
+  - getPartitions = same as parent
+  - getDependencies = parent RDD
+  - compute = compute parent and apply map()
+  - getPrefferedLocations = same as parent
+  - partitioner = None
+  
+  RDD Operations
+Operations on RDDs are divided into several groups:
+
+#### Transformations
+- apply user function to every element in a partition (or to the whole partition) 
+- apply aggregation function to the whole dataset (groupBy, sortBy)
+- introduce dependencies between RDDs to form DAG
+- provide functionality for repartitioning (repartition, partitionBy)
+
+#### Actions
+- trigger job execution
+- used to materialize computation results
+
+#### Extra: persistence
+- explicitly store RDDs in memory, on disk or off-heap (cache, persist)
+- checkpointing for truncating RDD lineage
+- Here's a code sample of some job which aggregates data from Cassandra in lambda style combining previously rolled-up data with the data from raw storage and demonstrates some of the transformations and actions available on RDDs:
+```
+//aggregate events after specific date for given campaign
+val events =  
+    sc.cassandraTable("demo", "event")
+      .map(_.toEvent)                                
+      .filter { e =>
+        e.campaignId == campaignId && e.time.isAfter(watermark)
+      }
+      .keyBy(_.eventType)
+      .reduceByKey(_ + _)                                        
+      .cache()                                            
+
+//aggregate campaigns by type
+val campaigns =  
+    sc.cassandraTable("demo", "campaign")
+      .map(_.toCampaign)
+      .filter { c => 
+         c.id == campaignId && c.time.isBefore(watermark)
+      }
+      .keyBy(_.eventType)
+      .reduceByKey(_ + _)
+      .cache()
+
+//joined rollups and raw events
+val joinedTotals = campaigns.join(events)  
+           .map { case (key, (campaign, event)) => 
+             CampaignTotals(campaign, event) 
+            }
+           .collect()
+
+//count totals separately
+val eventTotals =  
+    events.map{ case (t, e) => s"$t -> ${e.value}" }
+    .collect()
+
+val campaignTotals =  
+    campaigns.map{ case (t, e) => s"$t -> ${e.value}" }
+    .collect()
+```
+![internals3](Images/InternalsSpark/internal3.png)
+
+Here's a quick recap on the execution workflow before digging deeper into details: user code containing RDD transformations forms Direct Acyclic Graph which is then split into stages of tasks by DAGScheduler. Stages combine tasks which don’t require shuffling/repartitioning if the data. Tasks run on workers and results then return to client.
+
+![internals4](Images/InternalsSpark/internal4.png)
+
+Here's a DAG for the code sample above. So basically any data processing workflow could be defined as reading the data source, applying set of transformations and materializing the result in different ways. Transformations create dependencies between RDDs and here we can see different types of them.
+
+The dependencies are usually classified as "narrow" and "wide":
+![internals5](Images/InternalsSpark/internal5.png)
