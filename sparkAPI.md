@@ -349,5 +349,77 @@ dataframe.write.format("csv")
 - Save modes specify what will happen if Spark finds data at the specified location. The default is errorIfExists. This means that if Spark finds data at the location to which you’re writing, it will fail the write immediately.
 
 
+## SparkSQL
+With SparkSQL you can:
+- Run SQL queries against views or tables organized into databases
+- Use system functions of define user functions and analyze query plans in order to optimize their workloads
+  - You can choose to express some of your data manipulations in SQL and others in DataFrames and they will compile to the same underlying code
+
+#### What is SQL?
+- Structured Query Language
+- Domain-specific language (A domain-specific language is created specifically to solve problems in a particular domain and is not intended to be able to solve problems outside it (although that may be technically possible). 
+  - In contrast, general-purpose languages are created to solve problems in many domains.)
+- For expressing relational operations over data, it is used in all relational databases.
+
+#### Spark SQL
+*The power of Spark SQL derives from:*
+- SQL analysts can take advantage of Spark’s computation abilities by plugging into the Thrift Server or Spark’s SQL interface
+- Data engineers and scientists can use Spark SQL where appropriate in any data flow. 
+  - This unifying API allows for data to be extracted with SQL, manipulated as a DataFrame, passed into one of Spark MLlibs large scale machine learning algorithms, written out to another data source and everything in between.
+
+- Spark SQL is intended to operate as a online analytic processing (OLAP) database. This means that it is not intended to perform very extremely-low-latency queries. 
+
+| OLAP (Online Analytic Processing) | OLTP (Online Transaction Processing)    | 
+| :------------- | :----------: | 
+|  Deals with Historical Data or Archival Data. OLAP is characterized by relatively low volume of transactions. Queries are often very complex and involve aggregations. For OLAP systems a response time is an effectiveness measure. OLAP applications are widely used by Data Mining techniques. In OLAP database there is aggregated, historical data, stored in multi-dimensional schemas (usually star schema). Sometime query need to access large amount of data in Management records like what was the profit of your company in last year. | Is involved in the operation of a particular system. OLTP is characterized by a large number of short on-line transactions (INSERT, UPDATE, DELETE). The main emphasis for OLTP systems is put on very fast query processing, maintaining data integrity in multi-access environments and an effectiveness measured by number of transactions per second. In OLTP database there is detailed and current data, and schema used to store transactional databases is the entity model (usually 3NF). It involves Queries accessing individual record like Update your Email in Company database.   | 
 
  
+#### Spark SQL CLI
+- You can make Spark SQL queries in local mode from the command line. It cannot communicate with the Thrift JDBC server. To start Spark SQL CLI, run the following in the spark directory: 
+`./bin/spark-sql`
+- It is also possible to execute sql in an ad hoc manner via any of Spark's language by calling the method "sql" on the SparkSession object.
+`spark.sql("SELECT 1 + 1").show()`
+
+Note: **You can completely interoperate between SQL and DataFrames e.g you can create a DataFrame, manipulate it with SQL, and then manipulate it again as a DataFrame.**
+
+**Convert DataFrame to SQL:**
+```
+spark.read.json("/data.json")\
+.createOrReplaceTempView("some_sql_view") 
+```
+
+#### Catalog
+The highest level abstraction in Spark SQL is the Catalog. The Catalog is an abstraction for the storage of metadata about the data stored in your tables as well as other helpful things like databases, tables, functions, and views. The catalog is available in the org.apache.spark.sql.catalog.Catalog package and contains a number of helpful functions for doing things like listing tables, databases, and functions. We will talk about all of these things shortly It’s very self explanatory to users, so we will omit the code samples here but it’s really just another programmatic interface to Spark SQL. This chapter shows only the SQL being executed; thus, keep in mind if you’re using the programmatic interface that you need to wrap everything in a spark.sql function call to execute the relevant code.
+
+#### Tables
+To do anything useful with Spark SQL you first need to define tables. Tables are a structure of data against which you run commands. We can join tables, filter them, aggregate them, and perform different manipulations.
+The core difference between tables and DataFrames is that you define DataFrames in a scope of a programming language, whereas you define tables within a database. This means that when you create a table (assuming you never changed the database), it will belong to the default database. 
+
+**In Spark 2.X, tables always contain data. There is no notion of a temporary table: these are just views that do not contain data.  This is important because if you go to drop a table, you can risk losing the data when doing so.**
+
+#### Spark-Managed Tables
+- There are managed tables and unmanaged tables. 
+- When you define a table from files on disk, you are defining an unmanaged table. 
+- When you use saveAsTable on a DataFrame you are creating a managed table for which Spark will keep track of all the relevant information for you. 
+- This will read your table and write it out to a new location in Spark format. 
+- You can see this reflected in the new explain plan. 
+    - In the explain plan you will also notice that this writes to the default Hive warehouse location. You can set this by setting the spark.sql.warehouse.dir configuration to the directory of your choosing when you create your SparkSession.
+    
+**Tables store two important information:**
+- data within the tables
+- data about the tables, that is, metadata
+
+#### Views
+Now that you created a table, another thing that you can define is a view. 
+A view specifies a set of transformations on top of an existing table—basically just saved query plans, which can be convenient for organizing or reusing your query logic. Spark has several different notions of views. Views can be global, set to a database, or per session.
+
+#### Creating Views
+To an end user, views are displayed as tables, except rather than rewriting all of the data to a new location, they simply perform a transformation on the source data at query time. This might be a filter, select, or potentially an even larger GROUP BY or ROLLUP.
+
+**Views**
+A view specifies a set of transformations on top of an existing table—basically just saved query plans, which can be convenient for organizing or reusing your query logic. Spark has several different notions of views. Views can be global, set to a database, or per session.
+
+**Creating Views**
+To an end user, views are displayed as tables, except rather than rewriting all of the data to a new location, they simply perform a transformation on the source data at query time. This might be a filter, select, or potentially an even larger GROUP BY or ROLLUP.
+
+
