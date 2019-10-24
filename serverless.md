@@ -51,3 +51,24 @@ Serverless functions: typically read/write data from/to S3
 
 #### Lambda Scalability
 ![serverless3](Images/Serverless/serverless3.png)
+
+#### Example
+![serverless4](Images/Serverless/serverless4.png)
+
+#### How it works?
+![serverless5](Images/Serverless/serverless5.png)
+
+#### Challenges
+
+**Fast, elastic storage**
+- Needed for shuffle
+
+What do we need from such fast storage:
+
+- Elasticity
+- Key-value or similar API
+- Notification based mechanism 
+- Security
+- Start up time
+
+
