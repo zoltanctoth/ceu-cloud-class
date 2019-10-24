@@ -164,3 +164,8 @@ Open the Terminal:
 **SQL:** ```./bin/spark-sql```
 
 *After you have done that type "spark" and press Enter. You will see the "SparkSession" object printed*
+
+* * *
+
+#### Sourcers/Credits:
+To be completed
