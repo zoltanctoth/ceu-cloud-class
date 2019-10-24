@@ -152,4 +152,4 @@ Here's a quick recap on the execution workflow before digging deeper into detail
 Here's a DAG for the code sample above. So basically any data processing workflow could be defined as reading the data source, applying set of transformations and materializing the result in different ways. Transformations create dependencies between RDDs and here we can see different types of them.
 
 The dependencies are usually classified as "narrow" and "wide":
-![internals5](Images/InternalsSpark/internal5.png)
+![internals6](Images/InternalsSpark/internal6.png)
