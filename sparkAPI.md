@@ -174,7 +174,7 @@ carDataFrame.groupBy("speed").count().show()
 
 ```scala
 
-val resultHead = carDataFrame.head()
+resultHead = carDataFrame.head()
 
     println(resultHead.mkString(","))
 ```
@@ -187,7 +187,7 @@ val resultHead = carDataFrame.head()
 > head(n) returns first n rows.
 
 ```scala
-val resultHeadNo = carDataFrame.head(3)
+resultHeadNo = carDataFrame.head(3)
 
     println(resultHeadNo.mkString(","))
 ```
@@ -215,7 +215,7 @@ val resultHeadNo = carDataFrame.head(3)
 
 ``` scala
 
-val resultCollect = carDataFrame.collect()
+resultCollect = carDataFrame.collect()
 
     println(resultCollect.mkString(","))
 
@@ -242,7 +242,7 @@ carDataFrame.printSchema()
 
 ```scala
 
-val car = sc.textFile("src/main/resources/fruits.txt")
+car = sc.textFile("src/main/resources/fruits.txt")
       .map(_.split(","))
       .map(f => Fruit(f(0).trim.toInt, f(1), f(2).trim.toInt))
       .toDF().show()
@@ -277,7 +277,7 @@ carDataFrame.columns.foreach(println)
 >  cache() explicitly to store the data into memory. Or data stored in a distributed way in the memory by default.
 
 ```scala
-val resultCache = carDataFrame.filter(carDataFrame("speed") > 300)
+resultCache = carDataFrame.filter(carDataFrame("speed") > 300)
 
     resultCache.cache().show()
 ```
@@ -457,25 +457,6 @@ carDataFrame.except(carDataFrame1).show()
 ![alt text](https://github.com/rklick-solutions/spark-tutorial/wiki/images/exceptdata.png)
 
 
-
-###### withColumn()
-
->  Returns a new DataFrame by adding a column or replacing the existing column that has the same name.
-
-```scala
-
-val coder: (Int => String) = (arg: Int) => {
-      if (arg < 300) "slow" else "high"
-    }
-
-    val sqlfunc = udf(coder)
-
-    carDataFrame.withColumn("First", sqlfunc(col("speed"))).show()
-
-
-```
-
-![alt text](https://github.com/rklick-solutions/spark-tutorial/wiki/images/withcolumndata.png)
 
 ###### withColumnRenamed()
 
