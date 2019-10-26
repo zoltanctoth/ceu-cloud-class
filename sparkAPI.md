@@ -14,6 +14,11 @@ layout: default
 
 ## The Spark DataFrame and SQL API
 
+A Gentle Introduction to Apache Spark on Databricks: 
+https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/346304/2168141618055043/484361/latest.html
+
+https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/346304/2168141618055109/484361/latest.html
+
 ### Fundamental concepts:
 Spark is a distributed programming model in which the user specifies transformations. These transformations build up a directed acyclic graph (DAG) of transformations and action. An action begins the process of execution that graph of instructions, as a single job, by breaking it down into stages and tasks to execute across the cluster. The logical structures that we manipulate with transformations and actions are DataFrames and Datasets. To create a new DataFrame or Dataset, you call a transformation. To start computation or convert to native language types, you call an action.
 
