@@ -200,7 +200,7 @@ resultHeadNo = carDataFrame.head(3)
 > Returns the first row.
 
 ```scala
- val resultFirst = carDataFrame.first()
+resultFirst = carDataFrame.first()
 
     println("fist:" + resultFirst.mkString(","))
 
