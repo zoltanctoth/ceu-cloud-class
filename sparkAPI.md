@@ -77,7 +77,7 @@ df.printSchema()
 
 **Create Column:**
 ```
-from pyspark.sql.functions import cal, column
+from pyspark.sql.functions import col, column
 col("someColumnName")
 column("someColumnName")
 ```
@@ -111,6 +111,62 @@ myRow = Row("Hello", None, 1, False)
 - We can remove rows and columns
 - We can transform a row into a column or vice versa
 - We can change the order of rows based on the values in columns
+
+### DataFrame Operations 
+
+**Reading Data:**
+```
+df = spark.read \
+  .option("header", True) \
+  .option("sep", ",") \
+  .option("inferSchema", True) \
+  .csv("PATH/file.csv") 
+```
+
+**Show**
+Parameters:
+- show(5) - Show only 5 rows
+- show(5, False) - Show only 5 rows and don't truncate the columns
+- show(5, 55) - Show only 5 rows and truncate the columns 55 the columns
+
+```
+df.show(15, True)
+```
+
+**Display**
+Display is a fully featured utility available in the Databricks environment. It can:
+- Show our Dataframe in a tabular format
+- Plot numerical columns
+- Display Python / Scala / Java arrays
+
+```
+display(df)
+```
+
+**Columns - select**
+```
+display(
+  df.select("column3", "column7")
+)
+```
+
+```
+selected_df = df.select(df.column3, df.column7)
+```
+
+**Drop**
+```
+df.drop("id")
+```
+
+**Limit**
+If we only need the first N rows of a Dataframe, we can use limit:
+```
+df.limit(3).show(10)
+```
+
+**Count**
+count will return the number of elements in our Dataframe
 
 #### Creating DataFrames on the fly
 
@@ -156,6 +212,7 @@ df.orderBy(col("count").desc(),  col("ColName").asc()).show(2)
 ```
 df.limit(5).show()
 ```
+
 
 #### Working with Different Types of Data
 
