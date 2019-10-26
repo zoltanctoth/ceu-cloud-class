@@ -93,13 +93,6 @@ column("someColumnName")
 An expression created via the expr function is just a DataFrame column reference.
 expr("someCol") is equivalent to col("someCol")
 
-*Columns as Expressions*
-- When using an expression, the `expr()` can actually parse transformations and column references from a string and can subsequently be passed into further transformations.
-
-**Key takeaways:**
-- Columns are just expressions
-- Columns and transformations of those columns compile to the same logical plan as parsed expressions.
-
 #### Records and Rows
 - Each row in a DataFrame is a single  record as an object type Row. 
 - Spark manipulates Row objects using column expressions in order to produce usable values. 
@@ -115,7 +108,7 @@ myRow = Row("Hello", None, 1, False)
 - We can transform a row into a column or vice versa
 - We can change the order of rows based on the values in columns
 
-### DataFrame Operations 
+### DataFrame API Example Using Different types of Functionality
 
 **Reading Data:**
 ```
@@ -125,13 +118,6 @@ df = spark.read \
   .option("inferSchema", True) \
   .csv("PATH/file.csv") 
 ```
-
-### DataFrames
-
-> A DataFrame is a distributed collection of data organized into named columns.DataFrames can be constructed from a wide array of sources such as: structured data files, tables in Hive, external databases, or existing RDDs.
-
-
-#### DataFrame API Example Using Different types of Functionality
 
 ###### show()
 
