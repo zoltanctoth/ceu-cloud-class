@@ -260,7 +260,7 @@ for(my_url in my_urls){
 }
 ```
 
-You can also decide how you wait by measuring how long the site took to respond. So why should you do it, as Hartley says:
+You can also decide how you wait by measuring how long the site took to respond.
 
 > Some also recommend adding a backoff that’s proportional to how long the site took to respond to your request. That way if the site gets overwhelmed and starts to slow down, your code will automatically back off. 
 
