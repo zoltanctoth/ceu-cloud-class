@@ -623,7 +623,7 @@ texts_purrr_map_chr <- map_chr(elements,~ .x$getElementText()[[1]])
 ```
 
 
-** Extract attribute(s) from a single element(s)**
+**Extract attribute(s) from a single element(s)**
 
 The usage is the same as extracting text from element(s), the only difference it that you need to use `getElementAttribute()` method.
 
