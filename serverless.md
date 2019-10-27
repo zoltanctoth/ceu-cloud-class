@@ -63,8 +63,6 @@ content_text <- content(my_session$response,as = "text")
 content_parsed <- content(my_session$response,as = "parsed")
 ```
 
-\*\*note:
-
 Content may be parsed incorrectly sometimes. For those situations, you can parse the content to text or raw and use other libraries or functions to parse it correctly.
 
 Search for specific string:
