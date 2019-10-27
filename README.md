@@ -1,5 +1,6 @@
 [Home](./README.md).
 [Internet](./internet.md).
+<!--
 [Cloud Computing](./cloud_computing.md).
 [Serverless](./serverless.md).
 [AWS](./aws.md).
@@ -7,9 +8,17 @@
 [Spark DataFrame & SQL API](./sparkAPI.md).
 [Spark Internals](./spark_internals.md).
 [Advanced Optimizations in Spark](spark_optimizations.md).
+-->
 [Help/Resources](./resources.md).
 
+## Welcome
 
+Welcome to the course. 
+* For "official" communication we are using <a href='https://ceulearning.ceu.edu/course/view.php?id=10492' target='_blank'>Moodle</a>.
+* For informal and in-class communication, we are using <a href='https://ceu-bizanalytics.slack.com' target='_blank'>Slack</a>. 
+* On this page you will find additional courseware, R and Python scripts, which accompany the course.
+* In case you need help, you can find the instructor's and the TA's contact details at the bottom of this page.
+* Before you'd reshare/reuse any of these materials keep in mind that <a href='https://datapao.com/'>Datapao</a> owns the copyright of the Spark notebooks (distributed separately). 
 
 ## Syllabus
 
@@ -41,7 +50,10 @@ At the end of this course you will have an overview of Cloud and Big Data techno
 > 6. The Spark DataFrame and SQL API 
 > 7. Spark internals 8. Advanced Optimizations in Spark
 
+## Acknowledgements
+Many of the course materials were created by <a href="https://www.linkedin.com/in/miklospetridisz/" target="_blank">Miklos Petridisz</a>
 
+# Contact
 |Instructor  | Teaching Assistant |
 |--|--|
 | Zoltan C. Toth | Miklos Petridisz
