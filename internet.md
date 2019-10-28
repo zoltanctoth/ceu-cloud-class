@@ -61,19 +61,19 @@ layout: default
 - Every computer on the internet has an IP (Internet Protocol) address, of the form #.#.#.# -> Four numbers separated by dots of the values 0-255
 - Other IP address formats exist today as well; Like postal addresses, they uniquely identify computers on the internet
 - Any device connected to the internet has an IP address, allows other computers to talk to it
-- ISPs assign a IP address to your computer (router)
+- Internet Service Providers (ISPs) assign a IP address to your computer (router)
   - DHCP (Dynamic Host Configuration Protocol)
     - Software that ISPs provides to allow your computer to request an IP address
     - DHCP servers respond with a specific IP address for your Home
   - Multiple devices can connect to your home network  
-    - The home router supports DHCP and assigns IP addresses to your devices
+    - The home router supports DHCP and assigns IP addresses to your devices. It's like a mini network with a mini ISP (your router) in your home
 - IP addresses are limited
   - In the format #.#.#.#, each number is 8 bits, so 32 bits total
     - This yields 232 or about 4 billion possible addresses
     - We’re running out of addresses for all computers
   - Current version of addresses is IPv4
   - Moving towards IPv6
-    - Uses 128 bits, yielding 2128 possible addresses
+    - Uses 128 bits, yielding an extremely high number of possible addresses
 - How do you find your IP address?
 
 | Mac       | Windows         | 
@@ -87,7 +87,7 @@ layout: default
     - Your device needs to request data from servers
   - Even email is stored on a server such as Gmail and your device makes a request to that server to access that email
 - Looking at advanced settings…
-  - Subnet mask is used to decide if another computer is on the same network
+  - Subnet mask is used to decide if another computer is on the same network (doesn't matter for us at this point)
   - Router (aka Gateway) has its own address
     - Routs data in different directions
 
@@ -147,6 +147,7 @@ The ceu_logo will be sent back in one or more packets
     - The computer will put packets together to get a whole file
   - Also includes conventions for requesting services (port identifiers)
     - To make sure Google knows we’re requesting a webpage and not an email or other service
+  - For example - Data headed to #.#.#.#:80 says that the data should be sent to #.#.#.# and put through port 80, which happens to be a human-defined standard port for HTTP or web requests.
 
 * * *
 
@@ -162,9 +163,10 @@ The ceu_logo will be sent back in one or more packets
 
 * * * 
 
-### UDP
-- User Datagram Protocol
-  - Doesn’t guarantee delivery
+
+### UDP (optional)
+- User Datagram Protocol, a counterpart to TCP
+  - **Doesn’t guarantee delivery**
   - Used for video conferencing such as FaceTime
     - Packets can be dropped for the sake of keeping the conversation flowing
   - Used anytime you want to keep data coming without waiting for a buffer to fill
@@ -185,25 +187,6 @@ The internet is a network of networks (with their own routers)
   - Based in US Military logic to prevent downtime if a particular router goes down
   - When multiple packets are sent, like ceu_logo.jpg from Google, they can each take a different path, still getting to their destination eventually
     - Sometimes the internet is busy and the quickest path changes
-
-* * *
-
-### TCP
-- Transmission Control Protocol
-- Guarantees with high probability that data gets to where it needs to go
-- Sometimes, computers drop packets (data) - they get more data than they can, or they miss it entirely
-- TCP allows computers to know if they should resend data
-- Port numbers, specifically TCP Port numbers, help identify which service should take which data
-- For example - Data headed to #.#.#.#:80 says that the data should be sent to #.#.#.# and put through port 80, which happens to be a human-defined standard port for HTTP or web requests.
-
-* * *
-
-### UDP 
-- User Datagram Protocol
-- The feature here is to not guarantee redelivery….what?
-- Still fairly common and appropriate
-- For example, video streaming, video conferencing, live communication - we don’t want a retransmission, we would rather stay up to date chronologically
-- In these cases, UDP is actually more optimal than is TCP, can you see why?
 
 * * *
 
@@ -323,6 +306,8 @@ Set-Cookie: session=29823bf3-075a-433a-8754-707d05c418ab
 - Helps prevent people from accessing your computer
 
 ### Encryption
+
+#### Symmetrics Encryption: Caesar
 - Suppose I want to send a message for “HI”
 - Rather than send "H-I," I'm going to send "I-J," across the internet because that is not English
   - HI ➟ IJ
@@ -343,7 +328,7 @@ Set-Cookie: session=29823bf3-075a-433a-8754-707d05c418ab
     - To know the key, we need to agree in advance
     - Can’t send it encrypted as well as they need the key!
 
-### Public Key Cryptography
+### Public Key Cryptography (PKI)
 
 - The last example with a caesar cypher is secret-key cryptography
   - Only one key
@@ -366,8 +351,15 @@ Set-Cookie: session=29823bf3-075a-433a-8754-707d05c418ab
 - And all of this happens automatically in today's browsers. 
 - In fact, when your browser, Chrome or Edge or whatever, uses the internet to connect to amazon.com or gmail.com, your browser has its own public and private key, as does Amazon's server, as does Google and Facebook and any other website. 
   - Your browser using this crypto system, this public key cryptography mechanism, to exchange a secure message with Amazon or Google or Facebook, even though your laptop has never met anyone at those companies before. And so turns out, for efficiency, what's ultimately used later is very often secret key cryptography. 
+  - Actually, encrypted web communication is somewhat more complicated. Yes, you've seen this earlier, this protocol called HTTPS. 
+    1. First a Public-key based secret channel is established.
+    2. As a second step, your browser and the server agrees on a symmetrics cryptography method and key on this secret channel
+    3. The PKI communication stops and the symmetrically encoded communication continues
+    
+  Check out this article:
+  https://tiptopsecurity.com/how-does-https-work-rsa-encryption-explained/
  
-**Illustration**
+**Illustration ok PKI**
   
 - In public key cryptography there are two keys, one public and one private
   - Mathematical relationship between them
@@ -384,78 +376,74 @@ Set-Cookie: session=29823bf3-075a-433a-8754-707d05c418ab
 - Your browser has its own public and private keys
   - So does websites like Google and Amazon
     - This allows them to communicate securely with you
-- Often this processes is used to exchange a secret key
+- This processes is used to exchange a secret key and continue comminucation using a symmetric encryption with the secret key exchanged.
 
 [![key](assets/key.png)](https://www.youtube.com/watch?v=i-rtxrEz_E8 "Public/Private Key")
 
-### A Deeper Dive [Public Key Cryptography]
-- Public key cryptography is used to secure web trafic through the SSL/TLS protocol that we all use when we use https:// URLs - The security this achieve is quite amazing
-- Suppose you have a Mac. This Mac came pre-installed with the Apple public key which you trust to be authentic. Now, suppose that you want to communicate with Amazon.com. You might not know the correct public key for Amazon, but Apple surely does. So Apple can supply Amazon with a signed message to the effect of:
+### Certificates and Digital Signatures
 
-- “I Apple certify that the public key of Amazon.com is: 
+####  Certificates
+- Public key cryptography is used to secure web trafic through the SSL/TLS protocol that we all use when we use https:// URLs - The security this achieve is quite amazing
+- Regardless wether you have a Mac or a PC, your OS comes with a few public keys installed. The same public keys for everyone in the world. These are keys you trust to be authentic. These public keys with some extra info like the issuer and the "expiration date" of them are called a Certificate. These certificates are provided by the root certificate authorities (CAs), a few qualified companies in the world. Now, suppose that you want to communicate with Amazon.com. You might not know the correct public key for Amazon, but it's issues by one of these authorities surely does. So one of these authorities supplied Amazon with a signed message to the effect of:
+
+- “I a CA certify that the public key of Amazon.com is: 
 ```
 30 82 01 0a 02 82 01 01 00 94 9f 2e fd 07 63 33 53 b1 be e5 d4 21 9d 86 43 70 0e b5 7c 45 bb ab d1 ff 1f b1 48 7b a3 4f be c7 9d 0f 5c 0b f1 dc 13 15 b0 10 e3 e3 b6 21 0b 40 b0 a3 ca af cc bf 69 fb 99 b8 7b 22 32 bc 1b 17 72 5b e5 e5 77 2b bd 65 d0 03 00 10 e7 09 04 e5 f2 f5 36 e3 1b 0a 09 fd 4e 1b 5a 1e d7 da 3c 20 18 93 92 e3 a1 bd 0d 03 7c b6 4f 3a a4 e5 e5 ed 19 97 f1 dc ec 9e 9f 0a 5e 2c ae f1 3a e5 5a d4 ca f6 06 cf 24 37 34 d6 fa c4 4c 7e 0e 12 08 a5 c9 dc cd a0 84 89 35 1b ca c6 9e 3c 65 04 32 36 c7 21 07 f4 55 32 75 62 a6 b3 d6 ba e4 63 dc 01 3a 09 18 f5 c7 49 bc 36 37 52 60 23 c2 10 82 7a 60 ec 9d 21 a6 b4 da 44 d7 52 ac c4 2e 3d fe 89 93 d1 ba 7e dc 25 55 46 50 56 3e e0 f0 8e c3 0a aa 68 70 af ec 90 25 2b 56 f6 fb f7 49 15 60 50 c8 b4 c4 78 7a 6b 97 ec cd 27 2e 88 98 92 db 02 03 01 00 01”
 ```
-- Such a message is known as a certificate, and it allows you to extend your trust in Apple to a trust in Amazon. 
-  - When your browser communicates with amazon, it can request this message, and if it is not present not continue with the interaction.
-    - Clearly a person in the middle can stop this message from travelling and hence not allow the interaction to continue, but they cannot spoof the message and send a certificate for their own public key, unless they know Apple’s secret key. 
+- Such a message is known as a certificate. Parts of this certificate is encrpyted by the CA's private key. So you can decrypt it with the CA's public key and validate that the certificate was indeed "signed" by the CA. This method allows you to extend your trust in the Certificate Authorities to a trust in Amazon. The real-world situation is slightly more complex. CA's can also issue certificates to other CA's who can then certify webpages. It's a chain of certificates and thus a chain of trust. Check out this explanation for more details: https://knowledge.digicert.com/solution/SO16297.html 
+  - When your browser communicates with Amazon, it can request this message, and if it is not present it will not continue with the interaction.
+    - Clearly a person in the middle can stop this message from travelling and hence not allow the interaction to continue, but they cannot spoof the message and send a certificate for their own public key, unless they know a CA's secret key. 
 - Using certificates, we can assume that Bob the user has the public verification key 𝑣 of Alice the server. Now Alice can send Bob also a public encryption key 𝑒, which is authenticated by 𝑣 and hence guaranteed to be correct.
 - Once Bob knows Alice’s public key they are in business- he can use that to send an encryption of some private key 𝑘 which they can then use for all the rest of their communication.
-- Digital signatures and other forms of electronic signatures are legally binding in many jurisdictions. This is some material from the website of the electronic signing company DocuSign:
+
+What happens if a ROOT CA's secret key gets exposed? Well, probably Capital P Panic. Apple, Microsoft and other OS producers would need to issue quick updates to the OSs to make sure no computer trusts those certificates which originate from the compromised company.
+
+#### Digital Signatures
+
+Digital signatures and other forms of electronic signatures are legally binding in many jurisdictions. This is some material from the website of the electronic signing company DocuSign:
 
 [![docusign](assets/docusign.png)](https://www.docusign.com/how-it-works/electronic-signature/digital-signature/digital-signature-faq#cert "Understanding digital signatures")
 
+Digital Signatures have two components:
+1. You as the signer must have a valid certificate. How can you get a certificate? You can walk in with your ID to a CA's office and walk out with your private key and your certificate, which contains your public key. Note that the certificate itself doesn't contain any sensitive information.
+2. How can you sign documents with this method? First, you have a valid certificate, so if you encrpyt a document with your private key, anyone can validate that the document was encrypted by you. When you sign, you don't encrypt the document though. You rather create a hash of the document and you only encrypt the hash. The encrypted hash along with your certificate is your signature.
+3. When someone receives the document with your signature, they verify it by: First, they validate your certificate. Then they decrpyt the hash with your public key. If the decrpytion is successful they can be sure the hash was signed by you. Then, they hash the document themselves and compare it to the decrypted hash. If these are equal, the document hasn't been changed.  
 
-* * *
+
 * * *
 
 
 ### Q&A
 - **Suppose that you turn on your computer and visit https://www.ceu.edu/ in a browser. Using each of the terms below in a context that makes clear your understanding of each, explain in a paragraph the process by which CEU's home page appears on your screen: DHCP server, DNS server, IP address, packet, TCP port, web server.**
   - When I turn on my computer and connect to WiFi DHCP gives me a unique IP address and tells the IP address of the local DNS server. DNS converts domain names to IP addresses and vice versa so when I type www.ceu.edu, DNS translates it into a numeric address, the real address of the server where the website is located. Then an HTTP request is sent to the server, which sends a copy of the website (data) to me across TCP/IP. If the request gets approved then data packets will be sent to me. Then these small packets assemble and get displayed to me.
-DHCP server- assigns IP addresses
-DNS server - contains the IP addresses and host names (translation)
-IP address: #.#.#.#, where each # is between 0 and 255. (identification & location)
-Packet: unit of data
-TCP port: used to identify the format that is requested. For example, port "80" requests web services, port "25" requests email, etc.
-Web Server: processes incoming network requests over HTTP and other protocols
+  - DHCP server- assigns IP addresses
+  - DNS server - contains the IP addresses and host names (translation)
+  - IP address: #.#.#.#, where each # is between 0 and 255. (identification & location)
+  - Packet: unit of data
+  - TCP port: used to identify the format that is requested. For example, port "80" requests web services, port "25" requests email, etc.
+  - Web Server: processes incoming network requests over HTTP and other protocols
 
 
 - **TCP (tries to) guarantee delivery by ensuring that any lost packets are resent. Why, though, might packets be lost between a sender and receiver?**
-  - UDP: its feature is to not guarantee delivery. If some data gets lost, packets get dropped. It can be due to: malfunction, technical difficulties, overloaded routers. This protocol does not let data to be re-transmitted. Skype, streaming, video games are some examples where UDP is useful because it is better to wait a few seconds than watching something lagging all the time. Re-transmission is not as good as staying up to date chronologically. TCP: Packets can be lost here as well due to the routers being too busy or due to other reasons, but then TCP re-transmits.
-
+ 
+   - It can be due to: malfunction, technical difficulties, overloaded routers. TCP retransmits lost packages.
+   - UDP: its feature is to not guarantee delivery. If some data gets lost, packets get dropped. This protocol does not let data to be re-transmitted. Skype, streaming, video games are some examples where UDP is useful because it is better to skip a few tens of seconds than watching something lagging all the time. Re-transmission is not as good as staying up to date chronologically. 
 
 - **When a server receives a packet, how does it know whether that packet contains (part of) an email, a request for a website, an instant message, or something else altogether?**
-  - SMTP (protocol for emails), on the 'envelope' there will be a port number specified. We need to specify what type of information is inside the envelope, which is represented by the port number.
-
-
-- **In what sense are domain names similar to phone numbers like 1-800-COLLECT?**
-  - Phone number: numeric reference, phone numbers were originally hard wired and the first few numbers told the geographic location of the exchange. Phone numbers are used to identify people. Everybody has a different one. Domain name is like an address as well and helps us locate web pages. There is no duplicate domain address. (IPv6 is needed so that we do not run out of them)
-
-
-- **If not already familiar, read up on "bandwidth" and "latency" (as via Google) and then, in your own words, distinguish the two concepts as they relate to internet speed.**
-  - Latency is basically the time it takes to send a packet from the source to the destination. Bandwidth is the maximum data transfer rate. So high latency is not good because it takes a lot of time to get a packet from the source to the destination, but with high bandwidth, we can reduce this time.
-
+  - On the 'envelope' there will be a port number specified. We need to specify what type of information is inside the envelope, which is represented by the port number.
 
 - **How does every website that you visit know (and likely log!) your IP address?**
-  - The web server needs an IP to be able to establish the connection and communicate, where to send the data requested etc. It is usually done in the NCSA format. Anonymization can be done via: Proxy, VPN, Tor, NAT, Gateway or Firewall. You'll know the following information if you know one’s IP address: approximate location based on IP/ISP, whether they have a static or dynamic IP, if they use traceroute (+ see the latency), with telnet or nmap open ports can be found as well. IP address is usually logged to show you relevant advertisements. The information is contained in the Packet Header.
-
-
-- **If not already familiar, read up on "DNS hijacking," and in your own words, explain what it means for an adversary to hijack a website via DNS.**
-[![dns](assets/dns.png)](https://www.wired.com/story/what-is-dns-hijacking/ "DNS-hijacking")
-  - When we open a website, DNS translates the domain to an IP and then we can access the website. DNS hijacking means to redirect requests of a specific server to another and it is achieved by the translation of a domain to a fake IP address that takes the person to a malicious website and eventually people or companies may lose data (passwords, accounts etc.). One of the most popular DNS hijacking case is when hackers redirected traffic to all 36 of a Brazilian bank's domains.
-Optional Reading
-
+  - The web server needs an IP to be able to establish the connection and communicate, where to send the data requested etc. Anonymization can be done via: Proxy, VPN, Tor, Firewalls, etc. You'll know the following information if you know one’s IP address: approximate location based on IP/ISP. IP address is usually logged to show you relevant advertisements. 
 
 * * *
 
 ### Practice Questions:
-- What is the internet?
-- What does it mean if a URL begins with https:// as opposed to http://?
-- What does it mean for a computer to have a private IP address (e.g. one that begins with 10., 192.168., or 172.16.)?
-- Why do TCP/IP packets from one computer to another not always take the same amount of time to arrive at their destination?
-- Today's "home routers" are often much more than routers alone. They are also "access points" (aka APs) and "firewalls" too. What is an access point (AP)? And what is a firewall?
-- Whether or not you have internet service at home, Google around for an internet service provider (ISP) that provides internet service to your neighborhood (or somewhere nearby). What's the ISP you found? What speeds does the ISP you found offer? At what cost? And do they offer symmetric (i.e., identical) upload and download speeds, or do they differ?
+- Explain what is an IP address and how it relates to the DNS system and the hostname?
+- What does it mean if a URL begins with https:// as opposed to http://? How does this associate with the concept of ports?
+- What is a symmetrics Encryption? Explain how the Caesar encoding works. What are the callenges using a symmetric encryption if the parties communicating never met before?
+- How does the Public Key Cryptography work? Explain the concept of the two types of keys and how they relate.
+- How does digital signatures work? Explain the signing and the signature validation process.  
+- How does HTTPS work? Explain the process of identification validation and encryption. (See linked article in the courseware for details)
 
 * * *
 
