@@ -747,7 +747,8 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 
 ***
 **Launching an instance:**
-![AWS-EC2-LaunchInstance](Images/AWS/AWS-EC2-LaunchInstance.png)
+- **Please make sure to select `EU West (Ireland)` preferably `eu-west-1` AZ later on.**
+![AWS-EC2-LaunchInstance](Images/AWS/az-eu-west.png)
 ***
 
 ### Step 1. Choosing an AMI 
@@ -810,7 +811,7 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 
 ***
 **Step 2. Choose an Instance Type:**
-![AWS-EC2-ChooseAnInstanceType](Images/AWS/AWS-EC2-ChooseAnInstanceType.png)
+![AWS-EC2-ChooseAnInstanceType](Images/AWS/ec2nano.png)
 ***
 
 ### Step 3. Configuring Instance Details
@@ -850,10 +851,10 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 
 ***
 **Step 4a. Add Storage:**
-![AWS-EC2-AddStorage1](Images/AWS/AWS-EC2-AddStorage1.png)
+![AWS-EC2-AddStorage1](Images/AWS/S3StorageRevised.png)
 ***
 
-**Step 4b. Add additional Storage:**
+**This is how you would add Additional Storage :**
 ![AWS-EC2-AddStorage2](Images/AWS/AWS-EC2-AddStorage2.png)
 ***
 
