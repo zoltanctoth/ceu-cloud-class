@@ -613,13 +613,10 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 - Password: TBA
 - Once you are logged in, select `EC2` from the list of Amazon Web Services. This tutorial is entirely focused on `EC2` (with some mention of `S3`) so the `EC2` console will be the starting point for many of the activities described below.
 
+* * *
 
-
-***
-**AWS home:**
-![AWS-Home](Images/AWS/AWS-Home.png)
-***
 **AWS log in:**
+
 ![AWS-Login](Images/AWS/console-login.png)
 ***
 **List of AWS services (select EC2 for this tutorial):**
