@@ -730,7 +730,7 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
   - Now, *for each AWS Region*, determine the following; Are there any?:
     - `Running Instances`? 
     - `Volumes`? `
-    - 'Elastic IPs`?
+    - `Elastic IPs`?
     - `Snapshots`?  
     - If any of these values are greater than 0, in *any one or more regions*, you are likely being billed monthly for resources that Amazon is reserving for you until told otherwise. 
     - If you terminate or delete all of these items, your monthly bill should return to $0.
@@ -763,7 +763,7 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 - `My AMIs`
 - `AWS Marketplace`
 - `Community AMIs`
-- In the `Quick Start` list we will select an Ubuntu AMI as our starting point
+- We will select `Amazon Linux 2 AMI (HVM), SSD Volume Type ` AMI as our starting point
 - The `Quick Start` AMIs section is a relatively short list of basic systems that have been chosen by Amazon as common starting points
 - These have some degree of "official" support and testing on AWS
 - The `My AMIs` section contains AMIs that you have created youself, perhaps using a `Quick Start` or `Community AMI` as a starting point
@@ -775,32 +775,29 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 - Finally, the `Community AMI` section contains thousands of AMIs created by users around the world
 - These AMIs are specific to each `Region` so if someone tells you about an AMI they want to share, be sure to search for it in the correct region
 - If you create you own AMI and you want to share it with others, you can 'publish' it to the community
-- It will still appear in you `My AMIs` section, but it will also then appear and be searchable in the `Community AMI` section.
+- It will still appear in your `My AMIs` section, but it will also then appear and be searchable in the `Community AMI` section.
 
-- For this tutorial we will select the following AMI from the `Quick Start` list: `ami-9a562df2`
+- For this tutorial we will select the following AMI from the `Quick Start` list: `ami-0ce71448843cb18a1`
 - This number is a unique ID for the AMI
-- The full length description for this AMI is `Ubuntu Server 14.04 LTS (HVM), SSD Volume Type`
+- The full length description for this AMI is `Amazon Linux 2 AMI (HVM), SSD Volume Type`
 - We are also told that the `Root device type` is `EBS` and the `Virtualization type` is `HVM`
-- `Ubuntu Server 14.04 LTS`, refers to the version of the Ubuntu OS
-- This version is also known as Ubuntu '[Trusty Tahr](http://en.wikipedia.org/wiki/List_of_Ubuntu_releases#Ubuntu_14.04_LTS_.28Trusty_Tahr.29)'
-- We are told that the `Root device type` of the AMI is `EBS`
 - We will discuss storage in more detail but this means that the AMI is configured so that the `root volume` of the operating system will be installed on an EBS volume
 - In practical terms, this means that information stored on the root volume, including the OS itself will persist if we stop the instance (i.e. the root volume is *not* ephemeral)
 - The term `HVM` refers to a type of virtualization technologythat will be used by the instance, the other common type being `PV`
-- A detailed discussion of virtualizition technology is outside of the scope of this tutorial but you can learn more details here: [Linux AMI virtualization types](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html) and [Ubuntu PV vs HVM](http://stackoverflow.com/questions/22130214/amazon-ec2-ubuntupv-or-ubuntuhvm). 
-- On balance, the `HVM` option is now perhaps recommended over the `PV` option. Once you are ready to proceed, press the blue `Select` button next to the Ubuntu Server description.
+- A detailed discussion of virtualizition technology is outside of the scope of this class but you can learn more details here: [Linux AMI virtualization types](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html)
+- Once you are ready to proceed, press the blue `Select` button
 
 ***
 **Step 1. Choose an Amazon Machine Image (AMI):**
-![AWS-EC2-ChooseAnAMI](Images/AWS/AWS-EC2-ChooseAnAMI.png)
+![AWS-EC2-ChooseAnAMI](Images/AWS/AMI-aws.png)
 ***
 
 ### Step 2. Choosing an Instance Type
 - Once an AMI is selected, the next step is to choose an instance type
-- In simple terms, in the previous step we decided on the operating system we want to run (Ubuntu v14.04), and now we need to chose the hardware that it will run on
+- In simple terms, in the previous step we decided on the operating system we want to run, and now we need to chose the hardware that it will run on
 - Refer to the following screenshot for this discussion
   - Note that in this example, we have selected `General purpose` in the drop down filter
-  - This leaves us 7 choices for hardware configuration. 
+  - Pick `t2.nano` Instance Type
   - Note that the price per hour for each of these options is not listed here
     - To get the price, note the instance type name (e.g. t2.nano`) and refer back to the [EC2 pricing list](https://ec2instances.info/)
 - We discussed many of the details described in this table of instance types in the pricing discussion above
@@ -821,12 +818,12 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 - For the most part, leaving all of these options at their default value will be fine
 - Refer to the following screenshot while we discuss a few of these options briefly
 - Using the `Number of instances` option you could launch multiple instances of the same AMI with the same hardware configurations at the same time
-- However, in our example, only one instance will be launched
+- However, in our example, only `one` instance will be launched
 - You also have the option to attempt to negotiate a cheaper rental by using the [Request Spot Instances](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html) option
-- The `Shutdown behavior` option determines what will happen if you shutdown the instance from within the AMI (e.g. by issuing a `sudo shutdown` command in ubuntu linux)
+- The `Shutdown behavior` option determines what will happen if you shutdown the instance from within the AMI (e.g. by issuing a `sudo shutdown` command in linux)
 - To prevent accidental termination of your instance, you may want to set this option to `Stop`
-- You can also help to prevent accidental termination of your instance by using the `Enable termination protection` option
-- These options can also adjusted later for any instance in the console
+- You can also help prevent accidental termination of your instance by using the `Enable termination protection` option
+- These options can also be adjusted later for any instance in the console
 - Once you are ready, proceed to the next step by pressing the `Next: Add Storage` button
 
 ***
@@ -837,17 +834,15 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 ### Step 4. Adding Storage
 - The next step is to configure the disk/storage that will be available in the instance
 - The starting point of this page depends on what instance type we selected in Step 2
-  - Remember that we selected an instance type with an EBS root volume (during AMI selection) and an additional 1 x 32 GB SSD drive
+  - Remember that we selected an instance type with an EBS root volume (during AMI selection) 
   - These two volumes are summarized in the `Add Storage` view
   - The first volume is 8 GiB.  This is the root volume where the operating system will exist
   - It is set to be deleted on termination of the instance but we could chose to keep it as well
-  - The second row of the table shows as `instance store 0`. This is the 32 GiB SSD drive (though confusingly, the size is not shown here)
-- Our two volumes are projected to be attached to the instance as `/dev/sda` and `/dev/sdb`. Sometimes this does not exactly match what we see inside the instance because device mapping behavior depends on the operating system
-- Since the second volume is an `Instance Store` device, it is akin to a drive physically attached to the computer we are renting
-- This should ensure high performance, but it is important to remember that such volumes are `ephemeral` and the contents will not persist if the instance is stopped or destroyed
-- To demonstrate the difference, lets use the `Add New Volume` button to add a third volume to our instance (see Step 4b screenshot below)
+  
+ **Do not do this**, however you could add more volumes here
+- We could add a second/third.. volume to our instance
 - Choose `EBS` as the `Type`, set the device to `/dev/sdc`, give it a size of 500 GiB, and set the volume type to `General Purpose (SSD)`
-- Now when we log into the instance we will expect to find three distinct storage volumes/devises. 
+- Now when we log into the instance we will expect to find two/three distinct storage volumes/devises. 
 
 ***
 **Step 4a. Add Storage:**
@@ -888,12 +883,11 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 ### Step 5. Tagging the Instance
 - As you start to have a large number of instances running or saved you may want to start assigning `Tags` to these instances to help track their usage and billing details
 - Try creating a `Tag` as a simple key/value pair
-- In the example below we created a `name` tag with a value of `AWS Tutorial`
 - Once you are ready, proceed to the next step by pressing the `Next: Configure Security Group` button
 
 ***
 **Step 5. Tag Instance:**
-![AWS-EC2-TagInstance](Images/AWS/AWS-EC2-TagInstance.png)
+![AWS-EC2-TagInstance](Images/AWS/ec2-tags.png)
 ***
 
 ### Step 6. Configuring a Security Group:
@@ -902,7 +896,7 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 - You can also select a `default` security group
 - The purpose of Security Group settings is to determine what Inbound and Outbound network traffic will be allowed on the instance
 - Since Inbound traffic could be coming from anyone (including those with malicious intentions) it is highly recommended that most incoming traffic be blocked and only certain incoming services be allowed on an as needed basis
-- In the example below we created a Security Group called `AWS-Tutorial` that only allows incoming traffic of two types:
+- In the example below we created a Security Group called `CEU-Tutorial` that only allows incoming traffic of two types:
   - `SSH` (over port 22) 
   - `HTTP` (over port 80)
 - The first rule, will allow us to log into our instance remotely using the SSH protocol
@@ -915,7 +909,7 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 
 ***
 **Step 6. Configure Security Group:**
-![AWS-EC2-ConfigureSecurityGroup](Images/AWS/AWS-EC2-ConfigureSecurityGroup.png)
+![AWS-EC2-ConfigureSecurityGroup](Images/AWS/Security-Group-AWS.png)
 ***
 
 ### Step 7. Reviewing the Instance before Launch
@@ -926,7 +920,7 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 
 ***
 **Step 7. Review Instance Launch:**
-![AWS-EC2-ReviewInstanceLaunch](Images/AWS/AWS-EC2-ReviewInstanceLaunch.png)
+![AWS-EC2-ReviewInstanceLaunch](Images/AWS/Review-AWS.png)
 ***
 
 ### Step 8. Assigning a Key Pair
