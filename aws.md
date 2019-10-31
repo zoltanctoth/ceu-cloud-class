@@ -930,7 +930,7 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 - If this is your first instance you will have to `Create a new key pair`
 - In the example below we have chosen to create a new key pair called `AWS-Tutorial`
 - Once the name is chosen, press the `Download Key Pair` button
-- You will download a simple text file called `AWS-Tutorial.pem`
+- You will download a simple text file called `CEU-Tutorial.pem`
 - Store this file somewhere on your computer (e.g. your home directory) and remember the location
 - The contents of this file will contain an RSA key that should look something like this:
 
@@ -964,7 +964,7 @@ UHuvF5mCDdAHWirFUBSiebxOpEQnkZ9IPXUUCSC6IQvPFbdGN8G3WjoER6Lw121Q4rJxGA==
 
 ***
 **Step 8. Select an existing Key Pair or create a new Key Pair:**
-![AWS-EC2-CreateKeyPair](Images/AWS/AWS-EC2-CreateKeyPair.png)
+![AWS-EC2-CreateKeyPair](Images/AWS/keypair-aws.png)
 ***
 
 - To prepare for logging into our instance, lets create a directory on our own `local` computer (i.e. the one you are sitting at) and store the key file there
@@ -973,14 +973,14 @@ UHuvF5mCDdAHWirFUBSiebxOpEQnkZ9IPXUUCSC6IQvPFbdGN8G3WjoER6Lw121Q4rJxGA==
 - To create a directory and move the key file we downloaded into that directory we can down the following in a Mac Terminal session:
 
 ```bash
-mkdir ~/AWS-Tutorial
-mv ~/Downloads/AWS-Tutorial.pem ~/AWS-Tutorial
-cd ~/AWS-Tutorial
+mkdir ~/CEU-Tutorial
+mv ~/Downloads/CEU-Tutorial.pem ~/CEU-Tutorial
+cd ~/CEU-Tutorial
 chmod 400 AWS-Tutorial.pem 
 ls
 ```
 
-- The `chmod 400 AWS-Tutorial.pem` command changes the permissions of your key file so that only you can read it
+- The `chmod 400 CEU-Tutorial.pem` command changes the permissions of your key file so that only you can read it
 - This is an important security setting
 - If you attempt to log into your instance using a key file with inappropriate permissions, the login command may fail
 - So you should always perform this command on any new key file (or copy of such a file) before attempting to use it to log into an instance
@@ -1011,140 +1011,42 @@ ls
 - You can then perform various tasks using the `Actions` menu
 - You can also right click on a single instance to obtain a similar menu
 - Before logging into this instance lets take a momemt to examine various important sections of the EC2 console in particular the `EC2 Dashboard`, `Volumes`, `Security Groups`, and `Key Pairs`
-- In each of these views you should see new entities that correspond to the instance we just created
 
 ***
-**Step 10. EC2 Console view of a new Instance:**
+**Step 10. EXAMPLE! Console view of a new Instance (Please don't replicate this instance here)**
 ![AWS-EC2-Console](Images/AWS/AWS-EC2-Console.png)
 ***
 
-**The EC2 dashboard should now show a running Instance, Volumes, etc.:**
-![AWS-EC2-Dashboard2](Images/AWS/AWS-EC2-Dashboard2.png)
-***
+#### Check
+- The EC2 dashboard should now show a running Instance, Volumes, etc.
+- Review new Volumes
+- Review new Security Groups
+- Review new Key Pairs
 
-**Review new Volumes:**
-![AWS-EC2-Volumes](Images/AWS/AWS-EC2-Volumes.png)
-***
-
-**Review new Security Groups:**
-![AWS-EC2-SecurityGroups](Images/AWS/AWS-EC2-SecurityGroups.png)
-***
-
-**Review new Key Pairs:**
-![AWS-EC2-KeyPairs](Images/AWS/AWS-EC2-KeyPairs.png)
-***
+* * *
 
 ### Step 11. Logging into an instance
 - We are finally ready to log into our instance
 - To do this, open a terminal session on your local computer (e.g. using `Mac Terminal` or `Windows Putty`)
-- Change directories to the location where you stored your key file `AWS-Tutorial.pem`
+- Change directories to the location where you stored your key file `CEU-Tutorial.pem`
 - Now at the same time, view your instance in the EC2 console
 - Make sure that the `Key pair name` for this instance matches the `.pem` key file
 - Also, get the `Public IP` value from the console and use it instead of the example one below. Note that you could use the `Public DNS` value instead if you want
 
-- Finally log in as follows:
+- Finally log in as follows (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html)
 ```bash
-cd ~/AWS-Tutorial
-chmod 400 AWS-Tutorial.pem
-ssh -i AWS-Tutorial.pem ubuntu@52.5.92.87
+cd ~/CEU-Tutorial
+chmod 400 CEU-Tutorial.pem
+ssh -i ./nameofyourprivatekey.pem ec2-user@ipaddress or hostname
 ```
+If you are lost, try to resolve any issue doing a quick research e.g:
+`How to SSH to a Linux EC2 Instance from Mac`
 
-```In this example, we open a terminal command line session on our local computer. We moved to the location of my `.pem` key file. We then made sure the permissions of this file were set correctly using a `chmod` command. You only need to do this step once but there is no harm in doing it again. Then we executed an SSH command to remotely log into our AWS instance using the `Public IP` 52.5.92.87. Our SSH command included an option to use the `.pem` file to identify us as the owner of the instance. We logged into the instance as a user called `ubuntu` because that is a user that we know will be defined by default on all ubuntu systems. Once logged in you can create new users if you wish. If your login is successful, you should see something like that shown in the screenshot below.```
+Please reach out to me via Slack if you can't figure it out.
 
-
-**Step 11. Log into Instance:**
+```In this example, we open a terminal command line session on our local computer. We moved to the location of my `.pem` key file. We then made sure the permissions of this file were set correctly using a `chmod` command. You only need to do this step once but there is no harm in doing it again. Then we executed an SSH command to remotely log into our AWS instance using the `Public IP`. Our SSH command included an option to use the `.pem` file to identify us as the owner of the instance. We logged into the instance as a user called `name` as an example now that is a user that we know will be defined by default on all systems.```
 
 * * *
-
-### Trouble-shooting and advanced topics
-
-### I cannot log into my EC2 instance, what might have gone wrong?
-If you tried the above and it did not work there are several possible explanations. 
-- First, check the `Instance State` of your instance in the EC2 console. Is it `running`? When you first start an instance it takes a few minutes to boot up. Similarly, if you reboot the instance for some reason, you will not be able to log into it until it comes back online. 
-- Second, are you in a terminal session in the directory where you stored your `.pem` key file? 
-- Third, is this the right key file? Each instance is associated with a single `Key Pair` and you must have the key file that was created when that `Key Pair` was created. If you delete a key file and later generate a new one, it will not work with instances that used an older `Key Pair` even if you name the file the same thing. 
-- Fourth, have you set the permissions for your `.pem` key file correctly. Do not forget to run `chmod 400 *.pem` on your key file. 
-- Fifth, did you remember to include the `-i key_file_name.pem` in your SSH command? 
-- Sixth, did you remember to specify what user you want to log into the system as? You must include the `ubuntu@` (or other valid user name) before the IP address to log into an Ubuntu system by SSH. 
-- Seventh, did you specify the correct IP address for the instance you want to log into. The value after `ubuntu@` must match the `Public DNS` or `Public IP` value that is shown in the AWS EC2 Console.  Note that there are also `private` versions of these two values. Only the `Public` version will work from your local computer.
-- Eighth, does the `Security Group` used for the instance allow Incoming SSH Access? Make sure your `Security Group` has an entry for type `SSH`, protocol `TCP`, port `22`, from source `Anywhere`. If you have to change the `Security Group` settings to allow access, you will have to reboot the instance before they take effect.  
-
-### How do storage volumes appear within a Linux instance on Amazon EC2?
-- Now that you are logged in, you can investigate how the storage options you choose when creating the instance manifest inside an AWS Ubuntu instance
-- First try using the command `df -h` to view existing storage devices that are mounted
-- If you created a system exactly as decsribed above, you should see two devices (`/dev/xvda1` of 7.8G mounted as `/`) and (`/dev/xvdb` of 30G mounted as `/mnt`)
-- These are the `EBS` root device volume and the ephemeral 30G `Instance Store` volume that come with the `m3.large` instance type we chose
-- Remember that we also added another `EBS` volume that was 500 GiB in size. Where is that device? 
-  - It is not currently mounted
-  - To view all devices the system knows about you can do something like this command: `ls /dev/` or `ls -1 /dev/ | grep xvd`
-  - You should now see three devices: `xvda`, `xvdb`, and `xvdc`
-    - Lets format and mount the device `xvdc` to a new directory `data` as follows:
-
-```bash
-lsblk
-cd /
-sudo mkdir data
-sudo mkfs -t ext4 /dev/xvdc
-sudo mount /dev/xvdc /data
-sudo chown -R ubuntu:ubuntu /data
-df -h
-lsblk
-```
-
-- NOTE: Refer to AWS docs [about using EBS Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html) for more details.
-
-- Now the same `df -h` command we performed above should show a new volume `/dev/xvdc` mounted at `/data` of size 493G
-- Note that in order to make this new mount persist when we reboot the machine we will have to add a mount line like this to the `/etc/fstab` file (e.g. by `sudo vim /etc/fstab`):
-```
-/dev/xvdc /data  auto  defaults,nobootwait 0 2
-```
-
-### Taking stock of compute resources within an Ubuntu Linux instance
-- To examine other resources within the Ubuntu instance you should familiarize yourself with the command `top` (press `1` to show CPUs and `q` to exit)
-- You can also learn about the system by examining `cat /proc/meminfo`, `cat /proc/cpuinfo`, and `lsb_release -a`.  
-
-### Basic setup and administration of an Ubuntu Linux instance
-- To update your Ubuntu OS to use the latest security patches etc. you can do the following:
-```bash
-sudo apt-get update
-sudo apt-get upgrade
-sudo reboot
-```
-
-### Setting up an Apache web server
-- If you want to easily retrieve or share data created on your instance, one option is to start an Apache web service on the instance so that you can browse the contents of certain directories remotely in a web browser
-- Note that when launching the instance our security group was configured to allow http access via port 80 so that this would work.
-
-* Edit config to allow files to be served from outside /usr/share and /var/www
-```
-sudo vim /etc/apache2/apache2.conf
-```
-
-* Add the following content to apache2.conf
-```
-<Directory /home/ubuntu/>
-       Options Indexes FollowSymLinks
-       AllowOverride None
-       Require all granted
-</Directory>
-```
-
-* Edit vhost file
-```
-sudo vim /etc/apache2/sites-available/000-default.conf
-```
-
-* Change document root in 000-default.conf
-```
-DocumentRoot /home/ubuntu
-```
-
-* Restart apache
-```
-sudo service apache2 restart
-```
-
-- You should now be able to enter the `Public IP` or `Public DNS` in a web browser on your local computer and browse the contents of the `/home/ubuntu` directory on your AWS instance
 
 ### What is difference between the 'Start', 'Stop', 'Reboot', and 'Terminate' (Instance States)?
 - From the AWS EC2 console, you can change the state of each of your instances
@@ -1164,7 +1066,7 @@ sudo service apache2 restart
 - Specifically you should remove: `Instances`, `Volumes` and `Snapshots`
 - You may also decide to remove other entities that were created for demonstration purposes including: `Tags`, `AMIs`, `Security Groups`, and `Key Pairs`
 - All of this can be done in the AWS EC2 console
-- hen you are done, the `EC2 Dashboard` should show `0` for all resource types except `Security Groups` where a single default security configuration will remain
+- When you are done, the `EC2 Dashboard` should show `0` for all resource types except `Security Groups` where a single default security configuration will remain
 
 ### Further reading (Optional)
 - This is a basic introduction to AWS cloud computing that assumes all configuration of the instance will occur within the AWS EC2 console of your web browser and all configuration of the Ubuntu Linux system will occur by the user manually executing commands and perhaps saving the outcome as a cusom AMI
