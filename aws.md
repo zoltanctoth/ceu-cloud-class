@@ -1347,3 +1347,12 @@ https://d1.awsstatic.com/whitepapers/AWS_DevOps.pdf?did=wp_card&trk=wp_card
 https://d1.awsstatic.com/whitepapers/Security/AWS_Security_Best_Practices.pdf?did=wp_card&trk=wp_card
 https://d1.awsstatic.com/whitepapers/AWS%20Storage%20Services%20Whitepaper-v9.pdf?did=wp_card&trk=wp_card
 https://aws.amazon.com/getting-started/use-cases/?awsf.getting-started-use-case=use-case%23big-data-analytics&e=gs&p=gsrc_control&sc_ichannel=so&sc_icategory=abtest&sc_iname=awswt-7&sc_iurl=gsrc&sc_iversion=a-use-case-bd-analytics
+https://ec2instances.info/
+https://medium.com/@ashanpriyadarshana/aws-services-overview-8432cb578227
+https://www.businessnewsdaily.com/10772-aws-training-resources.html
+https://aws.amazon.com/solutions/case-studies/vodafone/
+https://aws.amazon.com/solutions/case-studies/siemens/
+https://aws.amazon.com/solutions/case-studies/atlassian/
+https://www.smallbusinesscomputing.com/biztools/the-pros-and-cons-of-cloud-computing.html
+https://www.lifewire.com/cloud-computing-explained-2373125
+https://www.linkedin.com/pulse/11-pros-cons-cloud-computing-everyone-should-know-umesh-singh/
