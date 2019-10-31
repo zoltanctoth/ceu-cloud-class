@@ -618,7 +618,35 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 **AWS log in:**
 
 ![AWS-Login](Images/AWS/console-login.png)
-***
+
+* * *
+* * *
+**Before launching and using an EC2 instance please make sure to create a Security Group beforehand by following the steps described here:**
+
+STEP 1: After logging in: Go to `Services` -> `EC2` -> `Security Groups`
+![AWS-Security-Group](Images/AWS/security-group-aws.png)
+
+STEP 2: Click `Create Security Group`
+*Note: When you create an `Inbound rule` and `Outbound rule` is created automatically, so you can leave that empty. Security Groups are stateful. So if you allow HTTP in, it is automatically allowed out as well.*
+- Set up an HTTP and an SSH protocols:
+![AWS-Security-Group](Images/AWS/sec-rules.png)
+
+After creation, you will likely see two HTTP rules and two SSH rules;
+- `HTTP 0.0.0.0/0`  -> IPv4
+- `HTTP ::/0` -> IPv6
+- `SSH 0.0.0.0/0` -> IPv4
+- `SSH ::/0` -> IPv6
+
+If you make a change to a Security Group - that change takes effect immediately.
+- You can attach more than one Security Group to an EC2 instance.
+
+Now create your EC2 instance and later attach this Security Group to it by clicking on `Instances` -> `Select your EC2 Instance` -> `Actions` -> `Networking` -> `Change Security Groups` -> Then select this Security Group and assign it to your EC2 instance.
+
+![AWS-Security-Group](Images/AWS/sg-assign-aws.png)
+
+
+* * *
+
 **List of AWS services (select EC2 for this tutorial):**
 ![AWS-Services](Images/AWS/AWS-Services.png)
 ***
@@ -890,7 +918,8 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 ![AWS-EC2-TagInstance](Images/AWS/ec2-tags.png)
 ***
 
-### Step 6. Configuring a Security Group:
+### Step 6. Configuring a Security Group
+**(Dont do this here, create a Security Group separately and attach that to this EC2 Instance as explained above.)**
 - A `Security Group` controls how services and users can access your instance once it is running
 - When you launch a new instance you can choose to configure a new Security Group and use it or select one that you created previously
 - You can also select a `default` security group
