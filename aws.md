@@ -743,11 +743,11 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 - Once it is running we will log into this server and perform some additional exercises and configuration. 
 - To get started press the blue `Launch Instance` button. 
 - Remember that you are launching this instance in a particular `Region`. 
-- In the following example we launched an instance in `US East (N. Virginia)`. (Pick the closest to your location)
+- In the following example we launched an instance in `EU West (Ireland)`. (Pick the closest to your location)
 
 ***
 **Launching an instance:**
-- **Please make sure to select `EU West (Ireland)` preferably `eu-west-1` AZ later on.**
+- **Please make sure to select `EU West (Ireland)`.**
 ![AWS-EC2-LaunchInstance](Images/AWS/az-eu-west.png)
 ***
 
@@ -801,12 +801,11 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
   - Note that in this example, we have selected `General purpose` in the drop down filter
   - This leaves us 7 choices for hardware configuration. 
   - Note that the price per hour for each of these options is not listed here
-    - To get the price, note the instance type name (e.g. `m3.large`) and refer back to the [EC2 pricing list](http://aws.amazon.com/ec2/pricing/)
-- At the time of writing, an `m3.large` instance in `US East (N. Virginia)` rented on an `On Demand` basis costs $0.140 per Hour
+    - To get the price, note the instance type name (e.g. t2.nano`) and refer back to the [EC2 pricing list](https://ec2instances.info/)
 - We discussed many of the details described in this table of instance types in the pricing discussion above
 - Briefly, we are given a series of options that differ in their number of CPUs, memory, pre-configured storage, network performance, etc.
 - To view more or less details you can adjust this table using the `Show/Hide Columns option`
-- In the example depicted below we have selected the `m3.large` option with 2 CPUs, 7.5 GiB of memory, a single 32GB SSD `Instance Storage` volume, and moderate network performance
+- In the example depicted below we have selected the `t2.nano` option 
 - Once you are ready, proceed to the next step by pressing the `Next: Configure Instance Details` button
 
 ***
