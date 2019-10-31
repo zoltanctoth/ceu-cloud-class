@@ -657,7 +657,7 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
     - Even if you do not use it much. 
     - Even if you do not log into it at all! 
     - You have reserved it, it is being run for you, that resource can not be rented to someone else, so you must pay for it. 
-- To get a sense of how much a particular resource costs, spend some time examining the [AWS EC2 Pricing](http://aws.amazon.com/ec2/pricing/) list. 
+- To get a sense of how much a particular resource costs, spend some time examining the [AWS EC2 Pricing](https://ec2instances.info/) list. 
 - Remember that `Region` can influence cost, so once you decide on the type of resources you need you should compare the cost of that resource across multiple regions. 
 - The pricing list is an extremely long page, broken down into several major categories: 
 - `Free Tier` (light weight resources you can experiment with for free) 
@@ -672,8 +672,8 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 - Amazon provides a [Monthly Calculator](http://calculator.s3.amazonaws.com/index.html) to help you predict what your costs might look like.
 
 - In this explanatory section, we are going to use an `On-Demand Instance`. 
-    - Let look more closely at that section of the [pricing list](http://aws.amazon.com/ec2/pricing/) by referring to the example screenshot below. 
-    - Note that we have selected `US West (Oregon)` as our region and we are looking at the `General Purpose` section of the table and assuming that we will launch a `Linux` instance. 
+    - Let look more closely at that section of the [pricing list](https://ec2instances.info/) by referring to the example screenshot below. 
+    - Note that we have selected `US West (Oregon)` for now as an example as our region and we are looking at the `General Purpose` section of the table and assuming that we will launch a `Linux` instance. 
     - These tables enumerate the features of various computer configurations that you can rent by the hour. 
     - Consider a particular instance type in this table, for example `m3.xlarge`.  
     - For this instance, we are told the number of CPUs that will be available on the machine (4), the amount of memory (15 GiB), the storage that will be pre-configured (2 x 80GB SSD drives), and the cost per hour to rent this machine ($0.140 per Hour).  
@@ -722,7 +722,7 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
   - The good news is that small EBS volumes are very cheap and by default the root volume for most instances is small (usually 8GB).
 
 - If you choose an instance type with pre-configured storage or you attach EBS volumes for storage but set them to be deleted upon termination of the instance, and you never create any `Snapshots` or save the instance as an `AMI`, when you terminate that instance, all costs associated with it will be gone. 
-- The cost will therefore be the hourly rate from the [pricing list](http://aws.amazon.com/ec2/pricing/) multiplied by the number of hours it was running rounded up to closest whole hour.
+- The cost will therefore be the hourly rate from the [pricing list](https://ec2instances.info/) multiplied by the number of hours it was running rounded up to closest whole hour.
 
 - In the `Billing and Cost Management` section of the EC2 console you can create billing alerts that will warn you of ongoing costs. 
 - If you find that you are being charged a monthly fee but you are not intentionally using any resources, you should follow these steps. 
@@ -1305,8 +1305,15 @@ is routed to Amazon S3 over an optimized path.
     - Server Side Encryption with Customer Provided Keys - SSE-C where your manage your keys and AWS is responsible for the encryption and decryption.
   - Client Side Encryption
 
-
 * * *
 
 #### Sourcers/Credits:
-To be completed
+https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf?did=wp_card&trk=wp_card
+https://d1.awsstatic.com/whitepapers/aws-overview.pdf?did=wp_card&trk=wp_card
+https://d1.awsstatic.com/whitepapers/aws_cloud_adoption_framework.pdf?did=wp_card&trk=wp_card
+https://cloudacademy.com/learning-paths/aws-fundamentals-1/
+https://acloud.guru/
+https://d1.awsstatic.com/whitepapers/aws_pricing_overview.pdf?did=wp_card&trk=wp_card
+https://d1.awsstatic.com/whitepapers/AWS_DevOps.pdf?did=wp_card&trk=wp_card
+https://d1.awsstatic.com/whitepapers/Security/AWS_Security_Best_Practices.pdf?did=wp_card&trk=wp_card
+https://d1.awsstatic.com/whitepapers/AWS%20Storage%20Services%20Whitepaper-v9.pdf?did=wp_card&trk=wp_card
