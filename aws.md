@@ -1346,3 +1346,4 @@ https://d1.awsstatic.com/whitepapers/aws_pricing_overview.pdf?did=wp_card&trk=wp
 https://d1.awsstatic.com/whitepapers/AWS_DevOps.pdf?did=wp_card&trk=wp_card
 https://d1.awsstatic.com/whitepapers/Security/AWS_Security_Best_Practices.pdf?did=wp_card&trk=wp_card
 https://d1.awsstatic.com/whitepapers/AWS%20Storage%20Services%20Whitepaper-v9.pdf?did=wp_card&trk=wp_card
+https://aws.amazon.com/getting-started/use-cases/?awsf.getting-started-use-case=use-case%23big-data-analytics&e=gs&p=gsrc_control&sc_ichannel=so&sc_icategory=abtest&sc_iname=awswt-7&sc_iurl=gsrc&sc_iversion=a-use-case-bd-analytics
