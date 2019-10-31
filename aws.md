@@ -599,20 +599,15 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 - Since we are going to create an Amazon instance that is running a Linux operating system you will need to learn the basics of working at a Linux command line. You will also need to become familiar with basic fundamentals of Linux system administration.
  
 ### Creating an account
+**You do not need to create an account for this course**
 - In order to use AWS for the first time, you will need to create an account. 
 - In order to create and run instances as described, you will need to associate a credit card with that account for billing purposes. Refer to the sections below on how billing works, how to estimate costs, and how to ensure that you have properly shut down everything that you could be billed for. 
-
-* * *
-**To run this tutorial as it is described should cost at most a few dollars.**
-* * *
-
-### Logging into the AWS console
-
-**(General path:)**
 - To log into AWS, go to [aws.amazon.com](http://aws.amazon.com/) and hit the [Sign In to the Console](https://console.aws.amazon.com/console/home) button as shown below. 
 - If needed, create an account and activate it by associating a credit card. 
 
-**How we are going to do it:**
+### Logging into the AWS console
+
+**How we are going to do this:**
 - Please follow this URL: https://ceu.signin.aws.amazon.com/console
 - Username: First part of your CEU email address (e.g example@ceu.edu -> `example` == username)
 - Password: TBA
@@ -625,7 +620,7 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 ![AWS-Home](Images/AWS/AWS-Home.png)
 ***
 **AWS log in:**
-![AWS-Login](Images/AWS/AWS-Login.png)
+![AWS-Login](Images/AWS/console-login.png)
 ***
 **List of AWS services (select EC2 for this tutorial):**
 ![AWS-Services](Images/AWS/AWS-Services.png)
