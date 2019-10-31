@@ -621,17 +621,17 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 
 * * *
 * * *
-**Before launching and using an EC2 instance please make sure to create a Security Group beforehand by following the steps described here:**
+**Before launching and using an EC2 instance please make sure to create a Security Group by following the steps described here:**
 
-STEP 1: After logging in: Go to `Services` -> `EC2` -> `Security Groups`
+**STEP 1:** After logging in: Go to `Services` -> `EC2` -> `Security Groups`
 ![AWS-Security-Group](Images/AWS/security-group-aws.png)
 
-STEP 2: Click `Create Security Group`
+**STEP 2:** Click `Create Security Group`
 *Note: When you create an `Inbound rule` and `Outbound rule` is created automatically, so you can leave that empty. Security Groups are stateful. So if you allow HTTP in, it is automatically allowed out as well.*
 - Set up an HTTP and an SSH protocols:
 ![AWS-Security-Group](Images/AWS/sec-rules.png)
 
-After creation, you will likely see two HTTP rules and two SSH rules;
+After creation, you will see two HTTP rules and two SSH rules;
 - `HTTP 0.0.0.0/0`  -> IPv4
 - `HTTP ::/0` -> IPv6
 - `SSH 0.0.0.0/0` -> IPv4
