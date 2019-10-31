@@ -599,7 +599,7 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 - Since we are going to create an Amazon instance that is running a Linux operating system you will need to learn the basics of working at a Linux command line. You will also need to become familiar with basic fundamentals of Linux system administration.
  
 ### Creating an account
-**You do not need to create an account for this course**
+**(You do not need to create an account for this course, but this is how you would do it:)**
 - In order to use AWS for the first time, you will need to create an account. 
 - In order to create and run instances as described, you will need to associate a credit card with that account for billing purposes. Refer to the sections below on how billing works, how to estimate costs, and how to ensure that you have properly shut down everything that you could be billed for. 
 - To log into AWS, go to [aws.amazon.com](http://aws.amazon.com/) and hit the [Sign In to the Console](https://console.aws.amazon.com/console/home) button as shown below. 
