@@ -607,9 +607,18 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 * * *
 
 ### Logging into the AWS console
+
+**(General path:)**
 - To log into AWS, go to [aws.amazon.com](http://aws.amazon.com/) and hit the [Sign In to the Console](https://console.aws.amazon.com/console/home) button as shown below. 
 - If needed, create an account and activate it by associating a credit card. 
+
+**How we are going to do it:**
+- Please follow this URL: https://ceu.signin.aws.amazon.com/console
+- Username: First part of your CEU email address (e.g example@ceu.edu -> `example` == username)
+- Password: TBA
 - Once you are logged in, select `EC2` from the list of Amazon Web Services. This tutorial is entirely focused on `EC2` (with some mention of `S3`) so the `EC2` console will be the starting point for many of the activities described below.
+
+
 
 ***
 **AWS home:**
