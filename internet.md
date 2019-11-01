@@ -2,7 +2,7 @@
 layout: default
 ---
 [Home](./README.md).
-[Internet](./internet.md).
+[Internet and Encryptions](./internet.md).
 [Cloud Computing](./cloud_computing.md).
 [Serverless](./serverless.md).
 [AWS](./aws.md).
@@ -407,7 +407,7 @@ Digital signatures and other forms of electronic signatures are legally binding 
 Digital Signatures have two components:
 1. You as the signer must have a valid certificate. How can you get a certificate? You can walk in with your ID to a CA's office and walk out with your private key and your certificate, which contains your public key. Note that the certificate itself doesn't contain any sensitive information.
 2. How can you sign documents with this method? First, you have a valid certificate, so if you encrpyt a document with your private key, anyone can validate that the document was encrypted by you. When you sign, you don't encrypt the document though. You rather create a hash of the document and you only encrypt the hash. The encrypted hash along with your certificate is your signature.
-3. When someone receives the document with your signature, they verify it by: First, they validate your certificate. Then they decrpyt the hash with your public key. If the decrpytion is successful they can be sure the hash was signed by you. Then, they hash the document themselves and compare it to the decrypted hash. If these are equal, the document hasn't been changed.  
+3. When someone receives the document with your signature, they verify it by: First, they validate your certificate. Then they decrpyt the hash with your public key. If the decrpytion is successful they can be sure the hash was signed by you. Then, they hash the document themselves and compare it to the decrypted hash. If these are equal, the received can be sure that the document hasn't been altered since it was signed.  
 
 
 * * *
