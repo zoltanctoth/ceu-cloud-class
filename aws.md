@@ -73,6 +73,7 @@ layout: default
     + [Step 9. Reviewing launch status](#step-9-reviewing-launch-status)
     + [Step 10. Examining a new Instance in the EC2 Console](#step-10-examining-a-new-instance-in-the-ec2-console)
     + [Step 11. Logging into an instance](#step-11-logging-into-an-instance)
+    + [Step 12. NGINX](#step 12-install-nginx)
   * [Trouble-shooting and advanced topics](#trouble-shooting-and-advanced-topics)
     + [I cannot log into my EC2 instance, what might have gone wrong?](#i-cannot-log-into-my-ec2-instance-what-might-have-gone-wrong)
   * [How do storage volumes appear within a Linux instance on Amazon EC2?](#how-do-storage-volumes-appear-within-a-linux-instance-on-amazon-ec2)
@@ -1054,10 +1055,14 @@ ls
 
 * * *
 
-### Step 11. Logging into an instance
+### Step 11. Connecting to your instance using SSH
+
+>So you've started your instance but how do you get to it? If you're not familiar with ssh, it's the command that allows you to log into a computer remotely over the network. In the simplest possible terms, it allows you to use a computer that's not physically right in front of you. 
+
 - We are finally ready to log into our instance
 - To do this, open a terminal session on your local computer (e.g. using `Mac Terminal` or `Windows Putty`)
 - Change directories to the location where you stored your key file `CEU-Tutorial.pem`
+- Now do a `chmod 400 yourpemfilename.pem`, otherwise you won't be able to SSH due to bad permissions
 - Now at the same time, view your instance in the EC2 console
 - Make sure that the `Key pair name` for this instance matches the `.pem` key file
 - Also, get the `Public IP` value from the console and use it instead of the example one below. Note that you could use the `Public DNS` value instead if you want
@@ -1066,14 +1071,40 @@ ls
 ```bash
 cd ~/CEU-Tutorial
 chmod 400 CEU-Tutorial.pem
-ssh -i ./nameofyourprivatekey.pem ec2-user@ipaddress or hostname
+ssh -i AmazonKey.pem ec2-user@XXXXX
+
+# Example:
+ssh -i /Desktop/nginxtest.pem ec2-user@ec2-3-248-227-104.eu-west-1.compute.amazonaws.com
+```
+
+If successful, you will see something like this: 
+```bash
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/...
 ```
 If you are lost, try to resolve any issue doing a quick research e.g:
-`How to SSH to a Linux EC2 Instance from Mac`
-
-Please reach out to me via Slack if you can't figure it out.
+`How to SSH to a Linux EC2 Instance using Terminal`. Please reach out to me via Slack if you can't figure it out.
 
 ```In this example, we open a terminal command line session on our local computer. We moved to the location of my `.pem` key file. We then made sure the permissions of this file were set correctly using a `chmod` command. You only need to do this step once but there is no harm in doing it again. Then we executed an SSH command to remotely log into our AWS instance using the `Public IP`. Our SSH command included an option to use the `.pem` file to identify us as the owner of the instance. We logged into the instance as a user called `name` as an example now that is a user that we know will be defined by default on all systems.```
+
+**Pitfall:** One thing to watch out for is the following: the ssh address is based on your IP address and if you start and stop your instance the IP can change, changing the address you ssh into along with it (again, the value in the field Public DNS). If you've re-started your instance and are having trouble sshing, check that your address is correct.
+
+### Step 12. Install NGINX
+- Now that we are in, let's set up NGINX 
+- Run `sudo yum update` to apply all updates
+- nginx is available in Amazon Linux Extra topics "nginx1.12" and "nginx1"
+- `amazon-linux-extras list` -> https://aws.amazon.com/amazon-linux-2/faqs/#Amazon_Linux_Extras
+- To install NGINX run: `sudo amazon-linux-extras install nginx1`
+- Run `nginx -V` to see the path
+- Run `cd /usr/share/nginx` (You need to be a root user in order to edit the file)
+- Now you will see the html folder so `cd html` folder
+- You will see the `index.html` file
+- Use your preferred text editor e.g Nano, Vim, Emacs and make some changes to the html file (e.g `vim index.html`)
+- Now you can see the changes if you visit your website
 
 * * *
 
