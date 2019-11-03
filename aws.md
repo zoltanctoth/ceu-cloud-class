@@ -1086,8 +1086,6 @@ If successful, you will see something like this:
 
 https://aws.amazon.com/amazon-linux-ami/...
 ```
-If you are lost, try to resolve any issue doing a quick research e.g:
-`How to SSH to a Linux EC2 Instance using Terminal`. Please reach out to me via Slack if you can't figure it out.
 
 ```In this example, we open a terminal command line session on our local computer. We moved to the location of my `.pem` key file. We then made sure the permissions of this file were set correctly using a `chmod` command. You only need to do this step once but there is no harm in doing it again. Then we executed an SSH command to remotely log into our AWS instance using the `Public IP`. Our SSH command included an option to use the `.pem` file to identify us as the owner of the instance. We logged into the instance as a user called `name` as an example now that is a user that we know will be defined by default on all systems.```
 
