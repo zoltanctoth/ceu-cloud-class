@@ -1100,7 +1100,7 @@ If you are lost, try to resolve any issue doing a quick research e.g:
 - `amazon-linux-extras list` -> https://aws.amazon.com/amazon-linux-2/faqs/#Amazon_Linux_Extras
 - To install NGINX run: `sudo amazon-linux-extras install nginx1`
 - Run `nginx -V` to see the path
-- Run `cd /usr/share/nginx` (You need to be the root user in order to edit the file)
+- Run `cd /usr/share/nginx` (You need to be the root user in order to edit the file so you might need to run a `sudo su`)
 - Now you will see the html folder so `cd html` folder
 - You will see the `index.html` file
 - Use your preferred text editor e.g Nano, Vim, Emacs and make some changes to the html file (e.g `vim index.html`)
