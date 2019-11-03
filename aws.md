@@ -73,7 +73,7 @@ layout: default
     + [Step 9. Reviewing launch status](#step-9-reviewing-launch-status)
     + [Step 10. Examining a new Instance in the EC2 Console](#step-10-examining-a-new-instance-in-the-ec2-console)
     + [Step 11. Logging into an instance](#step-11-logging-into-an-instance)
-    + [Step 12. NGINX](#step 12-install-nginx)
+    + [Step 12. NGINX](#step-12-install-nginx)
   * [Trouble-shooting and advanced topics](#trouble-shooting-and-advanced-topics)
     + [I cannot log into my EC2 instance, what might have gone wrong?](#i-cannot-log-into-my-ec2-instance-what-might-have-gone-wrong)
   * [How do storage volumes appear within a Linux instance on Amazon EC2?](#how-do-storage-volumes-appear-within-a-linux-instance-on-amazon-ec2)
