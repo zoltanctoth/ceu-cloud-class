@@ -1104,7 +1104,7 @@ If you are lost, try to resolve any issue doing a quick research e.g:
 - Now you will see the html folder so `cd html` folder
 - You will see the `index.html` file
 - Use your preferred text editor e.g Nano, Vim, Emacs and make some changes to the html file (e.g `vim index.html`)
-- Now you can see the changes if you visit your website
+- Now you will see the changes if you visit your website
 
 ![NGINX](Images/AWS/nginx.png)
 
