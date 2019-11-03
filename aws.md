@@ -1006,7 +1006,7 @@ UHuvF5mCDdAHWirFUBSiebxOpEQnkZ9IPXUUCSC6IQvPFbdGN8G3WjoER6Lw121Q4rJxGA==
 mkdir ~/CEU-Tutorial
 mv ~/Downloads/CEU-Tutorial.pem ~/CEU-Tutorial
 cd ~/CEU-Tutorial
-chmod 400 AWS-Tutorial.pem 
+chmod 400 CEU-Tutorial.pem 
 ls
 ```
 
