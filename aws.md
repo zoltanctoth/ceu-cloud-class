@@ -90,13 +90,13 @@ layout: default
 ## Part 1. Preamble, Regions, Availability Zones (AZ), Edge Locations
 
 #### Preamble
-Cloud computing allows users to quickly access an arbitrary amount of compute resources from a distance without the need to buy or maintain hardware themselves. There are many cloud computing services. This note describes the use of the Amazon Web Services ([AWS](http://aws.amazon.com/)) and its resources. However, the fundamental concepts covered here will generally apply to other cloud computing services such as [Google Cloud](https://cloud.google.com/), [Digital Ocean](https://www.digitalocean.com/), [Microsoft Azure](https://azure.microsoft.com/), [etc.](http://cloud-computing.softwareinsider.com/), though with substantial differences in jargon used by each provider.
+Cloud computing allows users to quickly access an arbitrary amount of compute resources from a distance without the need to buy or maintain hardware themselves. There are many cloud computing services. This note describes the use of the Amazon Web Services ([AWS](http://aws.amazon.com/)) and its resources. However, the fundamental concepts covered here will generally apply to other cloud computing services such as [Google Cloud](https://cloud.google.com/) and [Microsoft Azure](https://azure.microsoft.com/), though with substantial differences in jargon used by each provider.
 
 #### Glossary and abbreviations
 - [AWS](http://aws.amazon.com/) - Amazon Web Services. A collection of cloud computing services provided by Amazon. 
 - [EC2](http://aws.amazon.com/ec2/) - Elastic Compute. A particular AWS service that provides 'resizable cloud hosting services'. This service allows you to configure and rent computers to meet you compute needs on an as needed basis.
 - [EBS](http://aws.amazon.com/ebs/) - Elastic Block Storage. A data storage solution offered through the EC2 service. This service allows you to rent disk storage and associate that storage with your compute resources. EBS volumes are generally backed by SSD devices. EBS volumes can only be directly attached to a single EC2 instance at a time.
-- [S3](http://aws.amazon.com/s3/) - Simple storage service. A storage service that is cheaper than EBS and allows for storage of larger amounts of data with some drawbacks [compared to EBS](http://www.tomsitpro.com/articles/cost-of-the-cloud-book,2-694-2.html). S3 volumes store data as objects that are accessed by an API or command line interface or other application designed to work with S3. EBS volumes on the other hand can be mounted as if they were a local disk drive associated with the Instance..
+- [S3](http://aws.amazon.com/s3/) - Simple storage service. A storage service that is cheaper than EBS and allows for storage of larger amounts of data with some drawbacks [compared to EBS TODO](http://www.tomsitpro.com/articles/cost-of-the-cloud-book,2-694-2.html). S3 volumes store data as objects that are accessed by an API or command line interface or other application designed to work with S3. EBS volumes on the other hand can be mounted (directly connected to an EC2 instance) as if they were a local disk drive associated with the Instance..
 - [SSD](http://en.wikipedia.org/wiki/Solid-state_drive) - Solid state drive. A particular type of storage hardware that is generally faster and more expensive than traditional hard drives.
 - [HDD](http://en.wikipedia.org/wiki/Hard_disk_drive) - Hard disk drive. A particular type of storage hardware that is generally cheaper and larger but slower than SSD. HDD drives are traditional hard drives that access data on a spinning magnetic disk.
 - [Ephemeral storage](http://stackoverflow.com/questions/11566223/what-data-is-stored-in-ephemeral-storage-of-amazon-ec2-instance) - Also known as Instance Store storage. Data storage associated with an EC2 instance that is local to the host computer. This storage *does not persist* when the instance is stopped or terminated. In other words, anything you store in this way will be lost if the system is stopped or terminated. Instance store volumes may be backed by SSD or HDD devices.
@@ -160,156 +160,80 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
 
 ### Edge Locations
 
-- **AWS Edge Locations** are locations around the world meant for caching content, enhancing the user experience, reducing latency. Edge locations are specifically used by AWS Cloudfront and AWS CDN. Every Region is has its own set Availability Zone's and Edge Locations.
+- **AWS Edge Locations** are locations [around the world](https://aws.amazon.com/about-aws/whats-new/2019/10/cloudfront-south-america-200-edge-location/) meant for caching content, enhancing the user experience, reducing latency. Edge locations are specifically used by two AWS Services, AWS Cloudfront and AWS CDN. For example, if you use Amazon's services for hosting a website, your website's images can be copied to multiple locations to make sure every request to that image is fulfilled from a server that is geographically close to you. Every Region is has its own set Availability Zone's and Edge Locations. Edge locations can be located in a country that isn't listed as an availability zone (think about this as an independent data center).
 
 ## Part 1. AWS Services Overview
 
+Here is a list of some of the more important AWS services for your reference. We only cover a few of them in the class.
+
 **Compute:**
 -    `EC2` - Elastic Compute Cloud
--    `EC2 Container Services` - Containerization Docker
--    `Elastic Beanstalk` - Plug and Play - for developers
+-    `EC2 Container Services` - Containerization Docker 
+-    `Elastic Beanstalk` - Plug and Play Web application deployment - for developers
 -    `Lambda (server less)` - Code/Functions uploaded to the cloud to run at different points
--    `Lightsail` - Plug and Play
--    `Batch` - Batch computing in the cloud
 
 **Storage:**
 -    `S3` - Simple Storage Service - object based storage - buckets
 -    `EFS` - Elastic File System
 -    `Glacier` - Data Archival 
--    `Snowball` - Large amounts of data to aws data center
--    `Storage gateway` - VM installed in datacenter or office - replicate info to S3
+-    `Snowball` - Physically move large amounts of data to aws data center
 
 **Databases:**
 -    `RDS` - Relation Database Service - postgres, mysql, oracle
 -    `DynamoDB` - Non-Relational DB
--    `Elasticache` - Cache Things from DB
+-    `Elasticache` - Fully in-memory database
 -    `Redshift` - Data Warehousing Business Intelligence, complex queries
     
-**Migration:**
--    `AWS Migration Hub` - tracking service for moving to aws
--    `Application Discover Service` - track applications and dependency
--    `Database Migration Service` - migrate db from on premise to AWS
--    `Server Migration Service` - migrate server to AWS cloud
--    `Snowball` - in between storage and migration
-
 **Networking and Content Delivery:**
 -    `VPC (highlight)` - Amazon virtual private cloud - virtual datacenter - configure avail zones, firewall, network acl etc.
 -    `Cloudfront` - AWS content delivery network, store assets specific regions around the world
 -    `Route 53` - AWS DNS service - lookup ip to get ipv4 and ipv6 address
--    `API Gateway` - Serverless way of creating own api
--    `Direct Connect` - Dedicated line from office directly into amazon, connects to VPC
-
-**Developer Tools:**
--    `Codestart` - project management, CI toolchain, collaborate
--    `Codecommit` - store code, like github    
--    `Codebuild` - compile and run tests, produce package
--    `Code deploy` - deployment service to ec2 instance
--    `Codepipeline` - automate and visualize steps to release software
--    `X-ray` - debug and analyze server less application
--    `Cloud9` - IDE environment in browser
-
-**Management tools:**
--    `Cloudwatch` - Monitoring service
--    `Cloudformation` - solutions architect specific - scripting infrastructure - turn infrastructure to code
--    `Cloudtrail` - log changes to aws environment
--    `Config` - monitors config of aws environment
--    `Opswork` - similar to elastic beanstalk - chef and puppet to automate environments
--    `Service Catalog` - manage a catalog of IT services
--    `Systems manager` - interface for managing aws resources - group resources
--    `Trusted Advisor` - advice around security, advice for aws services and resources, accountant like
--    `Managed Services` - manage service for aws cloud
-
-**Media Services:**
--    `Elastic transcoder` - takes media and resizes on different devices
--    `Media convert` - file based video transcoding with broadcast grade features
--    `Media live` - broadcast grade live video processing service. tv internet connected multiscreen
--    `Media Package` - protect content over internet 
--    `Media Store` - media storage, optimized for media
--    `Media Tailor` - target advertising into video streams with out harming broadcast
 
 **Machine Learning:**
--    `Sage maker` - easy for deep learning when coding for environment
--    `Comprehend` - sentiment analysis on products. good or bad?
--    `Deep lens` - computer vision on camera, recognition, physical piece of hardware
--    `Lex` - powers alexa, AI 
--    `Machine Learning` - throw dataset to AWS cloud and predict outcome
--    `Polly` - text to speech, voices sound real, accents
--    `Rekognition` - upload file, tells you what is in the file
--    `Amazon translate` - translate to other langs
--    `Amazon transcribe` - hard of hearing, speech recognition, speech to text
+-    `Sage maker` - Managed notebook environment
+-    `Comprehend` - Sentiment analysis
+-    `Deep lens` - Computer vision on camera, a physical piece of hardware
+-    `Lex` - Chatbot engine. This powers Alexa 
+-    `Polly` - text to speech, voices sound real
+-    `Rekognition` - Image processing
+-    `Amazon translate` - Translate to other languages
+-    `Amazon transcribe` - Speech recognition
 
 **Analytics:**
 -    `Athena` - SQL queries ins S3 buckets, serverless
 -    `EMR` - elastic map reduce - processing large amounts of data, chops data up for analysis
--    `Cloudsearch` - search service
--    `Elastic Search service` - search service
 -    `Kinesis` - solutions architect highlight, ingesting large amounts data
 -    `Kinesis Video streams` - ingesting streams and analyze    
 -    `Quicksight` - business intelligence tool
--    `Datapipeline` - moving data between different services
--    `Glue` - ETL (extract transform load)
+-    `Glue` - ETL tool (extract transform load)
 
 **Security Identity and Compliance:**
 -    `IAM` - identity access management
--    `Cognito` - device authentication, oath, after authenticated, use aws services
--    `Guard Duty` - monitor for malicious activity
--    `Inspector` - install on vm or instances, test against it, schedule
--    `Macie` - Scan s3 buckets and looks for sensitive info and alert
--    `Certificate Manager` - ssl cert for free, manage ssl cert
--    `Cloud HSM` - cloud hardware security module - dedicate bits of hardware to store keys to authenticated
--    `Directory Service` - integration ms active service to aws services
--    `WAF` - web application firewall - at application layer to stop attacks, XSS, sql injection
--    `Shield` - by default for cloud front - ddos mitigation, prevent ddos attacks
--    `Artifact` - portal to download aws client reports, manage agreements 
-
-**Mobile Services:**
--    `Mobile hub` - management console for mobile app for aws services
--    `AWS Pinpoint` - targeted push notifications
--    `AWS Appsync` - atomically updates data in web or mobile in real time
--    `Device Farm` - test apps on real device, iOS, android
--    `Mobile Analytics` - analytics service for mobile
 
 **AR/VR:**
 -    `Sumerian` - tools to create environment, super new
 
 **Application Integration:**
--    `Step functions` - manage lambda functions and ways to go through it
--    `Amazon MQ` - message queue
--    `SNS` - notification services
--    `SQS` - decouple infrastructure, queue
--    `SWF` - workflow job creation
+-    `SNS` - Notification services
 
 **Customer Engagement:**
--    `Connect` - contact center as a service, call center
--    `Simple Email Service` - email service, send grid, mailchimp
+-    `Simple Email Service` - send emails through Amazon's email service
 
-**Business Productivity:**
--    `Alexa for business` - manager for business needs
--    `Amazon chime` - google hangouts like
--    `Work Docs` - dropbox for AWS
--    `Work Mail` - Office 365 like
-   
-**Desktop and App streaming:**
--    `Workspaces` - VDI solution, run OS in aws cloud
--    `App stream 2.0` - streaming application to desktop of device
-    
 **IOT:**
 -    `iOT` - devices sending sensor information
 -    `iOT Device Management` - device management
 -    `Amazon FreeRTOS` - OS for microcontrollers
--    `Greengrass` - ?? 
-
-**Game Development:**
--    `Gamelift` - service to develop games
 
 * * *
 
-## What Services Will Be Tested On The Exam?
-- `S3`
-- `Glacier`
+## What Services Are you expected to know?
 - `EC2`
-- `EBS`
-
+- `S3`, `Glacier`, `EBS`
+- `Transcribe`
+- `Translate`
+- `Comprehend`
+- `Rekognition`
+- `Polly`
 
 * * *
 
@@ -341,7 +265,6 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
 
 ### S3 Guarantees:
 - Built for 99.99% availability for the S3 platform
-- 99.0 % availability for Amazon Guarantee
 - Amazon guarantees 99.999999999% durability for S3 information (Tip: 11 9s!)
 
 ### S3 Features Overview:
@@ -349,7 +272,6 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
 - Lifecycle Management 
 - Versioning
 - Encryption
-- MFA Delete
 - Secure your Data using Access Control Lists and Bucket Policy
 
 
@@ -370,10 +292,9 @@ Cloud computing allows users to quickly access an arbitrary amount of compute re
 - Requests
 - Storage Management Pricing
 - Data Transfer Pricing
-- Transfer Acceleration: fast, easy, secure transfer of files over long distances between end-users and an S3 bucket. Takes advantage of CloudFront's globally distributed edge locations. As the data arrives at an edge location, data is routed to Amazon S3 over an optimized network path
-- Cross Region Replication Pricing: When you upload an object to US_EAST 1 and cross region replication is turned on, the object will be replicated automatically to your bucket in Sydnie. 
+- Transfer Acceleration: fast, easy, secure transfer of files over long distances between end-users and an S3 bucket. 
+- Cross Region Replication Pricing: I.e. When you upload an object to `us-east-1` and cross region replication is turned on, the object will be replicated automatically to your bucket in Sydney. 
 - S3 is not suitable to install an operating system / database on, because it is object based storage.
-You can turn on MFA Delete - to delete files they need MFA.
 
 ### S3 Security and Encryption
 - By default all newly created buckets are private. 
@@ -384,73 +305,17 @@ You can turn on MFA Delete - to delete files they need MFA.
 
 ### Encryption in Transit is achieved by:
 - https -> secured
-- Always achieved by SSL/TLS
+- Always achieved by using RSA
 - Encrypt at Rest (source side) is achieved by:
-  - S3 Management Keys - SSE-SB
   - AWS Key Management Service, Managed Keys - SSE-KMS
-  - Server Side Encryption with Customer Provided Keys - SSE-C
-- Client Side Encryption
-- S3 Version Control - Great back-up tool
-
+ 
 ### S3 Version Control - Great back-up tool
 Using Versioning with S3:
 - Stores all versions of an object (including all writes and deletes of an object)
-- Great backup tool
 - Once enabled, versioning cannot be disabled, only suspended
 - Integrates with Lifecycle Rules
-- Versioning's MFA Delete capability, which uses multi-factor authentication can provide additional layer of security.
-  - Note: Uploading the same file again (different version) will reset it to private
-- Lifecycle Management and Glacier
-- Lifecycle Rule automates transitioning your object to different tiers of storage
-- You can use it to permanently delete your objects as well
-- Can be used in conjunction with versioning
-- Can be applied to current versions and previous versions
+- Lifecycle Management and Glacier integration
 
-### Cross Region Replication
-- Cross Region Replication requires versioning enabled on the source and destination buckets
-- If you put a delete marker in your original bucket it is not going to replicate that market
-- If you delete your latest version it is not going to replicate "delete" in cross region bucket
-- Regions must be unique
-- Files in an existing bucket are not replicated automatically
-- All subsequent updates files will be replicated
-- Delete markers are not replicated
-- Deleting individual versions will not be replicated
-
-### Transfer Acceleration
-- S3 Transfer Acceleration utilizes the CloudFront Edge Network to accelerate your uploads to S3. Instead of uploading directly to your S3 bucket you can use a distinct URL to upload directly to an edge location which will then transfer that file to S3. 
-- You will get a distinct URL to upload.
-
-### CloudFront (Global)
-- A Content Delivery Network (CDN) is a system of distributed servers (network) that delivers webpages and other web content to a user based on the geographical locations of the user, the origin of the webpage and the content deliver server.
-**Key Terminology:**
-- Edge Location: Location where content will be cached. This is separate to a Region/AZ (Availability Zone)
-- Origin: The origin of all the files that the CDN will distribute. This can be an S3 Bucket, an EC2 instance, an Elastic Load Balancer, or Route 53. CloudFront can be used to deliver your entire website including dynamic/static,  streaming and interactive content - using a global network of edge locations. Requests for your content are automatically routed to the nearest edge location, so content is delivered with the best possible performance.
-
-- Two Types of CloudFront Distributions:
-  - 1: Web Distribution: Used for websites
-  - 2: RTMP: Used for media streaming
-- Edge Locations are not just READ only, you can write to them too. (e.g put objects to them)
-- Objects are cached for the Time of the TTL (Time To Live)
-- You can clear/invalidate cached objects, but you will be charged
-- CloudFront has 2 distributions: Web and RTMP
-- Invalidation: no longer available on the edge locations
-(First you have to disable CloudFront distribution the you can delete it)
-
-### Storage Gateway:
-Storage Gateway is a service that connects an on-premise softwaer appliance with cloud-based storage to provide seamless and secure integration between an organization's on premises IT environment and AWS' storage infrastructure. The service enables you to securely store data to the AWS Cloud for scalable and cost effective storage.
-
-**Your Data Center -> Storage Gateway -> Replicate Data -> AWS**
-
-- AWS Storage Gateway's software appliance is available for download as a VM (virtual image) that you install on a host in your datacenter. Storage Gateway supports VMware ESX / Microsoft Hyper-V
-- Once the gateway is installed and associated with your AWS account through the activation process, you can use the AWS Management Console to create the storage gateway options.
-
-Storage Gateways:
-  - 1: File Gateway (NPS)
-  - 2: Volume Gateway (iSCSI)
-    - stored volumes, cached volumes
-  - 3: Tape Gateway (VTL)
-
-* * *
 
 ## Part 3
 
@@ -474,11 +339,11 @@ EC2 has changed the economics of cloud computing by allowing you to pay only for
 
 **_Use Cases_**
 
-- Perfect for users that want the low cost and flexibility of EC2 without any of the up front payment or long term commitment
-- Applications with short term, spiky or unpredictable workloads that cannot be interrupted
-- Applications being developed or tested on EC2 for the first time
+- Perfect for users that want the low cost and flexibility of EC2 without any of the up front payment or long term commitment.
+- Applications that cannot be interrupted.
+- Applications being developed or tested on EC2 for the first time.
 
-#### Reserved
+#### Reserved Instances (RI)
 
 Provides you with a capacity reservation, and offer a significant discount on the hourly charge for an instance. 1 year or 3 year terms.
 
@@ -497,14 +362,13 @@ Enables you to bid whatever price you want for an instance capacity, providing f
 
 **Use Cases**
 
-- Applications that have flexible start and end times
+- Applications that have flexible start and end times.
 - Applications that are only feasible at very low compute prices
-- Used for single compute instances to save on costs compared to 9-5 during the week.
-- Users with an urgent need for a large amount of additional computing capacity.
+- Used for single compute instances to save on costs.
 
 #### Dedicated Hosts
 
-Physical EC2 server dedicated for your use. Dedicated Hosts can help you reduce costs by allowing you to use your existing server-bound software licenses.
+[Physical EC2 server](https://aws.amazon.com/ec2/dedicated-hosts/) dedicated for your use. Physical CPUs, Physical Memory, ..., just like your laptop. Dedicated Hosts can help you reduce costs by allowing you to use your existing server-bound software licenses (I.e. licenses where you pay per CPU). Dedicated Hosts also help you stay compliant to corporate regulations.
 
 **Use Cases**
 
@@ -514,6 +378,8 @@ Physical EC2 server dedicated for your use. Dedicated Hosts can help you reduce 
 - Can be purchased as a Reservation for up to 70% off the On-Demand price.
 
 ### EC2 Instance Types
+
+*You won't need to know these by heart.*
 
 | Family | Specialty                     | Use Cases                       |
 | :------:|:-----------------------------:| :------------------------------:|
@@ -591,14 +457,14 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
     - The computer you are working on can be almost anything and could be running Windows, Mac OSX, or Linux. 
  - The computer that we configure and rent from Amazon will be a Linux machine (though there are many other possibilities). - - You will use the terminal application on your computer to remotely log into this computer. 
  - The Amazon AWS computer you rent will be physically located somewhere that is likely far away from you. 
- - Depending on the `Region` you select in Amazon AWS it could be physically located in one of several large compute warehouses in the North America, South America, Europe or Asia.   
+ - Depending on the `Region` you select in Amazon AWS it could be physically located in one of several large compute warehouses in the North America, South America, Europe or Asia. **Make sure that you use the Ireland Region in this class.** 
 
 ***
 **Google Data Center, The Dalles, Oregon ([source](http://en.wikipedia.org/wiki/File:Google_Data_Center,_The_Dalles.jpg)):**
 ![Image of a data center](Images/AWS/DataCenter.jpg)
 
-- Since we are going to create an Amazon instance that is running a Linux operating system you will need to learn the basics of working at a Linux command line. You will also need to become familiar with basic fundamentals of Linux system administration.
- 
+- Since we are going to create an Amazon instance that is running a Linux operating system you will need to use your knowledge of working at a Linux command line. For reference, look up your notes from the Different Shapes of Data class. 
+
 ### Creating an account
 **(You do not need to create an account for this course, but this is how you would do it:)**
 - In order to use AWS for the first time, you will need to create an account. 
@@ -609,7 +475,7 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 ### Logging into the AWS console
 
 **How we are going to do this:**
-- Please follow this URL: https://ceu.signin.aws.amazon.com/console
+- Please follow this URL: https://ceu.signin.aws.amazon.com/console . This is the login page of CEU's official AWS account.
 - Username: First part of your CEU email address (e.g example@ceu.edu -> `example` == username)
 - Password: TBA
 - Once you are logged in, select `EC2` from the list of Amazon Web Services. This tutorial is entirely focused on `EC2` (with some mention of `S3`) so the `EC2` console will be the starting point for many of the activities described below.
@@ -638,7 +504,7 @@ After creation, you will see two HTTP rules and two SSH rules;
 - `SSH 0.0.0.0/0` -> IPv4
 - `SSH ::/0` -> IPv6
 
-If you make a change to a Security Group - that change takes effect immediately.
+If you make a change to a Security Group - that change takes effect immediately. In this class you will need to open port 8787 TCP to the world to get SSH access to your instances. 
 - You can attach more than one Security Group to an EC2 instance.
 
 Now create your EC2 instance and later attach this Security Group to it by clicking on `Instances` -> `Select your EC2 Instance` -> `Actions` -> `Networking` -> `Change Security Groups` -> Then select this Security Group and assign it to your EC2 instance.
@@ -686,7 +552,7 @@ Now create your EC2 instance and later attach this Security Group to it by click
     - Even if you do not use it much. 
     - Even if you do not log into it at all! 
     - You have reserved it, it is being run for you, that resource can not be rented to someone else, so you must pay for it. 
-- To get a sense of how much a particular resource costs, spend some time examining the [AWS EC2 Pricing](https://ec2instances.info/) list. 
+- To get a sense of how much a particular resource costs, spend some time examining the [AWS EC2 Pricing](https://aws.amazon.com/ec2/pricing/) list. Here is an even better site for checking EC2 prices: https://ec2instances.info/ 
 - Remember that `Region` can influence cost, so once you decide on the type of resources you need you should compare the cost of that resource across multiple regions. 
 - The pricing list is an extremely long page, broken down into several major categories: 
 - `Free Tier` (light weight resources you can experiment with for free) 
@@ -806,13 +672,12 @@ Now create your EC2 instance and later attach this Security Group to it by click
 - If you create you own AMI and you want to share it with others, you can 'publish' it to the community
 - It will still appear in your `My AMIs` section, but it will also then appear and be searchable in the `Community AMI` section.
 
-- For this tutorial we will select the following AMI from the `Quick Start` list: `ami-0ce71448843cb18a1`
-- This number is a unique ID for the AMI
-- The full length description for this AMI is `Amazon Linux 2 AMI (HVM), SSD Volume Type`
+- For this tutorial we will select the an AMI from the `My AMIs` list: 
+- The full length description for this AMI is `Ubuntu - CEU - SSH on 8787`
 - We are also told that the `Root device type` is `EBS` and the `Virtualization type` is `HVM`
 - We will discuss storage in more detail but this means that the AMI is configured so that the `root volume` of the operating system will be installed on an EBS volume
 - In practical terms, this means that information stored on the root volume, including the OS itself will persist if we stop the instance (i.e. the root volume is *not* ephemeral)
-- The term `HVM` refers to a type of virtualization technologythat will be used by the instance, the other common type being `PV`
+- The term `HVM` refers to a type of virtualization technologythat will be used by the instance, the other common type being `PV`.
 - A detailed discussion of virtualizition technology is outside of the scope of this class but you can learn more details here: [Linux AMI virtualization types](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html)
 - Once you are ready to proceed, press the blue `Select` button
 
@@ -1010,7 +875,7 @@ chmod 400 CEU-Tutorial.pem
 ls
 ```
 
-- The `chmod 400 CEU-Tutorial.pem` command changes the permissions of your key file so that only you can read it
+- The `chmod 600 CEU-Tutorial.pem` command changes the permissions of your key file so that only you can read it
 - This is an important security setting
 - If you attempt to log into your instance using a key file with inappropriate permissions, the login command may fail
 - So you should always perform this command on any new key file (or copy of such a file) before attempting to use it to log into an instance
@@ -1062,7 +927,7 @@ ls
 - We are finally ready to log into our instance
 - To do this, open a terminal session on your local computer (e.g. using `Mac Terminal` or `Windows Putty`)
 - Change directories to the location where you stored your key file `CEU-Tutorial.pem`
-- Now do a `chmod 400 yourpemfilename.pem`, otherwise you won't be able to SSH due to bad permissions
+- Now do a `chmod 600 yourpemfilename.pem`, otherwise you won't be able to SSH due to bad permissions
 - Now at the same time, view your instance in the EC2 console
 - Make sure that the `Key pair name` for this instance matches the `.pem` key file
 - Also, get the `Public IP` value from the console and use it instead of the example one below. Note that you could use the `Public DNS` value instead if you want
@@ -1093,15 +958,11 @@ https://aws.amazon.com/amazon-linux-ami/...
 
 ### Step 12. Install NGINX
 - Now that we are in, let's set up NGINX 
-- Run `sudo yum update` to apply all updates
-- nginx is available in Amazon Linux Extra topics "nginx1.12" and "nginx1"
-- `amazon-linux-extras list` -> https://aws.amazon.com/amazon-linux-2/faqs/#Amazon_Linux_Extras
-- To install NGINX run: `sudo amazon-linux-extras install nginx1`
-- Run `nginx -V` to see the path
-- Run `cd /usr/share/nginx` (You need to be the root user in order to edit the file so you might need to run a `sudo su`)
-- Now you will see the html folder so `cd html` folder
-- You will see the `index.html` file
-- Use your preferred text editor e.g Nano, Vim, Emacs and make some changes to the html file (e.g `vim index.html`)
+- Run `sudo apt update` to apply all updates to your os.
+- To install NGINX run: `sudo apt install nginx`
+- Now you will have an html folder so `cd /var/www/html` and list contencts: `ls`
+- You will see one `.html` file
+- Use your preferred text editor e.g Nano, Vim, Emacs and make some changes to the html file (e.g `nano`)
 - Now you will see the changes if you visit your website
 
 ![NGINX](Images/AWS/nginx.png)
@@ -1124,9 +985,9 @@ https://aws.amazon.com/amazon-linux-ami/...
 ### Tidying up and shutting down AWS resources
 - Once you are done with this tutorial you should terminate or delete all resources that were created to ensure you are not charged
 - Specifically you should remove: `Instances`, `Volumes` and `Snapshots`
-- You may also decide to remove other entities that were created for demonstration purposes including: `Tags`, `AMIs`, `Security Groups`, and `Key Pairs`
+- You may also decide to remove other entities that were created for demonstration purposes including: `Tags`, `AMIs`, `Security Groups` and `Key Pairs`
 - All of this can be done in the AWS EC2 console
-- When you are done, the `EC2 Dashboard` should show `0` for all resource types except `Security Groups` where a single default security configuration will remain
+- When you are all done, the `EC2 Dashboard` should show `0` for all resource types except `Security Groups` where a single default security configuration will remain
 
 ### Further reading (Optional)
 - This is a basic introduction to AWS cloud computing that assumes all configuration of the instance will occur within the AWS EC2 console of your web browser and all configuration of the Ubuntu Linux system will occur by the user manually executing commands and perhaps saving the outcome as a cusom AMI
@@ -1161,6 +1022,7 @@ https://aws.amazon.com/amazon-linux-ami/...
 - Platform as a Service (PaaS)
 - Software as a Service (Software as a Service)
 
+More here: https://aws.amazon.com/types-of-cloud-computing/
 
 #### What is S3 and what does it mean?
 
@@ -1245,14 +1107,6 @@ New users have NO permissions when first created
 ** Answer
 You cannot use the Access Key ID and Secret Key to login in the console. You can use this to access AWS via the APIs and CLI however.
 
-#### What is S3?
-
-** Answer
-
-S3 provides developpers and IT teams with secure, durable, highly-scalable object storage. Amazon S3 is easy to use, with a simple web service 
-interface to store and retrieve any amount of data from anywhere on the web.
-
-
 #### Size of the files on S3?
 
 ** Answer
@@ -1263,18 +1117,6 @@ From 0 Bytes to 5 TB
 ** Answer
 - Read after Write consistency for PUTS of new Objects
 - Eventual Consistency for overwrite PUTS and DELETES (can take some time to propagate)
-
-#### S3 is object based. What do objects consist of?
-
-** Answer
-- key (This is the name of the object)
-- value (This is the data and is made up of a sequence of bytes)
-- version ID (very important for versioning)
-- metadata (data about data you are storing)
-- subresources:
-  - Access Control Lists
-  - Torrent (not an exam topic)
-
 
 #### What are the different Tiers/Classes of storage for S3?
 
@@ -1295,75 +1137,21 @@ charged a retrieval fee.
 
 ** Answer
 Charged for 
-- Storagex
+- Storage
 - Requests
 - Storage Management Pricing (the tags you use on your data, added on the metadat of your files)
 - Data Transfer Pricing (when you transfer data from one region to another)
 - Transfer Acceleration
 
-#### What is S3 Transfert Acceleration?
+#### More questions to review:
+ - How do Security Groups and EC2 Instances Relate?
+ - When to use Glacier, S3, EBS?
+ - You need a computer for 8 hours. You need 16GB or RAM and 2 vCPUs. Which type of an EC2 instance would you chose? What would be the price?  
 
-** Answer
-Amazon S3 Transfert Acceleration enables fast, easy, and secure transferts of files over long distances between your end users and an S3 bucket. 
+# Recap video
 
-Transfert Acceleration takes advantage of Amazon CloudFront's globally distributed edge locations. As the data arrives at an edge location, data 
-is routed to Amazon S3 over an optimized path.
-
-#### What are the server side encryption options for S3?
-
-** Answer
-- SSE with Amazon S3 Managed Keys (SSE-S3)
-- SSE with KMS (SSE-KMS)
-- SSE with Customer Provided Keys (SSE-C)
-
-
-#### What are the two options for controlling access to a S3 bucket?
-
-** Answer
-- Bucket ACL
-- Bucket Policies
-
-#### S3 Versioning characteristics?
-
-** Answer
-- Stores all versions of an object (including all writes and even if you delete an object)
-- Great backup tool
-- Once enabled, versioning cannot be disabled, only suspended
-- Integrates with Lifecycles rules
-- Versioning's MFA Delete capability, which uses multi-factor authentication, can be used to provide an additional layer of security.
-
-#### Cross replication on S3?
-
-** Answer
-- Versioning must be enabled on both the source and destination buckets
-- Regions must be unique
-- Files in an existing bucket are not replicated automatically. All subsequent updated files will be replicated automatically.
-- You cannot replicate to multiple buckets or use daisy chaining (at this time)
-- Delete markers are replicated
-- Deleting individual versions or delete markers will not be replicated
-
-#### Lifecycle Management in S3?
-
-** Answer
-- Can be used in conjunction with versioning
-- Can be applied to current versions and previous versions
-- Following actions can now be done:
-  - Transition to the Standard IA storage class
-  - Archive to Glacier Storage Class
-  - Permanently Delete
-
-#### What are the two types of encryption on S3?
-
-** Answer
-- In Transit: when you are sending data to your bucket
-  - SSL/TLS
-- At Rest 
-  - Server Side Encryption 
-    - S3 Managed Keys - SSE-S3 each bucket is encrypted with a unique key Amazon encrypt the key itself with a master key that is regularly rotated.
-      Amazon handles all the keys for you (AES 256)
-    - AWS Key Management Service, Managed Keys - SSE-KMS Similar to SSE-S3 with some additional benefits s.a. who is decrypting what and when + option to manage the keys yourself.
-    - Server Side Encryption with Customer Provided Keys - SSE-C where your manage your keys and AWS is responsible for the encryption and decryption.
-  - Client Side Encryption
+[Here is a youtube](https://youtu.be/6FfLocjBcNE
+) video that will help you go complete your homework. It has detailed info about how to SSH into an EC instance both from Windows, Mac and Linux.
 
 * * *
 
