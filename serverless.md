@@ -345,8 +345,14 @@ If you do not have tuneR, make sure to install it: `install.packages("tuneR") `
 
 ```r
 library("tuneR")
+
+# synthesize some text
+vec <- synthesize("Hello world!", voice = "Joanna")
+
+
 # If you are on Mac and got permission denied run the code below this line as well.
 #setWavPlayer("afplay")
+
 play(vec)
 ```
 
