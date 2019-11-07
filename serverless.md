@@ -69,7 +69,7 @@ install.packages("httr")
 ```r
 
 #Loading the rvest package
-library(PKI)
+library(rvest)
 
 #Specifying the url for desired website to be scraped
 url <- 'https://www.imdb.com/search/title/?count=100&release_date=1994,1994&title_type=feature'
