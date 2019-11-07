@@ -112,6 +112,7 @@ rank_data<-as.numeric(rank_data)
 head(rank_data)
 
 ```
+*Output: 1, 2, 3, 4, 5, 6*
 
 #### STEP 2: Scraping the title field. 
 Again, I have the corresponding CSS selector for the titles – .lister-item-header a. I will use this selector to scrape all the titles using the following code.
@@ -126,6 +127,7 @@ title_data <- html_text(title_data_html)
 head(title_data)
 
 ```
+*Output: "The Shawshank Redemption" "Pulp Fiction" "The Lion King" "Forrest Gump" " Léon: The Professional" " Interview with the Vampire: The Vampire Chronicles"*
 
 #### STEP 2: Scraping the title description. 
 ```r
@@ -140,8 +142,13 @@ description_data<-gsub("\n","",description_data)
 
 #Let's have a look at the description data
 head(description_data)
-
 ```
+*Output: [1] "    Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."                                                                                          
+[2] "    The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption."                                                                 
+[3] "    A Lion cub crown prince is tricked by a treacherous uncle into thinking he caused his father's death and flees into exile in despair, only to learn in adulthood his identity and his responsibilities."         
+[4] "    The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other history unfold through the perspective of an Alabama man with an IQ of 75."                                                 
+[5] "    Mathilda, a 12-year-old girl, is reluctantly taken in by Léon, a professional assassin, after her family is murdered. An unusual relationship forms as she becomes his protégée and learns the assassin's trade."
+[6] "    A vampire tells his epic life story: love, betrayal, loneliness, and hunger."*
 
 #### STEP 3: Scraping the runtime field. 
 ```r
@@ -160,6 +167,7 @@ runtime_data<-as.numeric(runtime_data)
 head(runtime_data)
 
 ```
+*Output: 142 154  88 142 110 123*
 
 #### STEP 4: Scraping the genre field. 
 ```r
@@ -185,6 +193,8 @@ genre_data<-as.factor(genre_data)
 head(genre_data)
 
 ```
+*Output:  Drama     Crime     Animation Drama     Action    Drama    
+Levels: Action Adventure Animation Biography Comedy Crime Drama Family Fantasy Mystery*
 
 #### STEP 5: Scraping the rating field. 
 ```r
@@ -200,11 +210,10 @@ rating_data<-as.numeric(rating_data)
 #Let's have another look at the ratings data
 head(rating_data)
 
-#Let's have a look at the ratings
-head(rating_data)
 ```
+*Output: 9.3 8.9 8.5 8.8 8.5 7.6*
 
-#### STEP 6: Scraping the difrector field. 
+#### STEP 6: Scraping the Director field. 
 ```r
 #Using CSS selectors to scrape the directors section
 directors_data_html <- html_nodes(webpage,'.text-muted+ p a:nth-child(1)')
@@ -218,8 +227,10 @@ directors_data<-as.factor(directors_data)
 #Let's have a look at the directors data
 head(directors_data)
 ```
+*Output: Frank Darabont    Quentin Tarantino Roger Allers      Robert Zemeckis   Luc Besson        Neil Jordan*      
+*99 Levels: Alex Proyas Andrew Bergman Andrew Fleming Andrew Morahan Atom Egoyan Barry Levinson Béla Tarr Ben Stiller Bernard Rose ... William Dear*
 
-#### STEP 2: Scraping the actor field. 
+#### STEP 2: Scraping the Actor field. 
 ```r
 #Using CSS selectors to scrape the actors section
 actors_data_html <- html_nodes(webpage,'.lister-item-content .ghost+ a')
@@ -233,6 +244,8 @@ actors_data<-as.factor(actors_data)
 #Let's have a look at the actors data
 head(actors_data)
 ```
+*Tim Robbins       John Travolta     Matthew Broderick Tom Hanks         Jean Reno         Brad Pitt        
+89 Levels: Alec Baldwin Alex Hyde-White Arnold Schwarzenegger Brad Pitt Brandon Lee Brendan Fraser Brian Bonsall ... Zbigniew Zamachowski*
 
 #### STEP 9: Creating a DataFrame 
 Now we have successfully scraped all the features for the 100 most popular feature films released in 1994. Let’s combine them to create a dataframe and inspect its structure.
