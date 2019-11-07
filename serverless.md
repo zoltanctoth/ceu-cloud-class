@@ -62,6 +62,8 @@ install.packages("httr")
 
 - We will be using an open source software named Selector Gadget which will be more than sufficient for anyone in order to perform Web scraping. You can access and **download the Selector Gadget extension** [here](https://selectorgadget.com/). Make sure that you have this extension installed by following the instructions from the website. 
 
+>Using this you can select the parts of any website and get the relevant tags to get access to that part by simply clicking on that part of the website. Note that, this is a way around to actually learning HTML & CSS and doing it manually. But to master the art of Web scraping, I’ll highly recommend you to learn HTML & CSS in order to better understand and appreciate what’s happening under the hood.
+
 
 
 
