@@ -285,83 +285,42 @@ geom_point(aes(size=Rating,col=Genre))
 ```
 ![dataframe](Images/Serverless/gplot1.png)
 
+* * * 
 
+## AWS
 
-## More on rvest
-####  <a name="rvest2">Making Simple Requests</a>
+#### Amazon Polly
+Amazon Polly is a cloud service that converts text into lifelike speech. You can use Amazon Polly to develop applications that increase engagement and accessibility. Amazon Polly supports multiple languages and includes a variety of lifelike voices, so you can build speech-enabled applications that work in multiple locations and use the ideal voice for your customers. With Amazon Polly, you only pay for the text you synthesize. You can also cache and replay Amazon Polly’s generated speech at no additional cost.
 
-rvest provides two ways of making request: `read_html()` and `html_session()`  
-`read_html()` can parse a HTML file or an url into xml document. `html_session()` is built on `GET()` from httr package and can accept configurations any additonal httr config.  
+**Polly Use-cases:**
+- Newsreaders, games, eLearning platforms, accessibility applications for visually impaired people, and the rapidly growing segment of Internet of Things (IoT)
 
-Reading a URL:
+#### Why Polly?
+- **High quality**; Amazon Polly offers both new neural TTS and best-in-class standard TTS technology to synthesize the superior natural speech with high pronunciation accuracy (including abbreviations, acronym expansions, date/time interpretations, and homograph disambiguation).
 
-```R
-# making GET request and parse website into XML document
-pagesource <- html_read("http://example.com/page")
+- **Low latency**; Amazon Polly ensures fast responses, which make it a viable option for low-latency use cases such as dialog systems.
 
-# Using html_session which creates a session and accept httr methods
-my_session <- html_session("http://example.com/page")
-#html_session is built upon httr, you can also get response with a session
-response <- my_session$response
+- **Support for a large portfolio of languages and voices**;Amazon Polly supports dozens of voices languages, offering male and female voice options for most languages. Neural TTS currently supports three British English voices and eight US English voices. This number will continue to increase as we bring more neural voices online. US English voices Matthew and Joanna can also use the Neural Newscaster speaking style, similar to what you might hear from a professional news anchor.
+
+ - **Cost-effective**; Amazon Polly's pay-per-use model means there are no setup costs. You can start small and scale up as your application grows.
+
+ - **Cloud-based solution**; On-device TTS solutions require significant computing resources, notably CPU power, RAM, and disk space. These can result in higher development costs and higher power consumption on devices such as tablets, smart phones, and so on. In contrast, TTS conversion done in the AWS Cloud dramatically reduces local resource requirements. This enables support of all the available languages and voices at the best possible quality. Moreover, speech improvements are instantly available to all end-users and do not require additional updates for devices.
+
+**Install Polly:**
+aws.polly is a package for Polly, an Amazon Web Services speech synthesis (computer voice) web service.
+```r
+#Installing Polly
+
+install.packages("aws.polly", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))
+
 ```
-
-Alternatively, GET and POST method are available in the httr package.
-
-```R
-library(httr)
-response <- GET("http://example.com/page")
-#or
-response <- POST("http://example.com/page",
-    body = list(a=1,b=2))
+A detailed description of how credentials can be specified is provided at: https://github.com/cloudyr/aws.signature/. The easiest way is to simply set environment variables on the command line prior to starting R or via an Renviron.site or .Renviron file, which are used to set environment variables in R during startup (see ? Startup). They can be also set within R:
+```r
+Sys.setenv("AWS_ACCESS_KEY_ID" = "mykey",
+           "AWS_SECRET_ACCESS_KEY" = "mysecretkey",
+           "AWS_DEFAULT_REGION" = "us-east-1",
+           "AWS_SESSION_TOKEN" = "mytoken")
 ```
-
-## <a name="rvest3">Inspecting Response</a>
-
-Check status code:
-
-```R
-status_code(my_session)
-status_code(response)
-```
-
-Get response and content:
-
-```R
-#response
-response <- my_session$response
-#retrieve content as raw
-content_raw <- content(my_session$response,as = "raw")
-#retrieve content as text
-content_text <- content(my_session$response,as = "text")
-#retrieve content as parsed(parsed automatically)
-content_parsed <- content(my_session$response,as = "parsed")
-```
-
-Content may be parsed incorrectly sometimes. For those situations, you can parse the content to text or raw and use other libraries or functions to parse it correctly.
-
-Search for specific string:
-
-```R
-library(stringr)
-#regular expression can also be used here
-if(str_detect(content_text,"blocked")){
-    print("blocked from website")
-    }
-```
-
-check content type:
-
-```R
-response$headers$`content-type`
-```
-
-check html structure:
-
-```R
-my_structure <- html_structure(content_parsed)
-```
-
-### AWS Comprehend & Polly & Recognizer (TBP)
 
 
 * * *
