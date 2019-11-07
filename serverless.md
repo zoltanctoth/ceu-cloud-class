@@ -152,6 +152,8 @@ head(description_data)
 [5] "    Mathilda, a 12-year-old girl, is reluctantly taken in by Léon, a professional assassin, after her family is murdered. An unusual relationship forms as she becomes his protégée and learns the assassin's trade."
 [6] "    A vampire tells his epic life story: love, betrayal, loneliness, and hunger."*
 
+![cssselector3](Images/Serverless/selector3.png)
+
 #### STEP 3: Scraping the runtime field. 
 ```r
 #Using CSS selectors to scrape the Movie runtime section
