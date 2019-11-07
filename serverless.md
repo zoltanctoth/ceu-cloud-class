@@ -361,7 +361,7 @@ check html structure:
 my_structure <- html_structure(content_parsed)
 ```
 
-### AWS Comprehend & Polly & Recognizer (The Shawshank Redemption - Demo)
+### AWS Comprehend & Polly & Recognizer (TBP)
 
 
 * * *
