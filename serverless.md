@@ -129,6 +129,8 @@ head(title_data)
 ```
 *Output: "The Shawshank Redemption" "Pulp Fiction" "The Lion King" "Forrest Gump" " Léon: The Professional" " Interview with the Vampire: The Vampire Chronicles"*
 
+![selectorcss2](Images/Serverless/selector2.png)
+
 #### STEP 2: Scraping the title description. 
 ```r
 #Using CSS selectors to scrape the description section
