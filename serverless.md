@@ -95,6 +95,8 @@ For that, we’ll use the selector Google Chrome extension gadget that you've do
 
 Make sure that all the rankings are selected. You can select some more ranking sections in case you are not able to get all of them and you can also de-select them by clicking on the selected section to make sure that you only have those sections highlighted that you want to scrape for that go.
 
+![cssselector](Images/Serverless/selector1.png)
+
 Once you are sure that you have made the right selections, you need to copy the corresponding CSS selector.
 ```r
 #Using CSS selectors to scrape the rankings section
