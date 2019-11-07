@@ -36,13 +36,6 @@ Web scraping is a technique for converting the data present in unstructured form
 library(rvest)
 lego_movie <- read_html("http://www.imdb.com/title/tt1490017/")
 
-rating <- lego_movie %>% 
-  html_nodes("strong span") %>%
-  html_text() %>%
-  as.numeric()
-rating
-#> [1] 7.8
-
 cast <- lego_movie %>%
   html_nodes("#titleCast .primary_photo img") %>%
   html_attr("alt")
