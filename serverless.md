@@ -49,9 +49,22 @@ cast
 ![scrapedemo1](Images/Serverless/tsr.png)
 
 ### rvest
-- rvest is package that makes it easy to scrape data from html web pages, inspired by libraries like beautifulsoup (bs4). You can express complex operations as elegant pipelines composed of simple, easily understood pieces. Install it with:
+- rvest is package that makes it easy to scrape data from html web pages, inspired by libraries like beautifulsoup (bs4). You can express complex operations as elegant pipelines composed of simple, easily understood pieces. rvest is built upon the xml2 package and also accept config from the httr package. For the most part, we only need rvest. However, we need httr if we want to add extra configurations.
 
-`install.packages("rvest")`
+**Make sure you have this package installed**
+```r
+install.packages("rvest")
+```
+
+```r
+install.packages("httr")
+```
+
+- We will be using an open source software named Selector Gadget which will be more than sufficient for anyone in order to perform Web scraping. You can access and **download the Selector Gadget extension** [here](https://selectorgadget.com/). Make sure that you have this extension installed by following the instructions from the website. 
+
+
+
+
 
 
 ####  <a name="rvest2">Making Simple Requests</a>
