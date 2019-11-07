@@ -280,21 +280,6 @@ geom_point(aes(size=Rating,col=Genre))
 ![dataframe](Images/Serverless/gplot2.png)
 
 
-### AWS Comprehend & Polly & Recognizer (The Shawshank Redemption - Demo)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## More on rvest
 ####  <a name="rvest2">Making Simple Requests</a>
 
@@ -368,6 +353,8 @@ check html structure:
 ```R
 my_structure <- html_structure(content_parsed)
 ```
+
+### AWS Comprehend & Polly & Recognizer (The Shawshank Redemption - Demo)
 
 
 * * *
