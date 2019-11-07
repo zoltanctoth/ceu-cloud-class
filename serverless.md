@@ -318,13 +318,30 @@ aws.polly is a package for Polly, an Amazon Web Services speech synthesis (compu
 install.packages("aws.polly", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))
 
 ```
-A detailed description of how credentials can be specified is provided at: https://github.com/cloudyr/aws.signature/. The easiest way is to simply set environment variables on the command line prior to starting R or via an Renviron.site or .Renviron file, which are used to set environment variables in R during startup (see ? Startup). They can be also set within R:
+
+A detailed description of how credentials can be specified is provided at: https://github.com/cloudyr/aws.signature/. The easiest way is to simply set environment variables on the command line prior to starting R or via an Renviron.site or .Renviron file, which are used to set environment variables in R during startup (see `? Startup`). 
+
+They can be also set within R:
 ```r
 Sys.setenv("AWS_ACCESS_KEY_ID" = "mykey",
            "AWS_SECRET_ACCESS_KEY" = "mysecretkey",
            "AWS_DEFAULT_REGION" = "us-east-1",
            "AWS_SESSION_TOKEN" = "mytoken")
 ```
+
+Now let's check what Polly has to offer.
+
+```r
+library("aws.polly")
+
+# list available voices
+list_voices()
+```
+
+![voices](Images/Serverless/voices.png)
+
+
+
 
 
 * * *
