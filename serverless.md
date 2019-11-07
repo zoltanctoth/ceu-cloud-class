@@ -342,7 +342,10 @@ list_voices()
 
 #### Using Polly
 If you do not have tuneR, make sure to install it: `install.packages("tuneR") `
-
+```
+# synthesize some text
+vec <- synthesize("Forget that! There are places in this world that aren't made out of stone. That there's something inside -that they can't get to, that they can't touch? That's yours!", voice = "Joey")
+```
 ```r
 library("tuneR")
 
