@@ -89,6 +89,11 @@ webpage <- read_html(url)
 - *Director:* The main director of the feature film. Note, in case of multiple directors, I’ll take only the first.
 - *Actor:* The main actor in the feature film. Note, in case of multiple actors, I’ll take only the first.
 
+#### STEP 0: Check Robots.txt
+
+https://www.imdb.com/robots.txt
+
+Good bots comply to the rules set by websites in their robots.txt file and follow best practices while crawling and scraping. 
 
 #### STEP 1: Scraping the Rank field
 For that, we’ll use the selector Google Chrome extension gadget that you've downloaded already to get the specific CSS selectors that encloses the rankings. You can click on the extension in your browser and select the rankings field with the cursor. 
