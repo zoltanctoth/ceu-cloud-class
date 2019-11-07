@@ -348,10 +348,10 @@ library("tuneR")
 
 # synthesize some text
 vec <- synthesize("Hello world!", voice = "Joanna")
+# The result is a "Wave" object (from the tuneR package), which can be played using `play()`:
 
-
-# If you are on Mac and got permission denied run the code below this line as well.
-#setWavPlayer("afplay")
+# If you are on Mac and got permission denied run the commented code below
+# setWavPlayer("afplay")
 
 play(vec)
 ```
