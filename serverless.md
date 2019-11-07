@@ -342,15 +342,13 @@ list_voices()
 
 #### Using Polly
 If you do not have tuneR, make sure to install it: `install.packages("tuneR") `
-```
-# synthesize some text
-vec <- synthesize("Forget that! There are places in this world that aren't made out of stone. That there's something inside -that they can't get to, that they can't touch? That's yours!", voice = "Joey")
-```
 ```r
 library("tuneR")
+library("aws.polly")
 
 # synthesize some text
-vec <- synthesize("Hello world!", voice = "Joanna")
+vec <- synthesize("Forget that! There are places in this world that aren't made out of stone. That there's something inside -that they can't get to, that they can't touch? That's yours!", voice = "Joey")
+
 # The result is a "Wave" object (from the tuneR package), which can be played using `play()`:
 
 # If you are on Mac and got permission denied run the commented code below
