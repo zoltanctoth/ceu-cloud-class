@@ -245,6 +245,8 @@ movies_df<-data.frame(Rank = rank_data, Title = title_data,
 #Structure of the data frame
 view(movies_df)
 ```
+![dataframe](Images/Serverless/dfmovies.png)
+
 
 #### STEP 10: Plotting the df
 ```r
@@ -257,6 +259,10 @@ qplot(data = movies_df, Genre, fill = Genre)
 ggplot(movies_df,aes(x=Runtime,y=Rank))+
 geom_point(aes(size=Rating,col=Genre))
 ```
+![dataframe](Images/Serverless/gplot1.png)
+
+- Another example
+![dataframe](Images/Serverless/gplot2.png)
 
 
 ### AWS Comprehend & Polly & Recognizer (The Shawshank Redemption - Demo)
