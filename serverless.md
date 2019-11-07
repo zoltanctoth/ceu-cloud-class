@@ -36,7 +36,7 @@ Web scraping is a technique for converting the data present in unstructured form
 
 `install.packages("rvest")`
 
-#### rvest Demo
+#### (rvest Demo)[https://github.com/tidyverse/rvest/tree/master/demo]
 ```
 library(rvest)
 lego_movie <- read_html("http://www.imdb.com/title/tt1490017/")
