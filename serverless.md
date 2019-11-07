@@ -80,14 +80,14 @@ webpage <- read_html(url)
 ```
 
 **Now let's scrape IMDB:**
-*Rank:* The rank of the film from 1 to 100 on the list of 100 most popular feature films released in 1994
-*Title:* The title of the feature film.
-*Description:* The description of the feature film.
-*Runtime:* The duration of the feature film.
-*Genre:* The genre of the feature film,
-*Rating:* The IMDb rating of the feature film.
-*Director:* The main director of the feature film. Note, in case of multiple directors, I’ll take only the first.
-*Actor:* The main actor in the feature film. Note, in case of multiple actors, I’ll take only the first.
+- *Rank:* The rank of the film from 1 to 100 on the list of 100 most popular feature films released in 1994
+- *Title:* The title of the feature film.
+- *Description:* The description of the feature film.
+- *Runtime:* The duration of the feature film.
+- *Genre:* The genre of the feature film,
+- *Rating:* The IMDb rating of the feature film.
+- *Director:* The main director of the feature film. Note, in case of multiple directors, I’ll take only the first.
+- *Actor:* The main actor in the feature film. Note, in case of multiple actors, I’ll take only the first.
 
 
 #### STEP 1: Scraping the Rank field
