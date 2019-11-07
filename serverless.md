@@ -340,6 +340,15 @@ list_voices()
 
 ![voices](Images/Serverless/voices.png)
 
+#### Using Polly
+If you do not have tuneR, make sure to install it: `install.packages("tuneR") `
+
+```r
+library("tuneR")
+# If you are on Mac and got permission denied run the code below this line as well.
+#setWavPlayer("afplay")
+play(vec)
+```
 
 
 
