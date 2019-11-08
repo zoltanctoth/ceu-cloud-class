@@ -397,8 +397,34 @@ To install and use Comprehend w/ R:
 install.packages("aws.comprehend", repos = c(cloudyr = "http://cloudyr.github.io/drat", getOption("repos")))
 ```
 
+```r
+library("aws.comprehend")
+
+# simple language detection
+detect_language("This is a test sentence in English")
+```
+*Output:*
+-  LanguageCode     Score
+-  1           en 0.9945121
 
 
+```r
+# multi-lingual language detection
+detect_language("A: ¡Hola! ¿Como está, usted?\nB: Ça va bien. Merci. Et toi?")
+```
+*Output:*
+ LanguageCode     Score
+-  1           fr 0.6712779
+-  2           pt 0.2771675
+
+
+```r
+# sentiment analysis
+detect_sentiment("I have never been happier. This is the best day ever.")
+```
+*Output:*
+-     Index Sentiment       Mixed    Negative    Neutral  Positive
+-    1     1  POSITIVE 0.002856119 0.003094881 0.03672606 0.9573229
 
 
 * * *
