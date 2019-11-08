@@ -426,6 +426,15 @@ detect_phrases(txt)
 ```
 ![phrases](Images/Serverless/phrases.png)
 
+#### Amazon Transcribe
+
+
+#### Amazon Rekognition
+
+
+#### S3
+
+
 
 * * *
 * * *
