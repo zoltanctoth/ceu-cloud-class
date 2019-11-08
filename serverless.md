@@ -401,30 +401,28 @@ install.packages("aws.comprehend", repos = c(cloudyr = "http://cloudyr.github.io
 library("aws.comprehend")
 
 # simple language detection
-detect_language("This is a test sentence in English")
+detect_language("I have to remind myself that some birds aren’t meant to be caged.")
 ```
-*Output:*
--  LanguageCode     Score
--  1           en 0.9945121
+![language](Images/Serverless/language.png)
 
 
 ```r
-# multi-lingual language detection
-detect_language("A: ¡Hola! ¿Como está, usted?\nB: Ça va bien. Merci. Et toi?")
+detect_sentiment("The world went and got itself in a big damn hurry.")
 ```
-*Output:*
- LanguageCode     Score
--  1           fr 0.6712779
--  2           pt 0.2771675
+![language](Images/Serverless/sentiment.png)
 
 
 ```r
-# sentiment analysis
-detect_sentiment("I have never been happier. This is the best day ever.")
+# named entity recognition
+txt <- c("The convicts in Shawshank have become so used to the idea of being in prison, that they can't really remember life outside of it.", "Ellis Boyd Redding makes a reference to the fact that prison life is all about routine.")
+detect_entities(txt)
 ```
-*Output:*
--     Index Sentiment       Mixed    Negative    Neutral  Positive
--    1     1  POSITIVE 0.002856119 0.003094881 0.03672606 0.9573229
+![entity](Images/Serverless/entities.png)
+
+```r
+detect_phrases(txt)
+```
+![phrases](Images/Serverless/phrases.png)
 
 
 * * *
