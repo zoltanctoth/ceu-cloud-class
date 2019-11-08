@@ -357,6 +357,20 @@ vec <- synthesize("Forget that! There are places in this world that aren't made 
 play(vec)
 ```
 
+#### Amazon Comprehend
+
+Amazon Comprehend uses natural language processing \(NLP\) to extract insights about the content of documents\. Amazon Comprehend processes any text file in UTF\-8 format\. It develops insights by recognizing the entities, key phrases, language, sentiments, and other common elements in a document\. Use Amazon Comprehend to create new products based on understanding the structure of documents\. For example, using Amazon Comprehend you can search social networking feeds for mentions of products or scan an entire document repository for key phrases\.
+
+You work with one or more documents at a time to evaluate their content and gain insights about them\. Some of the insights that Amazon Comprehend develops about a document include:
+
++ **Entities** – Amazon Comprehend returns a list of entities, such as people, places, and locations, identified in a document\. 
++ **Key phrases** – Amazon Comprehend extracts key phrases that appear in a document\. For example, a document about a basketball game might return the names of the teams, the name of the venue, and the final score\. 
++ **Language** – Amazon Comprehend identifies the dominant language in a document\. Amazon Comprehend can identify 100 languages\. 
++ **Sentiment** – Amazon Comprehend determines the emotional sentiment of a document\. Sentiment can be positive, neutral, negative, or mixed\. 
++ **Syntax** – Amazon Comprehend parses each word in your document and determines the part of speech for the word\. For example, in the sentence "It is raining today is Seattle," "it" is identified as a pronoun, "raining" is identified as a verb, and "Seattle" is identified as a proper noun\. 
+
+
+
 
 
 
