@@ -359,6 +359,10 @@ play(vec)
 
 #### Amazon Comprehend
 
+![comprehend](Images/Serverless/comprehend.png)
+
+>Amazon Comprehend uses a pre-trained model to examine and analyze a document or set of documents to gather insights about it. This model is continuously trained on a large body of text so that there is no need for you to provide training data.
+
 Amazon Comprehend uses natural language processing \(NLP\) to extract insights about the content of documents\. Amazon Comprehend processes any text file in UTF\-8 format\. It develops insights by recognizing the entities, key phrases, language, sentiments, and other common elements in a document\. Use Amazon Comprehend to create new products based on understanding the structure of documents\. For example, using Amazon Comprehend you can search social networking feeds for mentions of products or scan an entire document repository for key phrases\.
 
 You work with one or more documents at a time to evaluate their content and gain insights about them\. Some of the insights that Amazon Comprehend develops about a document include:
