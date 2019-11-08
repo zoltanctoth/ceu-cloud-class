@@ -373,6 +373,19 @@ You work with one or more documents at a time to evaluate their content and gain
 + **Sentiment** – Amazon Comprehend determines the emotional sentiment of a document\. Sentiment can be positive, neutral, negative, or mixed\. 
 + **Syntax** – Amazon Comprehend parses each word in your document and determines the part of speech for the word\. For example, in the sentence "It is raining today is Seattle," "it" is identified as a pronoun, "raining" is identified as a verb, and "Seattle" is identified as a proper noun\. 
 
+**Amazon Comprehend can examine and analyze documents in these languages:**
+
+- English
+- Spanish
+- French
+- German
+- Italian
+- Portuguese
+
+To install and use Comprehend w/ R:
+```r
+install.packages("aws.comprehend", repos = c(cloudyr = "http://cloudyr.github.io/drat", getOption("repos")))
+```
 
 
 
