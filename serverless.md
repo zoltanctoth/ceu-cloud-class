@@ -357,7 +357,7 @@ vec <- synthesize("Forget that! There are places in this world that aren't made 
 play(vec)
 ```
 
-<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/709796299&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+[Demo Audio](https://soundcloud.com/mikesevenofficial/amazon-polly-demo)
 
 #### Amazon Comprehend
 
