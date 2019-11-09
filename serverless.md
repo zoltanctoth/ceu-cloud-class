@@ -426,13 +426,104 @@ detect_phrases(txt)
 ```
 ![phrases](Images/Serverless/phrases.png)
 
-#### Amazon Transcribe
+
+
+#### S3
+![s3](Images/Serverless/s3.png)
+
+[Documentation](https://cran.r-project.org/web/packages/aws.s3/aws.s3.pdf)
+
+
+**To install** the latest development version you can install from the cloudyr drat repository:
+
+```R
+# latest stable version
+install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"))
+
+# on windows you may need:
+install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"), INSTALL_opts = "--no-multiarch")
+```
+
+**Set credentials:**
+```{r}
+keyTable <- read.csv("credentials.csv", header = T)
+AWS_ACCESS_KEY_ID <- as.character(keyTable$Access.key.ID)
+AWS_SECRET_ACCESS_KEY <- as.character(keyTable$Secret.access.key)
+
+#activate
+Sys.setenv("AWS_ACCESS_KEY_ID" = AWS_ACCESS_KEY_ID,
+           "AWS_SECRET_ACCESS_KEY" = AWS_SECRET_ACCESS_KEY,
+           "AWS_DEFAULT_REGION" = "eu-west-1") 
+```
+
+The package can be used to examine publicly accessible S3 buckets and publicly accessible S3 objects without registering an AWS account. If credentials have been generated in the AWS console and made available in R, you can find your available buckets using:
+
+```R
+library("aws.s3")
+bucketlist()
+```
+
+If your credentials are incorrect, this function will return an error. Otherwise, it will return a list of information about the buckets you have access to.
+
+**Objects**
+
+This package contains many functions. The following are those that will be useful for working with objects in S3:
+
+ 1. `bucketlist()` provides the data frames of buckets to which the user has access.
+ 2. `get_bucket()` and `get_bucket_df()` provide a list and data frame, respectively, of objects in a given bucket.
+ 3. `object_exists()` provides a logical for whether an object exists. `bucket_exists()` provides the same for buckets.
+ 4. `s3read_using()` provides a generic interface for reading from S3 objects using a user-defined function. `s3write_using()` provides a generic interface for writing to S3 objects using a user-defined function
+ 5. `get_object()` returns a raw vector representation of an S3 object. This might then be parsed in a number of ways, such as `rawToChar()`, `xml2::read_xml()`, `jsonlite::fromJSON()`, and so forth depending on the file format of the object. `save_object()` saves an S3 object to a specified local file without reading it into memory.
+ 6. `s3connection()` provides a binary readable connection to stream an S3 object into R. This can be useful for reading for very large files. `get_object()` also allows reading of byte ranges of functions (see the documentation for examples).
+ 7. `put_object()` stores a local file into an S3 bucket. The `multipart = TRUE` argument can be used to upload large files in pieces.
+ 8. `s3save()` saves one or more in-memory R objects to an .Rdata file in S3 (analogously to `save()`). `s3saveRDS()` is an analogue for `saveRDS()`. `s3load()` loads one or more objects into memory from an .Rdata file stored in S3 (analogously to `load()`). `s3readRDS()` is an analogue for `readRDS()`
+ 9. `s3source()` sources an R script directly from S3
+
+
+**Example**
+`sessionInfo()` - list down the libraries you have in your environment
+```r
+library(aws.s3)
+
+# List bucket(s) on S3
+bucketlist()
+
+# Make a unique s3 bucket name
+my_name <- "ceu-class-"  # type in your name here
+bucket_name <- paste(c(my_name, sample(c(0:3, letters), size = 3, replace = TRUE)), collapse = "")
+print(bucket_name)
+
+#Now we can create the bucket on s3
+put_bucket(bucket_name)
+
+#bucket location
+get_location(bucket_name)
+
+#Create a text file using the website content:
+write("This is a simple text file", "my_content.txt")
+
+#Send the text file to AWS S3 bucket
+put_object("my_content.txt", bucket = bucket_name)
+#We have data on The Cloud! Check on your browser. Now let's get it back on our computer:
+save_object("my_content.txt", bucket = bucket_name, file = "my_content_s3.txt")
+
+list.files()
+
+# lets delete this object
+delete_object("my_content.txt", bucket = bucket_name)
+
+# We're finished with this bucket, so let's delete it.
+delete_bucket(bucket_name)
+```
+
+
 
 
 #### Amazon Rekognition
 
+#### Amazon Transcribe
 
-#### S3
+
 
 
 
