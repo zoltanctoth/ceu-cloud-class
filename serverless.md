@@ -590,12 +590,12 @@ for label in detect_labels(BUCKET, KEY):
 	print "{Name} - {Confidence}%".format(**label)
 ```
 **Output:**
-	Expected output:
-	People - 99.2436447144%
-	Person - 99.2436447144%
-	Human - 99.2351226807%
-	Clothing - 96.7797698975%
-	Suit - 96.7797698975%
+-	Expected output:
+-	People - 99.2436447144%
+-	Person - 99.2436447144%
+-	Human - 99.2351226807%
+-	Clothing - 96.7797698975%
+-	Suit - 96.7797698975%
 
 **Example 2, Face Detection:**
 ```python
@@ -632,25 +632,21 @@ for face in detect_faces(BUCKET, KEY):
 			print "  {feature}({data[Value]}) : {data[Confidence]}%".format(feature=feature, data=data)
 ```
 **Output:**
-	Expected output:
-	Face (99.945602417%)
-	  SAD : 14.6038293839%
-	  HAPPY : 12.3668470383%
-	  DISGUSTED : 3.81404161453%
-	  Sharpness : 10.0
-	  Brightness : 31.4071826935
-	  Eyeglasses(False) : 99.990234375%
-	  Sunglasses(False) : 99.9500656128%
-	  Gender(Male) : 99.9291687012%
-	  EyesOpen(True) : 99.9609146118%
-	  Smile(False) : 99.8329467773%
-	  MouthOpen(False) : 98.3746566772%
-	  Mustache(False) : 98.7549591064%
-	  Beard(False) : 92.758682251%
-
-
-
-
+-	Expected output:
+-	Face (99.945602417%)
+-	  SAD : 14.6038293839%
+-	  HAPPY : 12.3668470383%
+-	  DISGUSTED : 3.81404161453%
+-	  Sharpness : 10.0
+-	  Brightness : 31.4071826935
+-	  Eyeglasses(False) : 99.990234375%
+-	  Sunglasses(False) : 99.9500656128%
+-	  Gender(Male) : 99.9291687012%
+-	  EyesOpen(True) : 99.9609146118%
+-	  Smile(False) : 99.8329467773%
+-	  MouthOpen(False) : 98.3746566772%
+-	  Mustache(False) : 98.7549591064%
+-	  Beard(False) : 92.758682251%
 
 
 
