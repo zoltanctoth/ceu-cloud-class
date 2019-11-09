@@ -518,7 +518,7 @@ delete_bucket(bucket_name)
 
 #### Amazon Translate
 
-![s3](Images/Serverless/translate.png)
+![translate](Images/Serverless/translate.png)
 
 Amazon Translate is a neural machine translation service that delivers fast, high-quality, and affordable language translation. Neural machine translation is a form of language translation automation that uses deep learning models to deliver more accurate and more natural sounding translation than traditional statistical and rule-based translation algorithms. Amazon Translate allows you to localize content - such as websites and applications - for international users, and to easily translate large volumes of text efficiently.
 
@@ -554,8 +554,105 @@ attr(,"TargetLanguageCode")
 [1] "en"
 
 
-
 #### Amazon Rekognition
+
+![rekognition](Images/Serverless/rekognition.png)
+
+Amazon Rekognition makes it easy to add image and video analysis to your applications. You just provide an image or video to the Rekognition API, and the service can identify the objects, people, text, scenes, and activities, as well as detect any inappropriate content. Amazon Rekognition also provides highly accurate facial analysis and facial recognition on images and video that you provide. You can detect, analyze, and compare faces for a wide variety of user verification, people counting, and public safety use cases.
+
+Amazon Rekognition is based on the same proven, highly scalable, deep learning technology developed by Amazon’s computer vision scientists to analyze billions of images and videos daily, and requires no machine learning expertise to use. Amazon Rekognition is a simple and easy to use API that can quickly analyze any image or video file stored in Amazon S3. Amazon Rekognition is always learning from new data, and we are continually adding new labels and facial recognition features to the service.
+
+**Example**
+(Python code - optional!)
+
+```python
+import boto3
+
+BUCKET = "amazon-rekognition"
+KEY = "test.jpg"
+
+def detect_labels(bucket, key, max_labels=10, min_confidence=90, region="eu-west-1"):
+	rekognition = boto3.client("rekognition", region)
+	response = rekognition.detect_labels(
+		Image={
+			"S3Object": {
+				"Bucket": bucket,
+				"Name": key,
+			}
+		},
+		MaxLabels=max_labels,
+		MinConfidence=min_confidence,
+	)
+	return response['Labels']
+
+
+for label in detect_labels(BUCKET, KEY):
+	print "{Name} - {Confidence}%".format(**label)
+```
+**Output:**
+	Expected output:
+	People - 99.2436447144%
+	Person - 99.2436447144%
+	Human - 99.2351226807%
+	Clothing - 96.7797698975%
+	Suit - 96.7797698975%
+
+**Example 2, Face Detection:**
+```python
+import boto3
+
+BUCKET = "amazon-rekognition"
+KEY = "test.jpg"
+FEATURES_BLACKLIST = ("Landmarks", "Emotions", "Pose", "Quality", "BoundingBox", "Confidence")
+
+def detect_faces(bucket, key, attributes=['ALL'], region="eu-west-1"):
+	rekognition = boto3.client("rekognition", region)
+	response = rekognition.detect_faces(
+	    Image={
+			"S3Object": {
+				"Bucket": bucket,
+				"Name": key,
+			}
+		},
+	    Attributes=attributes,
+	)
+	return response['FaceDetails']
+
+for face in detect_faces(BUCKET, KEY):
+	print "Face ({Confidence}%)".format(**face)
+	# emotions
+	for emotion in face['Emotions']:
+		print "  {Type} : {Confidence}%".format(**emotion)
+	# quality
+	for quality, value in face['Quality'].iteritems():
+		print "  {quality} : {value}".format(quality=quality, value=value)
+	# facial features
+	for feature, data in face.iteritems():
+		if feature not in FEATURES_BLACKLIST:
+			print "  {feature}({data[Value]}) : {data[Confidence]}%".format(feature=feature, data=data)
+```
+**Output:**
+	Expected output:
+	Face (99.945602417%)
+	  SAD : 14.6038293839%
+	  HAPPY : 12.3668470383%
+	  DISGUSTED : 3.81404161453%
+	  Sharpness : 10.0
+	  Brightness : 31.4071826935
+	  Eyeglasses(False) : 99.990234375%
+	  Sunglasses(False) : 99.9500656128%
+	  Gender(Male) : 99.9291687012%
+	  EyesOpen(True) : 99.9609146118%
+	  Smile(False) : 99.8329467773%
+	  MouthOpen(False) : 98.3746566772%
+	  Mustache(False) : 98.7549591064%
+	  Beard(False) : 92.758682251%
+
+
+
+
+
+
 
 #### Amazon Transcribe
 
