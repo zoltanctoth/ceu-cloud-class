@@ -428,7 +428,7 @@ detect_phrases(txt)
 
 
 
-#### S3
+#### Amazon S3
 ![s3](Images/Serverless/s3.png)
 
 [Documentation](https://cran.r-project.org/web/packages/aws.s3/aws.s3.pdf)
@@ -516,6 +516,42 @@ delete_object("my_content.txt", bucket = bucket_name)
 delete_bucket(bucket_name)
 ```
 
+#### Amazon Translate
+
+![s3](Images/Serverless/translate.png)
+
+Amazon Translate is a neural machine translation service that delivers fast, high-quality, and affordable language translation. Neural machine translation is a form of language translation automation that uses deep learning models to deliver more accurate and more natural sounding translation than traditional statistical and rule-based translation algorithms. Amazon Translate allows you to localize content - such as websites and applications - for international users, and to easily translate large volumes of text efficiently.
+
+**Install**
+```r
+install.packages("aws.translate", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))
+```
+
+**Example:**
+```r
+library("aws.translate")
+
+# translate some text from English
+translate("Bonjour le monde!", from = "fr", to = "en")
+```
+*Output:*
+[1] "Hello, world!"
+attr(,"SourceLanguageCode")
+[1] "fr"
+attr(,"TargetLanguageCode")
+[1] "en"
+
+
+```r
+# translate some text to English
+translate("Hola mundo!", from = "auto", to = "en")
+```
+*Output:*
+[1] "Hello world!"
+attr(,"SourceLanguageCode")
+[1] "es"
+attr(,"TargetLanguageCode")
+[1] "en"
 
 
 
