@@ -532,14 +532,14 @@ install.packages("aws.translate", repos = c(getOption("repos"), "http://cloudyr.
 library("aws.translate")
 
 # translate some text from English
-translate("Bonjour le monde!", from = "fr", to = "en")
+translate("Hello World!", from = "en", to = "it")
 ```
 *Output:*
-[1] "Hello, world!"
+[1] "Ciao Mondo!"
 attr(,"SourceLanguageCode")
-[1] "fr"
-attr(,"TargetLanguageCode")
 [1] "en"
+attr(,"TargetLanguageCode")
+[1] "it"
 
 
 ```r
