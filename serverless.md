@@ -563,7 +563,7 @@ Amazon Rekognition makes it easy to add image and video analysis to your applica
 Amazon Rekognition is based on the same proven, highly scalable, deep learning technology developed by Amazon’s computer vision scientists to analyze billions of images and videos daily, and requires no machine learning expertise to use. Amazon Rekognition is a simple and easy to use API that can quickly analyze any image or video file stored in Amazon S3. Amazon Rekognition is always learning from new data, and we are continually adding new labels and facial recognition features to the service.
 
 **Example**
-(Python code - optional!)
+(Python code -Optional!)
 
 ```python
 import boto3
@@ -597,7 +597,7 @@ for label in detect_labels(BUCKET, KEY):
 -	Clothing - 96.7797698975%
 -	Suit - 96.7797698975%
 
-**Example 2, Face Detection:**
+**Example 2;Face Detection:** (Optional)
 ```python
 import boto3
 
