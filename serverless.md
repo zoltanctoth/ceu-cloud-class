@@ -632,8 +632,7 @@ for face in detect_faces(BUCKET, KEY):
 			print "  {feature}({data[Value]}) : {data[Confidence]}%".format(feature=feature, data=data)
 ```
 **Output:**
--	Expected output:
--	Face (99.945602417%)
+-	  Face (99.945602417%)
 -	  SAD : 14.6038293839%
 -	  HAPPY : 12.3668470383%
 -	  DISGUSTED : 3.81404161453%
