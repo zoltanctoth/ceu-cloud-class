@@ -1,13 +1,38 @@
 ---
 title: "Web Scraping with R"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
+  html_notebook: default
+  pdf_document: default
 ---
 
 ```{r}
+#Have your SelectorGadget on Google Chrome: https://selectorgadget.com/
+
+#Loading the rvest package
+#install.packages("xml2", "rvest")
 
 #Loading the rvest package
 library(rvest)
 
+# Specifying the URL 
+url <- 'https://www.imdb.com/title/tt0111161/?ref_=adv_li_tt'
+
+#Reading the HTML code from the website
+webpage <- read_html(url)
+
+#Using CSS selectors to scrape the rankings section
+description_html <- html_nodes(webpage,'#titleStoryLine p span')
+
+#Converting the ranking data to text
+description <- html_text(description_html)
+
+print(description)
+```
+
+##Optional: Build a dataframe from top-rated movies
+```{r}
 #Specifying the URL 
 url <- 'https://www.imdb.com/search/title/?count=100&release_date=1994,1994&title_type=feature'
 
@@ -16,7 +41,7 @@ webpage <- read_html(url)
 
 ```
 
-*STEP 1:* Let's scrape the Rank field on IMDB. For that, we’ll use the selector Google Chrome extension gadget.
+*STEP 1:* Let's scrape the Rank field of the movies on IMDB. For that, we’ll use the selector Google Chrome extension gadget.
 ```{r}
 #Using CSS selectors to scrape the rankings section
 rank_data_html <- html_nodes(webpage,'.text-primary')
@@ -162,14 +187,14 @@ movies_df<-data.frame(Rank = rank_data, Title = title_data,
                       Actor = actors_data)
 
 #Structure of the data frame
-View(movies_df)
+movies_df
 ```
 
 *Let's plot this*
 ```{r}
 library('ggplot2')
 
-qplot(data = movies_df, Genre, fill = Genre)
+qplot(data = movies_df, Genre,)
 ```
 
 

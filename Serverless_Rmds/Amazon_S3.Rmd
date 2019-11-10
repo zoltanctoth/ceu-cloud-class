@@ -6,15 +6,16 @@ output: html_notebook
 *Installation*
 Latest Stable Version:
 ```{r}
-install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"))
+# On Mac/Linux:
+#install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"))
 
 # On Windows you may need:
-# install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"), INSTALL_opts = "--no-multiarch")
+#install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"), INSTALL_opts = "--no-multiarch")
 ```
 
-Set up R w/ AWS
+Set up your R w/ AWS
 ```{r}
-keyTable <- read.csv("credentials.csv", header = T) # credentials.csv == the CSV downloaded from AWS containing your Acces & Secret keys
+keyTable <- read.csv("accessKeys.csv", header = T) # accessKeys.csv == the CSV downloaded from AWS containing your Acces & Secret keys
 AWS_ACCESS_KEY_ID <- as.character(keyTable$Access.key.ID)
 AWS_SECRET_ACCESS_KEY <- as.character(keyTable$Secret.access.key)
 
@@ -32,8 +33,8 @@ bucketlist()
 
 Creating a unique S3 bucket name:
 ```{r}
-my_name <- "ceu-class-"  # Type in your name here
-bucket_name <- paste(c(my_name, sample(c(0:3, letters), size = 3, replace = TRUE)), collapse = "")
+my_name <- "ceu-class-zoltan"  # Type in your name here
+bucket_name <- paste(c(my_name, "-", sample(c(0:3, letters), size = 3, replace = TRUE)), collapse = "")
 print(bucket_name)
 ```
 
@@ -68,6 +69,12 @@ Check the file
 list.files()
 ```
 
+Display file contents
+```{r}
+t = read.table("my_content_s3.txt", sep = "\t" )
+t
+```
+
 Deleting S3 objects:
 ```{r}
 delete_object("my_content.txt", bucket = bucket_name)
@@ -77,3 +84,13 @@ Deleting buckets
 ```{r}
 delete_bucket(bucket_name)
 ```
+
+Try to delete it again!
+```{r}
+delete_bucket(bucket_name)
+```
+
+
+
+
+

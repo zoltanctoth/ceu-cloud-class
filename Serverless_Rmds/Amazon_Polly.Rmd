@@ -13,6 +13,18 @@ Install tuneR:
 install.packages("tuneR") 
 ```
 
+Set up your R w/ AWS
+```{r}
+keyTable <- read.csv("accessKeys.csv", header = T) # accessKeys.csv == the CSV downloaded from AWS containing your Acces & Secret keys
+AWS_ACCESS_KEY_ID <- as.character(keyTable$Access.key.ID)
+AWS_SECRET_ACCESS_KEY <- as.character(keyTable$Secret.access.key)
+
+#activate
+Sys.setenv("AWS_ACCESS_KEY_ID" = AWS_ACCESS_KEY_ID,
+           "AWS_SECRET_ACCESS_KEY" = AWS_SECRET_ACCESS_KEY,
+           "AWS_DEFAULT_REGION" = "eu-west-1") 
+```
+
 ```{r}
 library("aws.polly")
 
@@ -42,7 +54,7 @@ vec4 <- synthesize("Forget that! There are places in this world that aren't made
 
 ```{r}
 library("tuneR")
-setWavPlayer("afplay")
+#setWavPlayer("afplay")
 play(vec)
 ```
 
