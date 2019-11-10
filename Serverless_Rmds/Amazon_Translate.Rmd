@@ -24,6 +24,7 @@ translate("Hola mundo!", from = "auto", to = "en")
 ```{r}
 translate("The China–United States trade war is an ongoing economic conflict between the world’s two largest national economies, China and the United States", from = "auto", to = "it")
 ```
+
 ```{r}
 translate("The China–United States trade war is an ongoing economic conflict between the world’s two largest national economies, China and the United States", from = "en", to = "hu")
 ```
