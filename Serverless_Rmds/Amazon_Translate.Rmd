@@ -9,14 +9,12 @@ Install Amazon Translate:
 install.packages("aws.translate", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))
 ```
 
-
 ```{r}
 library("aws.translate")
 
 # translate some text from English
 translate("Bonjour le monde!", from = "fr", to = "en")
 ```
-
 
 ```{r}
 # translate some text to English
@@ -29,5 +27,3 @@ translate("The China–United States trade war is an ongoing economic conflict b
 ```{r}
 translate("The China–United States trade war is an ongoing economic conflict between the world’s two largest national economies, China and the United States", from = "en", to = "hu")
 ```
-
-
