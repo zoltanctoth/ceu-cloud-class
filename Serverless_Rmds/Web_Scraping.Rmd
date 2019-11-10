@@ -16,7 +16,7 @@ webpage <- read_html(url)
 
 ```
 
-*STEP 1:* Let's scrape the Rank field of the movies on IMDB. For that, we’ll use the selector Google Chrome extension gadget.
+*STEP 1:* Let's scrape the Rank field on IMDB. For that, we’ll use the selector Google Chrome extension gadget.
 ```{r}
 #Using CSS selectors to scrape the rankings section
 rank_data_html <- html_nodes(webpage,'.text-primary')
