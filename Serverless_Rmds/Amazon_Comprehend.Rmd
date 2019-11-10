@@ -1,0 +1,56 @@
+---
+title: "Amazon Comprehend"
+output: html_notebook
+---
+
+Install:
+```{r}
+# latest stable version
+install.packages("aws.comprehend", repos = c(cloudyr = "http://cloudyr.github.io/drat", getOption("repos")))
+```
+
+Set up your R w/ AWS
+```{r}
+keyTable <- read.csv("accessKeys.csv", header = T) # accessKeys.csv == the CSV downloaded from AWS containing your Acces & Secret keys
+AWS_ACCESS_KEY_ID <- as.character(keyTable$Access.key.ID)
+AWS_SECRET_ACCESS_KEY <- as.character(keyTable$Secret.access.key)
+
+#activate
+Sys.setenv("AWS_ACCESS_KEY_ID" = AWS_ACCESS_KEY_ID,
+           "AWS_SECRET_ACCESS_KEY" = AWS_SECRET_ACCESS_KEY,
+           "AWS_DEFAULT_REGION" = "eu-west-1") 
+```
+
+Language Detection:
+```{r}
+library("aws.comprehend")
+
+detect_language("This is a test sentence in English")
+```
+
+Multi-lingual language detection:
+```{r}
+detect_language("A: ¡Hola! ¿Como está, usted?\nB: Ça va bien. Merci. Et toi?")
+```
+
+Sentiment analysis:
+```{r}
+detect_sentiment("Hey, I'm feeling great today!")
+```
+
+Sentiment analysis:
+```{r}
+detect_sentiment("Chronicles the experiences of a formerly successful banker as a prisoner in the gloomy jailhouse of Shawshank after being found guilty of a crime he did not commit. The film portrays the man's unique way of dealing with his new, torturous life; along the way he befriends a number of fellow prisoners, most notably a wise long-term inmate named Red.")
+```
+
+Named entity recognition:
+```{r}
+txt <- c("Amazon provides web services.", "Jeff is their leader.")
+detect_entities(txt)
+```
+
+Key phrase detection:
+```{r}
+detect_phrases(txt)
+```
+

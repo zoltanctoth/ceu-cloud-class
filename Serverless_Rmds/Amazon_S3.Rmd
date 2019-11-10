@@ -1,0 +1,96 @@
+---
+title: "Amazon S3"
+output: html_notebook
+---
+
+*Installation*
+Latest Stable Version:
+```{r}
+# On Mac/Linux:
+#install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"))
+
+# On Windows you may need:
+#install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"), INSTALL_opts = "--no-multiarch")
+```
+
+Set up your R w/ AWS
+```{r}
+keyTable <- read.csv("accessKeys.csv", header = T) # accessKeys.csv == the CSV downloaded from AWS containing your Acces & Secret keys
+AWS_ACCESS_KEY_ID <- as.character(keyTable$Access.key.ID)
+AWS_SECRET_ACCESS_KEY <- as.character(keyTable$Secret.access.key)
+
+#activate
+Sys.setenv("AWS_ACCESS_KEY_ID" = AWS_ACCESS_KEY_ID,
+           "AWS_SECRET_ACCESS_KEY" = AWS_SECRET_ACCESS_KEY,
+           "AWS_DEFAULT_REGION" = "eu-west-1") 
+```
+
+Have a look at your buckets on AWS:
+```{r}
+library(aws.s3)
+bucketlist()
+```
+
+Creating a unique S3 bucket name:
+```{r}
+my_name <- "ceu-class-zoltan"  # Type in your name here
+bucket_name <- paste(c(my_name, "-", sample(c(0:3, letters), size = 3, replace = TRUE)), collapse = "")
+print(bucket_name)
+```
+
+Now, create the bucket on S3
+```{r}
+put_bucket(bucket_name)
+```
+
+Bucket location:
+```{r}
+get_location(bucket_name)
+```
+
+Creating a sample text file
+```{r}
+write("This is a simple text file", "my_content.txt")
+```
+
+Send the text file to your AWS S3 bucket
+```{r}
+put_object("my_content.txt", bucket = bucket_name)
+```
+Now you can now see the file on AWS.
+
+Save files from S3 to your computer
+```{r}
+save_object("my_content.txt", bucket = bucket_name, file = "my_content_s3.txt")
+```
+
+Check the file
+```{r}
+list.files()
+```
+
+Display file contents
+```{r}
+t = read.table("my_content_s3.txt", sep = "\t" )
+t
+```
+
+Deleting S3 objects:
+```{r}
+delete_object("my_content.txt", bucket = bucket_name)
+```
+
+Deleting buckets
+```{r}
+delete_bucket(bucket_name)
+```
+
+Try to delete it again!
+```{r}
+delete_bucket(bucket_name)
+```
+
+
+
+
+

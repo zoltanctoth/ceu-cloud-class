@@ -1,0 +1,45 @@
+---
+title: "Amazon Translate"
+output: html_notebook
+---
+
+Install Amazon Translate:
+```{r}
+# latest stable version
+install.packages("aws.translate", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))
+```
+
+Set up your R w/ AWS
+```{r}
+keyTable <- read.csv("accessKeys.csv", header = T) # accessKeys.csv == the CSV downloaded from AWS containing your Acces & Secret keys
+AWS_ACCESS_KEY_ID <- as.character(keyTable$Access.key.ID)
+AWS_SECRET_ACCESS_KEY <- as.character(keyTable$Secret.access.key)
+
+#activate
+Sys.setenv("AWS_ACCESS_KEY_ID" = AWS_ACCESS_KEY_ID,
+           "AWS_SECRET_ACCESS_KEY" = AWS_SECRET_ACCESS_KEY,
+           "AWS_DEFAULT_REGION" = "eu-west-1") 
+```
+
+```{r}
+library("aws.translate")
+
+# translate some text from English
+translate("Bonjour le monde!", from = "fr", to = "en")
+```
+
+
+```{r}
+# translate some text to English
+translate("Hola mundo!", from = "auto", to = "en")
+```
+
+```{r}
+translate("    Chronicles the experiences of a formerly successful banker as a prisoner in the gloomy jailhouse of Shawshank after being found guilty of a crime he did not commit. The film portrays the man's unique way of dealing with his new, torturous life; along the way he befriends a number of fellow prisoners, most notably a wise long-term inmate named Red.", from = "auto", to = "de")
+
+```
+```{r}
+translate("The China–United States trade war is an ongoing economic conflict between the world’s two largest national economies, China and the United States", from = "en", to = "hu")
+```
+
+

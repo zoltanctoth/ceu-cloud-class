@@ -1,0 +1,75 @@
+---
+title: "Amazon Polly"
+output: html_notebook
+---
+
+Install Polly: 
+```{r}
+install.packages("aws.polly", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))
+```
+
+Install tuneR:
+```{r}
+install.packages("tuneR") 
+```
+
+Set up your R w/ AWS
+```{r}
+keyTable <- read.csv("accessKeys.csv", header = T) # accessKeys.csv == the CSV downloaded from AWS containing your Acces & Secret keys
+AWS_ACCESS_KEY_ID <- as.character(keyTable$Access.key.ID)
+AWS_SECRET_ACCESS_KEY <- as.character(keyTable$Secret.access.key)
+
+#activate
+Sys.setenv("AWS_ACCESS_KEY_ID" = AWS_ACCESS_KEY_ID,
+           "AWS_SECRET_ACCESS_KEY" = AWS_SECRET_ACCESS_KEY,
+           "AWS_DEFAULT_REGION" = "eu-west-1") 
+```
+
+```{r}
+library("aws.polly")
+
+# list available voices
+list_voices()
+```
+
+```{r}
+# synthesize some text
+vec <- synthesize("Forget that! There are places in this world that aren't made out of stone. That there's something inside -that they can't get to, that they can't touch! That's yours.", voice = "Joey")
+```
+
+```{r}
+# synthesize some text
+vec2 <- synthesize("Forget that! There are places in this world that aren't made out of stone. That there's something inside -that they can't get to, that they can't touch! That's yours.", voice = "Ivy")
+```
+
+```{r}
+# synthesize some text
+vec3 <- synthesize("Forget that! There are places in this world that aren't made out of stone. That there's something inside -that they can't get to, that they can't touch! That's yours.", voice = "Matthew")
+```
+
+```{r}
+# synthesize some text
+vec4 <- synthesize("Forget that! There are places in this world that aren't made out of stone. That there's something inside -that they can't get to, that they can't touch! That's yours.", voice = "Salli")
+```
+
+```{r}
+library("tuneR")
+#setWavPlayer("afplay")
+play(vec)
+```
+
+```{r}
+play(vec2)
+```
+
+```{r}
+play(vec3)
+```
+
+```{r}
+play(vec4)
+```
+
+
+
+
