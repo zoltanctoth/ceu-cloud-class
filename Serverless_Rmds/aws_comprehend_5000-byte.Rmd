@@ -26,19 +26,15 @@ cleanedtext <- str_replace(gsub("\\s+", " ", str_trim(cleanedtext)), "B", "b")
 byte.counter <- nchar(cleanedtext, type = "bytes")
 cat("Total bytes: " , byte.counter, "\n")
 
-# Calc
 xiteration <-  byte.counter %/% 5000
 cat("Number of full iterations: " , xiteration, "\n")
 
-# Calculating the last iteration
 remainder.count <- (xiteration - (byte.counter / 5000)) * -1
 cat("Remainder of bytes: ", remainder.count, "\n")
 
-# Full iter
 full.iter <- byte.counter / 5000
 cat("Full iteration: ", full.iter, "\n")
 
-# 5000 bytes
 five.k.iterations <- byte.counter / full.iter
 cat("5000 byte iterations: " , five.k.iterations, "\n", "\n")
 
@@ -51,10 +47,7 @@ char.segments <- function(x, segm.length){
     unname(sapply(s, paste, collapse = ''))
 }
 
-# Breaking up the input text - 5000 byte chunks
 five.thousand.byte.chunk <- char.segments(cleanedtext, 5000)
-
-# 5000 chuncks
 count.of.five.thousand <- nchar(five.thousand.byte.chunk, type = "bytes")
 
 # Setting up vectors
@@ -68,17 +61,15 @@ count = 0
 # Iterating through the chunks 
 for (i in 1:(full.iter+1)) { 
     
-    # Until the chunk is not empty
     if (five.thousand.byte.chunk[i] > "") {  
         
         # Some cats so that you can see the chunks and their byte sum
         cat("Chunk: ", five.thousand.byte.chunk[i], "\n") 
-        cat("TXT in bytes: ", count.of.five.thousand[i], "\n")
+        cat("Text in bytes: ", count.of.five.thousand[i], "\n")
         cat("This is the iteration count: ", count, "\n")
 
         count = count +1
-        
-        # Creating df
+       
         df <- detect_sentiment(five.thousand.byte.chunk[i])
         
         # Extract sentiments
