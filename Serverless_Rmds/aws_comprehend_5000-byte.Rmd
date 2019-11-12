@@ -24,7 +24,7 @@ cleanedtext <- str_replace(gsub("\\s+", " ", str_trim(cleanedtext)), "B", "b")
 byte.counter <- nchar(cleanedtext, type = "bytes")
 cat("Total bytes: " , byte.counter, "\n")
 
-# Calculating the number of 'whole' iterations
+# Calc
 xiteration <-  byte.counter %/% 5000
 cat("Number of full iterations: " , xiteration, "\n")
 
