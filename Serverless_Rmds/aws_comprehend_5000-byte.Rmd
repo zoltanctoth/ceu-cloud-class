@@ -1,0 +1,100 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(readr)
+library(stringr)
+library(aws.comprehend)
+library(dplyr)
+library(ggplot2)
+
+
+# Reading txt 
+txtfile <- read_file("PATH/TO/FILE")
+
+# Cleaning - removing \n and ""
+cleanedtext <- gsub("\n", "", txtfile, fixed = TRUE)
+
+# Cleaning - merging multiple spaces into a single space
+cleanedtext <- str_replace(gsub("\\s+", " ", str_trim(cleanedtext)), "B", "b")
+
+# Converting txt to bytes
+byte.counter <- nchar(cleanedtext, type = "bytes")
+cat("Total bytes: " , byte.counter, "\n")
+
+# Calculating the number of 'whole' iterations
+xiteration <-  byte.counter %/% 5000
+cat("Number of full iterations: " , xiteration, "\n")
+
+# Calculating the partial iteration
+remainder.count <- (xiteration - (byte.counter / 5000)) * -1
+cat("Remainder of bytes: ", remainder.count, "\n")
+
+# Partial + Whole iteration calculation
+full.iter <- byte.counter / 5000
+cat("Full iteration: ", full.iter, "\n")
+
+# Chunk of 500 byte
+five.k.iterations <- byte.counter / full.iter
+cat("5000 byte iterations: " , five.k.iterations, "\n", "\n")
+
+# Breaking the input text into character vectors of length.segm characters each
+char.segments <- function(x, segm.length){
+    byte.counter <- nchar(x, type = 'bytes')
+    f <- c(1, rep(0, segm.length - 1))
+    f <- cumsum(rep(f, length.out = byte.counter))
+    s <- split(unlist(strsplit(x,'')), f)
+    unname(sapply(s, paste, collapse = ''))
+}
+
+# Breaking up the input text - 5000 byte chunks
+five.thousand.byte.chunk <- char.segments(cleanedtext, 5000)
+
+# 5000 chuncks
+count.of.five.thousand <- nchar(five.thousand.byte.chunk, type = "bytes")
+
+# Setting up vectors
+sentiment_vector = c() 
+positive_vector = c()
+negative_vector = c()
+
+# Setting variable for the loop
+count = 0
+
+# Iterating through the chunks (Partial + Whole iteration)
+for (i in 1:(full.iter+1)) { 
+    
+    # Until the chunk is not empty
+    if (five.thousand.byte.chunk[i] > "") {  
+        
+        # Some cats so that you can see the chunks and their byte sum
+        cat("Chunk: ", five.thousand.byte.chunk[i], "\n") 
+        cat("TXT in bytes: ", count.of.five.thousand[i], "\n")
+        cat("This is the iteration count: ", count, "\n")
+
+        count = count +1
+        
+        # Creating df
+        df <- detect_sentiment(five.thousand.byte.chunk[i])
+        
+        # Extract sentiments chunk by chunk
+        sentiment_vector <- c(sentiment_vector, as.character(df$Sentiment))
+        
+        # Extract positivity score 
+        positive_vector <- c(positive_vector, df$Positive)
+        
+        # Extract negativity score 
+        negative_vector <- c(negative_vector, df$Negative)
+    }
+}
+
+# Plotting the scores
+data_frame(positive_vector, negative_vector, sentiment_vector) %>%
+  ggplot(aes(positive_vector, negative_vector)) +
+  geom_point(aes(size=5)) +
+  ggtitle("positive vs negative sentiments") +
+  xlab("positive sentiments") +
+  ylab("negative sentiments")
+```
