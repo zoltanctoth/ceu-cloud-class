@@ -28,15 +28,15 @@ cat("Total bytes: " , byte.counter, "\n")
 xiteration <-  byte.counter %/% 5000
 cat("Number of full iterations: " , xiteration, "\n")
 
-# Calculating the partial iteration
+# Calculating the last iteration
 remainder.count <- (xiteration - (byte.counter / 5000)) * -1
 cat("Remainder of bytes: ", remainder.count, "\n")
 
-# Partial + Whole iteration calculation
+# Full iter
 full.iter <- byte.counter / 5000
 cat("Full iteration: ", full.iter, "\n")
 
-# Chunk of 500 byte
+# 5000 bytes
 five.k.iterations <- byte.counter / full.iter
 cat("5000 byte iterations: " , five.k.iterations, "\n", "\n")
 
@@ -63,7 +63,7 @@ negative_vector = c()
 # Setting variable for the loop
 count = 0
 
-# Iterating through the chunks (Partial + Whole iteration)
+# Iterating through the chunks 
 for (i in 1:(full.iter+1)) { 
     
     # Until the chunk is not empty
@@ -79,7 +79,7 @@ for (i in 1:(full.iter+1)) {
         # Creating df
         df <- detect_sentiment(five.thousand.byte.chunk[i])
         
-        # Extract sentiments chunk by chunk
+        # Extract sentiments
         sentiment_vector <- c(sentiment_vector, as.character(df$Sentiment))
         
         # Extract positivity score 
@@ -98,3 +98,4 @@ data_frame(positive_vector, negative_vector, sentiment_vector) %>%
   xlab("positive sentiments") +
   ylab("negative sentiments")
 ```
+
