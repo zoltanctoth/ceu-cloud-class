@@ -99,5 +99,6 @@ data_frame(positive_vector, negative_vector, sentiment_vector) %>%
   ggtitle("positive vs negative sentiments") +
   xlab("positive sentiments") +
   ylab("negative sentiments")
+  
 ```
 
