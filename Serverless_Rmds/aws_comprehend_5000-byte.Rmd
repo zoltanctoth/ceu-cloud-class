@@ -4,6 +4,8 @@ output: html_notebook
 ---
 
 ```{r}
+# install.packages("readr")
+# install.packages("stringr")
 library(readr)
 library(stringr)
 library(aws.comprehend)
