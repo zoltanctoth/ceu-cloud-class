@@ -80,13 +80,7 @@ Spark applications consist of a **driver process** and a set of **executor proce
 
 | Driver Process   |      Executor Process      | 
 |----------|:-------------:|
-| The heart of a Spark Application, maintains all relevant information during the lifetime of the application.
-  - Runs of your main() function, sits on a node in the cluster, and is responsible for:
-    - Maintaining information about the Spark Application
-    - Responding to a user's program or input 
-    - Analyzing, distributing and scheduling work across the executors | - Responsible for actually carrying out the work that the (<-) driver assigns them. Each executor is responsible for:
-    - Executing code assigned to it by the driver 
-    - Reporting the state of the computation on that executor BACK to the driver node. |
+| The heart of a Spark Application, maintains all relevant information during the lifetime of the application. Runs of your main() function, sits on a node in the cluster, and is responsible for: Maintaining information about the Spark Application. Responding to a user's program or input. Analyzing, distributing and scheduling work across the executors | Responsible for actually carrying out the work that the (<-) driver assigns them. Each executor is responsible for: Executing code assigned to it by the driver. Reporting the state of the computation on that executor BACK to the driver node. |
     
 Driver is on the left, four executors on the right.  It demonstrates how the cluster manager controls physical machines and allocates resources to Spark Applications. This can be one of three cluster managers ( YARN, Mesos, Spark's standalone cluster manager). This means that there can be multiple Spark Applications running on a cluster at the same time.
 
