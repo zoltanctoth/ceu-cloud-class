@@ -18,6 +18,7 @@ layout: default
 </p>
 <p align="center"> Thank the cosmos we have Spark! </p>
 
+## Glossary 
 #### To understand Spark, first familiarize yourself with these terms:
 |     Glossary        |        Definition                                                                                                                                                                |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
