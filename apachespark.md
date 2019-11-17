@@ -52,13 +52,7 @@ layout: default
  - **MLlib:** This is Spark’s scalable machine learning library, which implements a set of commonly used machine learning and statistical algorithms. These include correlations and hypothesis testing, classification and regression, clustering, and principal component analysis.
  
  - **GraphX:** This module began life as a separate UC Berkeley research project, which was eventually donated to the Apache Spark project. GraphX supports analysis of and computation over graphs of data, and supports a version of graph processing’s Pregel API. GraphX includes a number of widely understood graph algorithms, including PageRank.
- 
- #### Supported Languages
- - Scala
- - Java
- - Python
- - SQL
- - R
+
  
  ### Use cases
  |     Use cases                |                                                                                                                                                                |
