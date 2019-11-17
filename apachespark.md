@@ -25,7 +25,7 @@ layout: default
 | **Cluster**             | A group of computers pooling the resources of many machines together, giving us the ability to use all the cumulative resources as if they were a single computer      |
 | **Language APIs**        | Make it possible to run code using programming languages (Scala, Python, Java, R, SQL)                                                                                                             |
 | **Computing Engine**     | Loads data from storage systems and performs computation on it, not being a permanent storage as the end itself                                                        |
-| **Unified**              | Supports a wide range of data analytics tasks over the same computing engine                                                                                           |
+| **Unified**              | Spark is designed to support a wide range of data analytics tasks over the same computing engine and with a consistent set of APIs. Real world data analytics tasks tend to combine many different processing types and libraries.                                                                                            |
 | **Libraries**            | Spark includes libraries for SQL, and structured data SparkSQL, machine learning \(MLlib\), stream processing \(Structured Streaming\), and graph analytics \(GraphX\) |
 | **Parallel Processing**  | Large problems divided into smaller ones, which can then be solved at the same time                                                                                    |
 
@@ -68,8 +68,7 @@ Spark jobs perform multiple operations consecutively, in memory and only spillin
  
  
  
- - **Unified:** Spark is designed to support a wide range of data analytics tasks over the same computing engine and with a consistent set of APIs. 
--> Real world data analytics tasks tend to combine many different processing types and libraries. 
+ - **Unified:** Spark is designed to support a wide range of data analytics tasks over the same computing engine and with a consistent set of APIs. Real world data analytics tasks tend to combine many different processing types and libraries. 
 
 - **Consistent Composable APIs:** you can use to build an application out of smaller pieces or out of existing libraries. It also makes it easy for you to write your own analytics libraries on top. Spark's APIs are also designed to enable high performance by optimizing across the different libraries and functions composed together in a user program.
 #Example_1: if you load data using SQL query and then evaluate a machine learning model over it using Spark's ML library, the engine can combine these steps into a one scan over the data. Thus, the combination of general APIs and high-performance execution, no matter how you combine them, makes Spark a powerful platform for interactive, and production applications.
