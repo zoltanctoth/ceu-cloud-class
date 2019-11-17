@@ -60,6 +60,14 @@ layout: default
  - SQL
  - R
  
+ ### Use cases
+ |     Use cases                |                                                                                                                                                                |
+|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Stream processing**            | This data arrives in a steady stream from multiple sources simultaneously. Streams of data related to financial transactions can be processed in real time to identify – and refuse – potentially fraudulent transactions.      |
+| **Machine learning**        | Spark’s ability to store data in memory and rapidly run repeated queries makes it a good choice for training machine learning algorithms.                                                                                                           |
+| **Interactive analytics**     | Business analysts and data scientists want to explore their data by asking a question and viewing the results. This interactive query process requires systems such as Spark that are able to respond and adapt quickly.                                                |
+| **Data integration**              | Data produced by different systems across a business is rarely clean or consistent enough to simply and easily be combined for reporting or analysis. Spark is used to reduce the cost and time required for this ETL process.                                                                                      | 
+ 
  #### API Overview
 The Spark API was optimized for manipulating data, with a design that reduced common data science tasks from hundreds or thousands of lines of code to only a few. For those familiar with a DataFrames API in other languages like R or pandas in Python, this API will make them feel right at home.
  
