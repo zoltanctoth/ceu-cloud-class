@@ -18,7 +18,7 @@ Even if Excel could store that much data, not many desktop computers have enough
 
 Thank the cosmos we have Spark!
 
-## To understand Spark,first familiarize yourself with these terms:
+#### To understand Spark, first familiarize yourself with these terms:
 |     Glossary        |        Definition                                                                                                                                                                |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Cluster**             | A group of computers pooling the resources of many machines together, giving us the ability to use all the cumulative resources as if they were a single computer      |
