@@ -15,8 +15,8 @@ layout: default
 Even if Excel could store that much data, not many desktop computers have enough hard drive space for that anyway. 
 <p align="center"> 
 <img src="https://i.stack.imgur.com/K2Glj.png" width="300">
-
-Thank the cosmos we have Spark! </p>
+</p>
+<p align="center"> Thank the cosmos we have Spark! </p>
 
 #### To understand Spark, first familiarize yourself with these terms:
 |     Glossary        |        Definition                                                                                                                                                                |
