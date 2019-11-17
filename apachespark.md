@@ -30,7 +30,7 @@ layout: default
 #### To understand Spark, first familiarize yourself with these terms:
 |     Glossary        |        Definition                                                                                                                                                                |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Cluster**             | A group of computers pooling the resources of many machines together, giving us the ability to use all the cumulative resources as if they were a single computer      |
+| **Cluster**             | A group of computers pooling the resources of many machines together, giving us the ability to use all the cumulative resources as if they were a single computer. YARN or Mesos or Spark's standalone cluster manager. We then submit Spark Applications to these cluster managers      |
 | **Language APIs**        | Make it possible to run code using programming languages (Scala, Python, Java, R, SQL)                                                                                                             |
 | **Computing Engine**     | Spark handles loading data from storage systems and performing computation on it, not being a permanent storage as the end itself. You can use Spark with a wide variety of storage systems such as Azure Storage and Amazon S3, distributed file systems such as Apache Hadoop, key-value stores such as Apache Cassandra and message buses such as Apache Kafka. However, Spark does not store data long-term itself.                                                        |
 | **Unified**              | Spark is designed to support a wide range of data analytics tasks over the same computing engine and with a consistent set of APIs. Real world data analytics tasks tend to combine many different processing types and libraries.                                                                                            |
@@ -74,15 +74,7 @@ Spark runs on the **JVM (Java Virtual Machine)** so you need to install Java to 
 
 -  **SparkSession:** You can control your Spark Application through a driver process called the SparkSession. The SparkSession is the way Spark executes user-defined manipulations across the cluster. There is a one-to-one correspondance between a SparkSession and a SparkApplication.
 
-- **Spark's Basic Architecture**
-*Problem:* one computer works well for watching movies or working with spreadsheet software. However, there are things a computer is not powerful enough to perform - e.g data processing. Single machines do not have the power and resources to perform computations on huge amounts of information or the user does not have time to wait for the computation to finish. 
-*Solution:*
-A cluster or group, of computers, pools the resources of many machines together, giving us the ability to use all the cumulative resources as if they were a single computer. A group of machines alone is not powerful, you need a framework to coordinate work across them - Spark does just that! - Coordinating and managing the execution of tasks on data across a cluster of computers.
-
-**The cluster** of machines that Spark uses to execute tasks is managed by a cluster manager. 
-YARN or Mesos or Spark's standalone cluster manager. We then submit Spark Applications to these cluster managers
-
-**Spark Application** (Architecture of a Spark Application)
+- **Spark Application** (Architecture of a Spark Application)
 Spark applications consist of a **driver process** and a set of **executor processes.**
 
 - **Driver Process** (heart of a Spark Application, maintains all relevant information during the lifetime of the application.
