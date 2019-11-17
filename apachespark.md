@@ -10,8 +10,9 @@ layout: default
 ### Apache Spark Overview
 
 #### Big Data 101
->The IDC estimated the size of the “digital universe” at 4.4 Zettabytes (1 Trillion Gigabytes) in 2013. It grows by 40% every year, and by 2020 the IDC expects it to be as large as 44 Zettabytes, amounting to a single bit of data for every star in the physical universe. We have a lot of data, and we aren’t getting rid of any of it. We need a way to store increasing amounts of data at scale, with protections against data-loss stemming from hardware failure. 
+>The IDC estimated the size of the “digital universe” at 4.4 Zettabytes (1 Trillion Gigabytes) in 2013. It grows by 40% every year, and by 2020 the IDC expects it to be as large as 44 Zettabytes, amounting to a single bit of data for every star in the physical universe.
 
+- We have a lot of data, and we aren’t getting rid of any of it. We need a way to store increasing amounts of data at scale
 - Even if Excel could store that much data, not many desktop computers have enough hard drive space for that anyway.
 - One computer works well for watching movies or working with spreadsheet software. However, there are things a computer is not powerful enough to perform - e.g data processing. Single machines do not have the power and resources to perform computations on huge amounts of information or the user does not have time to wait for the computation to finish
 
