@@ -29,7 +29,7 @@ Thank the cosmos we have Spark!
 | **Parallel Processing**  | Large problems divided into smaller ones, which can then be solved at the same time                                                                                    |
 ## Ecosystem
 
-## <img src="https://s3.eu-central-1.amazonaws.com/datapao-public/images/datapao-logo-feher-4.png"></img> Apache Spark Ecosystem
+## Apache Spark Ecosystem
 <div style="text-align:center"><span>
 <img src="https://ogirardot.files.wordpress.com/2015/05/future-of-spark.png" width="900"></span></div>
 
