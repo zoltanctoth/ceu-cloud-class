@@ -63,18 +63,15 @@ layout: default
 | **Data integration**              | Data produced by different systems across a business is rarely clean or consistent enough to simply and easily be combined for reporting or analysis. Spark is used to reduce the cost and time required for this ETL process.                                                                                      | 
  
  #### API Overview
-The Spark API was optimized for manipulating data, with a design that reduced common data science tasks from hundreds or thousands of lines of code to only a few. For those familiar with a DataFrames API in other languages like R or pandas in Python, this API will make them feel right at home.
- 
-**Apache Spark APIs: RDDs, DataFrames and Datasets**
-In this course, we are going to focus on the **DataFrame** API - but to do so - we need to understand RDDs a little.
+For those familiar with a DataFrames API in other languages like R or pandas in Python, this API will make them feel right at home. In this course, we are going to focus on the **DataFrame** API and skip Datasets & RDDs - but to explain DataFrames - we need to understand RDDs a little.
 
-The DataFrame API is: 
-- structured
-- Distributed collection of structured data
-- Similar to database tables
-- Has a schema
+>A Dataframe is a distributed collection of rows under named columns. In simple terms, it looks like an Excel sheet with Column headers, or you can think of it as the equivalent to a table in a relational database or a DataFrame in R or Python.
 
 <img src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2018/06/1-2.png">
+
+*A DataFrame is an abstraction on top of RDDs. An RDD is broken down into partitions and a DataFrame is an abstraction on top of RDDs hence DataFrame is also partitioned. DataFrames ultimately compile down to RDDs.*
+
+<img src="https://www.evernote.com/shard/s543/res/de664346-1a34-477d-934b-8e94462ff676">
 
 
 
