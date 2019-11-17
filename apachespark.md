@@ -65,10 +65,18 @@ layout: default
  #### API Overview
 The Spark API was optimized for manipulating data, with a design that reduced common data science tasks from hundreds or thousands of lines of code to only a few. For those familiar with a DataFrames API in other languages like R or pandas in Python, this API will make them feel right at home.
  
-**DataFrame API:**
-- Ability to scale from kilobytes of data on a single laptop to petabytes on a large cluster
-- Support for a wide array of data formats and storage systems
-- State-of-the-art optimization and code generation through the Spark SQL
+**Apache Spark APIs: RDDs, DataFrames and Datasets**
+In this course, we are going to focus on the **DataFrame** API - but to do so - we need to understand RDDs a little.
+
+The DataFrame API is: 
+- structured
+- Distributed collection of structured data
+- Similar to database tables
+- Has a schema
+
+<img src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2018/06/1-2.png">
+
+
 
 #### Data Pipelines
 Spark’s power lies in its ability to combine very different techniques and processes together into a single, coherent, whole. Spark crosses boundaries between batch, streaming and interactive workflows in ways that make the user more productive.
