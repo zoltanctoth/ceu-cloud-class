@@ -16,6 +16,12 @@ layout: default
 <p align="center"> 
 <img src="https://i.stack.imgur.com/K2Glj.png" width="300">
 </p>
+
+- One computer works well for watching movies or working with spreadsheet software. However, there are things a computer is not powerful enough to perform - e.g data processing. Single machines do not have the power and resources to perform computations on huge amounts of information or the user does not have time to wait for the computation to finish.
+- A cluster or group, of computers, pools the resources of many machines together, giving us the ability to use all the cumulative resources as if they were a single computer. 
+- A group of machines alone is not powerful, you need a framework to coordinate work across them
+- Spark does just that! - Coordinating and managing the execution of tasks on data across a cluster of computers.
+
 <p align="center"> Thank the cosmos we have Spark! </p>
 
 ### Glossary 
