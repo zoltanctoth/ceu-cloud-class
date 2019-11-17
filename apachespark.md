@@ -11,7 +11,7 @@ layout: default
 
 In our world collecting data is extremely inexpensive but processing it requires large, parallel computations, often on clusters of machines. That's what Apache Spark was built for. 
 
- - Apache Spark is a unified computing engine and a set of libraries for parallel data processing on computer clusters that supports programming languages like R, Python, Java and Scala and libraries ranging from SQL to streaming and machine learning and runs everywhere from a laptop to a cluster of thousands of servers making it easy to scale up to big data processing or incredibly large scale
+>Apache Spark is a **unified** **computing engine** and a set of libraries for **parallel data processing** on computer **clusters** that supports programming languages like R, Python, Java and Scala and **libraries** ranging from SQL to streaming and machine learning and runs everywhere from a laptop to a cluster of thousands of servers making it easy to scale up to big data processing or incredibly large scale
  
  - **Unified:** Spark is designed to support a wide range of data analytics tasks over the same computing engine and with a consistent set of APIs. 
 -> Real world data analytics tasks tend to combine many different processing types and libraries. 
@@ -28,7 +28,7 @@ In our world collecting data is extremely inexpensive but processing it requires
 
 ### Launching Spark's Interactive Console
 
-Spark runs on the JVM (Java Virtual Machine) so you need to install Java to run it. If you want to use the Python API, you will also need a Python interpreter. If you want to use R, you will need a version of R on your machine.
+Spark runs on the **JVM (Java Virtual Machine)** so you need to install Java to run it. If you want to use the Python API, you will also need a Python interpreter. If you want to use R, you will need a version of R on your machine.
 
 | Python   |      Scala      |  SQL |
 |----------|:-------------:|------:|
