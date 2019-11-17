@@ -51,7 +51,7 @@ A cluster or group, of computers, pools the resources of many machines together,
 YARN or Mesos or Spark's standalone cluster manager. We then submit Spark Applications to these cluster managers
 
 **Spark Application** (Architecture of a Spark Application)
-Spark applications consist of a **drives process** and a set of **executor processes.**
+Spark applications consist of a **driver process** and a set of **executor processes.**
 
 - **Driver Process** (heart of a Spark Application, maintains all relevant information during the lifetime of the application.
   - Runs of your main() function, sits on a node in the cluster, and is responsible for:
