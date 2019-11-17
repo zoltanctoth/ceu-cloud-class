@@ -12,7 +12,7 @@ layout: default
 ## Big Data 101
 >The IDC estimated the size of the “digital universe” at 4.4 Zettabytes (1 Trillion Gigabytes) in 2013. It grows by 40% every year, and by 2020 the IDC expects it to be as large as 44 Zettabytes, amounting to a single bit of data for every star in the physical universe. We have a lot of data, and we aren’t getting rid of any of it. We need a way to store increasing amounts of data at scale, with protections against data-loss stemming from hardware failure. 
 
-Even if Excel could store that much data, not many desktop computers have enough hard drive space for that anyway. 
+<p align="center">  Even if Excel could store that much data, not many desktop computers have enough hard drive space for that anyway. </p>
 <p align="center"> 
 <img src="https://i.stack.imgur.com/K2Glj.png" width="300">
 </p>
