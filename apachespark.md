@@ -64,6 +64,7 @@ layout: default
 
 
 ### Launching Spark's Interactive Console
+You can grab Spark from here, altough we will use Databricks in this course: https://spark.apache.org/downloads.html
 
 Spark runs on the **JVM (Java Virtual Machine)** so you need to install Java to run it. If you want to use the Python API, you will also need a Python interpreter. If you want to use R, you will need a version of R on your machine.
 
@@ -77,15 +78,15 @@ Spark runs on the **JVM (Java Virtual Machine)** so you need to install Java to 
 - **Spark Application** (Architecture of a Spark Application)
 Spark applications consist of a **driver process** and a set of **executor processes.**
 
-- **Driver Process** (heart of a Spark Application, maintains all relevant information during the lifetime of the application.
+| Driver Process   |      Executor Process      | 
+|----------|:-------------:|
+| The heart of a Spark Application, maintains all relevant information during the lifetime of the application.
   - Runs of your main() function, sits on a node in the cluster, and is responsible for:
     - Maintaining information about the Spark Application
     - Responding to a user's program or input 
-    - Analyzing, distributing and scheduling work across the executors
-- **Executor Processes**
-  - Responsible for actually carrying out the work that the (<-) driver assigns them. Each executor is responsible for:
+    - Analyzing, distributing and scheduling work across the executors | - Responsible for actually carrying out the work that the (<-) driver assigns them. Each executor is responsible for:
     - Executing code assigned to it by the driver 
-    - Reporting the state of the computation on that executor BACK to the driver node.
+    - Reporting the state of the computation on that executor BACK to the driver node. |
     
 Driver is on the left, four executors on the right.  It demonstrates how the cluster manager controls physical machines and allocates resources to Spark Applications. This can be one of three cluster managers ( YARN, Mesos, Spark's standalone cluster manager). This means that there can be multiple Spark Applications running on a cluster at the same time.
 
