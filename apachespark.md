@@ -63,7 +63,7 @@ layout: default
 | **Data integration**              | Data produced by different systems across a business is rarely clean or consistent enough to simply and easily be combined for reporting or analysis. Spark is used to reduce the cost and time required for this ETL process.                                                                                      | 
  
  #### API Overview
-For those familiar with a DataFrames API in other languages like R or pandas in Python, this API will make them feel right at home. In this course, we are going to focus on the **DataFrame** API and skip Datasets & RDDs - but to explain DataFrames - we need to understand RDDs a little.
+For those familiar with the DataFrames API in other languages like R or pandas in Python, this API will make them feel right at home. In this course, we are going to focus on the **DataFrame** API and skip Datasets & RDDs - but to explain DataFrames - we need to understand RDDs a little.
 
 >A Dataframe is a distributed collection of rows under named columns. In simple terms, it looks like an Excel sheet with Column headers, or you can think of it as the equivalent to a table in a relational database or a DataFrame in R or Python.
 
