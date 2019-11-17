@@ -78,7 +78,7 @@ Spark runs on the **JVM (Java Virtual Machine)** so you need to install Java to 
 - **Spark Application** (Architecture of a Spark Application)
 Spark applications consist of a **driver process** and a set of **executor processes.**
 
-<img src="https://izhangzhihao.github.io/assets/images/spark-01.png">
+<img src="https://izhangzhihao.github.io/assets/images/spark-01.png" width="400">
 
 | Driver Process   |      Executor Process      | 
 |----------|:-------------:|
