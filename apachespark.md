@@ -27,14 +27,12 @@ Thank the cosmos we have Spark!
 | **Unified**              | Supports a wide range of data analytics tasks over the same computing engine                                                                                           |
 | **Libraries**            | Spark includes libraries for SQL, and structured data SparkSQL, machine learning \(MLlib\), stream processing \(Structured Streaming\), and graph analytics \(GraphX\) |
 | **Parallel Processing**  | Large problems divided into smaller ones, which can then be solved at the same time                                                                                    |
-## Ecosystem
-
-## Apache Spark Ecosystem
-<div style="text-align:center"><span>
-<img src="https://ogirardot.files.wordpress.com/2015/05/future-of-spark.png" width="900"></span></div>
 
 ## ...Now, What's Spark?
 >Apache Spark is a **unified** **computing engine** and a set of libraries for **parallel data processing** on computer **clusters** that supports programming languages like R, Python, Java and Scala and **libraries** ranging from SQL to streaming and machine learning and runs everywhere from a laptop to a cluster of thousands of servers making it easy to scale up to big data processing or incredibly large scale
+
+<div style="text-align:center"><span>
+<img src="https://ogirardot.files.wordpress.com/2015/05/future-of-spark.png" width="900"></span></div>
  
  - Spark Core: This is the heart of Spark, and is responsible for management functions such as task scheduling. Spark Core implements and depends upon a programming abstraction known as Resilient Distributed Datasets (RDDs), which is outside the scope of this class.
  
