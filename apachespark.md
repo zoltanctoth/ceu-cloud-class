@@ -22,13 +22,18 @@ Thank the cosmos we have Spark!
 |     Glossary        |        Definition                                                                                                                                                                |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Cluster**             | A group of computers pooling the resources of many machines together, giving us the ability to use all the cumulative resources as if they were a single computer      |
-| ** Language APIs**        | Make it possible to run code using programming languages (Scala, Python, Java, R, SQL)                                                                                                             |
-| ** Computing Engine**     | Loads data from storage systems and performs computation on it, not being a permanent storage as the end itself                                                        |
-| ** Unified**              | Supports a wide range of data analytics tasks over the same computing engine                                                                                           |
-| ** Libraries**            | Spark includes libraries for SQL, and structured data SparkSQL, machine learning \(MLlib\), stream processing \(Structured Streaming\), and graph analytics \(GraphX\) |
-| ** Parallel Processing**  | Large problems divided into smaller ones, which can then be solved at the same time                                                                                    |
+| **Language APIs**        | Make it possible to run code using programming languages (Scala, Python, Java, R, SQL)                                                                                                             |
+| **Computing Engine**     | Loads data from storage systems and performs computation on it, not being a permanent storage as the end itself                                                        |
+| **Unified**              | Supports a wide range of data analytics tasks over the same computing engine                                                                                           |
+| **Libraries**            | Spark includes libraries for SQL, and structured data SparkSQL, machine learning \(MLlib\), stream processing \(Structured Streaming\), and graph analytics \(GraphX\) |
+| **Parallel Processing**  | Large problems divided into smaller ones, which can then be solved at the same time                                                                                    |
+## Ecosystem
 
+## <img src="https://s3.eu-central-1.amazonaws.com/datapao-public/images/datapao-logo-feher-4.png"></img> Apache Spark Ecosystem
+<div style="text-align:center"><span>
+<img src="https://ogirardot.files.wordpress.com/2015/05/future-of-spark.png" width="900"></span></div>
 
+## What's Spark?
 >Apache Spark is a **unified** **computing engine** and a set of libraries for **parallel data processing** on computer **clusters** that supports programming languages like R, Python, Java and Scala and **libraries** ranging from SQL to streaming and machine learning and runs everywhere from a laptop to a cluster of thousands of servers making it easy to scale up to big data processing or incredibly large scale
  
  - Spark Core: This is the heart of Spark, and is responsible for management functions such as task scheduling. Spark Core implements and depends upon a programming abstraction known as Resilient Distributed Datasets (RDDs), which is outside the scope of this class.
