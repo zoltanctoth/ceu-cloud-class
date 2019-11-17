@@ -43,42 +43,27 @@ layout: default
  
  - **MLlib:** This is Spark’s scalable machine learning library, which implements a set of commonly used machine learning and statistical algorithms. These include correlations and hypothesis testing, classification and regression, clustering, and principal component analysis.
  
- - **Spark R:** This module was added to the 1.4.x release of Apache Spark, providing data scientists and statisticians using R with a lightweight mechanism for calling upon Spark’s capabilities.
- 
  - **GraphX:** This module began life as a separate UC Berkeley research project, which was eventually donated to the Apache Spark project. GraphX supports analysis of and computation over graphs of data, and supports a version of graph processing’s Pregel API. GraphX includes a number of widely understood graph algorithms, including PageRank.
+ 
+ #### Supported Languages
+ - Scala
+ - Java
+ - Python
+ - SQL
+ - R
  
  #### API Overview
 The Spark API was optimized for manipulating data, with a design that reduced common data science tasks from hundreds or thousands of lines of code to only a few. For those familiar with a DataFrames API in other languages like R or pandas in Python, this API will make them feel right at home.
  
-DataFrame API:
+**DataFrame API:**
 - Ability to scale from kilobytes of data on a single laptop to petabytes on a large cluster
 - Support for a wide array of data formats and storage systems
 - State-of-the-art optimization and code generation through the Spark SQL
-
-Language APIs: 
-- Python
-- Java
-- Scala
-- R
-- SQL
 
 #### Data Pipelines
 Spark’s power lies in its ability to combine very different techniques and processes together into a single, coherent, whole. Spark crosses boundaries between batch, streaming and interactive workflows in ways that make the user more productive.
 Spark jobs perform multiple operations consecutively, in memory and only spilling to disk when required by memory limitations. In use cases such as ETL, these pipelines can become extremely rich and complex, combining large numbers of inputs and a wide range of processing steps into a unified whole that consistently delivers the desired result.
  
- 
- 
- - **Unified:** Spark is designed to support a wide range of data analytics tasks over the same computing engine and with a consistent set of APIs. Real world data analytics tasks tend to combine many different processing types and libraries. 
-
-- **Consistent Composable APIs:** you can use to build an application out of smaller pieces or out of existing libraries. It also makes it easy for you to write your own analytics libraries on top. Spark's APIs are also designed to enable high performance by optimizing across the different libraries and functions composed together in a user program.
-#Example_1: if you load data using SQL query and then evaluate a machine learning model over it using Spark's ML library, the engine can combine these steps into a one scan over the data. Thus, the combination of general APIs and high-performance execution, no matter how you combine them, makes Spark a powerful platform for interactive, and production applications.
-#Example_2: Web developers benefit from unified frameworks such as Node.js or Django
-
-- **Computing Engine:**  Spark handles loading data from storage systems and performing computation on it, not being a permanent storage as the end itself. You can use Spark with a wide variety of storage systems such as Azure Storage and Amazon S3, distributed file systems such as Apache Hadoop, key-value stores such as Apache Cassandra and message buses such as Apache Kafka. However, Spark does not store data long-term itself.
-
-- **Libraries:** builds on Spark's design as a unified engine to provide a unified API for common data analysis tasks. Spark supports standard libraries and external libraries. Spark includes libraries for SQL, and structured data SparkSQL, machine learning (MLlib), stream processing (Spark Streaming and the newer Structured Streaming), and graph analytics (GraphX). Beyond these libraries there are a hundreds of open source external libraries. (spark-packages.org)
-
-- **Parallel Processing:** processing of program instructions by dividing them among multiple processors with the objective of running a program in less time. 
 
 ### Launching Spark's Interactive Console
 
