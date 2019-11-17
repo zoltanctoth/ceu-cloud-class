@@ -9,7 +9,7 @@ layout: default
 
 ### Apache Spark Overview
 
-In our world collecting data is extremely inexpensive but processing it requires large, parallel computations, often on clusters of machines. That's what Apache Spark was built for. 
+Collecting data is extremely inexpensive but processing it requires large, parallel computations, often on clusters of machines. That's what Apache Spark was built for. 
 
 >Apache Spark is a **unified** **computing engine** and a set of libraries for **parallel data processing** on computer **clusters** that supports programming languages like R, Python, Java and Scala and **libraries** ranging from SQL to streaming and machine learning and runs everywhere from a laptop to a cluster of thousands of servers making it easy to scale up to big data processing or incredibly large scale
  
