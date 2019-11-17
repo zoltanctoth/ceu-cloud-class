@@ -16,7 +16,7 @@ Even if an Excel workbook could store that much data, not many desktop computers
 
 <img src="https://i.stack.imgur.com/K2Glj.png" width="300">
 
-<img alt="Thank You" title="Thank You" style="vertical-align: text-bottom; position: relative; height:1.75em; top:0.05em; transform:rotate(15deg)" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgoS83usvxagVAfmgo2f9cQW8e6ds6Yp25xCqz96Io8GQVrevGZg&s"/> Thank the cosmos we have Spark!
+Thank the cosmos we have Spark!
 
 >Apache Spark is a **unified** **computing engine** and a set of libraries for **parallel data processing** on computer **clusters** that supports programming languages like R, Python, Java and Scala and **libraries** ranging from SQL to streaming and machine learning and runs everywhere from a laptop to a cluster of thousands of servers making it easy to scale up to big data processing or incredibly large scale
  
