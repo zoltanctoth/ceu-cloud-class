@@ -9,7 +9,14 @@ layout: default
 
 ### Apache Spark Overview
 
-Collecting data is extremely inexpensive but processing it requires large, parallel computations, often on clusters of machines. That's what Apache Spark was built for. 
+## <img src="https://s3.eu-central-1.amazonaws.com/datapao-public/images/datapao-logo-feher-4.png"></img> Big Data 101
+>The IDC estimated the size of the “digital universe” at 4.4 Zettabytes (1 Trillion Gigabytes) in 2013. It grows by 40% every year, and by 2020 the IDC expects it to be as large as 44 Zettabytes, amounting to a single bit of data for every star in the physical universe. We have a lot of data, and we aren’t getting rid of any of it. We need a way to store increasing amounts of data at scale, with protections against data-loss stemming from hardware failure. 
+
+Even if an Excel workbook could store that much data, not many desktop computers have enough hard drive space for that anyway. 
+
+<img src="https://i.stack.imgur.com/K2Glj.png" width="300">
+
+<img alt="Thank You" title="Thank You" style="vertical-align: text-bottom; position: relative; height:1.75em; top:0.05em; transform:rotate(15deg)" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgoS83usvxagVAfmgo2f9cQW8e6ds6Yp25xCqz96Io8GQVrevGZg&s"/> Thank the cosmos we have Spark!
 
 >Apache Spark is a **unified** **computing engine** and a set of libraries for **parallel data processing** on computer **clusters** that supports programming languages like R, Python, Java and Scala and **libraries** ranging from SQL to streaming and machine learning and runs everywhere from a laptop to a cluster of thousands of servers making it easy to scale up to big data processing or incredibly large scale
  
