@@ -13,6 +13,8 @@ layout: default
 
 - ZooKeeper: http://zookeeper.apache.org/
 
+<img src="https://2.bp.blogspot.com/-w7KeAnwWnBQ/WfYBJzgtvQI/AAAAAAAAAMk/D58SpZfK7lkJ8QnKnQZW268mKzRvuOOnACLcBGAs/s1600/HadoopStack.png" width="1000">
+
 #### Introduction
 The Hadoop Distributed File System (HDFS) is a distributed file system designed to run on commodity hardware. It has many similarities with existing distributed file systems. However, the differences from other distributed file systems are significant. 
 - HDFS is highly fault-tolerant and is designed to be deployed on low-cost hardware
