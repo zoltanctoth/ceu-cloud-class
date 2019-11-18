@@ -203,4 +203,32 @@ df.head(1)
 ```python
 df.select("age").show(2)
 ```
+- We can register the DataFrame as a SQL temporary view (It's thde equivalent of `SELECT AGE FROM PEOPLE LIMIT 2`)
+```python
+df.createOrReplaceTempView("people")
+```
+
+**Filtering Rows**
+Example:
+```python
+df.filter( (df["Close"] < 200) | (df['Open'] > 200) ).show()
+```
+
+**Sorting Rows**
+For sorting we can use `sort` and `orderBy` which function similarly:
+```python
+df.sort("Sales").show()
+df.orderBy("Sales").show()
+```
+
+**Grouping**
+```python
+df.groupBy("Company")
+df.groupBy("Company").count().show()
+df.groupBy("Company").mean().show()
+df.groupBy("Company").min().show()
+```
+
+#### DataFrame Aggregations
+
 
