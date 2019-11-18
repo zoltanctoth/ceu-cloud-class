@@ -180,6 +180,27 @@ a DataFrame consists of:
 - **Partitioning** of the DataFrame defines the layout of the DataFrame or Dataset’s physical distribution across the cluster.
   - The partitioning scheme defines how that is allocated. You can set this to be based on values in a certain column or nondeterministically
 
-#### Data Pipelines
-Spark’s power lies in its ability to combine very different techniques and processes together into a single, coherent, whole. Spark crosses boundaries between batch, streaming and interactive workflows in ways that make the user more productive.
-Spark jobs perform multiple operations consecutively, in memory and only spilling to disk when required by memory limitations. In use cases such as ETL, these pipelines can become extremely rich and complex, combining large numbers of inputs and a wide range of processing steps into a unified whole that consistently delivers the desired result.
+#### Columns and Expressions
+- Columns in Spark are similar to columns in a spreadsheet, R dataframe, or pandas DataFrame. You can select, manipulate, and remove columns from DataFrames and these operations are represented as expressions
+- To construct columns we can use the `withColumn` function
+```python
+df.withColumn('newage',df['age']).show()
+df.withColumn('half_age',df['age']/2).show()
+```
+#### Records and Rows
+- In Spark, each row in a DataFrame is a single record. Spark represents this record as an object of type Row
+- Spark manipulates Row objects using column expressions in order to produce usable values
+- Row objects internally represent arrays of bytes
+We can see a row by calling `first` or `head(1)` in a DataFrame
+
+```python
+df.first()
+df.head(1)
+```
+#### DataFrame Transformations
+- `select` allows you to do the DataFrame equivalent of SQL queries on a table of data:
+
+```python
+df.select("age").show(2)
+```
+
