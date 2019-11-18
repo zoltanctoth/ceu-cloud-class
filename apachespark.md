@@ -10,6 +10,8 @@ layout: default
 
 ### HDFS Architecture (Hadoop Distributed File System)
 HDFS Architecture Guide: https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html
+Zookeper: http://zookeeper.apache.org/
+
 #### Introduction
 The Hadoop Distributed File System (HDFS) is a distributed file system designed to run on commodity hardware. It has many similarities with existing distributed file systems. However, the differences from other distributed file systems are significant. 
 - HDFS is highly fault-tolerant and is designed to be deployed on low-cost hardware
