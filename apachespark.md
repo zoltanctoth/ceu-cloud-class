@@ -13,6 +13,7 @@ layout: default
 
 - ZooKeeper: http://zookeeper.apache.org/
 
+**Ecosystem:**
 <img src="https://2.bp.blogspot.com/-w7KeAnwWnBQ/WfYBJzgtvQI/AAAAAAAAAMk/D58SpZfK7lkJ8QnKnQZW268mKzRvuOOnACLcBGAs/s1600/HadoopStack.png" width="1000">
 
 #### Introduction
