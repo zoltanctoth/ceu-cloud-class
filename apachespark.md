@@ -75,7 +75,11 @@ Spark runs on the **JVM (Java Virtual Machine)** so you need to install Java to 
 
 -  **SparkSession:** You can control your Spark Application through a driver process called the SparkSession. The SparkSession is the way Spark executes user-defined manipulations across the cluster. There is a one-to-one correspondance between a SparkSession and a SparkApplication.
 
-- **Spark Application:** Spark applications consist of a **driver process** and a set of **executor processes.**
+SparkSession and Language APIs relationship: 
+<p align="center"> 
+<img src="https://www.oreilly.com/library/view/spark-the-definitive/9781491912201/assets/spdg_0202.png" width="400"></p>
+
+- **Spark Application Architecture:** Spark applications consist of a **driver process** and a set of **executor processes.**
 
 <p align="center"> 
 <img src="https://izhangzhihao.github.io/assets/images/spark-01.png" width="400"></p>
@@ -88,7 +92,14 @@ Driver is on the left, four executors on the right.  It demonstrates how the cl
 | Driver Process   |      Executor Process      | 
 |----------|:-------------:|
 | The heart of a Spark Application, maintains all relevant information during the lifetime of the application. Runs of your main() function, sits on a node in the cluster, and is responsible for: Maintaining information about the Spark Application. Responding to a user's program or input. Analyzing, distributing and scheduling work across the executors | Responsible for actually carrying out the work that the (<-) driver assigns them. Each executor is responsible for: Executing code assigned to it by the driver. Reporting the state of the computation on that executor BACK to the driver node. |
-    
+
+**Key Takeaways:**
+- Spark employs a cluster manager that keeps track of the resources available
+- The driver process is responsible for executing the driver program's commands across the executor to complete a given task
+
+The executor only runs Spark code. However, the driver can be driven from a number of different languages through Spark's Language APIs. (Scala, Java, Python, R)
+
+
  
  #### API Overview
 Structured APIs are a tool for manipulating all sorts of data, from unstructured log files to semi-structured CSV files and highly structured Parquet (Apache Parquet is a columnar storage format available to any project in the Hadoop ecosystem, regardless of the choice of data processing framework, data model or programming language) files. These APIs refer to three core types of distributed collection APIs:
