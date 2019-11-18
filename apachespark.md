@@ -7,7 +7,7 @@ layout: default
 [Serverless](./serverless.md).
 [AWS](./aws.md).
 
-**Disclaimer:** if you don't understand this summary, this [book](http://shop.oreilly.com/product/0636920034957.do) will be of help. This note is going to be edited in the upcoming days.
+**Disclaimer:** if you don't understand this summary, this [book](http://shop.oreilly.com/product/0636920034957.do) will be of help. This note is going to be improved in the upcoming days.
 
 ## Apache Spark Overview
 
