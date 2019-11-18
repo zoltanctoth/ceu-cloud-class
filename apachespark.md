@@ -29,7 +29,7 @@ layout: default
 <p align="center"> Thank the cosmos we have Spark! </p>
 
 <p align="center"> 
-[Brief history of Apache Spark - for those who'd like to see the big picture](./big_data_history.md)</p>
+[Brief history of Apache Spark - for those who'd like to see the big picture](https://github.com/zoltanctoth/ceu-cloud-bigdata-course/blob/master/big_data_history.md)</p>
 
 ### Glossary 
 #### To understand Spark, first familiarize yourself with these terms:
