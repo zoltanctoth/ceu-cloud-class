@@ -14,7 +14,8 @@ layout: default
 - ZooKeeper: http://zookeeper.apache.org/
 
 **Ecosystem:**
-<img src="https://2.bp.blogspot.com/-w7KeAnwWnBQ/WfYBJzgtvQI/AAAAAAAAAMk/D58SpZfK7lkJ8QnKnQZW268mKzRvuOOnACLcBGAs/s1600/HadoopStack.png" width="1000">
+<p align="center"> 
+<img src="https://2.bp.blogspot.com/-w7KeAnwWnBQ/WfYBJzgtvQI/AAAAAAAAAMk/D58SpZfK7lkJ8QnKnQZW268mKzRvuOOnACLcBGAs/s1600/HadoopStack.png" width="1000"></p>
 
 #### Introduction
 The Hadoop Distributed File System (HDFS) is a distributed file system designed to run on commodity hardware. It has many similarities with existing distributed file systems. However, the differences from other distributed file systems are significant. 
@@ -43,8 +44,8 @@ HDFS has been designed to be easily portable from one platform to another. This 
 
 #### NameNode and DataNodes
 HDFS has a master/slave architecture. An HDFS cluster consists of a single NameNode, a master server that manages the file system namespace and regulates access to files by clients. In addition, there are a number of DataNodes, usually one per node in the cluster, which manage storage attached to the nodes that they run on. HDFS exposes a file system namespace and allows user data to be stored in files. Internally, a file is split into one or more blocks and these blocks are stored in a set of DataNodes. The NameNode executes file system namespace operations like opening, closing, and renaming files and directories. It also determines the mapping of blocks to DataNodes. The DataNodes are responsible for serving read and write requests from the file system’s clients. The DataNodes also perform block creation, deletion, and replication upon instruction from the NameNode.
-
-<img src="https://hadoop.apache.org/docs/r1.2.1/images/hdfsarchitecture.gif" width="900">
+<p align="center"> 
+<img src="https://hadoop.apache.org/docs/r1.2.1/images/hdfsarchitecture.gif" width="900"></p>
 
 #### Data Replication
 - HDFS is designed to reliably store very large files across machines in a large cluster. It stores each file as a sequence of blocks. The blocks of a file are replicated for fault tolerance. The block size and replication factor are configurable per file
@@ -52,8 +53,8 @@ HDFS has a master/slave architecture. An HDFS cluster consists of a single NameN
 - An application can specify the number of replicas of a file. The replication factor can be specified at file creation time and can be changed later. Files in HDFS are write-once (except for appends and truncates) and have strictly one writer at any time
 - The NameNode makes all decisions regarding replication of blocks. It periodically receives a Heartbeat and a Blockreport from each of the DataNodes in the cluster. Receipt of a Heartbeat implies that the DataNode is functioning properly. A Blockreport contains a list of all blocks on a DataNode
 
-
-<img src="https://hadoop.apache.org/docs/r1.2.1/images/hdfsdatanodes.gif" width="600">
+<p align="center"> 
+<img src="https://hadoop.apache.org/docs/r1.2.1/images/hdfsdatanodes.gif" width="600"></p>
 
 #### Robustness
 The primary objective of HDFS is to store data reliably even in the presence of failures. The three common types of failures are NameNode failures, DataNode failures and network partitions.
