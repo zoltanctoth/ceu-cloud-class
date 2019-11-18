@@ -8,6 +8,8 @@ layout: default
 [Optional - Big Data History](./big_data_history.md).
 [Spark Overview](./apachespark.md).
 
+To be updated in the upcoming 2 days (Databricks File System - dbutils fs mount, Python quick start guide)
+
 ### HDFS Architecture (Hadoop Distributed File System)
 - HDFS Architecture Guide: https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html
 
