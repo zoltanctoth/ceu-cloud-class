@@ -73,9 +73,8 @@ Spark runs on the **JVM (Java Virtual Machine)** so you need to install Java to 
 | ./bin/pyspark | ./bin/spark-shell | ./bin/spark-sql |
 | after you have done that type "spark" and press Enter. You will see the "SparkSession" object printed  |    after you have done that type "spark" and press Enter. You will see the "SparkSession" object printed    |   after you have done that type "spark" and press Enter. You will see the "SparkSession" object printed  |
 
--  **SparkSession:** You can control your Spark Application through a driver process called the SparkSession. The SparkSession is the way Spark executes user-defined manipulations across the cluster. There is a one-to-one correspondance between a SparkSession and a SparkApplication.
+-  **SparkSession:** You can control your Spark Application through a driver process called the SparkSession. The SparkSession is the way Spark executes user-defined manipulations across the cluster. There is a one-to-one correspondance between a SparkSession and a SparkApplication. SparkSession and Language APIs relationship: 
 
-SparkSession and Language APIs relationship: 
 <p align="center"> 
 <img src="https://www.oreilly.com/library/view/spark-the-definitive/9781491912201/assets/spdg_0202.png" width="400"></p>
 
