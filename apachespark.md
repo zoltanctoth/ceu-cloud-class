@@ -146,7 +146,7 @@ DataFrames (and Datasets) are **distributed table-like collection with well-defi
      - Actions to write to output data sources
      
 <p align="center"> 
-<img src="https://4.bp.blogspot.com/-RDjf_UrR1Zo/W_5WzQIWuHI/AAAAAAAABGY/RbV9OnTBVhcO471mKcEwJqGMihCnHgR5ACLcBGAs/s1600/2.jpg" width="400"></p>
+<img src="https://4.bp.blogspot.com/-RDjf_UrR1Zo/W_5WzQIWuHI/AAAAAAAABGY/RbV9OnTBVhcO471mKcEwJqGMihCnHgR5ACLcBGAs/s1600/2.jpg" width="1000"></p>
 
 
 #### Data Pipelines
