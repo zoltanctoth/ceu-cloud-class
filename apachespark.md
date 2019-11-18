@@ -82,8 +82,8 @@ Spark runs on the **JVM (Java Virtual Machine)** so you need to install Java to 
 
 Driver is on the left, four executors on the right.  It demonstrates how the cluster manager controls physical machines and allocates resources to Spark Applications. This can be one of three cluster managers ( YARN, Mesos, Spark's standalone cluster manager). This means that there can be multiple Spark Applications running on a cluster at the same time.
 
-Note: Spark, in addition to a cluster mode, also has a local mode. The driver and the executor are simply processes, this means they can live on the same machine or different machines. 
-**Local Mode** - Driver and executor run as threads on your individual computer in stead of a cluster.
+*Note: Spark, in addition to a cluster mode, also has a local mode. The driver and the executor are simply processes, this means they can live on the same machine or different machines. 
+**Local Mode** - Driver and executor run as threads on your individual computer in stead of a cluster.*
 
 | Driver Process   |      Executor Process      | 
 |----------|:-------------:|
