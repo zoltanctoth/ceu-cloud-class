@@ -11,6 +11,19 @@ layout: default
 
 ## Apache Spark Overview
 
+<details><summary>CLICK ME!</summary>
+  
+<p>
+  
+#### yes, even hidden code blocks!
+
+```python
+  
+print("hello world!")
+
+```
+</p>
+
 #### Big Data 101
 >The IDC estimated the size of the “digital universe” at 4.4 Zettabytes (1 Trillion Gigabytes) in 2013. It grows by 40% every year, and by 2020 the IDC expects it to be as large as 44 Zettabytes, amounting to a single bit of data for every star in the physical universe.
 
