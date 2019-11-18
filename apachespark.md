@@ -65,18 +65,30 @@ layout: default
 
 ### Launching Spark's Interactive Console
 You can grab Spark from here, altough we will use Databricks in this course: https://spark.apache.org/downloads.html
-**optional (windows)**
+
+**optional (Windows)**
 >Install Java 8.
+
 >Configure your environment variables, JAVA_HOME and PATH to point to the path of jdk.
+
 >To test java installation is complete, open command prompt type java -version and hit enter.
+
 >Download and install Maven dependency manager
+
 >Download and install Intellij IDEA which is an IDE.
+
 >Download and install Python or Anaconda (in case you want to test Jupyter)
+
 >Set an environment variable for your Python path PYTHONPATH=
+
 >Download and install PyCharm
+
 >Download winutils.exe and place it in a bin directory under a created Hadoop home directory. Set HADOOP_HOME = <> in environment variable.
+
 >Download and extract this pre-built Spark package apache-spark-2.3.2
+
 >Set SPARK_HOME and add SPARK_HOME\bin in PATH variable in environment variables.
+
 >Run command: spark-shell
 
 Spark runs on the **JVM (Java Virtual Machine)** so you need to install Java to run it. If you want to use the Python API, you will also need a Python interpreter. If you want to use R, you will need a version of R on your machine.
