@@ -148,6 +148,17 @@ DataFrames (and Datasets) are **distributed table-like collection with well-defi
 <p align="center"> 
 <img src="https://4.bp.blogspot.com/-RDjf_UrR1Zo/W_5WzQIWuHI/AAAAAAAABGY/RbV9OnTBVhcO471mKcEwJqGMihCnHgR5ACLcBGAs/s1600/2.jpg" width="1000"></p>
 
+### Overview of Structured API Execution
+How is the code actually executed across a cluster? Here’s an overview of the steps:
+- Write DataFrame/Dataset/SQL Code
+- If valid code, Spark converts this to a Logical Plan
+- Spark transforms this Logical Plan to a Physical Plan, checking for optimizations along the way
+- Spark then executes this Physical Plan on the cluster
+
+<p align="center"> 
+<img src="https://i.stack.imgur.com/Y9oU5.png" width="600"></p>
+
+
 
 #### Data Pipelines
 Spark’s power lies in its ability to combine very different techniques and processes together into a single, coherent, whole. Spark crosses boundaries between batch, streaming and interactive workflows in ways that make the user more productive.
