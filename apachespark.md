@@ -158,7 +158,13 @@ How is the code actually executed across a cluster? Here’s an overview of the 
 <p align="center"> 
 <img src="https://i.stack.imgur.com/Y9oU5.png" width="600"></p>
 
+<p align="center"> 
+<img src="https://www.oreilly.com/library/view/spark-the-definitive/9781491912201/assets/spdg_0402.png" width="600"></p>
 
+<p align="center"> 
+<img src="https://www.oreilly.com/library/view/spark-the-definitive/9781491912201/assets/spdg_0403.png" width="600"></p>
+
+### DataFrame Operations
 
 #### Data Pipelines
 Spark’s power lies in its ability to combine very different techniques and processes together into a single, coherent, whole. Spark crosses boundaries between batch, streaming and interactive workflows in ways that make the user more productive.
