@@ -107,8 +107,10 @@ Structured APIs are a tool for manipulating all sorts of data, from unstructured
 - **DataFrames**
 - **SQL Tables and Views**
 
+
 Majority of the Structured APIs apply to both batch and streaming computation. This means that when you work with the Structured APIs, it should be simple to migrate from batch to streaming or vice versa with little to no effort.  Structured APIs are the fundamental abstraction used to write the majority of data flows. 
- 
+
+### DataFrames
 For those familiar with the DataFrames API in other languages like R or pandas in Python, this API will make them feel right at home. In this course, we are going to focus on the **DataFrame** API and skip Datasets & RDDs - but to explain DataFrames - we need to understand RDDs a little.
 
 >A Dataframe is a distributed collection of rows under named columns. In simple terms, it looks like an Excel sheet with Column headers, or you can think of it as the equivalent to a table in a relational database or a DataFrame in R or Python.
@@ -118,6 +120,32 @@ For those familiar with the DataFrames API in other languages like R or pandas i
 *Note: A DataFrame is an abstraction on top of RDDs. An RDD is broken down into partitions and a DataFrame is an abstraction on top of RDDs hence DataFrame is also partitioned. DataFrames ultimately compile down to RDDs.*
 
 DataFrames (and Datasets) are **distributed table-like collection with well-defined rows and columns**. Each column must have the same number of rows as all the other columns although you can use null to specify the absence of a value and each column has type information that must be consistent for every row in the collection. To Spark, DataFrames (and Datasets) represent **immutable, lazily evaluated plans(transformations)** that specify what operations to apply to data residing at a location to generate some output. When we perform an action on a DataFrame, we instruct Spark to perform the actual transformations and return the results. These represent plans of how to manipulate rows and columns to compute the user's desired result. 
+
+- To allow every executor to perform work in parallel, Spark breaks up the data into chunks called partitions.
+- A partition is a collection of rows that sit on one physical machine in your cluster
+- A DataFrame’s partitions represent how the data is physically distributed across the cluster of machines during execution
+- If you have one partition, Spark will have a parallelism of only one, even if you have thousands of executors
+- If you have many partitions but only one executor, Spark will still have a parallelism of only one because there is only one computation resource.
+
+
+**Transformations:**
+- Transformations are the core of how you express your business logic using Spark. There are two types of transformations:
+  - those that specify narrow dependencies, which are those for which each input partition will contribute to only one output partition
+  - and those that specify wide dependencies (shuffles), where we have input partitions contributing to many output partitions
+- Narrow transformations can be performed in-memory, whereas for shuffles, Spark writes the results to disk
+- Spark will not act on transformations until we call an action, that's why we say that they are lazily evaluated
+- Lazy evaluation means that Spark will wait until the very last moment to execute the graph of computation instructions
+
+
+**Actions:**
+- Transformations allow us to build up a logical transformation plan.
+- To trigger the computation, we run an action. An action instructs Spark to compute a result from a series of transformations
+
+  - There are three kinds of actions:
+
+     - Actions to view data in the console
+     - Actions to collect data to native objects in the respective language
+     - Actions to write to output data sources
 
 #### Data Pipelines
 Spark’s power lies in its ability to combine very different techniques and processes together into a single, coherent, whole. Spark crosses boundaries between batch, streaming and interactive workflows in ways that make the user more productive.
