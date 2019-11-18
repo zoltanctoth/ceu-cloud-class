@@ -65,6 +65,19 @@ layout: default
 
 ### Launching Spark's Interactive Console
 You can grab Spark from here, altough we will use Databricks in this course: https://spark.apache.org/downloads.html
+**optional (windows)**
+>Install Java 8.
+>Configure your environment variables, JAVA_HOME and PATH to point to the path of jdk.
+>To test java installation is complete, open command prompt type java -version and hit enter.
+>Download and install Maven dependency manager
+>Download and install Intellij IDEA which is an IDE.
+>Download and install Python or Anaconda (in case you want to test Jupyter)
+>Set an environment variable for your Python path PYTHONPATH=
+>Download and install PyCharm
+>Download winutils.exe and place it in a bin directory under a created Hadoop home directory. Set HADOOP_HOME = <> in environment variable.
+>Download and extract this pre-built Spark package apache-spark-2.3.2
+>Set SPARK_HOME and add SPARK_HOME\bin in PATH variable in environment variables.
+>Run command: spark-shell
 
 Spark runs on the **JVM (Java Virtual Machine)** so you need to install Java to run it. If you want to use the Python API, you will also need a Python interpreter. If you want to use R, you will need a version of R on your machine.
 
@@ -230,5 +243,39 @@ df.groupBy("Company").min().show()
 ```
 
 #### DataFrame Aggregations
+- Aggregating is the act of collecting something together and is a cornerstone of big data analytics. In an aggregation, you will specify a key or grouping and an aggregation function that specifies how you should transform one or more columns
+- This function must produce one result for each group, given multiple input values. 
+
+All aggregations are available as functions, most aggregation functions can be found here:
+http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.functions$
+
+- `count` function allows us to specify a specific column to count
+```python
+df.select(count("Sales")).show()
+```
+
+- `countdistinct` function gives us the number of unique groups
+```python
+from pyspark.sql.functions import countDistinct
+df.select(countDistinct("Sales")).show()
+```
+
+#### Methods
+http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.functions$
+http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.DataFrameStatFunctions
+http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.Column
+http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.Dataset
+
+
+### Joings
+- Joins are an essential part of nearly all Spark workloads. Spark’s ability to talk to different data means that you gain the ability to tap into a variety of data sources across your company
+- Whereas the join expression determines whether two rows should join, the join type determines what should be in the result set. There are a variety of different join types available in Spark for you to use such as (list not-exhaustive):
+
+- Inner joins (keep rows with keys that exist in the left and right datasets)
+- Outer joins (keep rows with keys in either the left or right datasets)
+- Left outer joins (keep rows with keys in the left dataset)
+- Right outer joins (keep rows with keys in the right dataset)
+
+
 
 
