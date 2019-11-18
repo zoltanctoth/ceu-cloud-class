@@ -281,7 +281,7 @@ http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.Co
 http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.Dataset
 
 
-### Joings
+### Joins
 - Joins are an essential part of nearly all Spark workloads. Spark’s ability to talk to different data means that you gain the ability to tap into a variety of data sources across your company
 - Whereas the join expression determines whether two rows should join, the join type determines what should be in the result set. There are a variety of different join types available in Spark for you to use such as (list not-exhaustive):
 
