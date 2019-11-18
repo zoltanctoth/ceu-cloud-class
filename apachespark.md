@@ -7,6 +7,8 @@ layout: default
 [Serverless](./serverless.md).
 [AWS](./aws.md).
 
+**Disclaimer:** This note heavily relies on this [book](http://shop.oreilly.com/product/0636920034957.do)
+
 ### Apache Spark Overview
 
 #### Big Data 101
@@ -292,7 +294,7 @@ http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.Da
 ## Example
 https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt
 
-**a simple program that performs a word count on the collected works of Shakespeare**
+**A simple program that performs a word count on the collected works of Shakespeare**
 ```python
 from pyspark import SparkContext, SparkConf
 conf = SparkConf().setAppName('MyFirstStandaloneApp')
@@ -305,4 +307,6 @@ print ("Number of elements: " + str(counts.count()))
 counts.saveAsTextFile("./shakespeareWordCount")
 ```
 
+Sources:
+To be finished
 
