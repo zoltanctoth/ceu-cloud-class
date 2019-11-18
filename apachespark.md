@@ -174,7 +174,7 @@ a DataFrame consists of:
   - We can either let a data source define the schema or we can define it explicitly ourselves
   - To check the schema: `df.printSchema()`
 <p align="center"> 
-<img src="https://www.edureka.co/blog/content/ver.1554792280/uploads/2019/04/schema-of-character-deaths-DataFrames-in-spark-Edureka.png" width="600"></p>
+<img src="https://www.edureka.co/blog/content/ver.1554792280/uploads/2019/04/schema-of-character-deaths-DataFrames-in-spark-Edureka.png" width="400"></p>
 - A schema is a StructType made up of a number of fields, StructFields, that have a name, type, a Boolean flag which specifies whether that column can contain missing or null values, and, finally, users can optionally specify associated metadata with that column.
 
 - **Partitioning** of the DataFrame defines the layout of the DataFrame or Dataset’s physical distribution across the cluster.
