@@ -165,6 +165,20 @@ How is the code actually executed across a cluster? Here’s an overview of the 
 <img src="https://www.oreilly.com/library/view/spark-the-definitive/9781491912201/assets/spdg_0403.png" width="600"></p>
 
 ### DataFrame Operations
+a DataFrame consists of:
+- A series of records (like rows in a table), that are of type Row
+- A number of columns (like columns in a spreadsheet) that represent a computation expression that can be performed on each individual record in the Dataset
+
+- **Schemas** define the name as well as the type of data in each column
+  - A schema defines the column names and types of a DataFrame
+  - We can either let a data source define the schema or we can define it explicitly ourselves
+  - To check the schema: `df.printSchema()`
+<p align="center"> 
+<img src="https://www.edureka.co/blog/content/ver.1554792280/uploads/2019/04/schema-of-character-deaths-DataFrames-in-spark-Edureka.png" width="600"></p>
+- A schema is a StructType made up of a number of fields, StructFields, that have a name, type, a Boolean flag which specifies whether that column can contain missing or null values, and, finally, users can optionally specify associated metadata with that column.
+
+- **Partitioning** of the DataFrame defines the layout of the DataFrame or Dataset’s physical distribution across the cluster.
+  - The partitioning scheme defines how that is allocated. You can set this to be based on values in a certain column or nondeterministically
 
 #### Data Pipelines
 Spark’s power lies in its ability to combine very different techniques and processes together into a single, coherent, whole. Spark crosses boundaries between batch, streaming and interactive workflows in ways that make the user more productive.
