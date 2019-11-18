@@ -7,7 +7,7 @@ layout: default
 [Serverless](./serverless.md).
 [AWS](./aws.md).
 
-**Disclaimer:** Reading List - Matei Zaharia et al.: Spark, the Definitive Guide [book (http://shop.oreilly.com/product/0636920034957.do) <- if you don't understand this summary, this book will be of help.
+**Disclaimer:** Reading List - Matei Zaharia et al.: Spark, the Definitive Guide [book] (http://shop.oreilly.com/product/0636920034957.do) <- if you don't understand this summary, this book will be of help.
 
 ### Apache Spark Overview
 
