@@ -290,7 +290,7 @@ http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.Da
 
 
 ## Example
-https://raw.githubusercontent.com/hortonworks/data-tutorials/master/tutorials/hdp/setting-up-a-spark-development-environment-with-python/assets/shakespeare.txt
+https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt
 
 **a simple program that performs a word count on the collected works of Shakespeare**
 ```python
