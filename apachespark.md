@@ -136,16 +136,18 @@ DataFrames (and Datasets) are **distributed table-like collection with well-defi
 - Spark will not act on transformations until we call an action, that's why we say that they are lazily evaluated
 - Lazy evaluation means that Spark will wait until the very last moment to execute the graph of computation instructions
 
-
 **Actions:**
 - Transformations allow us to build up a logical transformation plan.
 - To trigger the computation, we run an action. An action instructs Spark to compute a result from a series of transformations
-
   - There are three kinds of actions:
 
      - Actions to view data in the console
      - Actions to collect data to native objects in the respective language
      - Actions to write to output data sources
+     
+<p align="center"> 
+<img src="https://4.bp.blogspot.com/-RDjf_UrR1Zo/W_5WzQIWuHI/AAAAAAAABGY/RbV9OnTBVhcO471mKcEwJqGMihCnHgR5ACLcBGAs/s1600/2.jpg" width="400"></p>
+
 
 #### Data Pipelines
 Spark’s power lies in its ability to combine very different techniques and processes together into a single, coherent, whole. Spark crosses boundaries between batch, streaming and interactive workflows in ways that make the user more productive.
