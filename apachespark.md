@@ -289,5 +289,20 @@ http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.Da
 - Right outer joins (keep rows with keys in the right dataset)
 
 
+## Example
+https://raw.githubusercontent.com/hortonworks/data-tutorials/master/tutorials/hdp/setting-up-a-spark-development-environment-with-python/assets/shakespeare.txt
+
+**a simple program that performs a word count on the collected works of Shakespeare**
+```python
+from pyspark import SparkContext, SparkConf
+conf = SparkConf().setAppName('MyFirstStandaloneApp')
+sc = SparkContext(conf=conf)
+text_file = sc.textFile("./shakespeare.txt")
+counts = text_file.flatMap(lambda line: line.split(" ")) \
+             .map(lambda word: (word, 1)) \
+             .reduceByKey(lambda a, b: a + b)
+print ("Number of elements: " + str(counts.count()))
+counts.saveAsTextFile("./shakespeareWordCount")
+```
 
 
