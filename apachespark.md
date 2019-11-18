@@ -170,7 +170,6 @@ DataFrames (and Datasets) are **distributed table-like collection with well-defi
 - Transformations allow us to build up a logical transformation plan.
 - To trigger the computation, we run an action. An action instructs Spark to compute a result from a series of transformations
   - There are three kinds of actions:
-
      - Actions to view data in the console
      - Actions to collect data to native objects in the respective language
      - Actions to write to output data sources
