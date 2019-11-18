@@ -3,9 +3,10 @@ layout: default
 ---
 [Home](./README.md).
 [Internet](./internet.md).
-[Cloud Computing](./cloud_computing.md).
-[Serverless](./serverless.md).
 [AWS](./aws.md).
+[Serverless](./serverless.md).
+[Optional - Big Data History](./big_data_history.md)
+[Spark Overview](./apachespark.md)
 
 ### HDFS Architecture (Hadoop Distributed File System)
 HDFS Architecture Guide: https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html
