@@ -28,8 +28,8 @@ layout: default
 
 <p align="center"> Thank the cosmos we have Spark! </p>
 
-<p align="center"> 
-[Big Data History](./big_data_history.md).</p>
+
+[Big Data History](./big_data_history.md).
 
 ### Glossary 
 #### To understand Spark, first familiarize yourself with these terms:
