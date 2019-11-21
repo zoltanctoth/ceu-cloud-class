@@ -8,7 +8,188 @@ layout: default
 [Optional - Big Data History](./big_data_history.md).
 [Spark Overview](./apachespark.md).
 
-To be updated in the upcoming 2 days (Databricks File System - dbutils fs mount, Python quick start guide)
+#### Python Basics
+
+**Variables**
+```python
+# Create a variable called a that points to 1
+>>> a = 1   
+# Create another variable
+>>> b = 2   
+
+# Get the value that the variable points to
+>>> a       
+1
+>>> b
+2
+```
+Change the value of a variable after setting it:
+```python
+# Make a point to 2 instead of 1
+>>> a = 2    
+>>> a
+2
+```
+
+We can do something with a variable on the right side, then assign the result back to the same variable on the left side.
+```python
+>>> a = 1
+>>> a = a + 1
+>>> a
+2
+```
+
+To do something to a variable (for example, to add something to it) we can also use +=, -=, *= and /= instead of +, -, * and /. The "advanced" %=, //= and **= also work.
+```python
+>>> a += 2          # a = a + 2
+>>> a -= 2          # a = a - 2
+>>> a *= 2          # a = a * 2
+>>> a /= 2          # a = a / 2
+
+# Not limited to int
+>>> a = 'hello'
+>>> a *= 3
+>>> a += 'world'
+>>> a
+'hellohellohelloworld'
+```
+
+**Operators**
+
+| Usage     | Description                       | True examples         |
+|-----------|-----------------------------------|-----------------------|
+| `a == b`  | a is equal to b                   | `1 == 1`              |
+| `a != b`  | a is not equal to b               | `1 != 2`              |
+| `a > b`   | a is greater than b               | `2 > 1`               |
+| `a >= b`  | a is greater than or equal to b   | `2 >= 1`, `1 >= 1`    |
+| `a < b`   | a is less than b                  | `1 < 2`               |
+| `a <= b`  | a is less than or equal to b      | `1 <= 2`, `1 <= 1`    |
+
+This table assumes that a and b are Booleans.
+
+| Usage     | Description                               | True example                      |
+|-----------|-------------------------------------------|-----------------------------------|
+| `a and b` | a is True and b is True                   | `1 == 1 and 2 == 2`               |
+| `a or b`  | a is True, b is True or they're both True | `False or 1 == 1`, `True or True` |
+
+`not` can be used for negations. If `value` is True, `not value` is False, and if `value` is False, `not value` is True.
+
+
+ **If, else and elif**
+```python
+print('Hello!')
+something = input("Enter something: ")
+if something = 'hello':
+    print("Hello for you too!")
+
+elif something = 'hi'
+    print('Hi there!')
+else:
+    print("I don't know what," something, "means.")
+```
+
+**List and list methods*
+```python
+>>> fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+>>> fruits.count('apple')
+2
+>>> fruits.count('tangerine')
+0
+>>> fruits.index('banana')
+3
+>>> fruits.index('banana', 4)  # Find next banana starting a position 4
+6
+>>> fruits.reverse()
+>>> fruits
+['banana', 'apple', 'kiwi', 'banana', 'pear', 'apple', 'orange']
+>>> fruits.append('grape')
+>>> fruits
+['banana', 'apple', 'kiwi', 'banana', 'pear', 'apple', 'orange', 'grape']
+>>> fruits.sort()
+>>> fruits
+['apple', 'apple', 'banana', 'banana', 'grape', 'kiwi', 'orange', 'pear']
+>>> fruits.pop()
+'pear'
+```
+**Tuples**
+A tuple consists of a number of values separated by commas:
+```python
+ >>> t = 12345, 54321, 'hello!'
+>>> t[0]
+12345
+>>> t
+(12345, 54321, 'hello!')
+>>> # Tuples may be nested:
+... u = t, (1, 2, 3, 4, 5)
+>>> u
+((12345, 54321, 'hello!'), (1, 2, 3, 4, 5))
+>>> # Tuples are immutable:
+... t[0] = 88888
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+>>> # but they can contain mutable objects:
+... v = ([1, 2, 3], [3, 2, 1])
+>>> v
+([1, 2, 3], [3, 2, 1])
+ ```
+**Sets**
+```python
+>>> basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+>>> print(basket)                      # show that duplicates have been removed
+{'orange', 'banana', 'pear', 'apple'}
+>>> 'orange' in basket                 # fast membership testing
+True
+>>> 'crabgrass' in basket
+False
+```
+**Dictionaries**
+```python
+>>> tel = {'jack': 4098, 'sape': 4139}
+>>> tel['guido'] = 4127
+>>> tel
+{'jack': 4098, 'sape': 4139, 'guido': 4127}
+>>> tel['jack']
+4098
+>>> del tel['sape']
+>>> tel['irv'] = 4127
+>>> tel
+{'jack': 4098, 'guido': 4127, 'irv': 4127}
+```
+**For loop**
+```python
+for x in range(6):
+  print(x)
+```
+
+**While, break**
+```python
+i = 1
+while i < 6:
+  print(i)
+  if i == 3:
+    break
+```
+
+**Functions**
+```python
+@f1(arg)
+@f2
+def func(): pass
+
+# Equivalent of: 
+def func(): pass
+func = f1(arg)(f2(func))
+
+# E.G
+def whats_on_the_telly(penguin=None):
+    if penguin is None:
+        penguin = []
+    penguin.append("property of the zoo")
+    return penguin
+```
+
+* * * 
 
 ### HDFS Architecture (Hadoop Distributed File System)
 - HDFS Architecture Guide: https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html
