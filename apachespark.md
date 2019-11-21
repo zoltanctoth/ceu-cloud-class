@@ -8,7 +8,7 @@ layout: default
 [Optional - Big Data History](./big_data_history.md).
 [Spark Overview](./apachespark.md).
 
-#### Python Basics
+#### Python Quick Guide
 
 **Variables**
 ```python
