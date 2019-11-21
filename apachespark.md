@@ -88,7 +88,7 @@ else:
     print("I don't know what," something, "means.")
 ```
 
-**List and list methods*
+**List and list methods**
 ```python
 >>> fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
 >>> fruits.count('apple')
