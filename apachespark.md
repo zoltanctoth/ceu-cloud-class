@@ -192,8 +192,9 @@ def whats_on_the_telly(penguin=None):
 * * * 
 
 ### HDFS Architecture (Hadoop Distributed File System)
-- HDFS Architecture Guide: https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html
 
+
+- HDFS Architecture Guide: https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html
 - ZooKeeper: http://zookeeper.apache.org/
 
 **Ecosystem:**
@@ -262,8 +263,6 @@ Snapshots support storing a copy of data at a particular instant of time. One us
 
 * * * 
 
-
-**Disclaimer:** if you don't understand this summary, this [book](http://shop.oreilly.com/product/0636920034957.do) will be of help. This note is going to be improved in the upcoming days.
 
 ## Apache Spark Overview
 
@@ -385,7 +384,6 @@ Driver is on the left, four executors on the right.  It demonstrates how the cl
 The executor only runs Spark code. However, the driver can be driven from a number of different languages through Spark's Language APIs. (Scala, Java, Python, R)
 
 
- 
  #### API Overview
 Structured APIs are a tool for manipulating all sorts of data, from unstructured log files to semi-structured CSV files and highly structured Parquet (Apache Parquet is a columnar storage format available to any project in the Hadoop ecosystem, regardless of the choice of data processing framework, data model or programming language) files. These APIs refer to three core types of distributed collection APIs:
 
@@ -448,6 +446,15 @@ How is the code actually executed across a cluster? Here’s an overview of the 
 
 <p align="center"> 
 <img src="https://www.oreilly.com/library/view/spark-the-definitive/9781491912201/assets/spdg_0403.png" width="600"></p>
+
+### Read Data
+```python
+df = spark.read.options(header = "true", \
+  inferSchema = "true", \
+  nullValue = "NA", \
+  timestampFormat = "yyyy-MM-dd'T'HH:mm?:ss", \
+  mode = "failfast").csv("/PATH/TO/FILE")
+```
 
 ### DataFrame Operations
 a DataFrame consists of:
@@ -548,6 +555,10 @@ http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.Da
 - Left outer joins (keep rows with keys in the left dataset)
 - Right outer joins (keep rows with keys in the right dataset)
 
+**Key Takeaways:**
+- Lazy Evaluation in Spark means that the execution will not start until an action is triggered.
+- Transformations are lazy in nature i.e., they get execute when we call an action. They are not executed immediately. Two most basic type of transformations is a `map()`, `filter()`.
+- Actions are like a valve and until action is fired, the data to be processed is not even in the pipes, i.e. transformations. Only actions can materialize the entire processing pipeline with real data. 
 
 ## Example
 https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt
