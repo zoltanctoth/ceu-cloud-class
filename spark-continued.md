@@ -31,6 +31,10 @@ https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimi
 * * *
 * * *
 
+<details><summary>CLICK ME!</summary>
+  
+<p>
+  
 - Spark is effectively a programming language of its own. Spark uses an engine called Catalyst
 - Catalyst maintains its own type information through the planning and processing of work
    - This opens up execution optimizations
@@ -67,6 +71,11 @@ After creating the optimized logical plan, Spark begins the physical planning pr
 
 
 ![hash](Images/Spark_Advanced/app-ConvertImage.jpg)
+
+
+</p>
+  
+</details>
 
 
 
