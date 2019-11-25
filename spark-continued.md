@@ -25,6 +25,20 @@ layout: default
 
 
 ### Spark Architecture
+[![hash](Images/Spark_Advanced/1.jpg)
+
+
+[![hash](Images/Spark_Advanced/2.jpg)
+
+
+[![hash](Images/Spark_Advanced/3.jpg)
+
+
+[![hash](Images/Spark_Advanced/local.jpg)
+
+
+[![hash](Images/Spark_Advanced/app.jpg)
+
 
 
 #### Sourcers/Credits:
