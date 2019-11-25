@@ -4,7 +4,7 @@
 [Serverless](./serverless.md).
 [Optional - Big Data History](./big_data_history.md)
 [Spark Overview](./apachespark.md)
-[Advanced Optimizations in Spark](spark-continued.md).
+[Spark - Continued](spark-continued.md).
 <!--
 [Spark Overview](./spark_overview.md).
 [Spark DataFrame & SQL API](./sparkAPI.md).
