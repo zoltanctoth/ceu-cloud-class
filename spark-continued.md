@@ -25,19 +25,19 @@ layout: default
 
 
 ### Spark Architecture (To be updated with animated pictures)
-![hash](Images/Spark_Advanced/1.jpg)
+![hash](Images/Spark_Advanced/1-ConvertImage.jpg)
 
 
-![hash](Images/Spark_Advanced/2.jpg)
+![hash](Images/Spark_Advanced/2-ConvertImage.jpg)
 
 
-![hash](Images/Spark_Advanced/3.jpg)
+![hash](Images/Spark_Advanced/3-ConvertImage.jpg)
 
 
-![hash](Images/Spark_Advanced/local.jpg)
+![hash](Images/Spark_Advanced/local-ConvertImage.jpg)
 
 
-![hash](Images/Spark_Advanced/app.jpg)
+![hash](Images/Spark_Advanced/app-ConvertImage.jpg)
 
 
 
