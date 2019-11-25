@@ -12,7 +12,9 @@ layout: default
 [Advanced Optimizations in Spark](spark_optimizations.md).
 [Help/Resources](./resources.md).
 
-## Apache Spark - Continued
+#### Note: this md. is under development
+
+### Apache Spark - Continued
 
 **1) Recap video. Click img!**
 [![hash](Images/Spark_Advanced/hash.png)](https://www.youtube.com/watch?v=a-yrOubLFn0&feature=youtu.be "CEU - Apache Spark: Jobs, Stages and Tasks")
@@ -28,7 +30,7 @@ layout: default
    - This opens up execution optimizations
 - Even if we use Spark's Structured APIs from Python or R, the majority of our manipulations will operate strictly on Spark types not Python types
 
-<img src="Images/Spark_Advanced/catalyst.png" width="600")
+![catalyst](Images/Spark_Advanced/catalyst.png)
 
 The code we write gets submitted to Spark either through console or via a submitted job
 - This code passes through the Catalyst Optimizer, which decides how the code should be executed and lays out a plan for doing so before, finally, the code is run and the result is returned to the user
