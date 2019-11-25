@@ -17,7 +17,7 @@ layout: default
 **This picture is a video. Click**
 https://www.youtube.com/watch?v=a-yrOubLFn0&feature=youtu.be
 
-[![hash](Images/Spark_Advanced/Images/Spark_Advanced/spark-sql-HashAggregateExec.png)](https://www.youtube.com/watch?v=a-yrOubLFn0&feature=youtu.be "CEU - Apache Spark: Jobs, Stages and Tasks")
+[![hash](Images/Spark_Advanced/hash.png)](https://www.youtube.com/watch?v=a-yrOubLFn0&feature=youtu.be "CEU - Apache Spark: Jobs, Stages and Tasks")
 
 
 
