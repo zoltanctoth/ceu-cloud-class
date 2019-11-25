@@ -40,9 +40,9 @@ https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#pyspark.sql.Col
 
 #### Databricks Notebooks covered: 
 
-Spark Overview
-DataFrame Chapter 1
-DataFrame Chapter 2
+- Spark Overview
+- DataFrame Chapter 1
+- DataFrame Chapter 2
 
 
 * * *
