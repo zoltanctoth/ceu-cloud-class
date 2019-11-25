@@ -46,6 +46,7 @@ https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#pyspark.sql.Col
 - DataFrame Chapter 2 Lab 2
 - Reading Data - [Parquet Video](https://parquet.apache.org/) + Databricks notebook
 - DataFrame Chapter 4 (SQL and Visualization)
+- Databricks - Internals - Catalyst Notebook
 
 
 * * *
