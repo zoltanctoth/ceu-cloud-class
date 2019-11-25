@@ -53,7 +53,7 @@ After creating the optimized logical plan, Spark begins the physical planning pr
 
 * * *
 
-### {Spark Architecture (To be updated with animated pictures + text)}
+### {Spark Architecture (To be updated w/ text + img)}
 ![hash](Images/Spark_Advanced/1-ConvertImage.jpg)
 
 
