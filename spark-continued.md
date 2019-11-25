@@ -43,6 +43,7 @@ https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#pyspark.sql.Col
 - Spark Overview
 - DataFrame Chapter 1
 - DataFrame Chapter 2
+- DataFrame Chapter 2 Lab 2
 
 
 * * *
