@@ -29,7 +29,7 @@ https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimi
 https://spark.apache.org/docs/2.3.0/api/sql/index.html#dayofyear
 
 
-#### PySpark SQL moduled
+#### PySpark SQL modules
 
 https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.functions
 
