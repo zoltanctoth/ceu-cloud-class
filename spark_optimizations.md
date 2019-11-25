@@ -24,7 +24,7 @@ layout: default
 * * *
 
 
-#### Spark Architecture
+### Spark Architecture
 
 
 #### Sourcers/Credits:
