@@ -75,5 +75,8 @@ After creating the optimized logical plan, Spark begins the physical planning pr
 
 * * *
 
+
 #### Sourcers/Credits:
-<img src="https://www.amazon.com/Spark-Definitive-Guide-Processing-Simple/dp/1491912219">
+<p align="center">
+<img src="https://www.amazon.com/Spark-Definitive-Guide-Processing-Simple/dp/1491912219" alt="book">
+  </p>
