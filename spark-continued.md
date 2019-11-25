@@ -24,7 +24,7 @@ layout: default
 * * *
 
 
-### Spark Architecture
+### Spark Architecture (To be updated with animated pictures)
 ![hash](Images/Spark_Advanced/1.jpg)
 
 
