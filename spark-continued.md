@@ -14,7 +14,7 @@ layout: default
 [Spark Internals](./spark_internals.md).
 -->
 
-###  Apache Spark DataFrame API, SQL and Internals 
+###  Apache Spark DataFrame API, SQL and Internals - Summery & Resources
 
 #### Recap video:
 
