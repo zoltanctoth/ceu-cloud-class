@@ -386,6 +386,23 @@ DataFrames (and Datasets) are **distributed table-like collection with well-defi
 - If you have one partition, Spark will have a parallelism of only one, even if you have thousands of executors
 - If you have many partitions but only one executor, Spark will still have a parallelism of only one because there is only one computation resource.
 
+**Lazy Evaluation**
+- Spark waits until the very last moment to execute the graph of computation instructions
+- Spark will not modify data immediately when you express some operation, you build up a plan of transformations that you would like to apply to your source data
+- Spark optimizes the entire data flow from end to end
+- *Predicate Pushdown - Spark will attempt to move filtering of data as close to the source as possible to avoid loading unnecessary data into memory*
+- DataFrames have a set of columns with an unspecified number of rows -> reading data is a transformation and is a lazy operation
+  - Spark only peeks at a couple of rows to try guess what type each column should be
+
+**Actions**
+- Transformations allow us to build up our logical transformation plan
+- To trigger the computation we run an action
+- Action instructs Spark to compute a result from a series of transformations
+- The simplest action is count, which gives us the total number of records in the DataFrame
+- There are three kinds of actions
+  - Actions to view data in the console
+  - Actions to collect data to native objects in the respective language
+  - Actions to write to output data sources
 
 **Transformations:**
 - Transformations are the core of how you express your business logic using Spark. There are two types of transformations:
@@ -394,17 +411,35 @@ DataFrames (and Datasets) are **distributed table-like collection with well-defi
 - Narrow transformations can be performed in-memory, whereas for shuffles, Spark writes the results to disk
 - Spark will not act on transformations until we call an action, that's why we say that they are lazily evaluated
 - Lazy evaluation means that Spark will wait until the very last moment to execute the graph of computation instructions
-
-**Actions:**
-- Transformations allow us to build up a logical transformation plan.
-- To trigger the computation, we run an action. An action instructs Spark to compute a result from a series of transformations
-  - There are three kinds of actions:
-     - Actions to view data in the console
-     - Actions to collect data to native objects in the respective language
-     - Actions to write to output data sources
      
 <p align="center"> 
 <img src="https://4.bp.blogspot.com/-RDjf_UrR1Zo/W_5WzQIWuHI/AAAAAAAABGY/RbV9OnTBVhcO471mKcEwJqGMihCnHgR5ACLcBGAs/s1600/2.jpg" width="1000"></p>
+
+#### There are two types of transformations:  Narrow dependencies and  Wide dependencies
+
+**Narrow dependencies:** 
+- Each input partition will contribute to only one output partition
+```python
+divisBy2 = myRange.where("number % 2 = 0")
+```
+- In the above code the "where" statement specifies a narrow dependency, where only one partition contributes to at most one output partition. (see the map, filter part of the picture below)
+- Automatically performs an operation called pipelining, meaning that if we specify multiple filters on DataFrames, they will all be performed in-memory
+
+**Wide dependencies:** 
+- input partitions contributing to many output partitions
+- Also referred to as "Shuffle" whereby Spark will exchange partitions across the cluster
+- When we perform a shuffle, Spark writes the results to disk. 
+
+<img src="https://i.stack.imgur.com/MdxSY.png" width="1000">
+
+```python
+divisBy2 = myRange.where("number % 2 = 0")
+```
+- In specifying this action, we started a Spark job that runs our filter transformation (narrow transformation) then an aggregation (wide transformation) that performs the counts on a per partition basis, and then collect, which brings our result to a native object in the respective language
+- Spark UI: (for monitoring the progress of a job) Local mode: available on port 4040 of the driver node. http://localhost:4040
+- Spark job: represents a set of transformations triggered by an individual action, and you can monitor that job from Spark UI
+
+<img src="https://www.evernote.com/shard/s543/res/de833896-7737-4a70-bf1d-33173a7565a0" width="1000">
 
 ### Overview of Structured API Execution
 How is the code actually executed across a cluster? Here’s an overview of the steps:
