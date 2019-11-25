@@ -23,8 +23,9 @@ https://www.youtube.com/watch?v=a-yrOubLFn0&feature=youtu.be
 
 https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html
 
+* * *
 
-<details><summary>Under development!</summary>
+<details><summary>Under development! Click.</summary>
   
 <p>
   
