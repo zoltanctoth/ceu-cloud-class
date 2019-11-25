@@ -12,7 +12,7 @@ layout: default
 [Advanced Optimizations in Spark](spark_optimizations.md).
 [Help/Resources](./resources.md).
 
-## Advanced Optimizations in Spark
+## Apache Spark - Continued
 
 **1) Recap video. Click img!**
 [![hash](Images/Spark_Advanced/hash.png)](https://www.youtube.com/watch?v=a-yrOubLFn0&feature=youtu.be "CEU - Apache Spark: Jobs, Stages and Tasks")
