@@ -70,7 +70,7 @@ After creating the optimized logical plan, Spark begins the physical planning pr
   
 </details>
 
-
+* * *
 
 #### Sourcers/Credits:
 To be completed
