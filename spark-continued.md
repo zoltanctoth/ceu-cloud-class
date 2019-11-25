@@ -1,13 +1,18 @@
 ---
 layout: default
 ---
-[Home](./README.md).
-[Internet](./internet.md).
-[Cloud Computing](./cloud_computing.md).
-[Serverless](./serverless.md).
-[AWS](./aws.md).
+[Home](./README.md) | 
+[Internet](./internet.md) | 
+[AWS](./aws.md) | 
+[Serverless](./serverless.md) | 
+[Optional - Big Data History](./big_data_history.md) | 
+[Spark Overview](./apachespark.md) | 
+[Spark - Continued](spark-continued.md) |
+<!--
 [Spark Overview](./spark_overview.md).
-[Advanced Optimizations in Spark](spark_optimizations.md).
+[Spark DataFrame & SQL API](./sparkAPI.md).
+[Spark Internals](./spark_internals.md).
+-->
 [Help/Resources](./resources.md).
 
 ### Apache Spark - Continued
