@@ -14,18 +14,17 @@ layout: default
 
 ### Apache Spark - Continued
 
-**1) Recap video:**
+#### Recap video:
 
 https://www.youtube.com/watch?v=a-yrOubLFn0&feature=youtu.be
 
-
-**2) Deep Dive into Spark SQL’s Catalyst Optimizer:**
+#### Deep Dive into Spark SQL’s Catalyst Optimizer:
 
 https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html
 
 * * *
 
-<details><summary>Under development! Click.</summary>
+<details><summary>Under development - (click to see)</summary>
   
 <p>
   
