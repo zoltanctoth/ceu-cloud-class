@@ -44,7 +44,7 @@ https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#pyspark.sql.Col
 - DataFrame Chapter 1
 - DataFrame Chapter 2
 - DataFrame Chapter 2 Lab 2
-- Reading Data - Parquet https://parquet.apache.org/
+- Reading Data - [Parquet Video](https://parquet.apache.org/)
 
 
 * * *
