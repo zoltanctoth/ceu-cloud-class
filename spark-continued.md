@@ -78,5 +78,5 @@ After creating the optimized logical plan, Spark begins the physical planning pr
 
 #### Sourcers/Credits:
 <p align="center">
-<img src="https://images-na.ssl-images-amazon.com/images/I/715lvkEiM4L.jpg" alt="book" width="800>
+<img src="https://images-na.ssl-images-amazon.com/images/I/715lvkEiM4L.jpg" alt="book" width="800">
   </p>
