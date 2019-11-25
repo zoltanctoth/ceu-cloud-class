@@ -16,15 +16,19 @@ layout: default
 
 ### Apache Spark - Continued
 
-**1) Recap video. Click img!**
-[![hash](Images/Spark_Advanced/hash.png)](https://www.youtube.com/watch?v=a-yrOubLFn0&feature=youtu.be "CEU - Apache Spark: Jobs, Stages and Tasks")
+**1) Recap video:**
+https://www.youtube.com/watch?v=a-yrOubLFn0&feature=youtu.be
 
 
-**2) Deep Dive into Spark SQL’s Catalyst Optimizer. Click img!**
-[![dbricks](Images/Spark_Advanced/dbricks.png)](https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html "Deep Dive into Spark SQL’s Catalyst Optimizer")
+**2) Deep Dive into Spark SQL’s Catalyst Optimizer:**
+https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html
 
 
 * * *
+* * *
+* * *
+* * *
+
 - Spark is effectively a programming language of its own. Spark uses an engine called Catalyst
 - Catalyst maintains its own type information through the planning and processing of work
    - This opens up execution optimizations
