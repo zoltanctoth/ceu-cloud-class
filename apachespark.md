@@ -439,7 +439,7 @@ divisBy2 = myRange.where("number % 2 = 0")
 - Spark UI: (for monitoring the progress of a job) Local mode: available on port 4040 of the driver node. http://localhost:4040
 - Spark job: represents a set of transformations triggered by an individual action, and you can monitor that job from Spark UI
 
-<img src="https://www.evernote.com/shard/s543/res/de833896-7737-4a70-bf1d-33173a7565a0" width="1000">
+![Spark-Jobs](/Images/Spark_Advanced/spark-jobs.png)
 
 ### Overview of Structured API Execution
 How is the code actually executed across a cluster? Here’s an overview of the steps:
