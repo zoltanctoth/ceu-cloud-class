@@ -12,8 +12,6 @@ layout: default
 [Advanced Optimizations in Spark](spark_optimizations.md).
 [Help/Resources](./resources.md).
 
-#### Note: this md. is under development
-
 ### Apache Spark - Continued
 
 **1) Recap video:**
@@ -26,12 +24,7 @@ https://www.youtube.com/watch?v=a-yrOubLFn0&feature=youtu.be
 https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html
 
 
-* * *
-* * *
-* * *
-* * *
-
-<details><summary>CLICK ME!</summary>
+<details><summary>Under development!</summary>
   
 <p>
   
