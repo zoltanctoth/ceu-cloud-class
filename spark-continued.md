@@ -7,12 +7,13 @@ layout: default
 [Serverless](./serverless.md) | 
 [Optional - Big Data History](./big_data_history.md) | 
 [Spark Overview](./apachespark.md) | 
-[Spark - Continued](spark-continued.md) |
+[Spark DataFrame API, SQL and Internals](spark-continued.md) |
 <!--
 [Spark Overview](./spark_overview.md).
 [Spark DataFrame & SQL API](./sparkAPI.md).
 [Spark Internals](./spark_internals.md).
 -->
+[Help/Resources](./resources.md).
 
 ###  Apache Spark DataFrame API, SQL and Internals - Summary & Resources
 
