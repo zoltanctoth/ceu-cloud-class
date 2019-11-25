@@ -13,7 +13,6 @@ layout: default
 [Spark DataFrame & SQL API](./sparkAPI.md).
 [Spark Internals](./spark_internals.md).
 -->
-[Help/Resources](./resources.md).
 
 ### Apache Spark - Continued
 
