@@ -17,7 +17,7 @@ layout: default
 
 ###  Apache Spark DataFrame API, SQL and Internals - Summary & Resources
 
-#### Recap video:
+#### Recap video (Job, Stage, Task, Shuffle):
 
 https://www.youtube.com/watch?v=a-yrOubLFn0&feature=youtu.be
 
