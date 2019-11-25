@@ -27,7 +27,7 @@ https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimi
 
 * * *
 
-<details><summary>Under development - (click to see)</summary>
+<details><summary>Notes - under development - (click to see)</summary>
   
 <p>
   
