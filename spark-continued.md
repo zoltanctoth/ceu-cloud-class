@@ -24,6 +24,10 @@ https://www.youtube.com/watch?v=a-yrOubLFn0&feature=youtu.be
 
 https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html
 
+#### Spark SQL, Built-in Functions:
+
+https://spark.apache.org/docs/2.3.0/api/sql/index.html#dayofyear
+
 * * *
 
 <details><summary>Notes - under development - (click to see)</summary>
