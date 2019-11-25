@@ -14,6 +14,8 @@ layout: default
 
 ## Advanced Optimizations in Spark
 
+**Video**
+[![CEU-Apache-Spark-Jobs,Stages-Tasks](Images/Spark_Advanced/spark-sql-HashAggregateExec.png)](https://www.youtube.com/watch?v=a-yrOubLFn0&feature=youtu.be "CEU - Apache Spark: Jobs, Stages and Tasks")
 
 
 * * *
