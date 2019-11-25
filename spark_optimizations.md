@@ -21,8 +21,11 @@ layout: default
 **2) Deep Dive into Spark SQL’s Catalyst Optimizer. Click img!**
 [![dbricks](Images/Spark_Advanced/dbricks.png)](https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html "Deep Dive into Spark SQL’s Catalyst Optimizer")
 
-
 * * *
+
+
+#### Spark Architecture
+
 
 #### Sourcers/Credits:
 To be completed
