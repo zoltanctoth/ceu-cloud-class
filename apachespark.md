@@ -230,6 +230,31 @@ def whats_on_the_telly(penguin=None):
 - If the file is larger than 1 block, the streamer will reach out to the Name Node again for a new block allocation (may assign a different Data Node) - so the next block might go to a different Data Node.
 - Once writing of the file is finished, the Name Node will commit all the changes
 
+#### Fault Tolerance
+- If some Data Nodes fail, what happens to your file?
+- Hadoop creates a back up copy of each block and keeps it on some other Data Nodes
+- If one copy is not available, you can read it from another copy
+- In Hadoop we call this **replication factor = 2**
+- We can set this replication factor on file to file basis and can change it even after creating a file 
+- Replication factor of 2 will create 2 copies of each block and Hadoop will keep these two blocks on two different machines
+- Typically we set this replication faoctor to 3
+
+> What happens if the entire rack fails?
+- All three copies would be gone
+- Now, you can configure Hadoop to be Rack Aware - then Hadoop wil place at least 1 copy in a different rack to protect you from rack failures
+- Each Data Node sends a periodic heartbeat to Name Node and spot all Data Nodes that failed
+- In such case the Name Node will initiate the replication of the block and bring it back to three replicas
+- So the Name Node continously tracks the replication of each block and initiates replication when necessary
+- The problem is that replication factor reduces the storage capacity of your cluster and increases the cost
+- Hadoop offers Storage Policies and Erasure Coding as an alternative to replication - however replication is the traditional method
+- High Availability refers to the uptime of the system - shows the percentage of time the service is up. 
+- every enterprise wants a 99.999% uptime for their critical systems 
+- So note that block failures do not take your cluster down, do not affect availability
+- However, when Name Node fails we cannot use the Hadoop cluster - we cannot read/write anything to the cluster
+- So the Name Node is a single point of failure SPOF in the Hadoop cluster
+- So we want to be protected against Name Node failures - the solution is Backup
+- In this case we need to make a backup of the HDFS Namespace information and the standby Name Node machine 
+
 #### HDFS Goals
  **Hardware Failure**
 Hardware failure is the norm rather than the exception. An HDFS instance may consist of hundreds or thousands of server machines, each storing part of the file system’s data. The fact that there are a huge number of components and that each component has a non-trivial probability of failure means that some component of HDFS is always non-functional. Therefore, detection of faults and quick, automatic recovery from them is a core architectural goal of HDFS.
