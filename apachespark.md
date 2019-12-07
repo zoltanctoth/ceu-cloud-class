@@ -209,10 +209,22 @@ def whats_on_the_telly(penguin=None):
 <img src="https://2.bp.blogspot.com/-w7KeAnwWnBQ/WfYBJzgtvQI/AAAAAAAAAMk/D58SpZfK7lkJ8QnKnQZW268mKzRvuOOnACLcBGAs/s1600/HadoopStack.png" width="1000"></p>
 
 #### Introduction
-The Hadoop Distributed File System (HDFS) is a distributed file system designed to run on commodity hardware. It has many similarities with existing distributed file systems. However, the differences from other distributed file systems are significant. 
-- HDFS is highly fault-tolerant and is designed to be deployed on low-cost hardware
-- HDFS provides high throughput access to application data and is suitable for applications that have large data sets
-- HDFS relaxes a few POSIX requirements to enable streaming access to file system data
+- HDFS is a distributed file system - think of it as a bunch of computers networked together that form a cluster
+- HDFS is designed to have a master-slave architecture, there is one master and slaves
+- The Hadoop master is called the Name Node. The name "Name Node" is telling - it **stores names and manages file system namespace**
+- Slaves are called Data Node - The name "Data Node" is telling - **it manages the data of the file**
+- since HDFS is a File System - we can create directories and files using HDFS
+
+>Q: What happens when we create a file in HDFS?
+- The Hadoop Client will send the request to the Name Node saying "Hey, I'd like to create this file"
+    - The Client will also provide the Client directory name and the file name
+- When receiving the request, the Name Node will perform various checks e.g whether the directory already exists / not, whether the client has the right permissions or not to create the file etc. 
+  - Name Node can perform these checks because it maintains an image of the entire HDFS namespace in memory (We call it **in memory fsimage** or file system image)
+- If all the checks passed then the Name Node will create an entry for the new file and return success (to the client) so the file name creation ended, however it is empty.
+- We have not started writing data to the file yet
+
+  
+
 
 #### HDFS Goals
  **Hardware Failure**
