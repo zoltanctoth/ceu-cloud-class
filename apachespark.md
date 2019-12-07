@@ -222,9 +222,13 @@ def whats_on_the_telly(penguin=None):
   - Name Node can perform these checks because it maintains an image of the entire HDFS namespace in memory (We call it **in memory fsimage** or file system image)
 - If all the checks passed then the Name Node will create an entry for the new file and return success (to the client) so the file name creation ended, however it is empty.
 - We have not started writing data to the file yet
-
-  
-
+- The vlient will create an fs data output stream and start writing data to it (hadoop streamer class - it buffers the data locally until you have a reasonable amount of data) - We call this a block. An HDFS data block.
+- These HDFS block reaches out to Name Node asking for a block allocation (Asking the Name Node "Hey where do I store this block?")
+- The Name Node doesn't store data, however it knows the amount of free disk space at each data node so it assigns a data node to store that block (128 MB . block usually - you can change it)
+- So the Name Node will send back the data node name to the streamer
+- Now the streamer knows where to send the data block and it sends it to the Data Node
+- If the file is larger than 1 block, the streamer will reach out to the Name Node again for a new block allocation (may assign a different Data Node) - so the next block might go to a different Data Node.
+- Once writing of the file is finished, the Name Node will commit all the changes
 
 #### HDFS Goals
  **Hardware Failure**
