@@ -203,7 +203,7 @@ Here is a list of some of the more important AWS services for your reference. We
 -    `Amazon transcribe` - Speech recognition
 
 **Analytics:**
--    `Athena` - SQL queries ins S3 buckets, serverless
+-    `Athena` - SQL queries in S3 buckets, serverless
 -    `EMR` - elastic map reduce - processing large amounts of data, chops data up for analysis
 -    `Kinesis` - solutions architect highlight, ingesting large amounts data
 -    `Kinesis Video streams` - ingesting streams and analyze    
@@ -264,11 +264,11 @@ Here is a list of some of the more important AWS services for your reference. We
   - If you upload a file you are able to read it immediately, you are able to read it straight after writing to it -> you are doing a PUT of that object into S3
 - Eventual consistency for overwrite PUTS and DELETES
 - If you update that object / delete == eventual consistency
-- If you udate an existing file/ delete a file and read it immediately you may get the older version or not. Changes to objects can take some time to propagate. 
+- If you update an existing file/ delete a file and read it immediately you may get the older version or not. Changes to objects can take some time to propagate. 
 
 ### S3 Guarantees:
 - Built for 99.99% availability for the S3 platform
-- Amazon guarantees 99.999999999% durability for S3 information (Tip: 11 9s!)
+- Amazon guarantees 99.999999999% durability for S3 information (Note: 11 9s!)
 
 ### S3 Features Overview:
 - Tiered Storage Available
@@ -466,7 +466,7 @@ Amazon EBS allows you to create storage volumes and attach them Amazon EC2 insta
 **Google Data Center, The Dalles, Oregon ([source](http://en.wikipedia.org/wiki/File:Google_Data_Center,_The_Dalles.jpg)):**
 ![Image of a data center](Images/AWS/DataCenter.jpg)
 
-- Since we are going to create an Amazon instance that is running a Linux operating system you will need to use your knowledge of working at a Linux command line. For reference, look up your notes from the Different Shapes of Data class. 
+- Since we are going to create an Amazon instance that is running a Linux operating system you will need to use your knowledge of working in a Linux command line. For reference, look up your notes from the Different Shapes of Data class. 
 
 ### Creating an account
 **(You do not need to create an account for this course, but this is how you would do it:)**
@@ -554,7 +554,7 @@ Now create your EC2 instance and later attach this Security Group to it by click
   - For example, if you rent an 8-core machine with 1Tb of disk, and 64Gb of RAM, once you start that machine you will be charged an hourly rate for as long as it is running. 
     - Even if you do not use it much. 
     - Even if you do not log into it at all! 
-    - You have reserved it, it is being run for you, that resource can not be rented to someone else, so you must pay for it. 
+    - You have reserved it, it is being run for you, that resource cannot be rented to someone else, so you must pay for it. 
 - To get a sense of how much a particular resource costs, spend some time examining the [AWS EC2 Pricing](https://aws.amazon.com/ec2/pricing/) list. Here is an even better site for checking EC2 prices: https://ec2instances.info/ 
 - Remember that `Region` can influence cost, so once you decide on the type of resources you need you should compare the cost of that resource across multiple regions. 
 - The pricing list is an extremely long page, broken down into several major categories: 
@@ -580,7 +580,7 @@ Now create your EC2 instance and later attach this Security Group to it by click
       - For the number of CPUs we are told both the number of vCPUs (virtual CPUs) and ECUs ([Elastic Compute Units](http://aws.amazon.com/ec2/faqs/#What_is_an_EC2_Compute_Unit_and_why_did_you_introduce_it)). 
       - A virtual CPU is a reference to the number of physical CPUs that are available on the machine. 
       - It is referred to as `virtual` because we are actually creating a [virtual machine](http://en.wikipedia.org/wiki/Virtual_machine) when we create an EC2 instance. 
-      - This virtualization allows Amazon to create a set of smaller virtual computers of varying specifications from larger phyiscal computers that they maintain. 
+      - This virtualization allows Amazon to create a set of smaller virtual computers of varying specifications from larger physical computers that they maintain. 
       - An ECU is a unit of computing that is meant to allow more accurate comparisons between machines that might have different generations of CPUs, recognizing that not all CPUs are created equally. 
       - The storage descriptions for EC2 instances may use the terms: `EBS only`, `SSD`, and `HDD`.  
 - We will discuss EBS (Elastic Block Storage) in more detail below, but briefly EBS allows us to define one or more storage volumes of almost any size we wish. The hardware details of that storage will be handled for us behind the scenes. 
@@ -664,7 +664,7 @@ Now create your EC2 instance and later attach this Security Group to it by click
 - We will select `Amazon Linux 2 AMI (HVM), SSD Volume Type ` AMI as our starting point
 - The `Quick Start` AMIs section is a relatively short list of basic systems that have been chosen by Amazon as common starting points
 - These have some degree of "official" support and testing on AWS
-- The `My AMIs` section contains AMIs that you have created youself, perhaps using a `Quick Start` or `Community AMI` as a starting point
+- The `My AMIs` section contains AMIs that you have created yourself, perhaps using a `Quick Start` or `Community AMI` as a starting point
 - For example, you might start with an Ubuntu AMI and install all of the bioinformatics software and other infrastructure you need to run an analysis pipeline
 - You could then store this configured machine as an AMI to save your work
 - Having an AMI allows you to share a complete system configuration, and to fire up a cluster of identical instances that are ready to go
@@ -771,7 +771,7 @@ Now create your EC2 instance and later attach this Security Group to it by click
 - Once you launch the AMI though you can not change the `Root device type`
 - There are [pros and cons](http://stackoverflow.com/questions/3630506/benefits-of-ebs-vs-instance-store-and-vice-versa) to both `EBS` and `Instance Store` for the root device type
 - The `Instance Store` type may have a performance advantage but the `EBS` type is more flexible and safer from the perspective of accidental data loss
-- For a beginniner just starting to use AWS, we recommend `EBS`
+- For a beginner just starting to use AWS, we recommend `EBS`
 - A bioinformatics analysis instance might use an `EBS` volume for `Root device type`, use an `Instance Store` volume for `/tmp` where all temporary files and staging of data will occur, and use an additional `EBS` volume to store the final results
 - Notice that this is how we have configured the example instance in this tutorial
 - You can examine the types of volumes for an existing Instance in the EC2 dashboard by selecting a running Instance and examining the `Root device type` value
@@ -788,7 +788,7 @@ Now create your EC2 instance and later attach this Security Group to it by click
 ***
 
 ### Step 6. Configuring a Security Group
-**(Dont do this here, create a Security Group separately and attach that to this EC2 Instance as explained above.)**
+**(Don't do this here, create a Security Group separately and attach that to this EC2 Instance as explained above.)**
 - A `Security Group` controls how services and users can access your instance once it is running
 - When you launch a new instance you can choose to configure a new Security Group and use it or select one that you created previously
 - You can also select a `default` security group
@@ -908,7 +908,7 @@ ls
 - To modify an instance in the EC2 console you can select that instance (or a series instances) using the blue check boxes at the left
 - You can then perform various tasks using the `Actions` menu
 - You can also right click on a single instance to obtain a similar menu
-- Before logging into this instance lets take a momemt to examine various important sections of the EC2 console in particular the `EC2 Dashboard`, `Volumes`, `Security Groups`, and `Key Pairs`
+- Before logging into this instance lets take a moment to examine various important sections of the EC2 console in particular the `EC2 Dashboard`, `Volumes`, `Security Groups`, and `Key Pairs`
 
 ***
 **Step 10. EXAMPLE! Console view of a new Instance (Please don't replicate this instance here)**
@@ -963,7 +963,7 @@ https://aws.amazon.com/amazon-linux-ami/...
 - Now that we are in, let's set up NGINX 
 - Run `sudo apt update` to apply all updates to your os.
 - To install NGINX run: `sudo apt install nginx`
-- Now you will have an html folder so `cd /var/www/html` and list contencts: `ls`
+- Now you will have an html folder so `cd /var/www/html` and list contents: `ls`
 - You will see one `.html` file
 - Use your preferred text editor e.g Nano, Vim, Emacs and make some changes to the html file (e.g `nano`)
 - Now you will see the changes if you visit your website
@@ -993,7 +993,7 @@ https://aws.amazon.com/amazon-linux-ami/...
 - When you are all done, the `EC2 Dashboard` should show `0` for all resource types except `Security Groups` where a single default security configuration will remain
 
 ### Further reading (Optional)
-- This is a basic introduction to AWS cloud computing that assumes all configuration of the instance will occur within the AWS EC2 console of your web browser and all configuration of the Ubuntu Linux system will occur by the user manually executing commands and perhaps saving the outcome as a cusom AMI
+- This is a basic introduction to AWS cloud computing that assumes all configuration of the instance will occur within the AWS EC2 console of your web browser and all configuration of the Ubuntu Linux system will occur by the user manually executing commands and perhaps saving the outcome as a custom AMI
 - For large scale computing and complex deployments of compute infrastructure on the cloud these methods will not be sustainable
 - Here is a list of more advanced topics for discussion on how to move beyond the console and automate configuration of your system:
 - Use of the [AWS command line interface (CLI)](http://aws.amazon.com/cli/)
@@ -1077,7 +1077,7 @@ A Region is a physical location in the world where we have multiple Availability
 #### What is an Availability Zones ?
 
 ** Answer
-AZs consist of one or more discrete data centers, each with redundant power, networking,and connectivity, housed in separate facilities.
+AZs consist of one or more discrete data centers, each with redundant power, networking, and connectivity, housed in separate facilities.
 
 #### What is an Edge Location?
 
@@ -1142,7 +1142,7 @@ charged a retrieval fee.
 Charged for 
 - Storage
 - Requests
-- Storage Management Pricing (the tags you use on your data, added on the metadat of your files)
+- Storage Management Pricing (the tags you use on your data, added on the metadata of your files)
 - Data Transfer Pricing (when you transfer data from one region to another)
 - Transfer Acceleration
 
