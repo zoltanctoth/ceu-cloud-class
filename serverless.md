@@ -24,7 +24,7 @@ Data on the web is growing exponentially. All of us today use Google as our firs
 Web scraping is a technique for converting the data present in unstructured format (HTML tags) over the web to the structured format which can easily be accessed and used.
 
 #### How to Scrape?
-**There are several ways of scraping data from the web. Some of the popular ways are:**
+**There are several ways for scraping data from the web. Some of the popular ways are:**
 
 - Human Copy-Paste: This is a slow and efficient way of scraping data from the web. This involves humans themselves analyzing and copying the data to local storage.
 
