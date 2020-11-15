@@ -1,3 +1,6 @@
+
+# HASHING
+
 # Let's build a Simple Hashing functions from Scratch
 naivehash <- function(val) sum(utf8ToInt(val)) %% 100 
 naivehash("Hello Hashed Message!")
@@ -30,8 +33,21 @@ decoded = caesar(coded, shift=1, decrypt = TRUE)
 print(paste("Decoded message:", decoded))
 
 
-# Asymmetric Encryption
+# Asymmetric / Public Key Encryption (PKI)
 # ---------------------
+
+# If you are using A Mac:
+# In a terminal: brew install openssl
+# 
+# Uncomment these lines:
+# Sys.setenv(LDFLAGS="-L/usr/local/opt/openssl@1.1/lib",
+#            CPPFLAGS="-I/usr/local/opt/openssl@1.1/include",
+#            PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig",
+#            LIBRARY_PATH=paste(Sys.getenv("LIBRARY_PATH"),
+#                                                "/usr/local/opt/openssl@1.1/lib",
+#                                                sep=""))
+# 
+# If you are using Linux: Make sure openssl-dev is installed
 
 install.packages('PKI')
 library(PKI)
