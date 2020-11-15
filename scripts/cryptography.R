@@ -97,6 +97,7 @@ print(decrypted.again)
 # 3. Send one encrypted question to your peer (both of you).
 # 4. Send an encrypted answer back to your peer and decrypt the answer. 
 
-# Bonus: 
-# Let's make this even more secure. Every message must be encoded by both parties keypairs. 
-# How could you make such a solution work? Think about it and implement a solution with your peer.
+# HINT: You will need to read and write using binary files, like described here:
+# https://www.tutorialspoint.com/r/r_binary_files.htm
+
+
