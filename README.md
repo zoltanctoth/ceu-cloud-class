@@ -23,7 +23,7 @@ Welcome to the course.
 
 ## Syllabus
 
-    Data Engineering 2: Big Data and Cloud Computing
+    Data Engineering 3: Big Data and Cloud Computing
 
 **Prerequisites:** 
 
@@ -32,6 +32,11 @@ Welcome to the course.
 > SQL Knowledge
 >
 > Linux command-line knowledge 
+
+# This site has moved!
+
+**The contents of this site have moved to <a href='https://bigdata-cloud.github.io/'>https://bigdata-cloud.github.io/</a>. Please update your bookmarks.**
+
 
 **Course description**
 This is a technology-focused course on cloud and distributed data analytics systems. Current Data Analytics Architectures often work with an amount of data that cannot be fit on a single computer. Even companies that work with reasonably small datasets are expecting rapid growth, so they prefer to use data analytics solutions that are easy to distribute and scale when needed. In this course you will get an overview and hands-on experience with modern distributed data-analytics (a.k.a. Big Data) systems and Serverless Solutions in the cloud. You will see how cloud computing can help you quickly iterate and scale your data analytics infrastructure and how it can help you reduce operational costs. 
