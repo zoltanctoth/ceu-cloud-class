@@ -1,4 +1,3 @@
-
 # HASHING
 
 # Let's build a Simple Hashing functions from Scratch
@@ -38,7 +37,7 @@ print(paste("Decoded message:", decoded))
 
 # If you are using A Mac:
 # In a terminal: brew install openssl
-# 
+
 # Uncomment these lines:
 # Sys.setenv(LDFLAGS="-L/usr/local/opt/openssl@1.1/lib",
 #            CPPFLAGS="-I/usr/local/opt/openssl@1.1/include",
@@ -53,12 +52,12 @@ install.packages('PKI')
 library(PKI)
 
 # Create a keypair and save them in PEM format to variables
-key <- PKI.genRSAkey(bits = 2048L)
+keypairprovider <- PKI.genRSAkey(bits = 2048L)
 
-prv.pem <- PKI.save.key(key, private=TRUE)
+prv.pem <- PKI.save.key(keypairprovider, private=TRUE)
 print(prv.pem)
 
-pub.pem <- PKI.save.key(key, private=FALSE)
+pub.pem <- PKI.save.key(keypairprovider, private=FALSE)
 print(pub.pem)
 
 # Extract the Public key from the public key's PEM format
@@ -96,8 +95,17 @@ print(decrypted.again)
 # 2. Generate and exchange public keys
 # 3. Send one encrypted question to your peer (both of you).
 # 4. Send an encrypted answer back to your peer and decrypt the answer. 
+# 4. SAVE IT TO DISK 
+  # HINT: You will need to read and write using binary files, like described here:
+  # https://www.tutorialspoint.com/r/r_binary_files.htm
 
-# HINT: You will need to read and write using binary files, like described here:
-# https://www.tutorialspoint.com/r/r_binary_files.htm
+encrypted.data <- PKI.encrypt(charToRaw("Hello, asymmetric encryption, again!"), pub.key.loaded)
+write.binfile <- file("encrypted_data_file.dat", "wb")
+writeBin(encrypted.data, write.binfile)
+close(write.binfile)
 
+read.binfile <- file("encrypted_data_file.dat", "rb")
+reread.encrypted.data <- readBin(read.binfile, raw(), n=999999999) # 'n' says how many bytes
+close(read.binfile)
 
+encrypted.data == reread.encrypted.data
