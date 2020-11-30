@@ -7,7 +7,7 @@ output: html_notebook
 Latest Stable Version:
 ```{r}
 # On Mac/Linux:
-#install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"))
+# install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"))
 
 # On Windows you may need:
 #install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"), INSTALL_opts = "--no-multiarch")
@@ -55,7 +55,7 @@ write("This is a simple text file", "my_content.txt")
 
 Send the text file to your AWS S3 bucket
 ```{r}
-put_object("my_content.txt", bucket = bucket_name)
+put_object(file="my_content.txt", bucket = bucket_name)
 ```
 Now you can now see the file on AWS.
 

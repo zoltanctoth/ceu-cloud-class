@@ -17,13 +17,13 @@ output:
 library(rvest)
 
 # Specifying the URL 
-url <- 'https://www.imdb.com/title/tt0111161/?ref_=adv_li_tt'
+url <- 'https://edition.cnn.com/2020/11/30/politics/donald-trump-joe-biden-coronavirus-economy/index.html'
 
 #Reading the HTML code from the website
 webpage <- read_html(url)
 
 #Using CSS selectors to scrape the rankings section
-description_html <- html_nodes(webpage,'#titleStoryLine p span')
+description_html <- html_nodes(webpage,'.zn-body__paragraph')
 
 #Converting the ranking data to text
 description <- html_text(description_html)

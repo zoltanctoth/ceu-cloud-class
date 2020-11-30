@@ -54,7 +54,7 @@ vec4 <- synthesize("Forget that! There are places in this world that aren't made
 
 ```{r}
 library("tuneR")
-#setWavPlayer("afplay")
+#setWavPlayer("afplay") <- execute this on a Mac
 play(vec)
 ```
 
