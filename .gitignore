@@ -4,3 +4,12 @@
 .Ruserdata
 /scripts/solutions
 
+Serverless_Rmds/*.csv
+accessKeys.csv
+
+my_content_s3.txt
+id_rsa
+id_rsa.pub
+
+.DS_Store
+encrypted*.dat
