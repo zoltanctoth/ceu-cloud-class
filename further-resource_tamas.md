@@ -36,27 +36,27 @@ This specialization gives current or aspiring IT professionals an overview of th
 
 #### A Cloud Guru
 
-This websites seems to offer one of the best courses and widest range of varieties in AWS realted courses.  It is based on subscription and not separate prices for each courses. There is a free subscription which contains limited number of courses and lack of quizzes and practice exams. Meanwhile, the basic subscription plan is around USD 400 for the year. The AWS related courses include: Amazon S3 Basics, Deployment Pipelines in AWS (beginner courses) and other intemediate or advanced courses as well.
+This websites seems to offer one of the best courses and widest range of varieties in AWS realted courses.  It is based on subscription and not separate prices for each courses. There is a free subscription which contains limited number of courses and lack of quizzes and practice exams. Meanwhile, the basic subscription plan is around $400 for the year. The AWS related courses include: Amazon S3 Basics, Deployment Pipelines in AWS (beginner courses) and other intemediate or advanced courses as well.
 
 * Website: https://acloudguru.com/browse-training?vendors%5B%5D=amazon-web-services
-* Price: free subscription, preferred subscription plan is around USD 400 for a year (could be paid in one installment or monthly)
+* Price: free subscription, preferred subscription plan is around $400 for a year (could be paid in one installment or monthly)
 
 #### Udemy - AWS Certified Solutions Architect - Associate 2020
 
 The program covers a bundle of concepts related to AWS, giving a deeper understanding of the platform's elements to the individuals. Ryan Kroonenburg - a certified AWS Solutions Professional who is also the creator of this program, has explained every concept in a detailed manner.
 
 Through this course, students will get to explore:
-•	Databases
-•	EMR
-•	Route53
-•	S3
-•	EC2
-•	CloudFront
-•	Load Balancing
-•	Auto Scaling
-•	RedShift
-•	RDS
-•	VPC DynamoDB
+* Databases
+* EMR
+* Route53
+* S3
+* EC2
+* CloudFront
+* Load Balancing
+* Auto Scaling
+* RedShift
+* RDS
+* VPC DynamoDB
 
 * Website: https://www.udemy.com/course/aws-certified-solutions-architect-associate/
 * Price:  $152 
