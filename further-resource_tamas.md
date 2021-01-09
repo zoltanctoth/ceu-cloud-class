@@ -66,7 +66,9 @@ Through this course, students will get to explore:
 
 #### Jefferson Frank Blog
 
-Jefferson Frank is the only global recruitment agency dedicated solely to AWS technology. They started a blog with information on recruitment as well as the technical aspects of AWS. Explaining and describing each service of AWS. If you would like to pursue a career in the area of AWS, it would also give you tips and insights.
+Jefferson Frank is the only global recruitment agency dedicated solely to AWS technology. Jefferson Frank has been servicing the AWS recruitment market, thereby indicating their proficiency in different aspects of AWS. They started a blog with information on recruitment as well as the technical aspects of AWS, explaining and describing each service of AWS.
+
+The posts on Jefferson Frank AWS Blog also provide information on new trends in AWS Cloud from a business perspective. In addition, readers can also find posts on determining the ideal action for different scenarios, such as the impact of wrong cloud hire on businesses. The blog also helps AWS professionals find new avenues for improving their specialization. 
 
 * Website https://www.jeffersonfrank.com/insights
 
