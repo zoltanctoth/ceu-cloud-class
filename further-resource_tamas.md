@@ -4,7 +4,9 @@ layout: default
 
 # Further Resources for the Class
 
-This focuses on the materials you can pick on to deepen your knowledge in the subjects we covered in the class.
+This focuses on the materials you can pick on to deepen your knowledge in the subjects we covered in the class. 
+
+Furthermore, materials are from free to quite expensive and from beginner level to more advanced. It was important to include this, as the students of Data Engineering 3 class were on different levels. 
 
 ## Cloud Computing and AWS 
 
