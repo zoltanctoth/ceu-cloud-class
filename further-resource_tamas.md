@@ -46,17 +46,17 @@ This websites seems to offer one of the best courses and widest range of varieti
 The program covers a bundle of concepts related to AWS, giving a deeper understanding of the platform's elements to the individuals. Ryan Kroonenburg - a certified AWS Solutions Professional who is also the creator of this program, has explained every concept in a detailed manner.
 
 Through this course, students will get to explore:
- * Databases
- * EMR
- * Route53
- * S3
- * EC2
- * CloudFront
- * Load Balancing
- * Auto Scaling
- * RedShift
- * RDS
- * VPC DynamoDB
+1. Databases
+2. EMR
+3. Route53
+4. S3
+5. EC2
+6. CloudFront
+7. Load Balancing
+8. Auto Scaling
+9. RedShift
+10. RDS
+11. VPC DynamoDB
 
 * Website: https://www.udemy.com/course/aws-certified-solutions-architect-associate/
 * Price:  $152 
