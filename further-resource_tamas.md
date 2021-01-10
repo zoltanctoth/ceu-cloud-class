@@ -11,7 +11,7 @@ Furthermore, materials are from free to quite expensive and from beginner level 
 ## Cloud Computing and AWS 
 
 ### Books
-It is important to highlight that books might not be the best source of information as AWS is changing dinamically, almost on a day-to-day basis. However, the three books listed below could be really useful for either starting from the beginning, or preparing for a certificate, etc.
+It is important to highlight that books might not be the best source of information as AWS is changing dynamically, almost on a day-to-day basis. However, the three books listed below could be really useful for either starting from the beginning, or preparing for a certificate, etc.
 
 #### Amazon Web Services in Action
 
@@ -38,10 +38,10 @@ This specialization gives current or aspiring IT professionals an overview of th
 
 #### A Cloud Guru
 
-This websites seems to offer one of the best courses and widest range of varieties in AWS realted courses.  It is based on subscription and not separate prices for each courses. There is a free subscription which contains limited number of courses and lack of quizzes and practice exams. Meanwhile, the basic subscription plan is around $400 for the year. The AWS related courses include: Amazon S3 Basics, Deployment Pipelines in AWS (beginner courses) and other intemediate or advanced courses as well.
+This website seems to offer one of the best courses and widest range of varieties in AWS related courses.  It is based on subscription and not separate prices for each course. There is a free subscription which contains limited number of courses and lack of quizzes and practice exams. Meanwhile, the basic subscription plan is around $400 for the year. The AWS related courses include: Amazon S3 Basics, Deployment Pipelines in AWS (beginner courses) and other intermediate or advanced courses as well.
 
 * Website: https://acloudguru.com/browse-training?vendors%5B%5D=amazon-web-services
-* Price: free subscription, preferred subscription plan is around $400 for a year (could be paid in one installment or monthly)
+* Price: free subscription, preferred subscription plan is around $400 for a year (could be paid in one instalment or monthly)
 
 #### Udemy - AWS Certified Solutions Architect - Associate 2020
 
@@ -76,7 +76,7 @@ The posts on Jefferson Frank AWS Blog also provide information on new trends in 
 
 #### Onica Blog
 
-The hands-on involvement of Onica in real projects ensures that their AWS tutorial blog can help readers obtain practical insights. Another important factor that makes Onica one of the top AWS blogs is the multitude of posts. Every post on Onica blog helps every reader explore the modern insights, guides, and perspectives on AWS Cloud with expert guidance. Some of the most fascinating writings were the alwazs updated new announcements from AWS, as well as practical and technical sides of AWS through projects and products.
+The hands-on involvement of Onica in real projects ensures that their AWS tutorial blog can help readers obtain practical insights. Another important factor that makes Onica one of the top AWS blogs is the multitude of posts. Every post on Onica blog helps every reader explore the modern insights, guides, and perspectives on AWS Cloud with expert guidance. Some of the most fascinating writings were the always updated new announcements from AWS, as well as practical and technical sides of AWS through projects and products.
 
 * Website: https://onica.com/blog/
 
@@ -98,8 +98,8 @@ _The Book is also available as part of the O'Reilly membership program, and it's
 Mastering Apache Spark is one of the best Apache Spark books that you should only read if you have a basic understanding of Apache Spark. The book covers various Spark techniques and principles. It covers integration with third-party topics such as Databricks, H20, and Titan. The author Mike Frampton uses code examples to explain all the topics. From this book, you will also learn to use new tools for storage and processing, evaluate graph storage, and how Spark can be used in the cloud.
 
 * Website: https://www.packtpub.com/big-data-and-business-intelligence/mastering-apache-spark
-* Price: 	on the website print+e-book around $50
-	        only e-book could be as low as $5 with discounts 
+* Price: 	on the website print + e-book around $50
+	        only e-book could be as low as $5 with discount 
           
 #### Advanced Analytics with Spark: Patterns for learning from Data at Scale
 
@@ -146,7 +146,7 @@ If you are interested in the very details of Apache Spark, this is the online bo
 
 #### Whizlabs – Online Guide
 
-This Online Guide is similar to the one we used in class. Hoever, details could be found here as well that could be useful for us.
+This Online Guide is similar to the one we used in class. However, details could be found here as well that could be useful for us.
 
 * Website: https://www.whizlabs.com/blog/learn-apache-spark/
 * Price: Free
