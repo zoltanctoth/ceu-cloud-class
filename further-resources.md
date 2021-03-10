@@ -4,7 +4,7 @@ layout: default
 
 # Further Resources for the Class
 
-This focuses on the materials you can pick on to deepen your knowledge in the subjects we covered in the class. This list was put together with the significant contribution of two CEU students, @abdu95 and @tamasstahl. 
+This focuses on the materials you can pick on to deepen your knowledge in the subjects we covered in the class. This list was put together with the significant contribution of two CEU students, [Abduvosid Malikov](https://github.com/abdu95) and [Tamas Stahl](https://github.com/tamasstahl). 
 
 ## Cloud Computing and AWS
 
