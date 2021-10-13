@@ -1,3 +1,7 @@
+# This site has moved!
+
+**The contents of this site have moved to <a href='https://ceu-cloud-class.github.io/'>https://ceu-cloud-class.github.io/</a> and this repository is not maintained anymore. Please update your bookmarks.**
+
 [Home](./README.md) | 
 [Internet](./internet.md) | 
 [AWS](./aws.md) | 
@@ -33,9 +37,7 @@ Welcome to the course.
 >
 > Linux command-line knowledge 
 
-# This site has moved!
 
-**The contents of this site have moved to <a href='https://bigdata-cloud.github.io/'>https://bigdata-cloud.github.io/</a>. Please update your bookmarks.**
 
 
 **Course description**
