@@ -25,13 +25,22 @@ authenticate.user <- function (df, user.name, password){
 
 # Example execution
 
+# Create initial table
 user.df <- init.table()
-user.df <- add.or.update.user(user.df, "example_user", "example_password")
-user.df <- add.or.update.user(user.df, "example_user", "example_password_2")
+
+# Add our first user
+user.df <- add.or.update.user(user.df, "first_user", "example_password")
+
+# Add a second user
+user.df <- add.or.update.user(user.df, "second_user", "example_password_2")
+
+# Update the password of our first_user
+user.df <- add.or.update.user(user.df, "first_user", "new_example_password")
 
 # EVALUATE THE RESULTS
 # These all must be TRUE
-print(nrow(user.df[user.df$password == "example_password_2",]) == 0)
-print(nrow(user.df[user.df$user.name == "example_user",]) == 1)
-print(authenticate.user(user.df, "example_user", "example_password_2"))
-print(!authenticate.user(user.df, "example_user", "example_password"))
+print(nrow(user.df[user.df$password == "example_password",]) == 0)
+print(nrow(user.df[user.df$user.name == "first_user",]) == 1)
+print(authenticate.user(user.df, "first_user", "new_example_password"))
+print(authenticate.user(user.df, "second_user", "example_password_2"))
+print(!authenticate.user(user.df, "first_user", "example_password"))

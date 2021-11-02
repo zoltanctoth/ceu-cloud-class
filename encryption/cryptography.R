@@ -26,7 +26,7 @@ print(paste("Number of possible hashes:", 16^nchar(hashed.message))) # Why? 16: 
 install.packages("caesar")
 library(caesar)
 
-coded = caesar("Message to be encoded", shift=1)
+coded = caesar("My Sensitive Message", shift=1)
 print(paste("Encoded message:", coded))
 decoded = caesar(coded, shift=1, decrypt = TRUE)
 print(paste("Decoded message:", decoded))
@@ -37,16 +37,17 @@ print(paste("Decoded message:", decoded))
 
 # If you are using A Mac:
 # In a terminal: brew install openssl
-
-# Uncomment these lines:
-# Sys.setenv(LDFLAGS="-L/usr/local/opt/openssl@1.1/lib",
-#            CPPFLAGS="-I/usr/local/opt/openssl@1.1/include",
-#            PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig",
-#            LIBRARY_PATH=paste(Sys.getenv("LIBRARY_PATH"),
-#                                                "/usr/local/opt/openssl@1.1/lib",
-#                                                sep=""))
-# 
 # If you are using Linux: Make sure openssl-dev is installed
+
+if (Sys.info()["sysname"] == 'Darwin'){
+  Sys.setenv(LDFLAGS="-L/usr/local/opt/openssl@1.1/lib",
+             CPPFLAGS="-I/usr/local/opt/openssl@1.1/include",
+             PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig",
+             LIBRARY_PATH=paste(Sys.getenv("LIBRARY_PATH"),
+                                "/usr/local/opt/openssl@1.1/lib",
+                                sep=""))
+  print('Setting up OSX environment')
+}
 
 install.packages('PKI')
 library(PKI)
@@ -77,6 +78,8 @@ print(decrypted)
 write(pub.pem, file="id_rsa.pub") # Save Public key 
 write(prv.pem, file="id_rsa")     # Save Private key
 
+# ...
+# Load back the keys
 pub.pem.loaded <- scan("id_rsa.pub", what='list', sep='\n') # Load
 prv.pem.loaded <- scan("id_rsa", what='list', sep='\n') # Load
 
@@ -99,13 +102,3 @@ print(decrypted.again)
   # HINT: You will need to read and write using binary files, like described here:
   # https://www.tutorialspoint.com/r/r_binary_files.htm
 
-encrypted.data <- PKI.encrypt(charToRaw("Hello, asymmetric encryption, again!"), pub.key.loaded)
-write.binfile <- file("encrypted_data_file.dat", "wb")
-writeBin(encrypted.data, write.binfile)
-close(write.binfile)
-
-read.binfile <- file("encrypted_data_file.dat", "rb")
-reread.encrypted.data <- readBin(read.binfile, raw(), n=999999999) # 'n' says how many bytes
-close(read.binfile)
-
-encrypted.data == reread.encrypted.data
