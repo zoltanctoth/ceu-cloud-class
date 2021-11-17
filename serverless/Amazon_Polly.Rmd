@@ -15,7 +15,12 @@ install.packages("tuneR")
 
 Set up your R w/ AWS
 ```{r}
-keyTable <- read.csv("accessKeys.csv", header = T) # accessKeys.csv == the CSV downloaded from AWS containing your Acces & Secret keys
+keyfile = list.files(path=".", pattern="accessKeys.csv", full.names=TRUE)
+if (identical(keyfile, character(0))){
+  stop("ERROR: AWS key file not found")
+} 
+
+keyTable <- read.csv(keyfile, header = T) # *accessKeys.csv == the CSV downloaded from AWS containing your Access & Secret keys
 AWS_ACCESS_KEY_ID <- as.character(keyTable$Access.key.ID)
 AWS_SECRET_ACCESS_KEY <- as.character(keyTable$Secret.access.key)
 
@@ -38,38 +43,30 @@ vec <- synthesize("Forget that! There are places in this world that aren't made 
 ```
 
 ```{r}
+library("tuneR")
+if (Sys.info()["sysname"] == 'Darwin'){
+  setWavPlayer("afplay") # execute this on a Mac
+}
+play(vec)
+```
+
+```{r}
 # synthesize some text
 vec2 <- synthesize("Forget that! There are places in this world that aren't made out of stone. That there's something inside -that they can't get to, that they can't touch! That's yours.", voice = "Ivy")
+play(vec2)
 ```
 
 ```{r}
 # synthesize some text
 vec3 <- synthesize("Forget that! There are places in this world that aren't made out of stone. That there's something inside -that they can't get to, that they can't touch! That's yours.", voice = "Matthew")
+play(vec3)
 ```
 
 ```{r}
 # synthesize some text
 vec4 <- synthesize("Forget that! There are places in this world that aren't made out of stone. That there's something inside -that they can't get to, that they can't touch! That's yours.", voice = "Salli")
-```
-
-```{r}
-library("tuneR")
-#setWavPlayer("afplay") <- execute this on a Mac
-play(vec)
-```
-
-```{r}
-play(vec2)
-```
-
-```{r}
-play(vec3)
-```
-
-```{r}
 play(vec4)
 ```
-
 
 
 

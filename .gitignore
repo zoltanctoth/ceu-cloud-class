@@ -1,11 +1,13 @@
+binary.data
+enc
+my_content.txt
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
 /scripts/solutions
 
-Serverless_Rmds/*.csv
-accessKeys.csv
+*.csv
 
 my_content_s3.txt
 id_rsa

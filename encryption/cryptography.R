@@ -70,8 +70,11 @@ bytes.to.encode = charToRaw("Hello, asymmetric encryption!")
 encrypted <- PKI.encrypt(bytes.to.encode, pub.key)
 print(encrypted)
 
+writeBin(encrypted, 'enc')
+e2 = readBin('enc', what=raw(), n=100000)
+
 # Decrypt with the private key
-decrypted <- rawToChar(PKI.decrypt(encrypted, prv.key))
+decrypted <- rawToChar(PKI.decrypt(e2, prv.key))
 print(decrypted)
 
 # Save the keys to a file, then load them back
@@ -102,3 +105,8 @@ print(decrypted.again)
   # HINT: You will need to read and write using binary files, like described here:
   # https://www.tutorialspoint.com/r/r_binary_files.htm
 
+binarydata = charToRaw('xxx')
+writeBin(binarydata, 'binary.data')
+
+x = readBin('binary.data', (), n=10000)
+print(x)

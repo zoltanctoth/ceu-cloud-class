@@ -9,17 +9,33 @@ output:
 Latest Stable Version:
 ```{r}
 # On Mac/Linux:
-# install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"))
-
-# On Windows you may need:
-#install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"), INSTALL_opts = "--no-multiarch")
-#if not working use:
-#install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"))
+if (Sys.info()["sysname"] == 'Darwin'){
+  Sys.setenv(LDFLAGS="-L/usr/local/opt/openssl@1.1/lib",
+             CPPFLAGS="-I/usr/local/opt/openssl@1.1/include",
+             PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig",
+             LIBRARY_PATH=paste(Sys.getenv("LIBRARY_PATH"),
+                                "/usr/local/opt/openssl@1.1/lib",
+                                sep=""))
+  dir.create(path = Sys.getenv("R_LIBS_USER"), showWarnings = FALSE, recursive = TRUE)
+  install.packages("xml2", configure.vars='INCLUDE_DIR=/usr/local/opt/libxml2/include/libxml2 LIB_DIR=/usr/local/opt/libxml2/lib/')
+  install.packages('curl', lib = Sys.getenv("R_LIBS_USER"))
+  install.packages('httr')
+  install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"))
+} else { # On Windows
+    install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"), INSTALL_opts = "--no-multiarch")
+    # if not working use:
+    # install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"))
+}
 ```
 
 Set up your R w/ AWS
 ```{r}
-keyTable <- read.csv("accessKeys.csv", header = T) # accessKeys.csv == the CSV downloaded from AWS containing your Acces & Secret keys
+keyfile = list.files(path=".", pattern="accessKeys.csv", full.names=TRUE)
+if (identical(keyfile, character(0))){
+  stop("ERROR: AWS key file not found")
+} 
+
+keyTable <- read.csv(keyfile, header = T) # *accessKeys.csv == the CSV downloaded from AWS containing your Access & Secret keys
 AWS_ACCESS_KEY_ID <- as.character(keyTable$Access.key.ID)
 AWS_SECRET_ACCESS_KEY <- as.character(keyTable$Secret.access.key)
 
@@ -89,7 +105,7 @@ Deleting buckets
 delete_bucket(bucket_name)
 ```
 
-Try to delete it again!
+Try to delete it again. You will see an error!
 ```{r}
 delete_bucket(bucket_name)
 ```
