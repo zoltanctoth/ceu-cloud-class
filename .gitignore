@@ -1,6 +1,21 @@
+binary.data
+enc
+my_content.txt
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
 /scripts/solutions
 
+*.csv
+
+my_content_s3.txt
+id_rsa
+id_rsa.pub
+
+.DS_Store
+encrypted*.dat
+
+ceu-cloud-bigdata-course.Rproj
+
+/data/

@@ -1,0 +1,47 @@
+---
+title: "Web Scraping with R"
+output:
+  html_document:
+    df_print: paged
+  html_notebook: default
+  pdf_document: default
+---
+
+```{r}
+#Have your SelectorGadget on Google Chrome: https://selectorgadget.com/
+
+#Loading the rvest package
+if (Sys.info()["sysname"] == 'Darwin'){
+  Sys.setenv(LDFLAGS="-L/usr/local/opt/openssl@1.1/lib",
+             CPPFLAGS="-I/usr/local/opt/openssl@1.1/include",
+             PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig",
+             LIBRARY_PATH=paste(Sys.getenv("LIBRARY_PATH"),
+                                "/usr/local/opt/openssl@1.1/lib",
+                                sep=""))
+  dir.create(path = Sys.getenv("R_LIBS_USER"), showWarnings = FALSE, recursive = TRUE)
+  install.packages("xml2", configure.vars='INCLUDE_DIR=/usr/local/opt/libxml2/include/libxml2 LIB_DIR=/usr/local/opt/libxml2/lib/')
+} else {  
+  install.packages("xml2")
+}
+install.packages("rvest")
+
+#Loading the rvest package
+library(rvest)
+
+# Specifying the URL 
+url <- 'https://edition.cnn.com/2020/11/30/politics/donald-trump-joe-biden-coronavirus-economy/index.html'
+
+#Reading the HTML code from the website
+webpage <- read_html(url)
+
+#Using CSS selectors to scrape the rankings section
+description_html <- html_nodes(webpage,'.zn-body__paragraph')
+
+#Converting the ranking data to text
+description <- html_text(description_html)
+
+print(description)
+```
+
+
+
