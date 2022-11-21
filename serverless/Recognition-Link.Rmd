@@ -1,0 +1,4 @@
+# Amazon Rekognition
+
+Take a look at this link for a great example of using Rekognition in R:
+https://cosmin-ticu.medium.com/aws-for-political-analysis-2020-romanian-parliamentary-elections-8907f2f52e5a
