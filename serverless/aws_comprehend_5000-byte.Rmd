@@ -14,7 +14,7 @@ library(ggplot2)
 
 
 # Reading txt 
-txtfile <- read_file("PATH/TO/FILE")
+txtfile <- read_file("~/Documents/CEU/ECBS-5147-Data-Engineering-2-Big-Data-and-Cloud-Computing/serverless/alice_in_wonderland-english.txt")
 
 # Cleaning - removing \n and ""
 cleanedtext <- gsub("\n", "", txtfile, fixed = TRUE)
@@ -26,17 +26,17 @@ cleanedtext <- str_replace(gsub("\\s+", " ", str_trim(cleanedtext)), "B", "b")
 byte.counter <- nchar(cleanedtext, type = "bytes")
 cat("Total bytes: " , byte.counter, "\n")
 
-xiteration <-  byte.counter %/% 5000
+xiteration <-  byte.counter %/% 4500
 cat("Number of full iterations: " , xiteration, "\n")
 
-remainder.count <- (xiteration - (byte.counter / 5000)) * -1
+remainder.count <- (xiteration - (byte.counter / 4500)) * -1
 cat("Remainder of bytes: ", remainder.count, "\n")
 
-full.iter <- byte.counter / 5000
+full.iter <- byte.counter / 4500
 cat("Full iteration: ", full.iter, "\n")
 
 five.k.iterations <- byte.counter / full.iter
-cat("5000 byte iterations: " , five.k.iterations, "\n", "\n")
+cat("4500 byte iterations: " , five.k.iterations, "\n", "\n")
 
 # Breaking the input text into character vectors of length.segm characters each
 char.segments <- function(x, segm.length){
@@ -47,7 +47,7 @@ char.segments <- function(x, segm.length){
     unname(sapply(s, paste, collapse = ''))
 }
 
-five.thousand.byte.chunk <- char.segments(cleanedtext, 5000)
+five.thousand.byte.chunk <- char.segments(cleanedtext, 4500)
 count.of.five.thousand <- nchar(five.thousand.byte.chunk, type = "bytes")
 
 # Setting up vectors
