@@ -11,6 +11,7 @@ install.packages("digest")
 library(digest)
 
 hashed.message = digest("Say hallo to a better hash!", algo="sha256")
+hashed.message
 print(paste("The SHA-256 hash is", nchar(hashed.message), "characters long"))
 print(paste("Number of possible hashes:", 16^nchar(hashed.message))) # Why? 16: The hash is in a hexadecmal format
 # Hash collision? Not likely. Check the last chart in the URL below. We are using a 64*8=
@@ -105,8 +106,3 @@ print(decrypted.again)
   # HINT: You will need to read and write using binary files, like described here:
   # https://www.tutorialspoint.com/r/r_binary_files.htm
 
-binarydata = charToRaw('xxx')
-writeBin(binarydata, 'binary.data')
-
-x = readBin('binary.data', (), n=10000)
-print(x)

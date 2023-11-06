@@ -58,13 +58,13 @@ play(vec2)
 
 ```{r}
 # synthesize some text
-vec3 <- synthesize("Forget that! There are places in this world that aren't made out of stone. That there's something inside -that they can't get to, that they can't touch! That's yours.", voice = "Matthew")
+vec3 <- synthesize("Forget that! There are places in this world that aren't made out of stone.", voice = "Matthew")
 play(vec3)
 ```
 
 ```{r}
 # synthesize some text
-vec4 <- synthesize("Forget that! There are places in this world that aren't made out of stone. That there's something inside -that they can't get to, that they can't touch! That's yours.", voice = "Salli")
+vec4 <- synthesize("Forget that! There are places in this world that aren't made out of stone. ", voice = "Salli")
 play(vec4)
 ```
 
