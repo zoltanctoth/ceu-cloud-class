@@ -3,7 +3,7 @@ profile = "black"
 honor_noqa = true
 
 [tool.pylint]
-disable = "C0111" # missing-module-docstring
+disable = "C0111, C0103" # missing-module-docstring
 
 [tool.flake8]
 ignore = "D100"

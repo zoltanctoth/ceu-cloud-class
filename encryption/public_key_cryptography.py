@@ -14,7 +14,7 @@ assert Path.exists(PUBLIC_KEY_FILE)
 # %%
 
 # Load the private key from file
-with open(PRIVATE_KEY_FILE, "r") as key_file:
+with open(PRIVATE_KEY_FILE, "r", encoding="utf8") as key_file:
     private_key = RSA.import_key(key_file.read())
 
 # Generate public key from the private key
@@ -25,7 +25,8 @@ public_key = private_key.publickey()
 short_secret_message = "My Secret Message".encode("utf-8")
 public_key_cipher = PKCS1_OAEP.new(public_key)
 encrypted_message = public_key_cipher.encrypt(short_secret_message)
-print(f"Encrypted message: {encrypted_message}")
+print(f"Encrypted message:")
+print(encrypted_message)
 
 ENCRYPTED_MESSAGE_FILE = PROJECT_FOLDER / "encrypted_message.bin"
 with open(ENCRYPTED_MESSAGE_FILE, "wb") as f:
