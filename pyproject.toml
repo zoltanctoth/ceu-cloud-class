@@ -1,0 +1,9 @@
+[tool.isort]
+profile = "black"
+honor_noqa = true
+
+[tool.pylint]
+disable = "C0111" # missing-module-docstring
+
+[tool.flake8]
+ignore = "D100"
