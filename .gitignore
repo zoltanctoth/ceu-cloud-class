@@ -1,11 +1,3 @@
-binary.data
-enc
-my_content.txt
-.Rproj.user
-.Rhistory
-.RData
-.Ruserdata
-/scripts/solutions
 
 *.csv
 
@@ -16,6 +8,7 @@ id_rsa.pub
 .DS_Store
 encrypted*.dat
 
-ceu-cloud-bigdata-course.Rproj
-
 /data/
+
+my_keypair
+my_keypair.pub
