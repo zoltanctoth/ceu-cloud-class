@@ -2,10 +2,14 @@
 import hashlib
 
 # %%
-print("Hello, 안녕하세요, ¡Árvíztűrő tükörfúrógép! @ 🏫📚💻🎓")
+message = "Hello, 안녕하세요, ¡Árvíztűrő tükörfúrógép! @ 🏫📚💻🎓"
+print(message)
+# %%
+bytestring = "Hello, 안녕하세요, ¡Árvíztűrő tükörfúrógép! @ 🏫📚💻🎓".encode("utf-8")
+print(bytestring)
 
 # %%
-print("Hello, 안녕하세요, ¡Árvíztűrő tükörfúrógép! @ 🏫📚💻🎓".encode("utf-8"))
+print("Say hi again! " + bytestring.decode("utf-8"))
 
 # %%
 
@@ -20,12 +24,10 @@ print(naivehash("Hello Hashed Message 2!"))
 
 # %%
 # Hashing using SHA-256
-hashed_message = hashlib.sha256(
-    "Say Hallo to a better hash!".encode("utf-8")
-).hexdigest()
+bytestring = "My message to the world: Say Hällo to a better hash!".encode("utf-8")
+print(f"Hashed message: {bytestring}")
+
+hashed_message = hashlib.sha256(bytestring).hexdigest()
 print(hashed_message)
 print("The SHA-256 hash is {} characters long".format(len(hashed_message)))
 print("Number of possible hashes: {}".format(16 ** len(hashed_message)))
-
-
-# %%
