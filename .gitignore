@@ -12,3 +12,6 @@ encrypted*.dat
 
 my_keypair
 my_keypair.pub
+
+encrypted_message.bin
+
