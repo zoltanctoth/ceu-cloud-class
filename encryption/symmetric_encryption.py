@@ -1,5 +1,4 @@
 # %%
-
 from caesarcipher import CaesarCipher
 
 # %%

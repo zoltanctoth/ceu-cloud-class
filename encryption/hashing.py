@@ -2,30 +2,36 @@
 import hashlib
 
 # %%
-print("Hello, 안녕하세요, ¡Árvíztűrő tükörfúrógép! @ 🏫📚💻🎓")
+message = "Hello, 안녕하세요, ¡Árvíztűrő tükörfúrógép! @ 🏫📚💻🎓"
+print(message)
+# %%
+bytestring = "Hello, 안녕하세요, ¡Árvíztűrő tükörfúrógép! @ 🏫📚💻🎓".encode("utf-8")
+print(bytestring)
 
 # %%
-print("Hello, 안녕하세요, ¡Árvíztűrő tükörfúrógép! @ 🏫📚💻🎓".encode("utf-8"))
+print("Say hi again! " + bytestring.decode("utf-8"))
 
 # %%
 
 
-# Simple hashing function equivalent to the R example
 def naivehash(val):
-    return sum(ord(c) for c in val) % 100
+    return str(sum(ord(c) for c in val) % 100)
 
 
-print(naivehash("Hello Hashed Message!"))
-print(naivehash("Hello Hashed Message 2!"))
+print("Hash of 'Hello Hashed Message!':   " + naivehash("Hello Hashed Message!"))
+print("Hash of 'Hello Hashed Message 2!': " + naivehash("Hello Hashed Message 2!"))
 
 # %%
 # Hashing using SHA-256
-hashed_message = hashlib.sha256(
-    "Say Hallo to a better hash!".encode("utf-8")
-).hexdigest()
-print(hashed_message)
-print("The SHA-256 hash is {} characters long".format(len(hashed_message)))
-print("Number of possible hashes: {}".format(16 ** len(hashed_message)))
+bytesstring = "My message to the world: Say Hällo to a better hash!".encode("utf-8")
+print("Original message: ")
+print(bytestring)
 
+hashed_message = hashlib.sha256(bytestring).hexdigest()
+print()
+print("Hash: " + hashed_message)
 
 # %%
+
+print(f"The SHA-256 hash is {len(hashed_message)} characters long")
+print(f"Number of possible hashes: {16 ** len(hashed_message)}")
