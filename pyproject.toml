@@ -3,7 +3,23 @@ profile = "black"
 honor_noqa = true
 
 [tool.pylint]
-disable = "C0111, C0103" # missing-module-docstring
+disable = "C0111, C0103, W0718, C0413, C0411, W1514" # missing-module-docstring
 
 [tool.flake8]
-ignore = "D100"
+ignore = "D100, E401, E402"
+
+
+[tool.mypy]
+exclude = ['venv/*', 'serverless/*']
+
+disallow_untyped_defs = true  # Disallows defining functions without type annotations or with incomplete type annotations.
+disallow_any_unimported = false # Disallows importing objects whose type is Any from modules that do not have an explicit annotation.
+warn_return_any = true # Warns if a function whose return type is not annotated returns an expression of type Any.
+no_implicit_optional = true # Disallows implicit Optional types in function signatures.
+check_untyped_defs = true # Type-checks the interior of functions without type annotations.
+show_error_codes = true # Shows the error codes in the error messages.
+warn_unused_ignores = true # Warns about unused '# type: ignore' comments.
+ignore_missing_imports = true # Ignores imports that are missing a type annotation.
+ignore_missing_imports_per_module = true # This is a workaround for https://github.com/python/mypy/issues/10709
+strict_equality = true # Disallows comparing an expression of type Any to a literal, as this is often a bug.
+

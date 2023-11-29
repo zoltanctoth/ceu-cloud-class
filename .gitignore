@@ -1,7 +1,7 @@
 
 *.csv
 
-my_content_s3.txt
+my_content*.txt
 id_rsa
 id_rsa.pub
 
