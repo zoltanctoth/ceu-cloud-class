@@ -1,8 +1,9 @@
 import datetime
-import os
-import requests
-import boto3
 import json
+import os
+
+import boto3
+import requests
 
 # SUBJECT DATE
 DATE_PARAM = "2022-10-28"
@@ -11,29 +12,31 @@ date = datetime.datetime.strptime(DATE_PARAM, "%Y-%m-%d")
 # Wikimedia API URL formation
 # See https://wikimedia.org/api/rest_v1/#/Edited%20pages%20data/get_metrics_edited_pages_top_by_edits__project___editor_type___page_type___year___month___day_
 url = f"https://wikimedia.org/api/rest_v1/metrics/edited-pages/top-by-edits/en.wikipedia/user/content/{date.strftime('%Y/%m/%d')}"
-print(f'Requesting REST API URL: {url}')
+print(f"Requesting REST API URL: {url}")
 
 # Getting response from Wikimedia API
 wiki_server_response = requests.get(url)
 wiki_response_status = wiki_server_response.status_code
 wiki_response_body = wiki_server_response.text
 
-print(f'Wikipedia REST API Response body: {wiki_response_body}')
-print(f'Wikipedia REST API Response Code: {wiki_response_status}')
+print(f"Wikipedia REST API Response body: {wiki_response_body}")
+print(f"Wikipedia REST API Response Code: {wiki_response_status}")
 
 # Check if response status is not OK
 if wiki_response_status != 200:
-    print(f"Received non-OK status code from Wiki Server: {wiki_response_status}. Response body: {wiki_response_body}")
+    print(
+        f"Received non-OK status code from Wiki Server: {wiki_response_status}. Response body: {wiki_response_body}"
+    )
 
 # Save Raw Response and upload to S3
-RAW_LOCATION_BASE = 'data/raw-edits'
+RAW_LOCATION_BASE = "data/raw-edits"
 os.makedirs(RAW_LOCATION_BASE, exist_ok=True)
 
 # Saving the contents of `wiki_response_body` to a file
 # The file is named in the format `raw-edits-YYYY-MM-DD.txt` and saved in the folder defined in `RAW_LOCATION_BASE`
 raw_edits_filename = f"raw-edits-{date.strftime('%Y-%m-%d')}.txt"
 raw_edits_fullpath = os.path.join(RAW_LOCATION_BASE, raw_edits_filename)
-with open(raw_edits_fullpath, 'w') as file:
+with open(raw_edits_fullpath, "w") as file:
     file.write(wiki_response_body)
 
 ########
@@ -41,7 +44,7 @@ with open(raw_edits_fullpath, 'w') as file:
 ########
 #
 # Save the contents of `wiki_response_body` to file called `raw-edits-YYYY-MM-DD.txt` into the folder
-# in variable `RAW_LOCATION_BASE` defined 
+# in variable `RAW_LOCATION_BASE` defined
 # i.e: `data/raw-edits/raw-edits-2021-10-01.txt`.
 
 
@@ -66,29 +69,29 @@ with open(raw_edits_fullpath, 'w') as file:
 
 # Parse the Wikipedia response and process the data
 wiki_response_parsed = wiki_server_response.json()
-top_edits = wiki_response_parsed['items'][0]['results'][0]['top']
+top_edits = wiki_response_parsed["items"][0]["results"][0]["top"]
 
 # Convert server's response to JSON lines
 current_time = datetime.datetime.now()
 json_lines = ""
 for page in top_edits:
     record = {
-        "title": page['page_title'][0],
-        "edits": page['edits'],
+        "title": page["page_title"][0],
+        "edits": page["edits"],
         "date": date.strftime("%Y-%m-%d"),
-        "retrieved_at": current_time.isoformat()
+        "retrieved_at": current_time.isoformat(),
     }
     json_lines += json.dumps(record) + "\n"
 
 # Save the Top Edits JSON lines and upload them to S3
-JSON_LOCATION_BASE = 'data/edits'
+JSON_LOCATION_BASE = "data/edits"
 os.makedirs(JSON_LOCATION_BASE, exist_ok=True)
 
 json_lines_filename = f"edits-{date.strftime('%Y-%m-%d')}.json"
 json_lines_fullpath = os.path.join(JSON_LOCATION_BASE, json_lines_filename)
 
-with open(json_lines_fullpath, 'w') as file:
+with open(json_lines_fullpath, "w") as file:
     file.write(json_lines)
 
 # Upload the JSON file
-s3.upload_file(json_lines_fullpath, BUCKET, f'datalake/edits/{json_lines_filename}')
+s3.upload_file(json_lines_fullpath, BUCKET, f"datalake/edits/{json_lines_filename}")
