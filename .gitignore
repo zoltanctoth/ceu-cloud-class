@@ -8,7 +8,7 @@ id_rsa.pub
 .DS_Store
 encrypted*.dat
 
-/data/
+data/
 
 my_keypair
 my_keypair.pub

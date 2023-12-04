@@ -58,20 +58,29 @@ print(f"Created directory {RAW_LOCATION_BASE}")
 
 # Saving the contents of `wiki_response_body` to a file
 # The file is named in the format `raw-edits-YYYY-MM-DD.txt` and saved in the folder defined in `RAW_LOCATION_BASE`
-
-## FILL IN YOUR SOLUTION HERE
+raw_edits_file = RAW_LOCATION_BASE / f"raw-edits-{date.strftime('%Y-%m-%d')}.txt"
+with raw_edits_file.open("w") as file:
+    file.write(wiki_response_body)
+    print(f"Saved raw edits to {raw_edits_file}")
 
 # %%
 ########
 # LAB  #
 ########
-s3 = boto3.client("s3")
 S3_WIKI_BUCKET = ""
 # Create a new bucket for your wikipedia pipeline
 # > A good name can be i.e. "ceu-<<your-name>>-wikidata"
 # > Store the bucket name in the varuable S3_WIKI_BUCKET
+s3 = boto3.client("s3")
+S3_WIKI_BUCKET = "ceu-zoltan-wikidata"
 
-## FILL IN YOUR SOLUTION HERE
+bucket_names = [bucket["Name"] for bucket in s3.list_buckets()["Buckets"]]
+# Only create the bucket if it doesn't exist
+if S3_WIKI_BUCKET not in bucket_names:
+    s3.create_bucket(
+        Bucket=S3_WIKI_BUCKET,
+        CreateBucketConfiguration={"LocationConstraint": "eu-west-1"},
+    )
 
 # Check your solution
 assert S3_WIKI_BUCKET != "", "Please set the S3_WIKI_BUCKET variable"
@@ -87,6 +96,12 @@ assert s3.list_objects(
 # - Keep the file's name as `raw-edits-YYYY-MM-DD.txt` (where YYYY-MM-DD is the date of the file).
 #   > Don't hardcode the date. Calculate it from the DATE_PARAM variable.
 # - Verify that the file is there (list the bucket in Python or on the AWS Website)
+s3.upload_file(
+    raw_edits_file,
+    S3_WIKI_BUCKET,
+    f"/datalake/raw/raw-edits-{date.strftime('%Y-%m-%d')}.txt",
+)
+print(f"Uploaded raw edits to {S3_WIKI_BUCKET}")
 
 assert s3.head_object(
     Bucket=S3_WIKI_BUCKET,
@@ -130,3 +145,4 @@ s3.upload_file(json_lines_file, S3_WIKI_BUCKET, f"datalake/edits/{json_lines_fil
 print(
     f"Uploaded JSON lines to s3://{S3_WIKI_BUCKET}/datalake/edits/{json_lines_filename}"
 )
+# %%
