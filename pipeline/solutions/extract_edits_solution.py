@@ -72,7 +72,7 @@ S3_WIKI_BUCKET = ""
 # > A good name can be i.e. "ceu-<<your-name>>-wikidata"
 # > Store the bucket name in the varuable S3_WIKI_BUCKET
 s3 = boto3.client("s3")
-S3_WIKI_BUCKET = "ceu-zoltan-wikidata"
+S3_WIKI_BUCKET = "ceu-zoltan-wikidata-test"
 
 bucket_names = [bucket["Name"] for bucket in s3.list_buckets()["Buckets"]]
 # Only create the bucket if it doesn't exist
@@ -96,12 +96,15 @@ assert s3.list_objects(
 # - Keep the file's name as `raw-edits-YYYY-MM-DD.txt` (where YYYY-MM-DD is the date of the file).
 #   > Don't hardcode the date. Calculate it from the DATE_PARAM variable.
 # - Verify that the file is there (list the bucket in Python or on the AWS Website)
-s3.upload_file(
+print(raw_edits_file)
+res = s3.upload_file(
     raw_edits_file,
     S3_WIKI_BUCKET,
-    f"/datalake/raw/raw-edits-{date.strftime('%Y-%m-%d')}.txt",
+    f"datalake/raw/raw-edits-{date.strftime('%Y-%m-%d')}.txt",
 )
-print(f"Uploaded raw edits to {S3_WIKI_BUCKET}")
+print(
+    f"Uploaded raw edits to s3://{S3_WIKI_BUCKET}/datalake/raw/raw-edits-{date.strftime('%Y-%m-%d')}.txt"
+)
 
 assert s3.head_object(
     Bucket=S3_WIKI_BUCKET,
@@ -141,8 +144,10 @@ with json_lines_file.open("w") as file:
     file.write(json_lines)
 
 # Upload the JSON file
-s3.upload_file(json_lines_file, S3_WIKI_BUCKET, f"datalake/edits/{json_lines_filename}")
+s3.upload_file(
+    json_lines_file, S3_WIKI_BUCKET, f"datalake/bronze_edits/{json_lines_filename}"
+)
 print(
-    f"Uploaded JSON lines to s3://{S3_WIKI_BUCKET}/datalake/edits/{json_lines_filename}"
+    f"Uploaded JSON lines to s3://{S3_WIKI_BUCKET}/datalake/bronze_edits/{json_lines_filename}"
 )
 # %%
