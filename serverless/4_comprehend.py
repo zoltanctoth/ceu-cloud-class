@@ -1,30 +1,31 @@
-# %% [markdown]
-# ## Setting up AWS Credentials
-
 # %%
+# Import
 import pprint
 
-import boto3
+from azure.ai.textanalytics import TextAnalyticsClient
+from azure.core.credentials import AzureKeyCredential
 
 pp = pprint.PrettyPrinter(indent=2)
+
+apikey = ""
+endpoint = "https://sentimenanalisisforpythonlearn.cognitiveservices.azure.com/"
+text_analytics_client = TextAnalyticsClient(endpoint, AzureKeyCredential(apikey))
+
 # %%
 # Language Detection
-comprehend = boto3.client(service_name="comprehend", region_name="eu-west-1")
+documents = ["This is a test sentence in English"]
+response = text_analytics_client.detect_language(documents=documents)
+pp.pprint(f"Language: {response[0].primary_language.name}")
 
-# Detect language
-text = "This is a test sentence in English"
-pp.pprint(comprehend.detect_dominant_language(Text=text))
-
-# %%
-# Multi-lingual Language Detection
-text = "A: Hallo, wie geht es Ihnen?\nB: Ça va bien. Merci. Et toi?"
-pp.pprint(comprehend.detect_dominant_language(Text=text))
-
+documents = ["A: Hallo, wie geht es Ihnen?\nB: Ça va bien. Merci. Et toi?"]
+response = text_analytics_client.detect_language(documents=documents)
+pp.pprint(f"Language: {response[0]}")
 
 # %%
 # Sentiment Analysis
-text = "Hey, I'm feeling great today!"
-print(comprehend.detect_sentiment(Text=text, LanguageCode="en"))
+documents = [{"id": "1", "language": "en", "text": "Hey, I'm feeling great today!"}]
+response = text_analytics_client.analyze_sentiment(documents)
+pp.pprint(response[0])
 
 # %%
 # Sentiment Analysis
@@ -34,16 +35,24 @@ text = (
     "of dealing with his new, torturous life; along the way he befriends a number of fellow prisoners, most notably "
     "a wise long-term inmate named Red."
 )
-print(comprehend.detect_sentiment(Text=text, LanguageCode="en"))
 
+documents = [{"id": "1", "language": "en", "text": text}]
+response = text_analytics_client.analyze_sentiment(documents)
+pp.pprint(response[0])
+print()
 
 # %%
 # ## Named Entity Recognition
-texts = ["Amazon provides web services.", "Jeff is their leader."]
-for text in texts:
-    print(comprehend.detect_entities(Text=text, LanguageCode="en"))
+documents = ["Amazon provides web services.", "Jeff is their leader."]
+response = text_analytics_client.recognize_entities(documents)
+for item in response:
+    pp.pprint(item)
+print()
 
 # %%
 # ## Key Phrase Detection
-for text in texts:
-    print(comprehend.detect_key_phrases(Text=text, LanguageCode="en"))
+response = text_analytics_client.extract_key_phrases(documents)
+for item in response:
+    pp.pprint(item)
+
+# %%
