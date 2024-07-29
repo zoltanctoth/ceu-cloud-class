@@ -1,12 +1,15 @@
 [tool.isort]
 profile = "black"
+src_paths = ["."]
 honor_noqa = true
 
-[tool.pylint]
-disable = "C0111, C0103, W0718, C0413, C0411, W1514" # missing-module-docstring
+[tool.black]
+line-length = 120
 
 [tool.flake8]
-ignore = "D100, E401, E402"
+max-line-length = 120
+extend-ignore = ["E203", "E701", "E501"]
+exclude = ["__pycache__", "venv", ".venv"]
 
 
 [tool.mypy]
