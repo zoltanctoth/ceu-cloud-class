@@ -2,6 +2,7 @@
 # Imports
 
 import os
+
 import requests
 from azure.ai.textanalytics import TextAnalyticsClient
 from azure.core.credentials import AzureKeyCredential
@@ -10,10 +11,9 @@ from bs4 import BeautifulSoup
 # %%
 # Scraping
 
-response = requests.get("https://ludic.mataroa.blog/blog/i-will-fucking-piledrive-you-if-you-mention-ai-again/")
-
-if response.status_code != 200:
-    raise Exception(f"Failed to fetch webpage: Status code {response.status_code}")
+response = requests.get(
+    "https://ludic.mataroa.blog/blog/i-will-fucking-piledrive-you-if-you-mention-ai-again/")
+response.raise_for_status()
 
 webpage = BeautifulSoup(response.content, "html.parser")
 article_html = webpage.select("h1, p:not(footer p)")
