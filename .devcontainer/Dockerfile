@@ -3,6 +3,5 @@ COPY requirements.txt /tmp/requirements.txt
 USER vscode
 ENV PATH=/home/vscode/.local/bin:$PATH
 RUN pip install --user -r /tmp/requirements.txt
-RUN pip list
 USER root
 RUN rm /tmp/requirements.txt
