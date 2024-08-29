@@ -1,23 +1,26 @@
 # %%
-# Import required libraries
-import boto3
+# Import
+from azure.ai.translation.text import TextTranslationClient
+from azure.core.credentials import AzureKeyCredential
 
-# Initialize the Amazon Translate client
-translate = boto3.client("translate")
+# %%
+# Initialize client
+apikey = ""
+text_translator = TextTranslationClient(
+    credential=AzureKeyCredential(apikey), region="westeurope"
+)
 
 # %%
 # Translate text from French to English
-response = translate.translate_text(
-    Text="Bonjour le monde!", SourceLanguageCode="fr", TargetLanguageCode="en"
+response = text_translator.translate(
+    body=["Bonjour le monde!"], from_language="fr", to_language=["en"]
 )
-print(response["TranslatedText"])
+print(response[0]["translations"][0]["text"])
 
 # %%
 # Translate text from Spanish to English (auto-detect source language)
-response = translate.translate_text(
-    Text="Hola mundo!", SourceLanguageCode="auto", TargetLanguageCode="en"
-)
-print(response["TranslatedText"])
+response = text_translator.translate(body=["Hola mundo!"], to_language=["en"])
+print(response[0]["translations"][0]["text"])
 
 # %%
 # Translate text to German (auto-detect source language)
@@ -28,7 +31,6 @@ long_text = (
     "with his new, torturous life; along the way he befriends a number of "
     "fellow prisoners, most notably a wise long-term inmate named Red."
 )
-response = translate.translate_text(
-    Text=long_text, SourceLanguageCode="auto", TargetLanguageCode="de"
-)
-print(response["TranslatedText"])
+
+response = text_translator.translate(body=[long_text], to_language=["de"])
+print(response[0]["translations"][0]["text"])
