@@ -9,7 +9,7 @@ id_rsa.pub
 encrypted*.dat
 
 /data/
-
+/.aws
 my_keypair
 my_keypair.pub
 

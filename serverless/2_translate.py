@@ -7,16 +7,12 @@ translate = boto3.client("translate")
 
 # %%
 # Translate text from French to English
-response = translate.translate_text(
-    Text="Bonjour le monde!", SourceLanguageCode="fr", TargetLanguageCode="en"
-)
+response = translate.translate_text(Text="Bonjour le monde!", SourceLanguageCode="fr", TargetLanguageCode="en")
 print(response["TranslatedText"])
 
 # %%
 # Translate text from Spanish to English (auto-detect source language)
-response = translate.translate_text(
-    Text="Hola mundo!", SourceLanguageCode="auto", TargetLanguageCode="en"
-)
+response = translate.translate_text(Text="Hola mundo!", SourceLanguageCode="auto", TargetLanguageCode="en")
 print(response["TranslatedText"])
 
 # %%
@@ -28,7 +24,5 @@ long_text = (
     "with his new, torturous life; along the way he befriends a number of "
     "fellow prisoners, most notably a wise long-term inmate named Red."
 )
-response = translate.translate_text(
-    Text=long_text, SourceLanguageCode="auto", TargetLanguageCode="de"
-)
+response = translate.translate_text(Text=long_text, SourceLanguageCode="auto", TargetLanguageCode="de")
 print(response["TranslatedText"])
