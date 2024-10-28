@@ -880,6 +880,7 @@ mv ~/Downloads/CEU-Tutorial.pem ~/CEU-Tutorial
 cd ~/CEU-Tutorial
 chmod 400 CEU-Tutorial.pem 
 ls
+```
 
 Explanation of Commands:
 -mkdir ~/CEU-Tutorial: Creates a new directory named "CEU-Tutorial" in your home directory.
@@ -1187,7 +1188,7 @@ More here: [AWS Types of Cloud Computing](https://aws.amazon.com/types-of-cloud-
 ### What are the different Tiers/Classes of storage for S3?
 
 **Answer**:
-- **S3 Standard**: 99.99% availability, 99.999999999% durability, stored redundantly across multiple devices in multiple facilities, and designed to sustain the loss of 2 facilities concurrently. No retrieval fees.
+- **S3 Standard**: 99.99\% availability, 99.999999999\% durability, stored redundantly across multiple devices in multiple facilities, and designed to sustain the loss of 2 facilities concurrently. No retrieval fees.
   
 - **S3 - IA (Infrequently Accessed)**: For data that is accessed less frequently but requires rapid access when needed. Lower fee than S3, but you are charged a retrieval fee.
 
