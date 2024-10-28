@@ -626,8 +626,6 @@ Amazon describes the billing process as follows:
 - **Billing begins** when EC2 initiates the boot sequence of an AMI instance and ends when the instance terminates (via command, shutdown, or failure).
 - **Instance-hours** are billed while instances are in a **“running” state**. To stop incurring charges, you must **stop** or **terminate** the instance.
 
-![AWS Billing Overview](aws-billing-overview.png)
-
 ### Complexity of Billing
 
 Although it sounds straightforward, AWS billing can become complex:
@@ -636,8 +634,6 @@ Although it sounds straightforward, AWS billing can become complex:
 - Extra EBS volumes attached to an EC2 instance also incur costs, even when the instance is stopped.
 - When an instance is terminated, associated EBS volumes may or may not be automatically destroyed, depending on how the instance was configured.
 - Creating a **Snapshot** of your instance saves it to EBS storage, which incurs charges as long as it exists. Creating an **AMI** (Amazon Machine Image) also stores a Snapshot.
-
-![EBS vs EC2 Billing](aws-ebs-vs-ec2-billing.png)
 
 ### Cost Calculation
 
@@ -1112,7 +1108,7 @@ More here: [AWS Types of Cloud Computing](https://aws.amazon.com/types-of-cloud-
 - **Durable**: Your data is redundantly stored across multiple facilities and multiple devices in each facility
 - **Scalable**: You can store as much data as you want and access it when needed.
 - **Secure**: Amazon S3 supports data transfer over SSL and automatic encryption of your data once it is uploaded. You can also configure bucket policies to manage object permissions and control access to your data using IAM
-- **Available**: Designed for up to 99.99% availability of objects over a given year and is backed by the Amazon S3 Service Level Agreement, ensuring that you can rely on it when needed.
+- **Available**: Designed for up to 99.99\% availability of objects over a given year and is backed by the Amazon S3 Service Level Agreement, ensuring that you can rely on it when needed.
 - **Low cost**: Using lifecycle policies, you can set policies to automatically migrate your data to Standard - Infrequent Access and Amazon Glacier as it ages to further reduce costs
 - **Simple data transfer**: Amazon provides multiple options for cloud data migration and makes it simple and cost-effective for you to move large volumes of data into or out of Amazon S3. You can choose from network-optimized, physical disk-based, or third-party connector methods for import to or export from Amazon S3
 - **Integrated**: Amazon S3 is deeply integrated with other AWS services to make it easier to build solutions that use a range of AWS services
