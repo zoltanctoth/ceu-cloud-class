@@ -163,7 +163,7 @@ To install the Amazon Polly package in R:
 install.packages("aws.polly", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))
 ```
 
-###Setting Up Credentials
+### Setting Up Credentials
 You can set AWS credentials directly in R:
 ```r
 Sys.setenv("AWS_ACCESS_KEY_ID" = "mykey",
@@ -181,7 +181,7 @@ library("tuneR")
 vec <- synthesize("Forget that! There are places in this world that aren't made out of stone...", voice = "Joey")
 play(vec)  # Play the synthesized speech
 ```
-##Amazon Comprehend
+## Amazon Comprehend
 
 Amazon Comprehend is a natural language processing (NLP) service that analyzes documents to extract insights without needing to provide training data. It can handle text files in UTF-8 format and provides the following capabilities:
 
