@@ -231,8 +231,10 @@ detect_phrases(txt)
 ## Amazon S3
 ![](https://ceu-cloud-class.github.io/static/1560da3e4ff1f266ffd99ff434366e3d/5a190/s3.png)
 
-![Documentation](https://cran.r-project.org/web/packages/aws.s3/aws.s3.pdf)
+[Documentation](https://cran.r-project.org/web/packages/aws.s3/aws.s3.pdf)
+
 To install the latest development version you can install from the cloudyr drat repository:
+
 ```r
 # latest stable version
 install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"))
