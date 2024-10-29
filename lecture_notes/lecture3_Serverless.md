@@ -44,14 +44,27 @@ install.packages("rvest")
 install.packages("httr")
 ```
 **Selector Gadget**
+
 Use Selector Gadget, an open-source tool, to easily select elements on a webpage. This tool helps in identifying the correct HTML tags for scraping.
 
 ![Using the selector gadget](https://ceu-cloud-class.github.io/static/0bee7fdb1b13849bd24ae0f360206166/2bf90/selector1.png)
 
 **Scraping Steps**
-Check Robots.txt: Always check the robots.txt file of a website to comply with their crawling rules. 
+
+Good bots comply to the rules set by websites in their robots.txt file and follow best practices while crawling and scraping.
+
 [IMDB Robots.txt] (https://www.imdb.com/robots.txt)
+
 Scrape Various Fields:
+
+For that, we’ll use the selector Google Chrome extension gadget that you've downloaded already to get the specific CSS selectors that encloses the rankings. You can click on the extension in your browser and select the rankings field with the cursor.
+
+Make sure that all the rankings are selected. You can select some more ranking sections in case you are not able to get all of them and you can also de-select them by clicking on the selected section to make sure that you only have those sections highlighted that you want to scrape for that go.
+
+![](https://ceu-cloud-class.github.io/static/0bee7fdb1b13849bd24ae0f360206166/2bf90/selector1.png)
+
+Once you are sure that you have made the right selections, you need to copy the corresponding CSS selector.
+
 Rank:
 ```r
 rank_data_html <- html_nodes(webpage,'.text-primary')
@@ -60,6 +73,11 @@ head(rank_data)
 # Output: 1, 2, 3, 4, 5, 6
 ```
 Title:
+
+Again, I have the corresponding CSS selector for the titles – .lister-item-header a. I will use this selector to scrape all the titles using the following code.
+
+![](https://ceu-cloud-class.github.io/static/75035c46e005bd942247b027b852b62a/42267/selector2.png)
+
 ```r
 title_data_html <- html_nodes(webpage,'.lister-item-header a')
 title_data <- html_text(title_data_html)
@@ -67,7 +85,6 @@ head(title_data)
 # Output: "The Shawshank Redemption" "Pulp Fiction" ...
 ```
 
-![Scraping IMDB](https://ceu-cloud-class.github.io/static/75035c46e005bd942247b027b852b62a/42267/selector2.png)
 Description:
 ```r
 description_data_html <- html_nodes(webpage,'.ratings-bar+ .text-muted')
@@ -105,6 +122,7 @@ actors_data <- as.factor(html_text(actors_data_html))
 head(actors_data)
 ```
 Creating a DataFrame: Combine all scraped data into a single DataFrame:
+
 ```r
 movies_df <- data.frame(Rank = rank_data, Title = title_data,
                          Description = description_data, Runtime = runtime_data,
@@ -121,7 +139,7 @@ ggplot(movies_df, aes(x=Runtime, y=Rank)) +
   geom_point(aes(size=Rating, col=Genre))
 ```
 
-# Week 3 - AWS Overview
+# AWS
 
 ## Amazon Polly
 ![Amazon Polly](https://ceu-cloud-class.github.io/static/6a88c765c243cb7bb35b975127f01921/eea4a/polly.jpg)
