@@ -53,7 +53,7 @@ Use Selector Gadget, an open-source tool, to easily select elements on a webpage
 
 Good bots comply to the rules set by websites in their robots.txt file and follow best practices while crawling and scraping.
 
-[IMDB Robots.txt] (https://www.imdb.com/robots.txt)
+IMDB Robots.txt: https://www.imdb.com/robots.txt
 
 Scrape Various Fields:
 
