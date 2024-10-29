@@ -55,9 +55,7 @@ Good bots comply to the rules set by websites in their robots.txt file and follo
 
 IMDB Robots.txt: https://www.imdb.com/robots.txt
 
-Scrape Various Fields:
-
-For that, we’ll use the selector Google Chrome extension gadget that you've downloaded already to get the specific CSS selectors that encloses the rankings. You can click on the extension in your browser and select the rankings field with the cursor.
+In order to scrape various fields, we’ll use the selector Google Chrome extension gadget that you've downloaded already to get the specific CSS selectors that encloses the rankings. You can click on the extension in your browser and select the rankings field with the cursor.
 
 Make sure that all the rankings are selected. You can select some more ranking sections in case you are not able to get all of them and you can also de-select them by clicking on the selected section to make sure that you only have those sections highlighted that you want to scrape for that go.
 
