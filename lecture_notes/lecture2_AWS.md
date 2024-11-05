@@ -423,7 +423,7 @@ To get hands-on with AWS and launch an EC2 instance, here’s what you’ll need
 
 Once these steps are complete, you’ll be connected to a cloud-based Linux machine that you can control remotely, allowing you to perform compute tasks and explore the cloud environment.
 
-![Google Data Center, The Dalles, Oregon](http://en.wikipedia.org/wiki/File:Google_Data_Center,_The_Dalles.jpg)
+![Google Data Center, The Dalles, Oregon](https://upload.wikimedia.org/wikipedia/commons/2/29/Google_Data_Center%2C_The_Dalles.jpg)
 
 Since we are going to create an Amazon instance that is running a Linux operating system you will need to use your knowledge of working in a Linux command line. For reference, look up your notes from the Different Shapes of Data class.
 
