@@ -34,9 +34,7 @@ print(f"Default region: {default_region}")
 
 # %%
 bucket_configuration = {"LocationConstraint": default_region}
-response = s3.create_bucket(
-    Bucket=bucket_name, CreateBucketConfiguration=bucket_configuration
-)
+response = s3.create_bucket(Bucket=bucket_name, CreateBucketConfiguration=bucket_configuration)
 
 assert response["ResponseMetadata"]["HTTPStatusCode"] == 200
 print(f"Bucket {bucket_name} created in {default_region}")

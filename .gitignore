@@ -8,8 +8,8 @@ id_rsa.pub
 .DS_Store
 encrypted*.dat
 
-data/
-
+/data/
+/.aws
 my_keypair
 my_keypair.pub
 
