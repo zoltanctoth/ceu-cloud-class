@@ -8,6 +8,9 @@
             "source.organizeImports": "explicit"
         }
     },
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "master"
+    ]
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     }
