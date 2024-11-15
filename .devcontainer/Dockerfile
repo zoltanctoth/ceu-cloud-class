@@ -1,8 +1,8 @@
 FROM mcr.microsoft.com/devcontainers/python:1-3.12-bullseye
-COPY requirements.in /tmp/requirements.in
+COPY requirements.txt /tmp/requirements.txt
 USER vscode
 ENV PATH=/home/vscode/.local/bin:$PATH
-RUN pip install --user -r /tmp/requirements.in
+RUN pip install --user -r /tmp/requirements.txt
 USER root
 
 # Install AWS CLI v2
@@ -13,4 +13,4 @@ RUN unzip awscliv2.zip
 RUN sudo ./aws/install
 RUN cd $pwd
 
-RUN pip freeze > /requirements.txt
+# RUN pip freeze > /requirements.txt

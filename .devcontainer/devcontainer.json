@@ -23,5 +23,10 @@
 				"GitHub.copilot"
 			]
 		}
-	}
+	},
+	"remoteEnv": {
+		"WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+	},
+	"postCreateCommand": "bash .devcontainer/setup-container.sh",
+	"postAttachCommand": "bash .devcontainer/setup-terminal.sh"
 }
