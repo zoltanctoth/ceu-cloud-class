@@ -1,5 +1,10 @@
 # *Week 1- Internet*
 
+# Recap Videos
+
+1) [Internet Basics](https://www.youtube.com/watch?v=p7ou-7x2NNE)
+2) [Encryption and Digital Signatures](https://www.youtube.com/watch?v=8M1Hxa6pHh8)
+
 # **Basics of Internet, TCP/IP, Servers, Ports, and Firewalls**
 
 ## **Protocols**

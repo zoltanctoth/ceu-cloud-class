@@ -1,5 +1,8 @@
 # Week 3 - Serverless
 
+# DISCLAIMER
+_The examples for this lecture are implemented in R. For the Python implementation, please refer to the [serverless](/serverless/) folder of the repository._
+
 ## Introduction
 Data on the web is growing exponentially, with platforms like Google serving as the first source for knowledge. Despite the vast availability of data, much of it is unstructured (in HTML format) and not readily downloadable. This requires expertise to access and utilize effectively for building useful models.
 
