@@ -4,5 +4,5 @@ boto3
 flake8
 jupyter
 isort
-caesarchipher
+caesarcipher
 pycryptodome
