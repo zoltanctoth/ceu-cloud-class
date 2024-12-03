@@ -1,5 +1,6 @@
 #!/bin/bash
-# Usage: curl -s https://raw.githubusercontent.com/CEU-Economics-and-Business/ECBS-5147-Data-Engineering-2-Cloud-Computing/main/requirements.txt > requirements.txt && curl -s https://raw.githubusercontent.com/CEU-Economics-and-Business/ECBS-5147-Data-Engineering-2-Cloud-Computing/main/requirements.in > requirements.in && rm -rf serverless && curl -L https://github.com/CEU-Economics-and-Business/ECBS-5147-Data-Engineering-2-Cloud-Computing/archive/main.zip | bsdtar -xf - --strip=1 "ECBS-5147-Data-Engineering-2-Cloud-Computing-main/serverless"
+
+# Usage: curl -s https://raw.githubusercontent.com/CEU-Economics-and-Business/ECBS-5147-Data-Engineering-2-Cloud-Computing/main/sync.sh | bash
 
 echo "Syncing with template repository..."
 
