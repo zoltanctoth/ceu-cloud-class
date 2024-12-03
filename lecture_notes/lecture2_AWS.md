@@ -19,7 +19,10 @@ Cloud computing allows users to quickly access vast amounts of computing resourc
 - **SSD (Solid State Drive)** - A type of fast, reliable storage hardware generally more expensive than traditional hard drives.
 - **HDD (Hard Disk Drive)** - Traditional, spinning-disk storage, offering large capacity at lower cost, but with slower performance compared to SSDs.
 - **Ephemeral Storage (Instance Store Storage)** - Temporary, local storage for EC2 instances that is wiped once the instance is stopped or terminated. Instance stores may use either SSD or HDD hardware.
-
+- **DNS (Domain Name System)** - The system that translates human-readable domain names (e.g., `example.com`) into machine-readable IP addresses (e.g., `192.0.2.1`) that computers use to communicate. Without DNS, users would have to remember numerical IP addresses to visit websites, making the internet far less accessible.
+- **Domain Name** - A user-friendly address for a website (e.g., `example.com`) that is registered through domain registrars. Domain names are mapped to IP addresses using DNS, making it easier for people to access services and websites on the internet.
+- **A Record (Address Record)** - A DNS record that maps a domain or subdomain to an IPv4 address (e.g., `192.0.2.1`). It is one of the most common DNS records and is used to direct traffic to web servers or other resources identified by their IP address.
+- **Route 53 (DNS and Domain Management)** - AWS's DNS service that can map domain names to EC2 instances' IP addresses. You can create DNS records (like A records) to point your domain or subdomain to an EC2 instance's public IP address, allowing users to access your instance using a friendly domain name. It also includes domain registration and health checking to ensure high availability.
 ---
 
 ## Regions
@@ -1014,7 +1017,45 @@ ls
 ```bash   
 nano index.html
  ```   
-6. View Changes: Now you will see the changes if you visit your website.
+ NOTE: in case saving is not permitted, superuser authorization might be necessary as: `sudo nano index.html`
+
+ This .html file will be displayed to the visitor's browser if they make an http request to the instance. 
+
+## Step 13: Using Route53 to create a human-readable URL to the Instance
+Installing NGINX yielded us a simple template webpage. 
+
+Examine your EC2 Instance, as is described in step 10. Copy your Public IPv4 address and paste it into your browser as a URL. Your created website should display in your browser.
+
+*Notice that the the IP address is pasted in as the URL*
+![IPv4 of your Instance](images/Route53_IPv4_instance.png)
+
+However, an IP address would be difficult to remember for humans. AWS Route 53 is a DNS service that maps the public IPv4 address of an Instance to a user-defined, human-readable domain. 
+- *Domains are human-readable addresses used to access websites and other resources on the internet. They translate to IP addresses, which are numerical labels assigned to devices connected to a network.*
+
+In the current example, we have an already pre-existing domain, `ceu-data.com`. We now create a URL unique to the IP address of our Instance by adding a prefix to this domain, called sub-domain.
+
+*Navigate to Route 53 > Hosted zones*
+![Route 53 Hosted zones](images/Route53_hosted_zones.png)
+
+Here, you can see the `ceu-data.com` domain with some information. Click Create record.
+
+![Route 53 Create Record](images/Route53_create_record.png)
+
+Below record name, add the subdomain name of your liking. If you typed `hyppopotamus`, the domain will become `hyppopotamus.ceu-data.com`. We will use this domain name for our example.
+
+Under Value, you need to type the Public IP(v4) address of your instance. This is displayed on the Console view of your created instance (this was detailed in step 10).
+- *(Navigate to your own instance in AWS, DO NOT just type what you see on the example image at Step 10.)*
+
+Leave the rest as-is, and press `Create records`.
+
+You will be redirected to the `Hosted zones` tab, where you should see your entered subdomain name listed in the Records summary table. In our case, this is `hyppopatamus.ceu-data.com`.
+
+![Created Record added to records](images/Route53_success_create_record.png)
+
+And if you navigate to your Instance's domain, you should see the contents of the html as was seen at the beginning of the Chapter of Step 13.
+
+*Notice that now the human-readable URL is assigned to the Public IP address of the Instance*
+![full domain Instance](images/Route53_full_domain_instance.png)
       
  ## What is the difference between the 'Start', 'Stop', 'Reboot', and 'Terminate' (Instance States)?
 
@@ -1208,6 +1249,10 @@ More here: [AWS Types of Cloud Computing](https://aws.amazon.com/types-of-cloud-
 
 ---
 
+### How does AWS Route 53 integrate with EC2 instances?
+
+**Answer**: Route 53 is AWS's DNS service that can map domain names to EC2 instances' IP addresses. You can create DNS records (like A records) to point your domain or subdomain to an EC2 instance's public IP address, allowing users to access your instance using a friendly domain name.
+
 ### More questions to review:
 
 - How do Security Groups and EC2 Instances relate?
@@ -1237,4 +1282,4 @@ More here: [AWS Types of Cloud Computing](https://aws.amazon.com/types-of-cloud-
 - [Pros and Cons of Cloud Computing](https://www.smallbusinesscomputing.com/biztools/the-pros-and-cons-of-cloud-computing.html)
 - [Cloud Computing Explained](https://www.lifewire.com/cloud-computing-explained-2373125)
 - [Pros and Cons of Cloud Computing](https://www.linkedin.com/pulse/11-pros-cons-cloud-computing-everyone-should-know-umesh-singh/)
-
+- [AWS Route 53](https://d1.awsstatic.com/events/Summits/reinvent2022/NET206_Amazon-Route-53-Whats-in-a-domain-name-A-lot!.pdf)
