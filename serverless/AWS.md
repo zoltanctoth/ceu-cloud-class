@@ -1,9 +1,9 @@
 # AWS SDK Set steps
 
 ## CLI
-Install the AWS CLI:
+Install the AWS CLI (this has be done for you in the Codespace, no need to execute this script)
 ```
-pip install awscli
+# pip install awscli
 ```
 
 Configure the AWS CLI:
@@ -16,9 +16,9 @@ Your credentials will be stored in `~/.aws/credentials`
 
 ## BOTO3 - The AWS Python SDK
 
-Install boto3 and beautifulsoup4:
+Install boto3 and beautifulsoup4 (this has be done for you in the Codespace, no need to execute this script):
 ```
-pip install boto3 beautifulsoup4
+# pip install boto3 beautifulsoup4
 ```
 
 Rekognition examples:
