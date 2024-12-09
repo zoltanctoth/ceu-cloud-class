@@ -1,10 +1,11 @@
 # %% Verification Functions
 import datetime
 import json
-import os
+from pathlib import Path
+
 import boto3
 import requests
-from pathlib import Path
+
 
 def verify_lab1_solution(file_path, content):
     """Verifies the lab 1 solution for saving raw Wikipedia data"""
@@ -15,14 +16,14 @@ def verify_lab1_solution(file_path, content):
             print("❌ Required folder does not exist")
             return False
         print(f"✅ Folder {RAW_LOCATION_BASE} exists!")
-        
+
         # Check if file exists
         print(f"📄 Checking file {file_path}...")
         if not file_path.exists():
             print("❌ File does not exist")
             return False
         print(f"✅ File {file_path.name} exists!")
-            
+
         # Check file name format
         print("🔍 Checking file name format...")
         expected_name = f"raw-edits-{date.strftime('%Y-%m-%d')}.txt"
@@ -30,35 +31,36 @@ def verify_lab1_solution(file_path, content):
             print(f"❌ Incorrect file name. Expected: {expected_name}")
             return False
         print(f"✅ File name matches expected format: {expected_name}")
-            
+
         # Check file content
         print("📝 Checking file content...")
-        with file_path.open('r') as f:
+        with file_path.open("r") as f:
             file_content = f.read()
             if file_content != content:
                 print("❌ File content does not match expected content")
                 return False
         print("✅ File content matches expected data!")
-            
+
         # Check file location
         print("📍 Checking file location...")
         if str(RAW_LOCATION_BASE) not in str(file_path):
             print("❌ File not saved in correct directory")
             return False
         print("✅ File is in the correct directory!")
-            
+
         print("🌟 All checks passed for Lab 1!")
         return True
-        
+
     except Exception as e:
         print(f"❌ Error during verification: {str(e)}")
         return False
+
 
 def verify_bucket_name(bucket_name):
     """Verifies the S3 bucket name format"""
     try:
         print("🔍 Checking bucket name format...")
-        
+
         # Check if bucket name is empty or default
         if not bucket_name or bucket_name == "<>":
             print("❌ Bucket name cannot be empty or default '<>'")
@@ -77,19 +79,20 @@ def verify_bucket_name(bucket_name):
             print("❌ Bucket name too short (excluding '-wikidata')")
             return False
         print("✅ Bucket name has valid length!")
-            
+
         print("🌟 Bucket name format is correct!")
         return True
-        
+
     except Exception as e:
         print(f"❌ Error during bucket name verification: {str(e)}")
         return False
+
 
 def verify_s3_upload(bucket, key, local_file):
     """Verifies the S3 upload was successful"""
     try:
         print("🔍 Checking S3 upload...")
-        
+
         # Check if file exists in S3
         try:
             print(f"📡 Checking if file exists in S3 bucket {bucket}...")
@@ -98,14 +101,14 @@ def verify_s3_upload(bucket, key, local_file):
         except Exception:
             print("❌ File not found in S3")
             return False
-            
+
         # Check prefix
         print("📁 Checking S3 folder structure...")
         if not key.startswith("datalake/raw/"):
             print("❌ Incorrect S3 prefix. Must be 'datalake/raw/'")
             return False
         print("✅ File is in correct S3 folder!")
-            
+
         # Check file sizes match
         print("📊 Checking file sizes...")
         local_size = local_file.stat().st_size
@@ -114,7 +117,7 @@ def verify_s3_upload(bucket, key, local_file):
             print("❌ File size mismatch between local and S3")
             return False
         print(f"✅ File sizes match: {local_size} bytes!")
-            
+
         # Check path format
         print("🔍 Checking S3 path format...")
         expected_key = f"datalake/raw/raw-edits-{date.strftime('%Y-%m-%d')}.txt"
@@ -122,14 +125,15 @@ def verify_s3_upload(bucket, key, local_file):
             print(f"❌ Incorrect S3 key format. Expected: {expected_key}")
             return False
         print("✅ S3 path format is correct!")
-            
+
         print("🌟 All S3 upload checks passed!")
         return True
-        
+
     except Exception as e:
         print(f"❌ Error during S3 verification: {str(e)}")
         return False
-    
+
+
 # %% Retrieve data from Wikipedia
 # SUBJECT DATE ### TRY A FEW OF THIS IN CLASS
 DATE_PARAM = "2024-11-25"
@@ -137,7 +141,9 @@ DATE_PARAM = "2024-11-25"
 date = datetime.datetime.strptime(DATE_PARAM, "%Y-%m-%d")
 
 # Wikimedia API URL formation
-# See https://wikimedia.org/api/rest_v1/#/Edited%20pages%20data/get_metrics_edited_pages_top_by_edits__project___editor_type___page_type___year___month___day_
+# =============================================================================
+# Docs: https://doc.wikimedia.org/generated-data-platform/aqs/analytics-api/reference/edits.html#list-most-edited-pages-by-number-of-edits
+# =============================================================================
 url = f"https://wikimedia.org/api/rest_v1/metrics/edited-pages/top-by-edits/en.wikipedia/user/content/{date.strftime('%Y/%m/%d')}"
 print(f"Requesting REST API URL: {url}")
 
@@ -151,7 +157,9 @@ print(f"Wikipedia REST API Response Code: {wiki_response_status}")
 
 # Check if response status is not OK
 if wiki_response_status != 200:
-    print(f"❌ Received non-OK status code from Wiki Server: {wiki_response_status}. Response body: {wiki_response_body}")
+    print(
+        f"❌ Received non-OK status code from Wiki Server: {wiki_response_status}. Response body: {wiki_response_body}"
+    )
 else:
     print(f"✅ Successfully retrieved Wikipedia data, content-length: {len(wiki_response_body)}")
 
@@ -162,9 +170,9 @@ RAW_LOCATION_BASE.mkdir(exist_ok=True, parents=True)
 print(f"Created directory {RAW_LOCATION_BASE}")
 
 # %% LAB
-########
-# LAB  #
-########
+#########
+# LAB 1 #
+#########
 # Save the contents of `wiki_response_body` to file called `raw-edits-YYYY-MM-DD.txt` in the folder
 # in variable `RAW_LOCATION_BASE`.
 # i.e: `data/raw-edits/raw-edits-2024-10-01.txt`.
@@ -182,17 +190,18 @@ else:
     print("❌ Lab 1 needs correction")
 
 # %% LAB
-########
-# LAB  #
-########
+#########
+# LAB 2 #
+#########
 S3_WIKI_BUCKET = "<>"
 # Create a new bucket for your wikipedia pipeline
 # > Choose a name ending with "-wikidata"
 # > Store the bucket name in the variable S3_WIKI_BUCKET
+# > Create the bucket if it does not exist
 s3 = boto3.client("s3")
 
 # Solution:
-S3_WIKI_BUCKET = "zoltan-wikidata"
+S3_WIKI_BUCKET = "ceu-zoltan-wikidata"
 
 if not verify_bucket_name(S3_WIKI_BUCKET):
     raise ValueError("Invalid bucket name")
@@ -216,11 +225,10 @@ except Exception as e:
     raise
 
 # %% LAB
-########
-# LAB  #
-########
+#########
+# LAB 3 #
+#########
 # Upload the file you created to S3.
-# - Upload the file to your bucket.
 # - Place the file in S3 under a folder called `datalake/raw/`.
 # - Keep the file's name as `raw-edits-YYYY-MM-DD.txt` (where YYYY-MM-DD is the date of the file).
 #   > Don't hardcode the date. Calculate it from the DATE_PARAM variable.
@@ -254,7 +262,9 @@ for page in top_edits:
         "title": page["page_title"],
         "edits": page["edits"],
         "date": date.strftime("%Y-%m-%d"),
-        "retrieved_at": current_time.isoformat(),
+        "retrieved_at": current_time.replace(
+            tzinfo=None
+        ).isoformat(),  # We need to remove tzinfo as Athena cannot work with offsets
     }
     json_lines += json.dumps(record) + "\n"
 
@@ -272,3 +282,5 @@ with json_lines_file.open("w") as file:
 
 s3.upload_file(json_lines_file, S3_WIKI_BUCKET, f"datalake/bronze_edits/{json_lines_filename}")
 print(f"✅ Uploaded processed data to s3://{S3_WIKI_BUCKET}/datalake/bronze_edits/{json_lines_filename}")
+
+# %%
