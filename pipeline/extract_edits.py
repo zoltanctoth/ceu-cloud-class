@@ -86,7 +86,7 @@ assert s3.list_objects(
 # - Place the file in S3 under a folder called `datalake/raw/`.
 # - Keep the file's name as `raw-edits-YYYY-MM-DD.txt` (where YYYY-MM-DD is the date of the file).
 #   > Don't hardcode the date. Calculate it from the DATE_PARAM variable.
-# - Verify that the file is there (list the bucket in Python or on the AWS Website)
+# - Verify that the file is there (list the bucket in Python or check it on the AWS Website)
 
 assert s3.head_object(
     Bucket=S3_WIKI_BUCKET,
