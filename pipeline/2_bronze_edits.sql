@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS {{database_name}}.bronze_edits;
 
 CREATE EXTERNAL TABLE
-z_test.bronze_edits (
+{{database_name}}.bronze_edits (
     title STRING,
     edits INT,
     date DATE,
