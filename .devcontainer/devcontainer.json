@@ -3,7 +3,7 @@
 {
 	"name": "CEU Cloud Class Image",
 	"image": "ghcr.io/zoltanctoth/ceu-cloud-class:latest",
-	"initializeCommand": "docker pull ghcr.io/zoltanctoth/ceu-cloud-class:latest"
+	"initializeCommand": "docker pull ghcr.io/zoltanctoth/ceu-cloud-class:latest",
 	// Configure tool-specific properties.
 	// "customizations": {},
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
