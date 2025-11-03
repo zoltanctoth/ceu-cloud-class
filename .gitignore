@@ -15,6 +15,10 @@ my_keypair.pub
 
 encrypted_message.bin
 
+<<<<<<< HEAD
 .env
 
 .claude/
+=======
+/pipeline/data/
+>>>>>>> 746a3ded22eb897773fbd95ccd629b5221756ab0
