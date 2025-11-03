@@ -1,7 +1,7 @@
 # **Syllabus**
 
 <div style="background-color:black; color:lightblue; padding:10px;">
-  Data Engineering 2: Cloud Computing
+  Data Engineering 1: Cloud Computing and Managed AI Services
 </div>
 
 # **Prerequisites**
