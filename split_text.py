@@ -15,4 +15,3 @@ for line in lines:
 if current_text != "":
     # EXECUTE COMPREHEND
     print(f"Executing Comprehend on {len(current_text)} characters)")
-

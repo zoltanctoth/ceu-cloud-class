@@ -15,5 +15,9 @@
     ],
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "chat.disableAIFeatures": false,
+    "github.copilot.enable": {
+        "*": false
     }
 }

@@ -55,7 +55,7 @@ except Exception as e:
 
 # %%
 # Demonstrate simple sentiment analysis
-print("� Testing sentiment analysis with short text...")
+print("Testing sentiment analysis with short text...")
 
 text = "Hey, I'm feeling great today!"
 try:

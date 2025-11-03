@@ -1,3 +1,25 @@
+[project]
+name = "ceu-cloud-class"
+version = "0.1.0"
+description = "CEU Cloud Class"
+readme = "README.md"
+requires-python = "==3.13.*"
+dependencies = [
+    "beautifulsoup4~=4.14.2",
+    "black~=25.9.0",
+    "boto3~=1.40.64",
+    "flake8~=7.3.0",
+    "jupyter~=1.1.1",
+    "isort~=7.0.0",
+    "caesarcipher~=1.0",
+    "pycryptodome~=3.23.0",
+    "python-dotenv~=1.2.1",
+    "click~=8.3.0",
+]
+
+[tool.uv]
+dev-dependencies = []
+
 [tool.isort]
 profile = "black"
 src_paths = ["."]

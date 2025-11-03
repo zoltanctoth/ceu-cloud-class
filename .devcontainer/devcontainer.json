@@ -2,11 +2,8 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
 	"name": "CEU Cloud Class Image",
-	"build": {
-		// Path is relative to the devcontainer.json file.
-		"context": "../",
-		"dockerfile": "Dockerfile"
-	},
+	"image": "ghcr.io/zoltanctoth/ceu-cloud-class:latest",
+	"initializeCommand": "docker pull ghcr.io/zoltanctoth/ceu-cloud-class:latest"
 	// Configure tool-specific properties.
 	// "customizations": {},
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
@@ -28,5 +25,5 @@
 		"WORKSPACE_FOLDER": "${localWorkspaceFolder}"
 	},
 	"postCreateCommand": "bash .devcontainer/setup-container.sh",
-	"postAttachCommand": "bash .devcontainer/setup-terminal.sh"
+	"postAttachCommand": "bash .devcontainer/setup-terminal.sh",
 }

@@ -2,7 +2,6 @@
 
 import datetime
 import json
-import os
 
 import boto3
 import requests
@@ -13,8 +12,8 @@ DATE_PARAM = "2023-10-25"
 date = datetime.datetime.strptime(DATE_PARAM, "%Y-%m-%d")
 
 # Wikimedia API URL formation
-# See https://wikimedia.org/api/rest_v1/#/Edited%20pages%20data/get_metrics_edited_pages_top_by_edits__project___editor_type___page_type___year___month___day_
-url = f"https://wikimedia.org/api/rest_v1/metrics/edited-pages/top-by-edits/en.wikipedia/user/content/{date.strftime('%Y/%m/%d')}"
+# See https://wikimedia.org/api/rest_v1/#/Edited%20pages%20data/get_metrics_edited_pages_top_by_edits__project___editor_type___page_type___year___month___day_ # noqa: E501
+url = f"https://wikimedia.org/api/rest_v1/metrics/edited-pages/top-by-edits/en.wikipedia/user/content/{date.strftime('%Y/%m/%d')}"  # noqa: E501
 print(f"Requesting REST API URL: {url}")
 
 # Getting response from Wikimedia API
@@ -27,15 +26,13 @@ print(f"Wikipedia REST API Response Code: {wiki_response_status}")
 
 # Check if response status is not OK
 if wiki_response_status != 200:
-    print(
-        f"Received non-OK status code from Wiki Server: {wiki_response_status}. Response body: {wiki_response_body}"
-    )
+    print(f"Received non-OK status code from Wiki Server: {wiki_response_status}. Response body: {wiki_response_body}")
 
 # %%
 # Save Raw Response and upload to S3
 from pathlib import Path
 
-## Get the directory of the current file
+# ## Get the directory of the current file
 current_directory = Path(__file__).parent
 
 # Path for the new directory
@@ -84,9 +81,7 @@ if S3_WIKI_BUCKET not in bucket_names:
 
 # Check your solution
 assert S3_WIKI_BUCKET != "", "Please set the S3_WIKI_BUCKET variable"
-assert s3.list_objects(
-    Bucket=S3_WIKI_BUCKET
-), "The bucket {S3_WIKI_BUCKET} does not exist"
+assert s3.list_objects(Bucket=S3_WIKI_BUCKET), "The bucket {S3_WIKI_BUCKET} does not exist"
 
 # %%
 
@@ -96,15 +91,12 @@ assert s3.list_objects(
 # - Keep the file's name as `raw-edits-YYYY-MM-DD.txt` (where YYYY-MM-DD is the date of the file).
 #   > Don't hardcode the date. Calculate it from the DATE_PARAM variable.
 # - Verify that the file is there (list the bucket in Python or on the AWS Website)
-print(raw_edits_file)
-res = s3.upload_file(
-    raw_edits_file,
+s3.upload_file(
+    str(raw_edits_file),  # Convert to str as `raw_edits_file` is a `Path` object
     S3_WIKI_BUCKET,
     f"datalake/raw/raw-edits-{date.strftime('%Y-%m-%d')}.txt",
 )
-print(
-    f"Uploaded raw edits to s3://{S3_WIKI_BUCKET}/datalake/raw/raw-edits-{date.strftime('%Y-%m-%d')}.txt"
-)
+print(f"Uploaded raw edits to s3://{S3_WIKI_BUCKET}/datalake/raw/raw-edits-{date.strftime('%Y-%m-%d')}.txt")
 
 assert s3.head_object(
     Bucket=S3_WIKI_BUCKET,
@@ -144,10 +136,6 @@ with json_lines_file.open("w") as file:
     file.write(json_lines)
 
 # Upload the JSON file
-s3.upload_file(
-    json_lines_file, S3_WIKI_BUCKET, f"datalake/bronze_edits/{json_lines_filename}"
-)
-print(
-    f"Uploaded JSON lines to s3://{S3_WIKI_BUCKET}/datalake/bronze_edits/{json_lines_filename}"
-)
+s3.upload_file(str(json_lines_file), S3_WIKI_BUCKET, f"datalake/bronze_edits/{json_lines_filename}")
+print(f"Uploaded JSON lines to s3://{S3_WIKI_BUCKET}/datalake/bronze_edits/{json_lines_filename}")
 # %%

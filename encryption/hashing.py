@@ -67,9 +67,32 @@ print(f"Hash 2:    {hash2}")
 # the "avalanche effect"
 
 # %%
+# Adding salt (think: Rainbow Tables)
+SALT = "__my_random_text_12123414"  # Keep this secret
+true_password = "my_password"
+
+salted_true_password = true_password + SALT
+print(f"Salted Password is: {salted_true_password}")
+true_password_hash = hashlib.sha256(salted_true_password.encode()).hexdigest()
+
+
+def check_password(login_password_value):
+    salted_value = login_password_value + SALT
+    return hashlib.sha256(salted_value.encode()).hexdigest() == true_password_hash
+
+
+# %%
 # Let's look at the scale of SHA-256:
 # Each hash is 64 characters, and the number of possible values is enormous
-print(f"The SHA-256 hash is always {len(hashed_message)} characters long and it can take the values 0-9a-f.")
+print(f"Original Text: {bytestring.decode('utf-8')}")
+print(f"Hashed message: {hashed_message}")
+print(
+    f"The SHA-256 hash is always {len(hashed_message)} characters long and it can take the values 0-9a-f (16 values)."
+)
 print(f"Number of possible hashes: {16 ** len(hashed_message)}")
 
 # %%
+print("Trying `wrong_password`. Success: " + str(check_password("wrong_password")))
+
+# %%
+print("Trying `my_password`. Success: " + str(check_password("my_password")))

@@ -7,6 +7,7 @@ from Crypto.PublicKey import RSA
 
 # Define paths for our key files
 PROJECT_FOLDER = Path(__file__).parent.parent
+print(f"Generating keypairs to folder {PROJECT_FOLDER}")
 PRIVATE_KEY_FILE = PROJECT_FOLDER / "my_keypair"  # Contains the private key
 PUBLIC_KEY_FILE = PROJECT_FOLDER / "my_keypair.pub"  # Contains the public key
 
@@ -14,6 +15,8 @@ PUBLIC_KEY_FILE = PROJECT_FOLDER / "my_keypair.pub"  # Contains the public key
 assert Path.exists(PRIVATE_KEY_FILE)
 assert Path.exists(PUBLIC_KEY_FILE)
 
+print(f"Private key file: {PRIVATE_KEY_FILE}")
+print(f"Public key file: {PUBLIC_KEY_FILE}")
 # %%
 # Load the private key from file
 # The private key must be kept secret and secure
@@ -34,7 +37,7 @@ public_key_cipher = PKCS1_OAEP.new(public_key)
 
 # Encrypt our message - only someone with the private key can decrypt it
 encrypted_message = public_key_cipher.encrypt(short_secret_message)
-print(f"Encrypted message:")
+print("Encrypted message:")
 print(encrypted_message)
 
 # Save the encrypted message to a file
