@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/zoltanctoth/ceu-cloud-class:latest
+      options: --user root
 
     steps:
       - name: Checkout repository
