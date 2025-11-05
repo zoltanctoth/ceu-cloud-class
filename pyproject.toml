@@ -18,7 +18,10 @@ dependencies = [
 ]
 
 [tool.uv]
-dev-dependencies = []
+dev-dependencies = [
+    "pytest~=8.3.0",
+    "nbconvert~=7.16.0",
+]
 
 [tool.isort]
 profile = "black"

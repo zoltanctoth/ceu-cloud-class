@@ -1,6 +1,8 @@
 
 *.csv
 
+*.pyc
+
 my_content*.txt
 id_rsa
 id_rsa.pub
