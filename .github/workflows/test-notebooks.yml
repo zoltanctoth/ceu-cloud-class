@@ -12,23 +12,12 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/zoltanctoth/ceu-cloud-class:latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v5
-        with:
-          version: "latest"
-
-      - name: Install dependencies
-        run: uv sync
-
       - name: Run pytest
-        run: uv run pytest tests/test_notebooks.py -v
+        run: pytest tests/test_notebooks.py -v
