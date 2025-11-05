@@ -20,5 +20,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Generate RSA keypair for tests
+        run: |
+          python -c "
+          from Crypto.PublicKey import RSA
+          key = RSA.generate(2048)
+          with open('my_keypair', 'wb') as f:
+              f.write(key.export_key())
+          with open('my_keypair.pub', 'wb') as f:
+              f.write(key.publickey().export_key())
+          print('Generated RSA keypair for testing')
+          "
+
       - name: Run pytest
         run: pytest tests/test_notebooks.py -v
