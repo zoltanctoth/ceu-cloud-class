@@ -157,72 +157,88 @@ Amazon Comprehend is a natural language processing (NLP) service that analyzes d
 
 Amazon Comprehend can examine and analyze documents in these languages: English, Spanish, French, German, Italian, Portuguese.
 
-A detailed description of how credentials can be specified is provided at: https://github.com/cloudyr/aws.signature/. The easiest way is to simply set environment variables on the command line prior to starting R or via an Renviron.site or .Renviron file, which are used to set environment variables in R during startup (see ? Startup). They can be also set within R:
-
-```r
-Sys.setenv("AWS_ACCESS_KEY_ID" = "mykey",
-           "AWS_SECRET_ACCESS_KEY" = "mysecretkey",
-           "AWS_DEFAULT_REGION" = "us-east-1",
-           "AWS_SESSION_TOKEN" = "mytoken")
+To install and use Comprehend with Python:
+```bash
+pip install boto3
 ```
-To install and use Comprehend w/ R:
-```r
-install.packages("aws.comprehend", repos = c(cloudyr = "http://cloudyr.github.io/drat", getOption("repos")))
 
-library("aws.comprehend")
+Set up your AWS credentials using environment variables or AWS CLI configuration.
 
-# simple language detection
-detect_language("I have to remind myself that some birds aren’t meant to be caged.")
-```
-![](https://ceu-cloud-class.github.io/static/deabf62155514fe5589720fe7b20da68/cbe7f/language.png)
-```r
-detect_sentiment("The world went and got itself in a big damn hurry.")
-```
-![](https://ceu-cloud-class.github.io/static/061069839a2a97ad02fae24e2a3d369f/c50e3/sentiment.png)
+```python
+import boto3
+from pprint import pprint
 
-```r
-# named entity recognition
-txt <- c("The convicts in Shawshank have become so used to the idea of being in prison, that they can't really remember life outside of it.", "Ellis Boyd Redding makes a reference to the fact that prison life is all about routine.")
-detect_entities(txt)
-```
-![](https://ceu-cloud-class.github.io/static/efe53aaa605dfe9f945f5951c3342343/97a96/entities.png)
+# Create Comprehend client
+comprehend = boto3.client(service_name='comprehend', region_name='eu-west-1')
 
-```r
-detect_phrases(txt)
+# Simple language detection
+text = "I have to remind myself that some birds aren't meant to be caged."
+response = comprehend.detect_dominant_language(Text=text)
+print("Detected languages:")
+for language in response['Languages']:
+    print(f"- {language['LanguageCode']}: {language['Score']:.2%} confidence")
+
+# Sentiment analysis
+response = comprehend.detect_sentiment(Text="The world went and got itself in a big damn hurry.", LanguageCode='en')
+print(f"
+Sentiment: {response['Sentiment']}")
+print("Sentiment scores:")
+for sentiment, score in response['SentimentScore'].items():
+    print(f"- {sentiment}: {score:.2%}")
+
+# Named entity recognition
+texts = [
+    "The convicts in Shawshank have become so used to the idea of being in prison, that they can't really remember life outside of it.",
+    "Ellis Boyd Redding makes a reference to the fact that prison life is all about routine."
+]
+for text in texts:
+    response = comprehend.detect_entities(Text=text, LanguageCode='en')
+    print(f"
+Text: {text}")
+    print("Entities:")
+    for entity in response['Entities']:
+        print(f"- {entity['Text']} ({entity['Type']}): {entity['Score']:.2%}")
+
+# Key phrase detection
+for text in texts:
+    response = comprehend.detect_key_phrases(Text=text, LanguageCode='en')
+    print(f"
+Text: {text}")
+    print("Key phrases:")
+    for phrase in response['KeyPhrases']:
+        print(f"- {phrase['Text']}: {phrase['Score']:.2%}")
 ```
-![](https://ceu-cloud-class.github.io/static/c3cb5f2b9c547838a07c5dd3bbebb6f6/80521/phrases.png)
 
 ## Amazon S3
 ![](https://ceu-cloud-class.github.io/static/1560da3e4ff1f266ffd99ff434366e3d/5a190/s3.png)
 
-[Documentation](https://cran.r-project.org/web/packages/aws.s3/aws.s3.pdf)
+[Documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html)
 
-To install the latest development version you can install from the cloudyr drat repository:
-
-```r
-# latest stable version
-install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"))
-
-# on windows you may need:
-install.packages("aws.s3", repos = c("cloudyr" = "http://cloudyr.github.io/drat"), INSTALL_opts = "--no-multiarch")
+To install boto3 for S3 access:
+```bash
+pip install boto3
 ```
-Set credentials:
 
-```r
-keyTable <- read.csv("credentials.csv", header = T)
-AWS_ACCESS_KEY_ID <- as.character(keyTable$Access.key.ID)
-AWS_SECRET_ACCESS_KEY <- as.character(keyTable$Secret.access.key)
-
-#activate
-Sys.setenv("AWS_ACCESS_KEY_ID" = AWS_ACCESS_KEY_ID,
-           "AWS_SECRET_ACCESS_KEY" = AWS_SECRET_ACCESS_KEY,
-           "AWS_DEFAULT_REGION" = "eu-west-1") 
+Set credentials using environment variables or AWS CLI:
+```python
+import os
+os.environ["AWS_ACCESS_KEY_ID"] = "your_access_key"
+os.environ["AWS_SECRET_ACCESS_KEY"] = "your_secret_key"
+os.environ["AWS_DEFAULT_REGION"] = "eu-west-1"
 ```
-The package can be used to examine publicly accessible S3 buckets and publicly accessible S3 objects without registering an AWS account. If credentials have been generated in the AWS console and made available in R, you can find your available buckets using:
+The package can be used to examine publicly accessible S3 buckets and publicly accessible S3 objects without registering an AWS account. If credentials have been generated in the AWS console and made available, you can find your available buckets using:
 
-```r
-library("aws.s3")
-bucketlist()
+```python
+import boto3
+
+# Create S3 client
+s3 = boto3.client('s3', region_name='eu-west-1')
+
+# List buckets
+response = s3.list_buckets()
+print("Your S3 buckets:")
+for bucket in response['Buckets']:
+    print(f"- {bucket['Name']}")
 ```
 If your credentials are incorrect, this function will return an error. Otherwise, it will return a list of information about the buckets you have access to.
 
@@ -230,51 +246,59 @@ If your credentials are incorrect, this function will return an error. Otherwise
 
 This package contains many functions useful for working with objects in S3:
 
-- **`bucketlist()`**: Provides the data frames of buckets to which the user has access.
-- **`get_bucket()`** and **`get_bucket_df()`**: Provide a list and data frame, respectively, of objects in a given bucket.
-- **`object_exists()`**: Returns a logical value indicating whether an object exists. **`bucket_exists()`** provides the same functionality for buckets.
-- **`s3read_using()`**: Provides a generic interface for reading from S3 objects using a user-defined function. **`s3write_using()`** offers a generic interface for writing to S3 objects using a user-defined function.
-- **`get_object()`**: Returns a raw vector representation of an S3 object. This can be parsed in various ways, such as using `rawToChar()`, `xml2::read_xml()`, `jsonlite::fromJSON()`, and others depending on the file format.
-- **`save_object()`**: Saves an S3 object to a specified local file without reading it into memory.
-- **`s3connection()`**: Provides a binary-readable connection to stream an S3 object into R, which is useful for reading very large files. **`get_object()`** also allows reading of byte ranges (see the documentation for examples).
-- **`put_object()`**: Stores a local file into an S3 bucket. The `multipart = TRUE` argument can be used to upload large files in pieces.
-- **`s3save()`**: Saves one or more in-memory R objects to an `.Rdata` file in S3 (analogous to `save()`). **`s3saveRDS()`** is an analogue for `saveRDS()`. **`s3load()`** loads one or more objects into memory from an `.Rdata` file stored in S3 (analogous to `load()`). **`s3readRDS()`** is an analogue for `readRDS()`.
-- **`s3source()`**: Sources an R script directly from S3.
+- **`list_buckets()`**: Lists all buckets.
+- **`list_objects_v2(Bucket='bucket-name')`**: Lists objects in a given bucket.
+- **`upload_file()`**: Uploads a local file to S3.
+- **`download_file()`**: Downloads an S3 object to a local file.
+- **`put_object()`**: Stores data in an S3 bucket.
+- **`get_object()`**: Retrieves an S3 object.
+- **`delete_object()`**: Deletes an S3 object.
+- **`create_bucket()`**: Creates a new S3 bucket.
+- **`delete_bucket()`**: Deletes an S3 bucket.
+- **`generate_presigned_url()`**: Generates a temporary URL for accessing private objects.
 
 ## Example Session
-```R
-library(aws.s3)
+```python
+import boto3
+import random
+import string
 
-# List bucket(s) on S3
-bucketlist()
+# Create S3 client
+s3 = boto3.client('s3', region_name='eu-west-1')
 
-# Make a unique S3 bucket name
-my_name <- "ceu-class-"  # Type in your name here
-bucket_name <- paste(c(my_name, sample(c(0:3, letters), size = 3, replace = TRUE)), collapse = "")
-print(bucket_name)
+# List buckets
+response = s3.list_buckets()
+print(f"Found {len(response['Buckets'])} buckets")
 
-# Now we can create the bucket on S3
-put_bucket(bucket_name)
+# Create a unique S3 bucket name
+my_name = "ceu-class-"  # Type in your name here
+bucket_name = my_name + ''.join(random.choices(string.digits, k=3))
+print(f"Bucket name: {bucket_name}")
 
-# Bucket location
-get_location(bucket_name)
+# Create the bucket
+s3.create_bucket(
+    Bucket=bucket_name,
+    CreateBucketConfiguration={'LocationConstraint': 'eu-west-1'}
+)
 
-# Create a text file using the website content:
-write("This is a simple text file", "my_content.txt")
+# Create a text file
+with open("my_content.txt", "w") as f:
+    f.write("This is a simple text file")
 
-# Send the text file to AWS S3 bucket
-put_object("my_content.txt", bucket = bucket_name)
+# Upload the text file to S3
+s3.upload_file("my_content.txt", bucket_name, "my_content.txt")
+print("File uploaded to S3")
 
-# We have data on The Cloud! Check on your browser. Now let's get it back on our computer:
-save_object("my_content.txt", bucket = bucket_name, file = "my_content_s3.txt")
+# Download the file from S3
+s3.download_file(bucket_name, "my_content.txt", "my_content_s3.txt")
+print("File downloaded from S3")
 
-list.files()
+# Delete the object
+s3.delete_object(Bucket=bucket_name, Key="my_content.txt")
 
-# Let's delete this object
-delete_object("my_content.txt", bucket = bucket_name)
-
-# We're finished with this bucket, so let's delete it.
-delete_bucket(bucket_name)
+# Delete the bucket
+s3.delete_bucket(Bucket=bucket_name)
+print("Bucket deleted")
 ```
 ### Amazon Translate
 
@@ -283,27 +307,37 @@ Amazon Translate is a neural machine translation service that delivers fast, hig
 
 **Install**
 
-```r
-install.packages("aws.translate", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))
+```bash
+pip install boto3
 ```
+
 **Example**
 
+```python
+import boto3
 
-```r
-library("aws.translate")
+# Create Translate client
+translate = boto3.client('translate', region_name='us-east-1')
 
-# Translate some text from English
-translate("Hello World!", from = "en", to = "it")
-# Output: [1] "Ciao Mondo!" 
-# attr(,"SourceLanguageCode") [1] "en" 
-# attr(,"TargetLanguageCode") [1] "it"
+# Translate some text from French to English
+response = translate.translate_text(
+    Text="Bonjour le monde!",
+    SourceLanguageCode='fr',
+    TargetLanguageCode='en'
+)
+print(f"Translated text: {response['TranslatedText']}")
+print(f"Source language: {response['SourceLanguageCode']}")
+print(f"Target language: {response['TargetLanguageCode']}")
 
-# Translate some text to English
-translate("Hola mundo!", from = "auto", to = "en")
-# Output: [1] "Hello world!" 
-# attr(,"SourceLanguageCode") [1] "es" 
-# attr(,"TargetLanguageCode") [1] "en"
-
+# Translate with auto-detection
+response = translate.translate_text(
+    Text="Hola mundo!",
+    SourceLanguageCode='auto',
+    TargetLanguageCode='en'
+)
+print(f"\nTranslated text: {response['TranslatedText']}")
+print(f"Detected language: {response['SourceLanguageCode']}")
+print(f"Target language: {response['TargetLanguageCode']}")
 ```
 
 # Amazon Rekognition
@@ -312,7 +346,7 @@ Amazon Rekognition makes it easy to add image and video analysis to your applica
 
 Amazon Rekognition is based on the same proven, highly scalable deep learning technology developed by Amazon’s computer vision scientists to analyze billions of images and videos daily and requires no machine learning expertise to use. Amazon Rekognition is a simple and easy-to-use API that can quickly analyze any image or video file stored in Amazon S3. Amazon Rekognition is always learning from new data, and we are continually adding new labels and facial recognition features to the service.
 
-## Example (Python Code - Optional)
+## Example (Python Code)
 
 ```python
 import boto3
@@ -348,7 +382,7 @@ Clothing - 96.7797698975%
 Suit - 96.7797698975%
 ```
 
-## Example 2: Face Detection (Optional)
+## Example 2: Face Detection
 
 ```python
 import boto3
