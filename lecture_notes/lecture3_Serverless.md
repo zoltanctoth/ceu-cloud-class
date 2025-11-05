@@ -1,8 +1,5 @@
 # Week 3 - Serverless
 
-# DISCLAIMER
-_The examples for this lecture are implemented in R. For the Python implementation, please refer to the [serverless](/serverless/) folder of the repository._
-
 ## Introduction
 Data on the web is growing exponentially, with platforms like Google serving as the first source for knowledge. Despite the vast availability of data, much of it is unstructured (in HTML format) and not readily downloadable. This requires expertise to access and utilize effectively for building useful models.
 
@@ -23,28 +20,12 @@ There are several popular methods for scraping data from the web:
 ## Web Scraping Demo
 [Web Scraping Demo](https://github.com/tidyverse/rvest/tree/master/demo)
 
-### Example: Scraping IMDb Data
-Using the **`rvest`** package in R, we can scrape data from IMDb for the 100 most popular feature films released in 1994.
-
-```r
-library(rvest)
-
-# Load the webpage
-the_shawshank_redemption <- read_html("https://www.imdb.com/title/tt0111161/")
-cast <- the_shawshank_redemption %>%
-  html_nodes("#titleCast .primary_photo img") %>%
-  html_attr("alt")
-cast
-```
-Output:
-``` csharp
-[1] "Tim Robbins" "Morgan Freeman" "Bob Gunton" "William Sadler" "Clancy Brown" "Gil Bellows" "Mark Rolston" "James Whitmore" "Jeffrey DeMunn" "Larry Brandenburg" "Neil Giuntoli" "Brian Libby" "David Proval" "Joseph Ragno" "Jude Ciccolella"
-```
+### Example: Scraping Web Content with Python
+Using the **`requests`** and **`BeautifulSoup`** libraries in Python, we can scrape data from websites.
 **Package Installation**
 Make sure to install the necessary packages:
-```r
-install.packages("rvest")
-install.packages("httr")
+```bash
+pip install requests beautifulsoup4
 ```
 **Selector Gadget**
 
@@ -56,89 +37,50 @@ Use Selector Gadget, an open-source tool, to easily select elements on a webpage
 
 Good bots comply to the rules set by websites in their robots.txt file and follow best practices while crawling and scraping.
 
-IMDB Robots.txt: https://www.imdb.com/robots.txt
+### Basic Web Scraping Example
 
-In order to scrape various fields, we’ll use the selector Google Chrome extension gadget that you've downloaded already to get the specific CSS selectors that encloses the rankings. You can click on the extension in your browser and select the rankings field with the cursor.
+```python
+import requests
+from bs4 import BeautifulSoup
 
-Make sure that all the rankings are selected. You can select some more ranking sections in case you are not able to get all of them and you can also de-select them by clicking on the selected section to make sure that you only have those sections highlighted that you want to scrape for that go.
+# Set up headers to identify our request
+headers = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) "
+    + " Chrome/39.0.2171.95 Safari/537.36"
+}
 
-![](https://ceu-cloud-class.github.io/static/0bee7fdb1b13849bd24ae0f360206166/2bf90/selector1.png)
+# URL to scrape
+url = "https://ceu.edu/article/2024-12-03/combining-data-science-society-thanika-haltrich-presidential-scholar-award"
 
-Once you are sure that you have made the right selections, you need to copy the corresponding CSS selector.
+# Fetch the webpage
+response = requests.get(url, headers=headers)
 
-Rank:
-```r
-rank_data_html <- html_nodes(webpage,'.text-primary')
-rank_data <- as.numeric(html_text(rank_data_html))
-head(rank_data)
-# Output: 1, 2, 3, 4, 5, 6
+if response.status_code == 200:
+    # Parse the HTML
+    webpage = BeautifulSoup(response.content, "html.parser")
+
+    # Extract title
+    title = webpage.title.string.strip()
+    print("Page Title:")
+    print(title)
+
+    # Extract paragraphs using CSS selector
+    description_html = webpage.select("#block-system-main p")
+    texts = [text.get_text().strip() for text in description_html]
+    text = "
+".join(texts)
+    print("
+Article Content:")
+    print(text)
+else:
+    print(f"Failed to fetch webpage: Status code {response.status_code}")
 ```
-Title:
 
-Again, I have the corresponding CSS selector for the titles – .lister-item-header a. I will use this selector to scrape all the titles using the following code.
-
-![](https://ceu-cloud-class.github.io/static/75035c46e005bd942247b027b852b62a/42267/selector2.png)
-
-```r
-title_data_html <- html_nodes(webpage,'.lister-item-header a')
-title_data <- html_text(title_data_html)
-head(title_data)
-# Output: "The Shawshank Redemption" "Pulp Fiction" ...
-```
-
-Description:
-```r
-description_data_html <- html_nodes(webpage,'.ratings-bar+ .text-muted')
-description_data <- gsub("\n","", html_text(description_data_html))
-head(description_data)
-```
-Runtime:
-```r
-runtime_data_html <- html_nodes(webpage,'.text-muted .runtime')
-runtime_data <- as.numeric(gsub(" min","", html_text(runtime_data_html)))
-head(runtime_data)
-```
-Genre:
-```r
-genre_data_html <- html_nodes(webpage,'.genre')
-genre_data <- as.factor(gsub(",.*","", gsub("\n","", html_text(genre_data_html))))
-head(genre_data)
-```
-Rating:
-```r
-rating_data_html <- html_nodes(webpage,'.ratings-imdb-rating strong')
-rating_data <- as.numeric(html_text(rating_data_html))
-head(rating_data)
-```
-Director:
-```r
-directors_data_html <- html_nodes(webpage,'.text-muted+ p a:nth-child(1)')
-directors_data <- as.factor(html_text(directors_data_html))
-head(directors_data)
-```
-Actor:
-```r
-actors_data_html <- html_nodes(webpage,'.lister-item-content .ghost+ a')
-actors_data <- as.factor(html_text(actors_data_html))
-head(actors_data)
-```
-Creating a DataFrame: Combine all scraped data into a single DataFrame:
-
-```r
-movies_df <- data.frame(Rank = rank_data, Title = title_data,
-                         Description = description_data, Runtime = runtime_data,
-                         Genre = genre_data, Rating = rating_data,
-                         Director = directors_data, 
-                         Actor = actors_data)
-
-view(movies_df)
-```
-Simple Plot: Visualize the data using ggplot2:
-```r
-library('ggplot2')
-ggplot(movies_df, aes(x=Runtime, y=Rank)) +
-  geom_point(aes(size=Rating, col=Genre))
-```
+**Key Points:**
+- Always include proper headers to avoid being blocked by websites
+- Use CSS selectors (similar to `webpage.select()`) to target specific elements
+- Check the website's `robots.txt` file to ensure scraping is allowed
+- Be respectful of the website's resources and implement rate limiting if needed
 
 # AWS
 
@@ -161,28 +103,47 @@ Amazon Polly is a cloud service that transforms text into lifelike speech, enhan
 - Internet of Things (IoT) applications
 
 ### Installation
-To install the Amazon Polly package in R:
-```r
-install.packages("aws.polly", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))
+To install the Amazon Polly SDK for Python (boto3):
+```bash
+pip install boto3
 ```
 
 ### Setting Up Credentials
-You can set AWS credentials directly in R:
-```r
-Sys.setenv("AWS_ACCESS_KEY_ID" = "mykey",
-           "AWS_SECRET_ACCESS_KEY" = "mysecretkey",
-           "AWS_DEFAULT_REGION" = "us-east-1",
-           "AWS_SESSION_TOKEN" = "mytoken")
+You can set AWS credentials using environment variables or AWS CLI configuration:
+```bash
+aws configure
+```
+
+Or set them directly in Python:
+```python
+import os
+os.environ["AWS_ACCESS_KEY_ID"] = "your_access_key"
+os.environ["AWS_SECRET_ACCESS_KEY"] = "your_secret_key"
+os.environ["AWS_DEFAULT_REGION"] = "us-east-1"
 ```
 
 ### Using Polly
 To synthesize speech using Polly:
-```r
-library("aws.polly")
-library("tuneR")
+```python
+import boto3
+from io import BytesIO
 
-vec <- synthesize("Forget that! There are places in this world that aren't made out of stone...", voice = "Joey")
-play(vec)  # Play the synthesized speech
+# Create Polly client
+polly = boto3.client('polly', region_name='us-east-1')
+
+# Synthesize speech
+text = "Forget that! There are places in this world that aren't made out of stone..."
+response = polly.synthesize_speech(
+    Text=text,
+    OutputFormat='mp3',
+    VoiceId='Joey'
+)
+
+# Save the audio stream
+if "AudioStream" in response:
+    with open("output.mp3", "wb") as file:
+        file.write(response["AudioStream"].read())
+    print("Speech synthesized successfully!")
 ```
 ## Amazon Comprehend
 
