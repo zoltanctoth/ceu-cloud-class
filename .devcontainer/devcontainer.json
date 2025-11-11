@@ -11,7 +11,7 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-toolsai.jupyter",
+				"ms-toolsai.jupyter@2025.7.0",
 				"ms-python.python",
 				"ms-python.black-formatter",
 				"humao.rest-client",
