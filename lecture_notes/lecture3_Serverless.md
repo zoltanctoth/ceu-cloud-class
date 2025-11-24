@@ -22,18 +22,20 @@ There are several popular methods for scraping data from the web:
 
 ### Example: Scraping Web Content with Python
 Using the **`requests`** and **`BeautifulSoup`** libraries in Python, we can scrape data from websites.
-**Package Installation**
+
+### Package Installation
 Make sure to install the necessary packages:
 ```bash
 pip install requests beautifulsoup4
 ```
-**Selector Gadget**
+
+### Selector Gadget
 
 Use Selector Gadget, an open-source tool, to easily select elements on a webpage. This tool helps in identifying the correct HTML tags for scraping.
 
 ![Using the selector gadget](https://ceu-cloud-class.github.io/static/0bee7fdb1b13849bd24ae0f360206166/2bf90/selector1.png)
 
-**Scraping Steps**
+### Scraping Steps
 
 Good bots comply to the rules set by websites in their robots.txt file and follow best practices while crawling and scraping.
 
@@ -67,10 +69,8 @@ if response.status_code == 200:
     # Extract paragraphs using CSS selector
     description_html = webpage.select("#block-system-main p")
     texts = [text.get_text().strip() for text in description_html]
-    text = "
-".join(texts)
-    print("
-Article Content:")
+    text = "\n".join(texts)
+    print("\nArticle Content:")
     print(text)
 else:
     print(f"Failed to fetch webpage: Status code {response.status_code}")
@@ -180,8 +180,7 @@ for language in response['Languages']:
 
 # Sentiment analysis
 response = comprehend.detect_sentiment(Text="The world went and got itself in a big damn hurry.", LanguageCode='en')
-print(f"
-Sentiment: {response['Sentiment']}")
+print(f"\nSentiment: {response['Sentiment']}")
 print("Sentiment scores:")
 for sentiment, score in response['SentimentScore'].items():
     print(f"- {sentiment}: {score:.2%}")
@@ -193,8 +192,7 @@ texts = [
 ]
 for text in texts:
     response = comprehend.detect_entities(Text=text, LanguageCode='en')
-    print(f"
-Text: {text}")
+    print(f"\nText: {text}")
     print("Entities:")
     for entity in response['Entities']:
         print(f"- {entity['Text']} ({entity['Type']}): {entity['Score']:.2%}")
@@ -202,8 +200,7 @@ Text: {text}")
 # Key phrase detection
 for text in texts:
     response = comprehend.detect_key_phrases(Text=text, LanguageCode='en')
-    print(f"
-Text: {text}")
+    print(f"\nText: {text}")
     print("Key phrases:")
     for phrase in response['KeyPhrases']:
         print(f"- {phrase['Text']}: {phrase['Score']:.2%}")

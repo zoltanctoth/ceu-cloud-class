@@ -2,7 +2,7 @@
 
 ## **Using AWS programmatically**
 
-### **Recap video***
+### **Recap video**
 
 [AWS EC2 Recap](https://youtu.be/6FfLocjBcNE)
 
@@ -227,7 +227,7 @@ AWS S3’s scalable and flexible nature makes it ideal for storing static assets
 
 | Storage Class                  | Description                                                                                                                         |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **S3 Standard**                | 99.99\% availability, 11 nines durability, redundant storage across multiple facilities. Supports loss tolerance across two facilities. |
+| **S3 Standard**                | 99.99% availability, 11 nines durability, redundant storage across multiple facilities. Supports loss tolerance across two facilities. |
 | **S3 - IA (Infrequent Access)** | Designed for infrequent access but immediate retrieval when needed. Lower storage costs with additional retrieval fees.               |
 | **S3 - One Zone-IA**           | Low-cost storage in a single availability zone, suitable for infrequent access with reduced resilience.                            |
 | **S3 - Intelligent Tiering**   | Automatically optimizes costs by moving data to the most cost-effective access tier based on usage patterns.                        |
@@ -301,8 +301,8 @@ EC2 has fundamentally changed cloud computing by enabling businesses to access a
   - Apps requiring reserved capacity.
   - Option to make upfront payments for additional cost savings.
 - **Types**:
-  - **Standard RIs**: Up to 75\% savings compared to On-Demand.
-  - **Convertible RIs**: Up to 54\% savings, with flexibility to modify instance attributes to equal or greater value.
+  - **Standard RIs**: Up to 75% savings compared to On-Demand.
+  - **Convertible RIs**: Up to 54% savings, with flexibility to modify instance attributes to equal or greater value.
   - **Scheduled RIs**: Reserved for specific time windows, allowing you to match capacity with predictable schedules (e.g., part of a day, week, or month).
 
 ### Spot Instances
@@ -317,7 +317,7 @@ EC2 has fundamentally changed cloud computing by enabling businesses to access a
 - **Use Cases**:
   - Regulatory needs that restrict multi-tenant virtualization.
   - Licensing requirements not suited for multi-tenancy or cloud.
-  - Available On-Demand (hourly) or as a reservation with up to 70\% savings.
+  - Available On-Demand (hourly) or as a reservation with up to 70% savings.
 
 ---
 
@@ -472,12 +472,15 @@ With these steps, you’ll be able to log in and access the AWS services necessa
 
 Before launching and using an EC2 instance, ensure that you create a Security Group to control inbound and outbound traffic. Follow the steps below to set this up.
 
-### Step 1: Navigate to Security Groups
+### Step 1: Set up key pairs
 
-1. After logging in, go to **Services** > **EC2** > **Security Groups**.
+1. Go to **Services** > **EC2** > **Key Pairs**.
 
+2. Add your **public** key.
 
 ### Step 2: Create a Security Group
+
+0. Go to **Services** > **EC2** > **Security Groups**.
 
 1. Click **Create Security Group**.
    
@@ -517,7 +520,7 @@ Before launching and using an EC2 instance, ensure that you create a Security Gr
 
 1. To begin, go to the list of AWS services and select **EC2**.
 
-    ![List of AWS services (select EC2 for this tutorial):] (https://ceu-cloud-class.github.io/static/e4c5fc6c69613eed076ac53878f31fcc/ffe34/AWS-Services.png)
+    ![List of AWS services (select EC2 for this tutorial):](https://ceu-cloud-class.github.io/static/e4c5fc6c69613eed076ac53878f31fcc/ffe34/AWS-Services.png)
 
 2. The EC2 Dashboard provides access to your instances, settings, and monitoring tools.
 
@@ -529,9 +532,9 @@ Before launching and using an EC2 instance, ensure that you create a Security Gr
 
 An AWS Region is a set of compute resources that Amazon maintains, similar to a data center. Each Region corresponds to a physical warehouse of compute hardware, including computers, storage, networking, etc. 
 
-### Current AWS Regions
+### AWS Regions (Historical Context)
 
-As of now, there are **eight** AWS Regions:
+In the early days of AWS, there were nine key AWS Regions:
 - **US East (N. Virginia)**
 - **US West (Oregon)**
 - **US West (N. California)**
@@ -544,9 +547,11 @@ As of now, there are **eight** AWS Regions:
 
 ![AWS Regions Map](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2020/03/17/aws_regions-1.png)
 
+**Note:** AWS has significantly expanded since then and now operates [dozens of regions worldwide](https://aws.amazon.com/about-aws/global-infrastructure/).
+
 ### Importance of Choosing the Right Region
 
-When logged into the AWS EC2 console, you are always operating in one of these eight regions. The current region is displayed in the upper right corner of the console, between the User menu and the Support menu.
+When logged into the AWS EC2 console, you are always operating in one of these regions. The current region is displayed in the upper right corner of the console, between the User menu and the Support menu.
 
 **Why is this important?**
 1. **Instance Visibility**: When you launch an EC2 instance, it is created in a specific region. If you switch regions, you won’t see that instance unless you return to the original region.
@@ -1041,14 +1046,14 @@ Here, you can see the `ceu-data.com` domain with some information. Click Create 
 
 ![Route 53 Create Record](images/Route53_create_record.png)
 
-Below record name, add the subdomain name of your liking. If you typed `hyppopotamus`, the domain will become `hyppopotamus.ceu-data.com`. We will use this domain name for our example.
+Below record name, add the subdomain name of your liking. If you typed `hippopotamus`, the domain will become `hippopotamus.ceu-data.com`. We will use this domain name for our example.
 
 Under Value, you need to type the Public IP(v4) address of your instance. This is displayed on the Console view of your created instance (this was detailed in step 10).
 - *(Navigate to your own instance in AWS, DO NOT just type what you see on the example image at Step 10.)*
 
 Leave the rest as-is, and press `Create records`.
 
-You will be redirected to the `Hosted zones` tab, where you should see your entered subdomain name listed in the Records summary table. In our case, this is `hyppopatamus.ceu-data.com`.
+You will be redirected to the `Hosted zones` tab, where you should see your entered subdomain name listed in the Records summary table. In our case, this is `hippopotamus.ceu-data.com`.
 
 ![Created Record added to records](images/Route53_success_create_record.png)
 
@@ -1149,7 +1154,7 @@ More here: [AWS Types of Cloud Computing](https://aws.amazon.com/types-of-cloud-
 - **Durable**: Your data is redundantly stored across multiple facilities and multiple devices in each facility
 - **Scalable**: You can store as much data as you want and access it when needed.
 - **Secure**: Amazon S3 supports data transfer over SSL and automatic encryption of your data once it is uploaded. You can also configure bucket policies to manage object permissions and control access to your data using IAM
-- **Available**: Designed for up to 99.99\% availability of objects over a given year and is backed by the Amazon S3 Service Level Agreement, ensuring that you can rely on it when needed.
+- **Available**: Designed for up to 99.99% availability of objects over a given year and is backed by the Amazon S3 Service Level Agreement, ensuring that you can rely on it when needed.
 - **Low cost**: Using lifecycle policies, you can set policies to automatically migrate your data to Standard - Infrequent Access and Amazon Glacier as it ages to further reduce costs
 - **Simple data transfer**: Amazon provides multiple options for cloud data migration and makes it simple and cost-effective for you to move large volumes of data into or out of Amazon S3. You can choose from network-optimized, physical disk-based, or third-party connector methods for import to or export from Amazon S3
 - **Integrated**: Amazon S3 is deeply integrated with other AWS services to make it easier to build solutions that use a range of AWS services
@@ -1225,7 +1230,7 @@ More here: [AWS Types of Cloud Computing](https://aws.amazon.com/types-of-cloud-
 ### What are the different Tiers/Classes of storage for S3?
 
 **Answer**:
-- **S3 Standard**: 99.99\% availability, 99.999999999\% durability, stored redundantly across multiple devices in multiple facilities, and designed to sustain the loss of 2 facilities concurrently. No retrieval fees.
+- **S3 Standard**: 99.99% availability, 99.999999999% durability, stored redundantly across multiple devices in multiple facilities, and designed to sustain the loss of 2 facilities concurrently. No retrieval fees.
   
 - **S3 - IA (Infrequently Accessed)**: For data that is accessed less frequently but requires rapid access when needed. Lower fee than S3, but you are charged a retrieval fee.
 
@@ -1271,8 +1276,8 @@ More here: [AWS Types of Cloud Computing](https://aws.amazon.com/types-of-cloud-
 - [AWS Pricing Overview](https://d1.awsstatic.com/whitepapers/aws_pricing_overview.pdf?did=wp_card&trk=wp_card)
 - [AWS DevOps](https://d1.awsstatic.com/whitepapers/AWS_DevOps.pdf?did=wp_card&trk=wp_card)
 - [AWS Security Best Practices](https://d1.awsstatic.com/whitepapers/Security/AWS_Security_Best_Practices.pdf?did=wp_card&trk=wp_card)
-- [AWS Storage Services Whitepaper](https://d1.awsstatic.com/whitepapers/AWS\%20Storage\%20Services\%20Whitepaper-v9.pdf?did=wp_card&trk=wp_card)
-- [AWS Getting Started Use Cases](https://aws.amazon.com/getting-started/use-cases/?awsf.getting-started-use-case=use-case\%23big-data-analytics&e=gs&p=gsrc_control&sc_ichannel=so&sc_icategory=abtest&sc_iname=awswt-7&sc_iurl=gsrc&sc_iversion=a-use-case-bd-analytics)
+- [AWS Storage Services Whitepaper](https://d1.awsstatic.com/whitepapers/AWS%20Storage%20Services%20Whitepaper-v9.pdf?did=wp_card&trk=wp_card)
+- [AWS Getting Started Use Cases](https://aws.amazon.com/getting-started/use-cases/?awsf.getting-started-use-case=use-case%23big-data-analytics&e=gs&p=gsrc_control&sc_ichannel=so&sc_icategory=abtest&sc_iname=awswt-7&sc_iurl=gsrc&sc_iversion=a-use-case-bd-analytics)
 - [EC2 Instances Info](https://ec2instances.info/)
 - [AWS Services Overview](https://medium.com/@ashanpriyadarshana/aws-services-overview-8432cb578227)
 - [Business News Daily on AWS Training Resources](https://www.businessnewsdaily.com/10772-aws-training-resources.html)

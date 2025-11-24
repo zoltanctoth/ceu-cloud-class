@@ -1,4 +1,4 @@
-# *Week 1- Internet*
+# *Week 1 - Internet*
 
 # Recap Videos
 
@@ -55,11 +55,11 @@ The current version of IP addresses is IPv4, but we are transitioning to IPv6, w
 
 ### Finding Your IP Address
 
-**Mac:** `MacIP` 
-![on a Mac](https://ceu-cloud-class.github.io/static/5850e7a4b3f13346aad25c26ab05dcef/0b533/windowsip.png)
- 
-**Windows:** `WindowsIP` 
-![on a Windows](https://ceu-cloud-class.github.io/static/51e6acb733a5928459c113046ef82523/0b533/macip.png) 
+**Mac:** `MacIP`
+![on a Mac](https://ceu-cloud-class.github.io/static/51e6acb733a5928459c113046ef82523/0b533/macip.png)
+
+**Windows:** `WindowsIP`
+![on a Windows](https://ceu-cloud-class.github.io/static/5850e7a4b3f13346aad25c26ab05dcef/0b533/windowsip.png) 
 
 **Private IP Addresses:**  
 Private IP addresses are formatted as `10.#.#.#`, `192.168.#.#`, or `172.16.#.#`. These addresses require special configurations for external access (i.e. for someone to 'talk' to your computer).  
@@ -134,9 +134,9 @@ The primary function of a router is to direct data toward the correct destinatio
 
 # Understanding the Internet and Protocols
 
-The internet is a network of networks, each with its own routers. There are often multiple ways to go from point A to point B, based on US military logic to prevent downtime if a particular router goes down.
+The Internet is a network of networks, each with its own routers. There are often multiple ways to go from point A to point B, based on US military logic to prevent downtime if a particular router goes down.
 
-When multiple packets, like `ceu_logo.jpg` from Google, are sent, they can each take a different path, still reaching their destination eventually. Sometimes the internet gets busy, causing the quickest path to change.
+When multiple packets, like `ceu_logo.jpg` from Google, are sent, they can each take a different path, still reaching their destination eventually. Sometimes the Internet gets busy, causing the quickest path to change.
 
 ## Traceroute
 
@@ -145,7 +145,7 @@ When multiple packets, like `ceu_logo.jpg` from Google, are sent, they can each 
 
 Traceroute literally traces the route that information takes from our computer to a destination. It allows us to see which routers are being used by data to reach its destination. This route may change over time and according to web traffic patterns.
 
-### How long does data transfer take on the internet?
+### How long does data transfer take on the Internet?
 
 Traceroute is a program that sends packets to each router on a path to a destination, reporting the time it takes to reach each router. 
 
@@ -257,7 +257,7 @@ A physical firewall is a barrier between connected buildings that prevents the s
 
 ### Symmetric Encryption: Caesar Cipher
 
-Let’s consider a simple example: if I want to send the message "HI," instead of sending "H-I," I might send "I-J" across the internet. 
+Let's consider a simple example: if I want to send the message "HI," instead of sending "H-I," I might send "I-J" across the Internet. 
 
 **Transformation:**
 
@@ -276,7 +276,7 @@ This method is known as a **Caesar cipher**, a type of rotational cipher.
 
 ### Security Limitations
 
-- Rotational ciphers are not very secure and can be easily guessed, which is why they are not suitable for internet encryption.
+- Rotational ciphers are not very secure and can be easily guessed, which is why they are not suitable for Internet encryption.
 - For the recipient to successfully decrypt the message, they must know the key in advance. However, this poses a challenge, as we cannot send the key securely if we haven't agreed on it before.
 
 ---
@@ -305,7 +305,7 @@ When Alice wants to send Bob a message, she uses Bob's public key to encrypt it.
 
 - There is a mathematical relationship such that Bob's private key can reverse the effects of Bob's public key.
   
-When Bob wants to reply to Alice, he uses Alice’s public key. Alice then decrypts the message with her private key. The public keys (A and B) can be shared openly, even on the internet or over the phone, while the private keys must remain confidential.
+When Bob wants to reply to Alice, he uses Alice's public key. Alice then decrypts the message with her private key. The public keys (A and B) can be shared openly, even on the Internet or over the phone, while the private keys must remain confidential.
 
 ### Browser Implementation
 
