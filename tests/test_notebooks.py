@@ -12,12 +12,20 @@ def find_notebooks():
     """Find all .ipynb files in the repository, excluding executed output notebooks."""
     root = Path(__file__).parent.parent
     notebooks = []
+
+    # Excluded notebooks
+    excluded_notebooks = {
+        "bedrock-example.ipynb"  # Requires special IAM role assumption
+    }
+
     for nb_path in root.rglob("*.ipynb"):
         # Skip notebooks that are execution outputs or in hidden directories
         if "_executed" not in nb_path.name and not any(
             part.startswith(".") for part in nb_path.parts
         ):
-            notebooks.append(nb_path)
+            # Skip explicitly excluded notebooks
+            if nb_path.name not in excluded_notebooks:
+                notebooks.append(nb_path)
     return notebooks
 
 
