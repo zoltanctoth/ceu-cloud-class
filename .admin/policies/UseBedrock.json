@@ -9,8 +9,9 @@
                 "bedrock:InvokeModelWithResponseStream"
             ],
             "Resource": [
-                "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-micro-v1:0",
-                "arn:aws:bedrock:us-east-1::foundation-model/mistral.mistral-7b-instruct-v0:2"
+                "arn:aws:bedrock:*:870137400553:inference-profile/eu.amazon.nova-micro-v1:0",
+                "arn:aws:bedrock:*::foundation-model/amazon.nova-micro-v1:0",
+                "arn:aws:bedrock:*::foundation-model/mistral.mistral-7b-instruct-v0:2"
             ]
         }
     ]
