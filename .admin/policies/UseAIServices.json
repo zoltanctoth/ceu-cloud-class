@@ -9,7 +9,8 @@
                 "transcribe:*",
                 "translate:*",
                 "rekognition:*",
-                "comprehend:*"
+                "comprehend:*",
+                "kendra:*"
             ],
             "Resource": "*"
         }

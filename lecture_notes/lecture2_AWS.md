@@ -998,7 +998,8 @@ In this example, we open a terminal command line session on our local computer. 
 
 Pitfall: One thing to watch out for is the following: the ssh address is based on your IP address and if you start and stop your instance the IP can change, changing the address you ssh into along with it (again, the value in the field Public DNS). If you've re-started your instance and are having trouble sshing, check that your address is correct.
 
-## Step 12: Install NGINX
+## Step 12: Install NGINX (
+__This step is only for your reference, please follow the in-class instructions__
 
 Now that we are in, let's set up NGINX:
 1. **Update the OS**: Run the following command to apply all updates to your operating system:
