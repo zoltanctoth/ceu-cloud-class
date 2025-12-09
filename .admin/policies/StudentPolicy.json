@@ -1,0 +1,320 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "BillingReadOnly",
+            "Effect": "Allow",
+            "Action": [
+                "ce:Get*",
+                "ce:Describe*",
+                "ce:List*",
+                "cur:Describe*",
+                "cur:Get*",
+                "billing:Get*",
+                "billing:List*",
+                "budgets:View*",
+                "budgets:Describe*",
+                "aws-portal:View*",
+                "cost-optimization-hub:Get*",
+                "cost-optimization-hub:List*",
+                "pricing:Get*",
+                "pricing:List*",
+                "pricing:Describe*",
+                "bcm-data-exports:Get*",
+                "bcm-data-exports:List*",
+                "freetier:Get*",
+                "bcm-pricing-calculator:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "CostRecommendations",
+            "Effect": "Allow",
+            "Action": "bcm-recommended-actions:*",
+            "Resource": "*"
+        },
+        {
+            "Sid": "S3FullAccess",
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": "*"
+        },
+        {
+            "Sid": "LambdaFullAccessIreland",
+            "Effect": "Allow",
+            "Action": "lambda:*",
+            "Resource": "arn:aws:lambda:eu-west-1:870137400553:*"
+        },
+        {
+            "Sid": "LambdaListFunctions",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:GetAccountSettings",
+                "lambda:ListFunctions",
+                "lambda:ListLayers",
+                "lambda:ListLayerVersions"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestedRegion": "eu-west-1"
+                }
+            }
+        },
+        {
+            "Sid": "LambdaGetAWSLayers",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:GetLayerVersion"
+            ],
+            "Resource": "arn:aws:lambda:eu-west-1:*:layer:*"
+        },
+        {
+            "Sid": "AmazonQDeveloper",
+            "Effect": "Allow",
+            "Action": [
+                "q:*",
+                "codewhisperer:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "IAMAccessAnalyzerReadOnly",
+            "Effect": "Allow",
+            "Action": [
+                "access-analyzer:Get*",
+                "access-analyzer:List*",
+                "access-analyzer:ValidatePolicy",
+                "access-analyzer:CheckAccessNotGranted",
+                "access-analyzer:CheckNoNewAccess"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "IAMForLambda",
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": [
+                        "lambda.amazonaws.com",
+                        "scheduler.amazonaws.com",
+                        "events.amazonaws.com"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "IAMCreateLambdaRoles",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateRole",
+                "iam:DeleteRole",
+                "iam:AttachRolePolicy",
+                "iam:DetachRolePolicy",
+                "iam:PutRolePolicy",
+                "iam:DeleteRolePolicy",
+                "iam:GetRolePolicy",
+                "iam:ListRolePolicies",
+                "iam:ListAttachedRolePolicies",
+                "iam:TagRole",
+                "iam:UntagRole",
+                "iam:UpdateRole",
+                "iam:UpdateAssumeRolePolicy"
+            ],
+            "Resource": "arn:aws:iam::870137400553:role/*"
+        },
+        {
+            "Sid": "IAMCreatePolicies",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreatePolicy",
+                "iam:DeletePolicy",
+                "iam:CreatePolicyVersion",
+                "iam:DeletePolicyVersion",
+                "iam:TagPolicy",
+                "iam:UntagPolicy"
+            ],
+            "Resource": "arn:aws:iam::870137400553:policy/*"
+        },
+        {
+            "Sid": "IAMReadPolicies",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetPolicy",
+                "iam:GetPolicyVersion",
+                "iam:ListPolicies",
+                "iam:ListPolicyVersions"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "IAMCreateServiceLinkedRole",
+            "Effect": "Allow",
+            "Action": "iam:CreateServiceLinkedRole",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:AWSServiceName": [
+                        "events.amazonaws.com",
+                        "scheduler.amazonaws.com"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "IAMBasicRead",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetAccountPasswordPolicy",
+                "iam:GetAccountSummary",
+                "iam:ListUsers",
+                "iam:ListRoles",
+                "iam:GetRole"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "IAMManageOwnCredentials",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetUser",
+                "iam:ChangePassword",
+                "iam:GetLoginProfile",
+                "iam:UpdateLoginProfile",
+                "iam:DeleteAccessKey",
+                "iam:UpdateAccessKey",
+                "iam:CreateAccessKey",
+                "iam:ListAccessKeys",
+                "iam:ListSSHPublicKeys",
+                "iam:GetSSHPublicKey",
+                "iam:UploadSSHPublicKey",
+                "iam:DeleteSSHPublicKey",
+                "iam:UpdateSSHPublicKey"
+            ],
+            "Resource": "arn:aws:iam::*:user/${aws:username}"
+        },
+        {
+            "Sid": "CloudWatchLogsIreland",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+                "logs:DescribeLogGroups",
+                "logs:DescribeLogStreams",
+                "logs:GetLogEvents",
+                "logs:FilterLogEvents"
+            ],
+            "Resource": "arn:aws:logs:eu-west-1:870137400553:*"
+        },
+        {
+            "Sid": "AthenaFullAccessIreland",
+            "Effect": "Allow",
+            "Action": "athena:*",
+            "Resource": "arn:aws:athena:eu-west-1:870137400553:*"
+        },
+        {
+            "Sid": "AthenaGlobalActions",
+            "Effect": "Allow",
+            "Action": [
+                "athena:ListWorkGroups",
+                "athena:ListDataCatalogs",
+                "athena:ListEngineVersions"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestedRegion": "eu-west-1"
+                }
+            }
+        },
+        {
+            "Sid": "GlueForAthena",
+            "Effect": "Allow",
+            "Action": [
+                "glue:GetDatabase",
+                "glue:GetDatabases",
+                "glue:GetTable",
+                "glue:GetTables",
+                "glue:GetPartition",
+                "glue:GetPartitions",
+                "glue:BatchGetPartition",
+                "glue:CreateDatabase",
+                "glue:CreateTable",
+                "glue:DeleteTable",
+                "glue:DeleteDatabase",
+                "glue:UpdateTable",
+                "glue:UpdateDatabase"
+            ],
+            "Resource": [
+                "arn:aws:glue:eu-west-1:870137400553:catalog",
+                "arn:aws:glue:eu-west-1:870137400553:database/*",
+                "arn:aws:glue:eu-west-1:870137400553:table/*"
+            ]
+        },
+        {
+            "Sid": "EC2Ireland",
+            "Effect": "Allow",
+            "Action": "ec2:*",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:Region": "eu-west-1"
+                }
+            }
+        },
+        {
+            "Sid": "EC2DenyLargeInstances",
+            "Effect": "Deny",
+            "Action": "ec2:RunInstances",
+            "Resource": "arn:aws:ec2:*:*:instance/*",
+            "Condition": {
+                "StringNotLikeIfExists": {
+                    "ec2:InstanceType": ["t4g.nano"]
+                }
+            }
+        },
+        {
+            "Sid": "BedrockInvokeModels",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:*:870137400553:inference-profile/eu.amazon.nova-micro-v1:0",
+                "arn:aws:bedrock:*::foundation-model/amazon.nova-micro-v1:0",
+                "arn:aws:bedrock:*::foundation-model/mistral.mistral-7b-instruct-v0:2"
+            ]
+        },
+        {
+            "Sid": "AIServices",
+            "Effect": "Allow",
+            "Action": [
+                "polly:*",
+                "transcribe:*",
+                "translate:*",
+                "rekognition:*",
+                "comprehend:*",
+                "kendra:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "EventBridgeScheduler",
+            "Effect": "Allow",
+            "Action": [
+                "events:*",
+                "scheduler:*"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestedRegion": "eu-west-1"
+                }
+            }
+        }
+    ]
+}

@@ -84,19 +84,11 @@ for volume in $(aws ec2 describe-volumes --query 'Volumes[?State!=`in-use`].Volu
     aws ec2 delete-volume --volume-id "$volume" 2> /dev/null || true
 done
 
-# Athena - Delete all databases and tables
+# Athena - Delete all databases, tables, and associated S3 data
 echo ""
-echo "=== Deleting Athena databases ==="
-for db in $(aws athena list-databases --catalog-name AwsDataCatalog --query 'DatabaseList[?Name!=`default`].Name' --output text 2> /dev/null || true); do
-    echo "Deleting database: $db"
-    # Delete tables first
-    for table in $(aws athena list-table-metadata --catalog-name AwsDataCatalog --database-name "$db" --query 'TableMetadataList[].Name' --output text 2> /dev/null || true); do
-        echo "  Dropping table: $table"
-        aws athena start-query-execution --query-string "DROP TABLE IF EXISTS \`$db\`.\`$table\`" --result-configuration "OutputLocation=s3://aws-athena-query-results-temp/" 2> /dev/null || true
-    done
-    # Delete database
-    aws athena start-query-execution --query-string "DROP DATABASE IF EXISTS \`$db\` CASCADE" --result-configuration "OutputLocation=s3://aws-athena-query-results-temp/" 2> /dev/null || true
-done
+echo "=== Deleting Athena databases and associated S3 data ==="
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+python3 "$SCRIPT_DIR/athena_delete_everything.py" --profile "$AWS_PROFILE"
 
 echo ""
 echo "=== Cleanup complete ==="
