@@ -24,8 +24,15 @@ def find_notebooks():
             part.startswith(".") for part in nb_path.parts
         ):
             # Skip explicitly excluded notebooks
-            if nb_path.name not in excluded_notebooks:
-                notebooks.append(nb_path)
+            if nb_path.name in excluded_notebooks:
+                continue
+            # Skip pipeline/* notebooks but keep pipeline/solutions/*
+            relative_path = nb_path.relative_to(root)
+            if relative_path.parts[0] == "pipeline" and (
+                len(relative_path.parts) < 3 or relative_path.parts[1] != "solutions"
+            ):
+                continue
+            notebooks.append(nb_path)
     return notebooks
 
 

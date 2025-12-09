@@ -24,7 +24,5 @@ encrypted_message.bin
 *.zip
 
 # Solution files for views assignment (kept local only)
-pipeline/solutions/4_raw_views.sql
-pipeline/solutions/5_views_view.sql
-pipeline/solutions/extract_views_solution.ipynb
-pipeline/solutions/lambda_extract_views.py
+pipeline/solutions/*
+!pipeline/solutions/extract_edits_solution.ipynb

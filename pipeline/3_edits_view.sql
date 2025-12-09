@@ -1,4 +1,4 @@
--- Replace <username> with your username (same as used in the notebook and Lambda)
+-- Replace <username> with your username (same as used in the notebook)
 
 -- DROP VIEW IF EXISTS <username>.edits;
 

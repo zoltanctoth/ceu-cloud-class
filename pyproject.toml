@@ -51,3 +51,6 @@ ignore_missing_imports = true # Ignores imports that are missing a type annotati
 ignore_missing_imports_per_module = true # This is a workaround for https://github.com/python/mypy/issues/10709
 strict_equality = true # Disallows comparing an expression of type Any to a literal, as this is often a bug.
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+

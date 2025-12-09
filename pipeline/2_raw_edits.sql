@@ -1,4 +1,4 @@
--- Replace <username> with your username (same as used in the notebook and Lambda)
+-- Replace <username> with your username (same as used in the notebook)
 -- Bucket name: <username>-wikidata
 -- Database name: <username>
 
