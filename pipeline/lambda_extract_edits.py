@@ -6,7 +6,6 @@ import requests
 
 # Set your username here - must match the bucket created in the notebook
 # Bucket name: <username>-wikidata
-# Database name: <username> (used in Athena SQL files)
 S3_WIKI_BUCKET = "<username>-wikidata"
 
 

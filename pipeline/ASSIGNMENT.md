@@ -29,6 +29,7 @@ Your notebook should:
    - `date` - the date being queried
    - `retrieved_at` - timestamp when you fetched the data
 3. Upload to S3 at `raw-views/raw-views-YYYY-MM-DD.json`
+4. Re-execute the notebook twice more, setting the date to different days
 
 Use the same bucket as edits: `<username>-wikidata`
 
@@ -45,16 +46,16 @@ Look at `2_raw_edits.sql` and `3_edits_view.sql` for reference. Your table colum
 
 ## Part 3: Create Lambda Function
 
-1. Create `lambda_extract_views.py` (convert the logic of your notebook)
+1. Create `lambda_extract_views.py` (convert the logic of your notebook as we did with _Wikipedia Edits_)
    - The Lambda should default to fetching data from 21 days ago if no date is provided
    - Accept an optional `{"date": "YYYY-MM-DD"}` parameter to fetch a specific date
 
 2. Deploy to AWS Lambda
    - **Function name:** `WikiViewsLambda<Username>` (e.g., `WikiViewsLambdaJohndoe`)
    - **Runtime:** Python 3.13
-   - Add the `AWSSDKPandas-Python313` layer (from AWS layers, not custom ARN)
-   - Attach the `LambdaS3ExecutionRole` role (or create a role with S3 write access)
-   - Set timeout to 30 seconds
+   - Once you created the function, add the `AWSSDKPandas-Python313` layer (version 5, from AWS layers)
+   - In _Configuration_ -> _Permissions_, edit the _Execution Role_ and attach the `LambdaS3ExecutionRole` role (this is a role with S3 write access)
+   - In _General Configuration_, set timeout to 30 seconds
 
 3. Test both with `{"date": "2025-11-20"}` and with `{}` (empty event) - this will use the default date (21 days ago)
 
@@ -64,11 +65,11 @@ Look at `2_raw_edits.sql` and `3_edits_view.sql` for reference. Your table colum
 2. Configure:
    - **Schedule name:** `WikiViewsScheduler<Username>` (e.g., `WikiViewsSchedulerJohndoe`)
    - **Schedule type:** Recurring schedule
-   - **Cron expression:** `0 6 * * ? *` (daily at 6 AM UTC)
-   - **Flexible time window:** Off
+   - **Cron expression:** `10 0 * * ? *` (daily at 0:10 AM UTC)
+   - **Flexible time window:** 1 hour (cost saving)
    - **Target:** AWS Lambda → your Lambda function
    - **Payload:** `{}`
-   - **Role:** Create new role or use `EventBridgeLambdaRole`
+   - **Role:** Use `EventBridgeLambdaRole`
 
 ## Deliverables
 
@@ -77,10 +78,6 @@ In your `/homework` folder on GitHub:
 2. `lambda_extract_views.py` - the Lambda code
 3. `4_raw_views.sql` - table creation SQL
 4. `5_views_view.sql` - view creation SQL
-5. Screenshots showing:
-   - Lambda function tested successfully (should show `statusCode: 200`)
-   - EventBridge schedule created
-   - Athena query results executing `SELECT * FROM views` view
 
 ## Grading Criteria
 Ensure that all assets you submit check all the requirements above:
