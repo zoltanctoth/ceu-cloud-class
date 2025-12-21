@@ -747,10 +747,11 @@ def verify_athena_query(session: boto3.Session, username: str):
     """Run a test query against the views view to verify it works."""
     print("  Running Athena query to verify view...")
 
+    database_name = username.replace("-", "_")
     bucket_name = f"{username}-wikidata"
     output_location = f"s3://{bucket_name}/athena-results/"
 
-    query = f"SELECT * FROM {username}.views LIMIT 10"
+    query = f"SELECT * FROM {database_name}.views LIMIT 10"
     result = run_athena_query(session, username, query, output_location)
 
     if result is None:
@@ -771,7 +772,7 @@ def verify_athena_query(session: boto3.Session, username: str):
             "- The raw_views table has no data\n"
             "- Column names don't match between table and view\n\n"
             "Try running this query manually in Athena:\n"
-            f"  SELECT * FROM {username}.views LIMIT 10",
+            f"  SELECT * FROM {database_name}.views LIMIT 10",
         )
 
     columns = result.get("columns", [])
@@ -814,7 +815,7 @@ def check_athena(session: boto3.Session, username: str):
     step_header(9, 9, "Checking Athena tables...")
 
     glue = session.client("glue")
-    database_name = username
+    database_name = username.replace("-", "_")
 
     # Check database exists
     try:
